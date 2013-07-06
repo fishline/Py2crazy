@@ -58,12 +58,14 @@ instruction offset to a pair of line and column numbers that (roughly)
 corresponds to that instruction. (The mapping isn't nearly perfect, but
 it's still better than nothing!)
 
-The customized `dis` module that comes within the Py2crazy distribution
-on any test Python program. You'll see not only line numbers (like in
-regular Python) but also an extra tuple with line and column numbers
-alongside each bytecode instruction.
+Run the customized `dis` module within the Py2crazy distribution on any
+test Python program.
 
     python -m dis test.py
+
+You'll see not only line numbers (like in regular Python) but also an
+extra tuple with line and column numbers alongside each bytecode
+instruction.
 
 Here's some example disassembly from the following line with line/column
 number mappings, and the corresponding points in the source code.
