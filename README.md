@@ -26,9 +26,9 @@ discusses some of the rationale behind its design.
 To illustrate, notice how running Online Python Tutor with Py2crazy provides fine-grained
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">expression-level stepping</a>.
 
-In contrast, running with regular Python 2.7 only allows for
+In contrast, running with regular Python 2.7 supports only
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
-like in an ordinary single-step debugger.
+like in an ordinary single-step debugger such as `pdb`.
 
 
 ### What did you change in CPython 2.7.5?
