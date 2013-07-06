@@ -1,4 +1,5 @@
 """Disassembler of Python byte code into mnemonics."""
+# customized by Philip Guo for Py2crazy - 2013-07-04
 
 import sys
 import types
@@ -76,6 +77,9 @@ def disassemble(co, lasti=-1):
             print "%3d" % linestarts[i],
         else:
             print '   ',
+
+        # pgbovine - note the reference to co_coltab!
+        print repr(co.co_coltab[i],).rjust(10),
 
         if i == lasti: print '-->',
         else: print '   ',
