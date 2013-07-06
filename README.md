@@ -18,14 +18,17 @@ maps each bytecode instruction to a pair of line and column numbers.
 
 ### Why would anyone do this?
 
-I created Py2crazy to support finer-grained sub-expression-level tracing
+I created Py2crazy to support finer-grained expression-level tracing
 for [Online Python Tutor](http://pythontutor.com). This [wiki
 page](https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/project-ideas.md#hack-cpython-to-enable-sub-expression-level-tracing)
 discusses some of the rationale behind its design.
 
-Although you might find some ideas in Py2crazy to be useful, its design
-is ultimately driven by pedagogical goals, not by industrial-strength
-debugging goals. Enjoy!
+To illustrate, notice how running Online Python Tutor with Py2crazy provides fine-grained
+<a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">expression-level stepping</a>.
+
+In contrast, running with regular Python 2.7 only allows for
+<a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
+like in an ordinary single-step debugger.
 
 
 ### What did you change in CPython 2.7.5?
@@ -35,6 +38,10 @@ Check out the Git repo and run:
     git diff d36dfc8ffaf5337adb96bd582e0733fe2ffe3f02
 
 to see diffs against a fresh Python 2.7.5 source distribution.
+
+Although you might find some ideas in Py2crazy to be useful, its design
+is ultimately driven by pedagogical goals, not by industrial-strength
+debugging goals. For instance, efficiency wasn't a major concern.
 
 
 ### How does Py2crazy debugger stepping differ from regular Python stepping?
