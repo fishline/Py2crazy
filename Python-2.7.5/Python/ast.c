@@ -1619,7 +1619,10 @@ ast_for_binop(struct compiling *c, const node *n)
         if (!newoperator)
             return NULL;
 
-        result = BinOp(expr1, newoperator, expr2, LINENO(n), n->n_col_offset,
+        // pgbovine - for better column numbering precision, use the
+        // n_col_offset of the OPERATOR, which is CHILD(n, 1)
+        //printf("BinOp: L:%d,C:%d\n", LINENO(n), CHILD(n, 1)->n_col_offset);
+        result = BinOp(expr1, newoperator, expr2, LINENO(n), CHILD(n, 1)->n_col_offset,
                        c->c_arena);
         if (!result)
             return NULL;
@@ -1637,6 +1640,7 @@ ast_for_binop(struct compiling *c, const node *n)
                 if (!tmp)
                     return NULL;
 
+                // TODO: pgbovine - do we need to adjust n_col_offset here?
                 tmp_result = BinOp(result, newoperator, tmp,
                                    LINENO(next_oper), next_oper->n_col_offset,
                                    c->c_arena);
@@ -1929,8 +1933,18 @@ ast_for_expr(struct compiling *c, const node *n)
                     return NULL;
                 }
 
+                //printf("new Compare: L:%d,C:%d\n", LINENO(n), CHILD(n, 1)->n_col_offset);
+
+                // pgbovine - for better column numbering pprecision,
+                // use n_col_offset from CHILD(n, 1), which is the
+                // first compare operator. However, it's possible that a
+                // compare has MULTIPLE operators -- e.g., x < y < z --
+                // so a full solution needs to store a SEQUENCE of
+                // n_col_offset, one for each comparison operator.
+                // However, this hacky solution will do for now ...
+                //printf("Compare: L:%d,C:%d\n", LINENO(n), CHILD(n, 1)->n_col_offset);
                 return Compare(expression, ops, cmps, LINENO(n),
-                               n->n_col_offset, c->c_arena);
+                               CHILD(n, 1)->n_col_offset, c->c_arena);
             }
             break;
 

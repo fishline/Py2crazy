@@ -45,7 +45,7 @@ PyCode_New(int argcount, int nlocals, int stacksize, int flags,
            PyObject *code, PyObject *consts, PyObject *names,
            PyObject *varnames, PyObject *freevars, PyObject *cellvars,
            PyObject *filename, PyObject *name, int firstlineno,
-           PyObject *lnotab)
+           PyObject *lnotab, PyObject *coltab /* pgbovine */)
 {
     PyCodeObject *co;
     Py_ssize_t i;
@@ -60,6 +60,7 @@ PyCode_New(int argcount, int nlocals, int stacksize, int flags,
         name == NULL || !PyString_Check(name) ||
         filename == NULL || !PyString_Check(filename) ||
         lnotab == NULL || !PyString_Check(lnotab) ||
+        /* pgbovine - coltab is optional, unlike lnotab */
         !PyObject_CheckReadBuffer(code)) {
         PyErr_BadInternalCall();
         return NULL;
@@ -102,6 +103,20 @@ PyCode_New(int argcount, int nlocals, int stacksize, int flags,
         co->co_firstlineno = firstlineno;
         Py_INCREF(lnotab);
         co->co_lnotab = lnotab;
+
+        /* pgbovine - coltab is optional */
+        if (coltab) {
+          Py_INCREF(coltab);
+          co->co_coltab = coltab;
+
+          //printf("PyCode_New: ");
+          //PyObject_Print(co->co_coltab, stdout, 0);
+          //printf("\n");
+        }
+        else {
+          co->co_coltab = NULL;
+        }
+
         co->co_zombieframe = NULL;
         co->co_weakreflist = NULL;
     }
@@ -113,6 +128,7 @@ PyCode_NewEmpty(const char *filename, const char *funcname, int firstlineno)
 {
     static PyObject *emptystring = NULL;
     static PyObject *nulltuple = NULL;
+    static PyObject *emptydict = NULL; /* pgbovine */
     PyObject *filename_ob = NULL;
     PyObject *funcname_ob = NULL;
     PyCodeObject *result = NULL;
@@ -124,6 +140,11 @@ PyCode_NewEmpty(const char *filename, const char *funcname, int firstlineno)
     if (nulltuple == NULL) {
         nulltuple = PyTuple_New(0);
         if (nulltuple == NULL)
+            goto failed;
+    }
+    if (emptydict == NULL) {
+        emptydict = PyDict_New();
+        if (emptydict == NULL)
             goto failed;
     }
     funcname_ob = PyString_FromString(funcname);
@@ -146,7 +167,8 @@ PyCode_NewEmpty(const char *filename, const char *funcname, int firstlineno)
                 filename_ob,                    /* filename */
                 funcname_ob,                    /* name */
                 firstlineno,                    /* firstlineno */
-                emptystring                     /* lnotab */
+                emptystring,                    /* lnotab */
+                emptydict                       /* coltab - pgbovine */
                 );
 
 failed:
@@ -172,6 +194,7 @@ static PyMemberDef code_memberlist[] = {
     {"co_name",         T_OBJECT,       OFF(co_name),           READONLY},
     {"co_firstlineno", T_INT,           OFF(co_firstlineno),    READONLY},
     {"co_lnotab",       T_OBJECT,       OFF(co_lnotab),         READONLY},
+    {"co_coltab",       T_OBJECT,       OFF(co_coltab),         READONLY}, /* pgbovine */
     {NULL}      /* Sentinel */
 };
 
@@ -292,7 +315,8 @@ code_new(PyTypeObject *type, PyObject *args, PyObject *kw)
     co = (PyObject *)PyCode_New(argcount, nlocals, stacksize, flags,
                                 code, consts, ournames, ourvarnames,
                                 ourfreevars, ourcellvars, filename,
-                                name, firstlineno, lnotab);
+                                name, firstlineno, lnotab,
+                                NULL /* pgbovine - don't support for now */);
   cleanup:
     Py_XDECREF(ournames);
     Py_XDECREF(ourvarnames);
@@ -313,6 +337,7 @@ code_dealloc(PyCodeObject *co)
     Py_XDECREF(co->co_filename);
     Py_XDECREF(co->co_name);
     Py_XDECREF(co->co_lnotab);
+    Py_XDECREF(co->co_coltab); /* pgbovine */
     if (co->co_zombieframe != NULL)
         PyObject_GC_Del(co->co_zombieframe);
     if (co->co_weakreflist != NULL)
@@ -531,9 +556,14 @@ PyCode_Addr2Line(PyCodeObject *co, int addrq)
 }
 
 /* Update *bounds to describe the first and one-past-the-last instructions in
-   the same line as lasti.  Return the number of that line. */
+   the same line as lasti.  Return the number of that line.
+
+   pgbovine - update to mean first and one-past-the-last instruction in
+   the same line AND column as lasti
+ */
 int
-_PyCode_CheckLineNumber(PyCodeObject* co, int lasti, PyAddrPair *bounds)
+_PyCode_CheckLineNumber(PyCodeObject* co, int lasti, PyAddrPair *bounds,
+                        int* ret_line, int* ret_colno /* pgbovine - return values */)
 {
     int size, addr, line;
     unsigned char* p;
@@ -576,6 +606,25 @@ _PyCode_CheckLineNumber(PyCodeObject* co, int lasti, PyAddrPair *bounds)
     else {
         bounds->ap_upper = INT_MAX;
     }
+
+    int colno = -1;
+    if (co->co_coltab) { // remember, column table is OPTIONAL
+      PyObject* k = PyInt_FromLong(lasti);
+      assert(k);
+      PyObject* v = PyDict_GetItem(co->co_coltab, k);
+      Py_DECREF(k);
+      assert(v);
+
+      colno = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 1));
+      int lineno_from_coltab = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 0));
+
+      assert(line == lineno_from_coltab); // should ALWAYS MATCH, or we have problems
+    }
+
+    //printf("_PyCode_CheckLineNumber: lasti=%d, line=%d, col=%d\n", lasti, line, colno);
+
+    *ret_line = line;
+    *ret_colno = colno;
 
     return line;
 }

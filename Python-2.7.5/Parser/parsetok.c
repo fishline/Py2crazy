@@ -194,6 +194,9 @@ parsetok(struct tok_state *tok, grammar *g, int start, perrdetail *err_ret,
         else
             col_offset = -1;
 
+        // pgbovine
+        //printf("PyTokenizer_Get: L=%d,C=%d '%s'\n", tok->lineno, col_offset, str);
+
         if ((err_ret->error =
              PyParser_AddToken(ps, (int)type, str, tok->lineno, col_offset,
                                &(err_ret->expected))) != E_OK) {

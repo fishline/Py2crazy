@@ -3721,23 +3721,31 @@ maybe_call_line_trace(Py_tracefunc func, PyObject *obj,
                       int *instr_prev)
 {
     int result = 0;
-    int line = frame->f_lineno;
 
-    /* If the last instruction executed isn't in the current
-       instruction window, reset the window.
-    */
-    if (frame->f_lasti < *instr_lb || frame->f_lasti >= *instr_ub) {
-        PyAddrPair bounds;
-        line = _PyCode_CheckLineNumber(frame->f_code, frame->f_lasti,
-                                       &bounds);
-        *instr_lb = bounds.ap_lower;
-        *instr_ub = bounds.ap_upper;
-    }
+    int existing_line = frame->f_lineno;
+    int cur_line = -1;
+
+    int existing_colno = frame->f_colno;
+    int cur_colno = -1;
+
+    // pgbovine - ALWAYS call _PyCode_CheckLineNumber to fetch
+    // cur_line and cur_colno
+    PyAddrPair bounds;
+    _PyCode_CheckLineNumber(frame->f_code, frame->f_lasti,
+                            &bounds, &cur_line, &cur_colno);
+    *instr_lb = bounds.ap_lower;
+    *instr_ub = bounds.ap_upper;
+
     /* If the last instruction falls at the start of a line or if
        it represents a jump backwards, update the frame's line
        number and call the trace function. */
-    if (frame->f_lasti == *instr_lb || frame->f_lasti < *instr_prev) {
-        frame->f_lineno = line;
+    if (frame->f_lasti == *instr_lb || frame->f_lasti < *instr_prev ||
+        /* pgbovine - or if the line or column number has changed */
+        (existing_line != cur_line || existing_colno != cur_colno)) {
+        frame->f_lineno = cur_line;
+        frame->f_colno = cur_colno;
+
+        printf("trace: L=%d,C=%d\n", frame->f_lineno, frame->f_colno);
         result = call_trace(func, obj, frame, PyTrace_LINE, Py_None);
     }
     *instr_prev = frame->f_lasti;

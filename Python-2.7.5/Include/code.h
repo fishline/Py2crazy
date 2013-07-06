@@ -25,6 +25,8 @@ typedef struct {
     int co_firstlineno;		/* first source line number */
     PyObject *co_lnotab;	/* string (encoding addr<->lineno mapping) See
 				   Objects/lnotab_notes.txt for details. */
+    PyObject *co_coltab; /* pgbovine - a dict mapping bytecode instruction offset
+                            to (line number, column number) */
     void *co_zombieframe;     /* for optimization only (see frameobject.c) */
     PyObject *co_weakreflist;   /* to support weakrefs to code objects */
 } PyCodeObject;
@@ -70,7 +72,7 @@ PyAPI_DATA(PyTypeObject) PyCode_Type;
 /* Public interface */
 PyAPI_FUNC(PyCodeObject *) PyCode_New(
 	int, int, int, int, PyObject *, PyObject *, PyObject *, PyObject *,
-	PyObject *, PyObject *, PyObject *, PyObject *, int, PyObject *); 
+	PyObject *, PyObject *, PyObject *, PyObject *, int, PyObject *, PyObject *); 
         /* same as struct above */
 
 /* Creates a new empty code object with the specified source location. */
@@ -96,7 +98,9 @@ typedef struct _addr_pair {
    same line as lasti.  Return the number of that line.
 */
 PyAPI_FUNC(int) _PyCode_CheckLineNumber(PyCodeObject* co,
-                                        int lasti, PyAddrPair *bounds);
+                                        int lasti, PyAddrPair *bounds,
+                                        /* pgbovine - return two values */
+                                        int* ret_line, int* ret_colno);
 
 PyAPI_FUNC(PyObject*) PyCode_Optimize(PyObject *code, PyObject* consts,
                                       PyObject *names, PyObject *lineno_obj);

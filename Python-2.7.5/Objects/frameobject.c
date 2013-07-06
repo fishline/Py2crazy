@@ -75,6 +75,22 @@ frame_getlineno(PyFrameObject *f, void *closure)
     return PyInt_FromLong(PyFrame_GetLineNumber(f));
 }
 
+/* pgbovine */
+int
+PyFrame_GetColNumber(PyFrameObject *f)
+{
+    if (f->f_trace)
+        return f->f_colno;
+    else
+        return -1;
+}
+
+static PyObject *
+frame_getcolno(PyFrameObject *f, void *closure)
+{
+    return PyInt_FromLong(PyFrame_GetColNumber(f));
+}
+
 /* Setter for f_lineno - you can set f_lineno from within a trace function in
  * order to jump to a given line of code, subject to some restrictions.  Most
  * lines are OK to jump to because they don't make any assumptions about the
@@ -387,6 +403,9 @@ static PyGetSetDef frame_getsetlist[] = {
     {"f_locals",        (getter)frame_getlocals, NULL, NULL},
     {"f_lineno",        (getter)frame_getlineno,
                     (setter)frame_setlineno, NULL},
+    /* pgbovine */
+    {"f_colno",        (getter)frame_getcolno,
+                    (setter)NULL /* don't let it be set */, NULL},
     {"f_trace",         (getter)frame_gettrace, (setter)frame_settrace, NULL},
     {"f_restricted",(getter)frame_getrestricted,NULL, NULL},
     {"f_exc_traceback", (getter)frame_get_f_exc_traceback,

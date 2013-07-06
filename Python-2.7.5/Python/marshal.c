@@ -1044,7 +1044,7 @@ r_object(RFILE *p)
                             argcount, nlocals, stacksize, flags,
                             code, consts, names, varnames,
                             freevars, cellvars, filename, name,
-                            firstlineno, lnotab);
+                            firstlineno, lnotab, NULL /* pgbovine */);
 
           code_error:
             Py_XDECREF(code);

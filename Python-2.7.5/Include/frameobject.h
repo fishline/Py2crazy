@@ -44,6 +44,7 @@ typedef struct _frame {
        PyCode_Addr2Line to calculate the line from the current
        bytecode index. */
     int f_lineno;		/* Current line number */
+    int f_colno;		/* Current column number, -1 if invalid - pgbovine */
     int f_iblock;		/* index in f_blockstack */
     PyTryBlock f_blockstack[CO_MAXBLOCKS]; /* for try and loop blocks */
     PyObject *f_localsplus[1];	/* locals+stack, dynamically sized */

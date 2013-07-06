@@ -110,6 +110,8 @@ shift(register stack *s, int type, char *str, int newstate, int lineno, int col_
     int err;
     assert(!s_empty(s));
     err = PyNode_AddChild(s->s_top->s_parent, type, str, lineno, col_offset);
+    // pgbovine
+    //printf("shift->PyNode_AddChild: '%s' L:%d,C:%d\n", str, lineno, col_offset);
     if (err)
         return err;
     s->s_top->s_state = newstate;

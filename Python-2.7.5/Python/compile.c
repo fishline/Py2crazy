@@ -51,6 +51,7 @@ struct instr {
     int i_oparg;
     struct basicblock_ *i_target; /* target block (if jump instruction) */
     int i_lineno;
+    int i_col_offset; /* pgbovine */
 };
 
 typedef struct basicblock_ {
@@ -123,6 +124,7 @@ struct compiler_unit {
     int u_lineno;          /* the lineno for the current stmt */
     bool u_lineno_set; /* boolean to indicate whether instr
                           has been generated with current lineno */
+    int u_col_offset; /* pgbovine - the col offset for the current stmt */
 };
 
 /* This struct captures the global state of a compilation.
@@ -146,7 +148,7 @@ struct compiler {
     PyArena *c_arena;            /* pointer to memory allocation arena */
 };
 
-static int compiler_enter_scope(struct compiler *, identifier, void *, int);
+static int compiler_enter_scope(struct compiler *, identifier, void *, int, int);
 static void compiler_free(struct compiler *);
 static basicblock *compiler_new_block(struct compiler *);
 static int compiler_next_instr(struct compiler *, basicblock *);
@@ -462,7 +464,7 @@ compiler_unit_free(struct compiler_unit *u)
 
 static int
 compiler_enter_scope(struct compiler *c, identifier name, void *key,
-                     int lineno)
+                     int lineno, int col_offset /* pgbovine */)
 {
     struct compiler_unit *u;
 
@@ -498,8 +500,12 @@ compiler_enter_scope(struct compiler *c, identifier name, void *key,
     u->u_blocks = NULL;
     u->u_nfblocks = 0;
     u->u_firstlineno = lineno;
+
     u->u_lineno = 0;
     u->u_lineno_set = false;
+
+    u->u_col_offset = 0; /* pgbovine - should this be 0 or col_offset? */
+
     u->u_consts = PyDict_New();
     if (!u->u_consts) {
         compiler_unit_free(u);
@@ -671,14 +677,21 @@ compiler_next_instr(struct compiler *c, basicblock *b)
    - before the "for" and "while" expressions
 */
 
+/* pgbovine - ALWAYS set line number for all bytecode instructions
+   instead of trying to optimize by skipping redundant entries */
 static void
 compiler_set_lineno(struct compiler *c, int off)
 {
     basicblock *b;
-    if (c->u->u_lineno_set)
-        return;
-    c->u->u_lineno_set = true;
     b = c->u->u_curblock;
+
+    /* pgbovine - always set col_offset */
+    b->b_instr[off].i_col_offset = c->u->u_col_offset;
+
+    //if (c->u->u_lineno_set)
+    //    return;
+    c->u->u_lineno_set = true;
+
     b->b_instr[off].i_lineno = c->u->u_lineno;
 }
 
@@ -1222,7 +1235,7 @@ compiler_mod(struct compiler *c, mod_ty mod)
             return NULL;
     }
     /* Use 0 for firstlineno initially, will fixup in assemble(). */
-    if (!compiler_enter_scope(c, module, mod, 0))
+    if (!compiler_enter_scope(c, module, mod, 0, 0 /* pgbovine */))
         return NULL;
     switch (mod->kind) {
     case Module_kind:
@@ -1397,7 +1410,7 @@ compiler_function(struct compiler *c, stmt_ty s)
     if (args->defaults)
         VISIT_SEQ(c, expr, args->defaults);
     if (!compiler_enter_scope(c, s->v.FunctionDef.name, (void *)s,
-                              s->lineno))
+                              s->lineno, s->col_offset /* pgbovine */))
         return 0;
 
     st = (stmt_ty)asdl_seq_GET(s->v.FunctionDef.body, 0);
@@ -1453,7 +1466,7 @@ compiler_class(struct compiler *c, stmt_ty s)
         VISIT_SEQ(c, expr, s->v.ClassDef.bases);
     ADDOP_I(c, BUILD_TUPLE, n);
     if (!compiler_enter_scope(c, s->v.ClassDef.name, (void *)s,
-                              s->lineno))
+                              s->lineno, s->col_offset /* pgbovine */))
         return 0;
     Py_XDECREF(c->u->u_private);
     c->u->u_private = s->v.ClassDef.name;
@@ -1538,7 +1551,7 @@ compiler_lambda(struct compiler *c, expr_ty e)
 
     if (args->defaults)
         VISIT_SEQ(c, expr, args->defaults);
-    if (!compiler_enter_scope(c, name, (void *)e, e->lineno))
+    if (!compiler_enter_scope(c, name, (void *)e, e->lineno, e->col_offset /* pgbovine */))
         return 0;
 
     /* unpack nested arguments */
@@ -1883,6 +1896,9 @@ compiler_try_except(struct compiler *c, stmt_ty s)
             return compiler_error(c, "default 'except:' must be last");
         c->u->u_lineno_set = false;
         c->u->u_lineno = handler->lineno;
+
+        c->u->u_col_offset = handler->col_offset; /* pgbovine */
+
         except = compiler_new_block(c);
         if (except == NULL)
             return 0;
@@ -2117,6 +2133,8 @@ compiler_visit_stmt(struct compiler *c, stmt_ty s)
     /* Always assign a lineno to the next instruction for a stmt. */
     c->u->u_lineno = s->lineno;
     c->u->u_lineno_set = false;
+
+    c->u->u_col_offset = s->col_offset; /* pgbovine */
 
     switch (s->kind) {
     case FunctionDef_kind:
@@ -2535,6 +2553,9 @@ compiler_compare(struct compiler *c, expr_ty e)
     int i, n;
     basicblock *cleanup = NULL;
 
+    // pgbovine - super hack - save away u_col_offset
+    int cur_colno = c->u->u_col_offset;
+
     /* XXX the logic can be cleaned up for 1 or multiple comparisons */
     VISIT(c, expr, e->v.Compare.left);
     n = asdl_seq_LEN(e->v.Compare.ops);
@@ -2549,6 +2570,11 @@ compiler_compare(struct compiler *c, expr_ty e)
     for (i = 1; i < n; i++) {
         ADDOP(c, DUP_TOP);
         ADDOP(c, ROT_THREE);
+
+        // pgbovine - super hack - restore before adding COMPARE_OP
+        // to generate the proper column number for the COMPARE_OP
+        c->u->u_col_offset = cur_colno;
+
         ADDOP_I(c, COMPARE_OP,
             cmpop((cmpop_ty)(asdl_seq_GET(
                                       e->v.Compare.ops, i - 1))));
@@ -2559,6 +2585,14 @@ compiler_compare(struct compiler *c, expr_ty e)
                 (expr_ty)asdl_seq_GET(e->v.Compare.comparators, i));
     }
     VISIT(c, expr, (expr_ty)asdl_seq_GET(e->v.Compare.comparators, n - 1));
+
+    // pgbovine - super hack - restore before adding COMPARE_OP
+    // to generate the proper column number for the COMPARE_OP
+    // Note that this still doesn't produce optimal results for chained
+    // comparisons -- e.g., "x < y < z < w" -- since it can store only
+    // ONE column number, not multiple ones.
+    c->u->u_col_offset = cur_colno;
+
     ADDOP_I(c, COMPARE_OP,
            cmpop((cmpop_ty)(asdl_seq_GET(e->v.Compare.ops, n - 1))));
     if (n > 1) {
@@ -2786,7 +2820,7 @@ compiler_comprehension(struct compiler *c, expr_ty e, int type, identifier name,
     outermost_iter = ((comprehension_ty)
                       asdl_seq_GET(generators, 0))->iter;
 
-    if (!compiler_enter_scope(c, name, (void *)e, e->lineno))
+    if (!compiler_enter_scope(c, name, (void *)e, e->lineno, e->col_offset /* pgbovine */))
         goto error;
 
     if (type != COMP_GENEXP) {
@@ -2998,6 +3032,9 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
 {
     int i, n;
 
+    /* pgbovine - always set for each expression */
+    c->u->u_col_offset = e->col_offset;
+
     /* If expr e has a different line number than the last expr/stmt,
        set a new line number for the next instruction.
     */
@@ -3005,12 +3042,19 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
         c->u->u_lineno = e->lineno;
         c->u->u_lineno_set = false;
     }
+
+    int cur_colno = -1;
+
     switch (e->kind) {
     case BoolOp_kind:
         return compiler_boolop(c, e);
     case BinOp_kind:
+        // pgbovine - super-hack - preserve u_col_offset
+        cur_colno = c->u->u_col_offset;
         VISIT(c, expr, e->v.BinOp.left);
         VISIT(c, expr, e->v.BinOp.right);
+        // ... and restore it before pushing on binop
+        c->u->u_col_offset = cur_colno;
         ADDOP(c, binop(c, e->v.BinOp.op));
         break;
     case UnaryOp_kind:
@@ -3441,6 +3485,10 @@ struct assembler {
     basicblock **a_postorder; /* list of blocks in dfs postorder */
     PyObject *a_lnotab;    /* string containing lnotab */
     int a_lnotab_off;      /* offset into lnotab */
+
+    PyObject *a_coltab;    /* pgbovine - a dict mapping
+                              bytecode offset -> (line number, column number) */
+
     int a_lineno;              /* last lineno of emitted instruction */
     int a_lineno_off;      /* bytecode offset of last lineno */
 };
@@ -3533,6 +3581,12 @@ assemble_init(struct assembler *a, int nblocks, int firstlineno)
     a->a_lnotab = PyString_FromStringAndSize(NULL, DEFAULT_LNOTAB_SIZE);
     if (!a->a_lnotab)
         return 0;
+
+    /* pgbovine */
+    a->a_coltab = PyDict_New();
+    if (!a->a_coltab)
+        return 0;
+
     if (nblocks > PY_SIZE_MAX / sizeof(basicblock *)) {
         PyErr_NoMemory();
         return 0;
@@ -3551,6 +3605,7 @@ assemble_free(struct assembler *a)
 {
     Py_XDECREF(a->a_bytecode);
     Py_XDECREF(a->a_lnotab);
+    Py_XDECREF(a->a_coltab); /* pgbovine */
     if (a->a_postorder)
         PyObject_Free(a->a_postorder);
 }
@@ -3675,9 +3730,39 @@ assemble_lnotab(struct assembler *a, struct instr *i)
     return 1;
 }
 
+/* pgbovine - copy from assemble_lnotab and adapt to suit the unique
+   needs of a column mapping table:
+
+   Conceptually: set a->a_coltab[bytecode_offset] = (lineno, colno)
+ */
+static int
+assemble_coltab(struct assembler *a, struct instr *i)
+{
+  //printf("assemble_coltab: B: %d, L:%d, C:%d\n", a->a_offset, i->i_lineno, i->i_col_offset);
+
+  PyObject* bytecode_offset = PyInt_FromLong(a->a_offset);
+
+  PyObject* lineno = PyInt_FromLong(i->i_lineno);
+  PyObject* colno = PyInt_FromLong(i->i_col_offset);
+  PyObject* t = PyTuple_Pack(2, lineno, colno);
+
+  assert(bytecode_offset && lineno && colno && t);
+
+  assert(!PyDict_GetItem(a->a_coltab, bytecode_offset)); // make sure no duplicates
+  PyDict_SetItem(a->a_coltab, bytecode_offset, t);
+
+  Py_DECREF(bytecode_offset);
+  Py_DECREF(lineno);
+  Py_DECREF(colno);
+  Py_DECREF(t);
+  return 1;
+}
+
+
 /* assemble_emit()
    Extend the bytecode with a new instruction.
    Update lnotab if necessary.
+   pgbovine - also update coltab if necessary
 */
 
 static int
@@ -3692,8 +3777,16 @@ assemble_emit(struct assembler *a, struct instr *i)
         arg = i->i_oparg;
         ext = arg >> 16;
     }
+
+    /* pgbovine - ALWAYS run assemble_coltab for all emitted
+       instructions */
+    if (i->i_lineno) {
+      assemble_coltab(a, i);
+    }
+
     if (i->i_lineno && !assemble_lnotab(a, i))
         return 0;
+
     if (a->a_offset + size >= len) {
         if (len > PY_SSIZE_T_MAX / 2)
             return 0;
@@ -3877,9 +3970,10 @@ makecode(struct compiler *c, struct assembler *a)
     if (flags < 0)
         goto error;
 
-    bytecode = PyCode_Optimize(a->a_bytecode, consts, names, a->a_lnotab);
-    if (!bytecode)
-        goto error;
+    // pgbovine - disable peephole optimizer
+    //bytecode = PyCode_Optimize(a->a_bytecode, consts, names, a->a_lnotab);
+    //if (!bytecode)
+    //    goto error;
 
     tmp = PyList_AsTuple(consts); /* PyCode_New requires a tuple */
     if (!tmp)
@@ -3888,11 +3982,12 @@ makecode(struct compiler *c, struct assembler *a)
     consts = tmp;
 
     co = PyCode_New(c->u->u_argcount, nlocals, stackdepth(c), flags,
-                    bytecode, consts, names, varnames,
+                    a->a_bytecode /*bytecode*/ /*pgbovine - disable peephole optimizer */,
+                    consts, names, varnames,
                     freevars, cellvars,
                     filename, c->u->u_name,
                     c->u->u_firstlineno,
-                    a->a_lnotab);
+                    a->a_lnotab, a->a_coltab /* pgbovine */);
  error:
     Py_XDECREF(consts);
     Py_XDECREF(names);
@@ -3919,8 +4014,8 @@ dump_instr(const struct instr *i)
     if (i->i_hasarg)
         sprintf(arg, "arg: %d ", i->i_oparg);
 
-    fprintf(stderr, "line: %d, opcode: %d %s%s%s\n",
-                    i->i_lineno, i->i_opcode, arg, jabs, jrel);
+    fprintf(stderr, "line: %d, col: %d, opcode: %d %s%s%s\n",
+                    i->i_lineno, i->i_col_offset, i->i_opcode, arg, jabs, jrel);
 }
 
 static void

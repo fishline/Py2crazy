@@ -13,6 +13,7 @@ PyNode_New(int type)
     n->n_type = type;
     n->n_str = NULL;
     n->n_lineno = 0;
+    n->n_col_offset = 0; // pgbovine
     n->n_nchildren = 0;
     n->n_child = NULL;
     return n;
