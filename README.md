@@ -49,7 +49,7 @@ instruction at a time, which provides much finer-grained tracing.
 To illustrate the difference, run `pdb` on a test file in both regular
 Python and Py2crazy:
 
-    python -m pdb test.py
+    Py2crazy/Python-2.7.5/python -m pdb test.py
 
 
 ### Why disable peephole optimizations?
@@ -70,7 +70,7 @@ it's still better than nothing!)
 Run the customized `dis` module within the Py2crazy distribution on any
 test Python program.
 
-    python -m dis test.py
+    Py2crazy/Python-2.7.5/python -m dis test.py
 
 You'll see not only line numbers (like in regular Python) but also an
 extra tuple with line and column numbers alongside each bytecode
