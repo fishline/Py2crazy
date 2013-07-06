@@ -3740,12 +3740,14 @@ maybe_call_line_trace(Py_tracefunc func, PyObject *obj,
        it represents a jump backwards, update the frame's line
        number and call the trace function. */
     if (frame->f_lasti == *instr_lb || frame->f_lasti < *instr_prev ||
-        /* pgbovine - or if the line or column number has changed */
-        (existing_line != cur_line || existing_colno != cur_colno)) {
+        /* pgbovine - or if we're on the SAME line and the column has
+           changed. TRICKY See Objects/lnotab_notes.txt for details. */
+        (existing_line == cur_line && existing_colno != cur_colno)) {
         frame->f_lineno = cur_line;
         frame->f_colno = cur_colno;
 
-        printf("trace: L=%d,C=%d\n", frame->f_lineno, frame->f_colno);
+        // pgbovine
+        //printf("trace: L=%d,C=%d\n", frame->f_lineno, frame->f_colno);
         result = call_trace(func, obj, frame, PyTrace_LINE, Py_None);
     }
     *instr_prev = frame->f_lasti;
