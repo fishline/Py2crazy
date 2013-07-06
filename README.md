@@ -4,7 +4,7 @@ Py2crazy
 Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and
 debugging.
 
-Specifically, I've implemented three main features:
+I've implemented three main features:
 
 1. Debuggers now call the trace function at (roughly) each executed
 bytecode rather than each new executed line.
@@ -26,6 +26,15 @@ discusses some of the rationale behind its design.
 Although you might find some ideas in Py2crazy to be useful, its design
 is ultimately driven by pedagogical goals, not by industrial-strength
 debugging goals. Enjoy!
+
+
+### What did you change in CPython 2.7.5?
+
+Check out the Git repo and run:
+
+    git diff d36dfc8ffaf5337adb96bd582e0733fe2ffe3f02
+
+to see diffs against a fresh Python 2.7.5 source distribution.
 
 
 ### How does Py2crazy debugger stepping differ from regular Python stepping?
