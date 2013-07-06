@@ -13,8 +13,7 @@ bytecode rather than each new executed line.
 code more closely.
 
 3. Code objects now contain a new field called `code.co_coltab`, which
-maps each bytecode instruction to a pair of line and column numbers, for
-more precise debugging information.
+maps each bytecode instruction to a pair of line and column numbers.
 
 
 ### Why would anyone do this?
@@ -24,17 +23,19 @@ for [Online Python Tutor](http://pythontutor.com). This [wiki
 page](https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/project-ideas.md#hack-cpython-to-enable-sub-expression-level-tracing)
 discusses some of the rationale behind its design.
 
-Although you might find the ideas in Py2crazy useful, its design is
-ultimately driven by educational goals, not production debugging goals.
-Enjoy!
+Although you might find some ideas in Py2crazy to be useful, its design
+is ultimately driven by pedagogical goals, not by industrial-strength
+debugging goals. Enjoy!
 
 
-### How does Py2crazy tracing differ from regular Python stepping?
+### How does Py2crazy debugger stepping differ from regular Python stepping?
 
-The debugger (`pdb`) registers a tracing function into the regular
-CPython interpreter and steps roughly one line at a time. However, when
-run in Py2crazy, `pdb` steps roughly one bytecode instruction at a time,
-which provides much finer-grained tracing.
+Normally, the debugger (`pdb`) registers a tracing function into the
+regular CPython interpreter and steps through the target program roughly
+one line at a time.
+
+However, when run in Py2crazy, `pdb` steps roughly one bytecode
+instruction at a time, which provides much finer-grained tracing.
 
 To illustrate the difference, run `pdb` on a test file in both regular
 Python and Py2crazy:
@@ -89,4 +90,9 @@ number mappings, and the corresponding points in the source code.
     (7, 20)    >>   43 POP_JUMP_IF_FALSE       54        if foo() and (x + y > 7):
                                                                              ^
 
+
+### Changelog
+
+Created on 2013-07-03 by [Philip Guo](http://www.pgbovine.net/)
+(philip@pgbovine.net)
 
