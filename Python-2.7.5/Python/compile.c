@@ -3046,22 +3046,18 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
         c->u->u_lineno_set = false;
     }
 
-    int cur_colno = -1;
-
     switch (e->kind) {
     case BoolOp_kind:
         return compiler_boolop(c, e);
     case BinOp_kind:
-        // pgbovine - super-hack - preserve u_col_offset
-        cur_colno = c->u->u_col_offset;
         VISIT(c, expr, e->v.BinOp.left);
         VISIT(c, expr, e->v.BinOp.right);
-        // ... and restore it before pushing on binop
-        c->u->u_col_offset = cur_colno;
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP(c, binop(c, e->v.BinOp.op));
         break;
     case UnaryOp_kind:
         VISIT(c, expr, e->v.UnaryOp.operand);
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP(c, unaryop(e->v.UnaryOp.op));
         break;
     case Lambda_kind:
@@ -3076,6 +3072,7 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
                 (expr_ty)asdl_seq_GET(e->v.Dict.values, i));
             VISIT(c, expr,
                 (expr_ty)asdl_seq_GET(e->v.Dict.keys, i));
+            c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
             ADDOP(c, STORE_MAP);
         }
         break;
@@ -3101,6 +3098,8 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
         else {
             ADDOP_O(c, LOAD_CONST, Py_None, consts);
         }
+
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP(c, YIELD_VALUE);
         break;
     case Compare_kind:
@@ -3109,6 +3108,7 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
         return compiler_call(c, e);
     case Repr_kind:
         VISIT(c, expr, e->v.Repr.value);
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP(c, UNARY_CONVERT);
         break;
     case Num_kind:
