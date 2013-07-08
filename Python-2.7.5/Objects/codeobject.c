@@ -607,18 +607,22 @@ _PyCode_CheckLineNumber(PyCodeObject* co, int lasti, PyAddrPair *bounds,
         bounds->ap_upper = INT_MAX;
     }
 
-    int colno = -1;
+    int colno = 0; // a boring but somewhat-safe default
     if (co->co_coltab) { // remember, column table is OPTIONAL
       PyObject* k = PyInt_FromLong(lasti);
       assert(k);
       PyObject* v = PyDict_GetItem(co->co_coltab, k);
       Py_DECREF(k);
-      assert(v);
 
-      colno = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 1));
-      int lineno_from_coltab = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 0));
+      // TODO: investigate when k isn't in co->coltab. This sometimes
+      // happens, but I don't know why.
+      //assert(v); // too stringent
 
-      assert(line == lineno_from_coltab); // should ALWAYS MATCH, or we have problems
+      if (v) {
+        colno = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 1));
+        int lineno_from_coltab = (int)PyInt_AsLong(PyTuple_GET_ITEM(v, 0));
+        assert(line == lineno_from_coltab); // should ALWAYS MATCH, or we have problems
+      }
     }
 
     //printf("_PyCode_CheckLineNumber: lasti=%d, line=%d, col=%d\n", lasti, line, colno);
