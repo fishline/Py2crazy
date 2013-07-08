@@ -1804,7 +1804,8 @@ ast_for_power(struct compiling *c, const node *n)
         if (!tmp)
             return NULL;
         tmp->lineno = e->lineno;
-        tmp->col_offset = e->col_offset;
+        // pgbovine - VERY important that you DON'T write tmp->col_offset = e->col_offset;
+        // since that will just clobber col_offset with an incorrect value!
         e = tmp;
     }
     if (TYPE(CHILD(n, NCH(n) - 1)) == factor) {

@@ -3032,7 +3032,10 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
 {
     int i, n;
 
-    /* pgbovine - always set for each expression */
+    /* pgbovine - always set for each expression.
+       note that this might get CLOBBERED by intervening
+       VISIT statements since c is passed into VISIT,
+       so we might need to re-set it */
     c->u->u_col_offset = e->col_offset;
 
     /* If expr e has a different line number than the last expr/stmt,
@@ -3118,6 +3121,11 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
     case Attribute_kind:
         if (e->v.Attribute.ctx != AugStore)
             VISIT(c, expr, e->v.Attribute.value);
+
+        // pgbovine - reset this since it might have gotten clobbered by
+        // the VISIT on the prior line
+        c->u->u_col_offset = e->col_offset;
+
         switch (e->v.Attribute.ctx) {
         case AugLoad:
             ADDOP(c, DUP_TOP);
