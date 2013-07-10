@@ -1803,9 +1803,13 @@ ast_for_power(struct compiling *c, const node *n)
         tmp = ast_for_trailer(c, ch, e);
         if (!tmp)
             return NULL;
-        tmp->lineno = e->lineno;
+
         // pgbovine - VERY important that you DON'T write tmp->col_offset = e->col_offset;
         // since that will just clobber col_offset with an incorrect value!
+        // apparently you shouldn't clobber tmp->lineno either,
+        // according to http://bugs.python.org/msg124665
+        //tmp->lineno = e->lineno;
+        //tmp->col_offset = e->col_offset;
         e = tmp;
     }
     if (TYPE(CHILD(n, NCH(n) - 1)) == factor) {

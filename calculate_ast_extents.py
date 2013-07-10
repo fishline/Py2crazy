@@ -1,7 +1,7 @@
 import ast
 
-#TEST_STR = 'res = apple + banana * carrot'
-TEST_STR = '_,_ = apple + banana * carrot'
+TEST_STR = 'res = apple + banana * carrot'
+#TEST_STR = '_,_ = apple + banana * carrot'
 
 # TODO: Look at Parser/Python.asdl for full AST description
 
