@@ -1,7 +1,8 @@
 # Created by Philip Guo on 2013-07-10
 
-# designed SPECIFICALLY to work with Py2crazy, which is a hacked Python
-# 2.7.5 interpreter
+# This module is designed SPECIFICALLY to work with Py2crazy, which is a
+# hacked Python 2.7.5 interpreter
+
 
 import sys
 import ast
@@ -10,7 +11,9 @@ from collections import defaultdict
 # Limitations
 # - doesn't support extents that span MULTIPLE LINES
 # - doesn't support decorators
-# - BinOps and attribute accesses interact funny "self.val = self.val ** 2'
+# - BinOps involving ** and field attribute accesses interact funny
+#   e.g., "self.val = self.val ** 2'
+#
 # see calculate_ast_extents_tests.py for other weirdness
 
 
