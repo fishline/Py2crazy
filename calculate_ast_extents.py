@@ -159,8 +159,8 @@ class AddExtentsVisitor(ast.NodeVisitor):
       if hasattr(leftmost, 'lineno') and hasattr(rightmost, 'lineno') and \
          (leftmost.lineno == rightmost.lineno):
         self.add_attrs(node)
-        node.start_col = leftmost.col_offset
-        node.extent = rightmost.col_offset + rightmost.extent - leftmost.col_offset
+        node.start_col = leftmost.start_col
+        node.extent = rightmost.start_col + rightmost.extent - leftmost.start_col
     self.visit_children(node)
 
   def visit_BinOp(self, node):
