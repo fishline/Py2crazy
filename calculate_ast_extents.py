@@ -12,9 +12,9 @@ from collections import defaultdict
 # - doesn't support extents that span MULTIPLE LINES
 # - doesn't support decorators
 # - BinOps involving ** and field attribute accesses interact funny
-#   e.g., "self.val = self.val ** 2'
+#   e.g., "self.val = self.val ** 2"
 #
-# see calculate_ast_extents_tests.py for other weirdness
+# see tests/calculate_ast_extents_tests.py for other weirdness
 
 
 #TEST_STR = 'res = apple + banana * carrot'
