@@ -1,15 +1,26 @@
+# Created by Philip Guo on 2013-07-10
+
+import sys
 import ast
+
 
 #TEST_STR = 'res = apple + banana * carrot'
 #TEST_STR = '_,_ = apple + banana * carrot'
-TEST_STR = '`"repr of a string"`'
+TEST_STR = 'x = 5\nprint `x`'
 
 
 # Consult Parser/Python.asdl for full AST description
 
-# Tested by running MyVisitor on a bunch of files from the Python
+# Tested by running AddExtentsVisitor on a bunch of files from the Python
 # standard library, starting with Lib/ast.py.
 # Also test on the Online Python Tutor test suite as well.
+
+# for e in Lib/*.py; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
+
+# for e in OnlinePythonTutor/v3/tests/backend-tests/*.txt; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
+
+# for e in OnlinePythonTutor/v3/tests/example-code/*.txt; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
+
 
 
 # start_col - starting column to highlight
@@ -36,7 +47,7 @@ TEST_STR = '`"repr of a string"`'
 NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.unaryop, ast.operator,
                ast.Module, ast.Interactive, ast.Expression,
-               ast.arguments, ast.keyword, ast.alias
+               ast.arguments, ast.keyword, ast.alias,
                ast.excepthandler,
                ast.Dict, ast.Set, ast.List, ast.Tuple,
                ast.If, ast.With, ast.GeneratorExp,
@@ -45,15 +56,15 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.ListComp, ast.DictComp, ast.SetComp,
                ast.IfExp,
                ast.UnaryOp,
+               ast.Expr, # ALWAYS ignore this or else you get into bad conflicts
                ast.Slice, ast.ExtSlice, ast.Ellipsis,
                ast.Print]
 
 
-# This shit runs top-down, so we might need to run several times to fixpoint
-class MyVisitor(ast.NodeVisitor):
+# This visitor runs top-down, so we might need to run several times to fixpoint
+class AddExtentsVisitor(ast.NodeVisitor):
   def __init__(self):
     ast.NodeVisitor.__init__(self)
-
 
   def add_attrs(self, node):
     if 'extent' not in node._attributes:
@@ -81,32 +92,31 @@ class MyVisitor(ast.NodeVisitor):
           elif isinstance(value, ast.AST):
               self.visit(value)
 
-  # always end with a call to self.visit_children(node)
+  # always end with a call to self.visit_children(node) to recurse
   # (unless you know you're a terminal node)
   # TODO: encapsulate in a decorator
 
-
-  def visit_Expr(self, node):
-    if hasattr(node.value, 'extent'):
-      self.add_attrs(node)
-      node.start_col = node.value.start_col
-      node.extent = node.value.extent
-    self.visit_children(node)
-
+  # NOP for now since it looks prettier
   def visit_Subscript(self, node):
+    self.visit_children(node)
+    '''
     if hasattr(node.slice, 'extent'):
       self.add_attrs(node)
       node.start_col = node.slice.start_col
       node.extent = node.slice.extent
     self.visit_children(node)
+    '''
 
+  # NOP for now since it looks prettier
   def visit_Index(self, node):
+    self.visit_children(node)
+    '''
     if hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.value.start_col
       node.extent = node.value.extent
     self.visit_children(node)
-
+    '''
 
   def visit_Attribute(self, node):
     self.add_attrs(node)
@@ -128,6 +138,7 @@ class MyVisitor(ast.NodeVisitor):
 	     | Compare(expr left, cmpop* ops, expr* comparators)
     '''
     leftmost = node.left
+    assert len(node.comparators) > 0
     rightmost = node.comparators[-1]
     if hasattr(leftmost, 'extent') and hasattr(rightmost, 'extent'):
       self.add_attrs(node)
@@ -142,25 +153,33 @@ class MyVisitor(ast.NodeVisitor):
       node.extent = (node.right.start_col + node.right.extent - node.start_col)
     self.visit_children(node)
 
+  # NOP for now since it looks prettier that way ...
   def visit_Assign(self, node):
+    self.visit_children(node)
+    '''
     if hasattr(node.targets[0], 'extent') and hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.targets[0].start_col
       node.extent = (node.value.start_col + node.value.extent - node.start_col)
     self.visit_children(node)
+    '''
 
+  # NOP for now since it looks prettier that way ...
   def visit_AugAssign(self, node):
+    self.visit_children(node)
+    '''
     if hasattr(node.target, 'extent') and hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.target.start_col
       node.extent = (node.value.start_col + node.value.extent - node.start_col)
     self.visit_children(node)
+    '''
 
   def visit_Repr(self, node):
     if hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.col_offset
-      node.extent = len(node.value) + 2 # add 2 for surrounding backquotes
+      node.extent = node.value.extent + 2 # add 2 for surrounding backquotes
     self.visit_children(node)
 
 
@@ -310,27 +329,67 @@ class MyVisitor(ast.NodeVisitor):
       node.extent = len(str(node.n))
 
 
-v = MyVisitor()
+# copied from ast.NodeVisitor
+class DepthCountingVisitor(object):
+    def __init__(self):
+        self.max_depth = 0
+    def visit(self, node, depth=1):
+        for field, value in ast.iter_fields(node):
+            if isinstance(value, list):
+                for item in value:
+                    if isinstance(item, ast.AST):
+                        self.visit(item, depth+1)
+            elif isinstance(value, ast.AST):
+                self.visit(value, depth+1)
+        else:
+            # terminal node
+            if depth > self.max_depth:
+                self.max_depth = depth
 
-import sys
+
+class BuildExtentMapVisitor(ast.NodeVisitor):
+    def __init__(self, extent_map):
+        # Key: (lineno, col_offset)
+        # Value: list of (start_col, extent)
+        self.extent_map = extent_map
+
+    def generic_visit(self, node):
+        if 'extent' in node._attributes and \
+            'lineno' in node._attributes and \
+            'col_offset' in node._attributes:
+            # make sure no duplicates
+            k = (node.lineno, node.col_offset)
+            v = (node.start_col, node.extent)
+            self.extent_map[k].add(v)
+        ast.NodeVisitor.generic_visit(self, node)
+
+
 m = ast.parse(open(sys.argv[1]).read())
 
-v.visit(m)
-print ast.dump(m, annotate_fields=True, include_attributes=True)
+dcv = DepthCountingVisitor()
+dcv.visit(m)
+max_depth = dcv.max_depth
 
 
-# TODO: crap this infinite loops whenever information is incomplete, so
-# think of a more robust solution that propagates values UPWARDS on
-# demand rather than downward
-# NB: I think this needs to run only H times, where H is the height of
-# the full AST tree.
-#i = 1
-#while True:
-#  print 'Round', i
-#  v.visit(m)
-#  i += 1
-#  print ast.dump(m, annotate_fields=True, include_attributes=True)
-#  print
-#  if not v.incomplete:
-#    break
+# To be conservative, run the visitor max_depth number of times, which
+# should be enough to percolate ALL (start_col, extent) values up from
+# the leaves to the root of the tree
+v = AddExtentsVisitor()
+for i in range(max_depth):
+    v.visit(m)
 
+from collections import defaultdict
+extent_map = defaultdict(set)
+bemv = BuildExtentMapVisitor(extent_map)
+bemv.visit(m)
+
+import pprint
+pp = pprint.PrettyPrinter()
+
+for k,v in extent_map.iteritems():
+    if len(v) > 1:
+        print k
+        pp.pprint(v)
+        print
+
+#print ast.dump(m, annotate_fields=True, include_attributes=True)

@@ -1640,7 +1640,9 @@ ast_for_binop(struct compiling *c, const node *n)
                 if (!tmp)
                     return NULL;
 
-                // TODO: pgbovine - do we need to adjust n_col_offset here?
+                // pgbovine - for better column numbering precision, use the
+                // n_col_offset of the OPERATOR, which is CHILD(next_oper, 1)
+                // ACTUALLY NIX THIS since it causes a mystery segfault
                 tmp_result = BinOp(result, newoperator, tmp,
                                    LINENO(next_oper), next_oper->n_col_offset,
                                    c->c_arena);
@@ -1816,7 +1818,10 @@ ast_for_power(struct compiling *c, const node *n)
         expr_ty f = ast_for_expr(c, CHILD(n, NCH(n) - 1));
         if (!f)
             return NULL;
-        tmp = BinOp(e, Pow, f, LINENO(n), n->n_col_offset, c->c_arena);
+
+        // pgbovine - for better column numbering precision, use the
+        // n_col_offset of the OPERATOR, which is CHILD(n, 1)
+        tmp = BinOp(e, Pow, f, LINENO(n), CHILD(n, 1)->n_col_offset, c->c_arena);
         if (!tmp)
             return NULL;
         e = tmp;
