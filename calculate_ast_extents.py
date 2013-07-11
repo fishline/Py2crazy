@@ -1,7 +1,17 @@
 # Created by Philip Guo on 2013-07-10
 
+# designed SPECIFICALLY to work with Py2crazy, which is a hacked Python
+# 2.7.5 interpreter
+
 import sys
 import ast
+from collections import defaultdict
+
+# Limitations
+# - doesn't support extents that span MULTIPLE LINES
+# - doesn't support decorators
+# - BinOps and attribute accesses interact funny "self.val = self.val ** 2'
+# see calculate_ast_extents_tests.py for other weirdness
 
 
 #TEST_STR = 'res = apple + banana * carrot'
@@ -141,16 +151,24 @@ class AddExtentsVisitor(ast.NodeVisitor):
     assert len(node.comparators) > 0
     rightmost = node.comparators[-1]
     if hasattr(leftmost, 'extent') and hasattr(rightmost, 'extent'):
-      self.add_attrs(node)
-      node.start_col = leftmost.col_offset
-      node.extent = rightmost.col_offset + rightmost.extent - leftmost.col_offset
+      # DO NOT support spanning across multiple lines, or else extents are
+      # messed-up and meaningless
+      if hasattr(leftmost, 'lineno') and hasattr(rightmost, 'lineno') and \
+         (leftmost.lineno == rightmost.lineno):
+        self.add_attrs(node)
+        node.start_col = leftmost.col_offset
+        node.extent = rightmost.col_offset + rightmost.extent - leftmost.col_offset
     self.visit_children(node)
 
   def visit_BinOp(self, node):
     if hasattr(node.left, 'extent') and hasattr(node.right, 'extent'):
-      self.add_attrs(node)
-      node.start_col = node.left.start_col
-      node.extent = (node.right.start_col + node.right.extent - node.start_col)
+      # DO NOT support spanning across multiple lines, or else extents are
+      # messed-up and meaningless
+      if hasattr(node.left, 'lineno') and hasattr(node.right, 'lineno') and \
+         (node.left.lineno == node.right.lineno):
+        self.add_attrs(node)
+        node.start_col = node.left.start_col
+        node.extent = (node.right.start_col + node.right.extent - node.start_col)
     self.visit_children(node)
 
   # NOP for now since it looks prettier that way ...
@@ -350,46 +368,58 @@ class DepthCountingVisitor(object):
 class BuildExtentMapVisitor(ast.NodeVisitor):
     def __init__(self, extent_map):
         # Key: (lineno, col_offset)
-        # Value: list of (start_col, extent)
+        # Value: (start_col, extent)
         self.extent_map = extent_map
 
     def generic_visit(self, node):
         if 'extent' in node._attributes and \
             'lineno' in node._attributes and \
             'col_offset' in node._attributes:
-            # make sure no duplicates
             k = (node.lineno, node.col_offset)
             v = (node.start_col, node.extent)
-            self.extent_map[k].add(v)
+
+            # STRICT TEST - DON'T ALLOW DUPS!
+            assert k not in self.extent_map or v == self.extent_map[k]
+
+            self.extent_map[k] = v
+            # for debugging!
+            #self.extent_map[k].add((v, ast.dump(node)))
+
         ast.NodeVisitor.generic_visit(self, node)
 
 
-m = ast.parse(open(sys.argv[1]).read())
+# throws an AssertionError if something explodes
+def create_extent_map(code_str):
+    m = ast.parse(open(sys.argv[1]).read())
 
-dcv = DepthCountingVisitor()
-dcv.visit(m)
-max_depth = dcv.max_depth
+    #print ast.dump(m, annotate_fields=True, include_attributes=True)
+    #sys.exit(1)
+
+    dcv = DepthCountingVisitor()
+    dcv.visit(m)
+    max_depth = dcv.max_depth
+
+    # To be conservative, run the visitor max_depth number of times, which
+    # should be enough to percolate ALL (start_col, extent) values up from
+    # the leaves to the root of the tree
+    v = AddExtentsVisitor()
+    for i in range(max_depth):
+        v.visit(m)
+
+    extent_map = {}
+    bemv = BuildExtentMapVisitor(extent_map)
+    bemv.visit(m)
+
+    return extent_map
 
 
-# To be conservative, run the visitor max_depth number of times, which
-# should be enough to percolate ALL (start_col, extent) values up from
-# the leaves to the root of the tree
-v = AddExtentsVisitor()
-for i in range(max_depth):
-    v.visit(m)
 
-from collections import defaultdict
-extent_map = defaultdict(set)
-bemv = BuildExtentMapVisitor(extent_map)
-bemv.visit(m)
+if __name__ == "__main__":
+    extent_map = create_extent_map(open(sys.argv[1]).read())
 
-import pprint
-pp = pprint.PrettyPrinter()
+    import pprint
+    pp = pprint.PrettyPrinter()
 
-for k,v in extent_map.iteritems():
-    if len(v) > 1:
-        print k
-        pp.pprint(v)
-        print
+    for k,v in extent_map.iteritems():
+        print k, v
 
-#print ast.dump(m, annotate_fields=True, include_attributes=True)
