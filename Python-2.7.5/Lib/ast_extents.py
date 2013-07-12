@@ -396,10 +396,7 @@ class BuildExtentMapVisitor(ast.NodeVisitor):
 
 # throws an AssertionError if something explodes
 def create_extent_map(code_str):
-    m = ast.parse(open(sys.argv[1]).read())
-
-    #print ast.dump(m, annotate_fields=True, include_attributes=True)
-    #sys.exit(1)
+    m = ast.parse(code_str)
 
     dcv = DepthCountingVisitor()
     dcv.visit(m)
