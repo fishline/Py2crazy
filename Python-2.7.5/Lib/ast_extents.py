@@ -1,5 +1,8 @@
 # Created by Philip Guo on 2013-07-10
 
+# Put this file in Python-2.7.5/Lib/ to make it part of the Py2crazy
+# standard library, so that it's easily importable
+
 # This module is designed SPECIFICALLY to work with Py2crazy, which is a
 # hacked Python 2.7.5 interpreter
 
