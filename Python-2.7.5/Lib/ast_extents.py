@@ -277,7 +277,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
   def visit_While(self, node):
     self.add_attrs(node)
     node.start_col = node.col_offset
-    node.extent = len('for')
+    node.extent = len('while')
     self.visit_children(node)
 
   def visit_Pass(self, node):
