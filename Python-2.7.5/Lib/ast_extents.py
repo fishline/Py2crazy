@@ -345,12 +345,11 @@ class AddExtentsVisitor(ast.NodeVisitor):
     node.extent = len(node.id)
 
   def visit_Num(self, node):
-    # TODO: don't do anything for floats since we don't know exactly
-    # how long they are when printed in the original source code!
-    if isinstance(node.n, int) or isinstance(node.n, long):
-      self.add_attrs(node)
-      node.start_col = node.col_offset
-      node.extent = len(str(node.n))
+    # TODO: there might be a danger of getting this number wrong for
+    # floats, due to imprecision in converting to strings. eek!
+    self.add_attrs(node)
+    node.start_col = node.col_offset
+    node.extent = len(str(node.n))
 
 
 # copied from ast.NodeVisitor
