@@ -114,3 +114,7 @@ number mappings, and the corresponding points in the source code.
 Created on 2013-07-03 by [Philip Guo](http://www.pgbovine.net/)
 (philip@pgbovine.net)
 
+### Acknowledgments
+
+Thanks to [Ned Batchelder](http://nedbatchelder.com/) for inspiring this project, and for providing technical guidance.
+
