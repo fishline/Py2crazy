@@ -1,8 +1,8 @@
 Disassembling top-level module in ./opt-v3-tests/dict_test.txt
-  1       0 BUILD_MAP            x = [43m[30m{[39m[49m1 : 2}
+  1       0 BUILD_MAP            x = [43m[30m{1 : 2}[39m[49m
           3 LOAD_CONST           x = {1 : [43m[30m2[39m[49m}
           6 LOAD_CONST           x = {[43m[30m1[39m[49m : 2}
-          9 STORE_MAP            x = [43m[30m{[39m[49m1 : 2}
+          9 STORE_MAP            x = [43m[30m{1 : 2}[39m[49m
          10 STORE_NAME           [43m[30mx[39m[49m = {1 : 2}
 
   2      13 LOAD_NAME            x[('tup', 'le')] = [43m[30mset[39m[49m([1, 2, 3])
@@ -28,10 +28,10 @@ Disassembling top-level module in ./opt-v3-tests/dict_test.txt
          63 RETURN_VALUE         [43m[30mfoo[39m[49m()
 
 Disassembling function foo
-  5       0 BUILD_MAP              local_x = [43m[30m{[39m[49m1 : 2}
+  5       0 BUILD_MAP              local_x = [43m[30m{1 : 2}[39m[49m
           3 LOAD_CONST             local_x = {1 : [43m[30m2[39m[49m}
           6 LOAD_CONST             local_x = {[43m[30m1[39m[49m : 2}
-          9 STORE_MAP              local_x = [43m[30m{[39m[49m1 : 2}
+          9 STORE_MAP              local_x = [43m[30m{1 : 2}[39m[49m
          10 STORE_FAST             [43m[30mlocal_x[39m[49m = {1 : 2}
 
   6      13 BUILD_MAP              local_y = [43m[30m{[39m[49m}

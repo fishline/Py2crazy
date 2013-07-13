@@ -18,16 +18,16 @@ Disassembling top-level module in ./opt-v3-tests/data_test.txt
          42 CALL_FUNCTION        z = set([43m[30mx[39m[49m)
          45 STORE_NAME           [43m[30mz[39m[49m = set(x)
 
-  4      48 BUILD_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+  4      48 BUILD_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
          51 LOAD_CONST           w = {"joe" : [43m[30m5[39m[49m, "mindy" : 6, "jack" : 7}
          54 LOAD_CONST           w = {[43m[30m"joe"[39m[49m : 5, "mindy" : 6, "jack" : 7}
-         57 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         57 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
          58 LOAD_CONST           w = {"joe" : 5, "mindy" : [43m[30m6[39m[49m, "jack" : 7}
          61 LOAD_CONST           w = {"joe" : 5, [43m[30m"mindy"[39m[49m : 6, "jack" : 7}
-         64 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         64 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
          65 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, "jack" : [43m[30m7[39m[49m}
          68 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, [43m[30m"jack"[39m[49m : 7}
-         71 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         71 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
          72 STORE_NAME           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
          75 LOAD_CONST           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
          78 RETURN_VALUE         [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}

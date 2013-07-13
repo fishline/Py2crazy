@@ -1,19 +1,3 @@
-This renders kinda ugly in general:
-BUILD_MAP            w = {"joe" : 5, "mindy" : 6, "jack" : 7}
-                         ^
-
-same with build LIST and build TUPLE!
-    return '%d %s %s' % (self.x, self.y, self.z)
-
-
-Can't seem to get the entire expression for function repeat() in
-opt-v3-tests/ling-scheme-1.txt:
-
-44 BINARY_ADD               return [f()] + repeat(f, n - 1)
-                                         ^
-(probably due to a lack of handling of BUILD_LIST in [f()])
-
----
 In general, the result of a function call would look prettier if it
 highlighted the body too rather than just the name
 40 RETURN_VALUE                 return n * fact(n - 1)

@@ -65,7 +65,7 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.Module, ast.Interactive, ast.Expression,
                ast.arguments, ast.keyword, ast.alias,
                ast.excepthandler,
-               ast.Dict, ast.Set, # TODO: maybe keep extents for these too
+               ast.Set, # TODO: maybe keep extents for this, along with Dict, Tuple, and List
                ast.If, ast.With, ast.GeneratorExp,
                ast.comprehension,
                ast.BoolOp,
@@ -230,8 +230,23 @@ class AddExtentsVisitor(ast.NodeVisitor):
         self.add_attrs(node)
         node.start_col = node.col_offset
         node.extent = last_elt.start_col + last_elt.extent + 1 - node.start_col
-
     self.visit_children(node)
+
+  def visit_Dict(self, node):
+    # empty case
+    if len(node.values) == 0:
+      node.start_col = node.col_offset
+      node.extent = 2 # for '{}' case
+    else:
+      last_val = node.values[-1] # this is the best approximation I can come up with
+      if hasattr(last_val, 'extent') and \
+         hasattr(last_val, 'lineno') and \
+         (node.lineno == last_val.lineno):
+        self.add_attrs(node)
+        node.start_col = node.col_offset
+        node.extent = last_val.start_col + last_val.extent + 1 - node.start_col
+    self.visit_children(node)
+
 
   # TODO: abstract out this recurring pattern ...
   def visit_FunctionDef(self, node):

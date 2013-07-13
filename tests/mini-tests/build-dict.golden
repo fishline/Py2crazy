@@ -1,0 +1,14 @@
+Disassembling top-level module in ./mini-tests/build-dict.txt
+  1       0 BUILD_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
+          3 LOAD_CONST           w = {"joe" : [43m[30m5[39m[49m, "mindy" : 6, "jack" : 7}
+          6 LOAD_CONST           w = {[43m[30m"joe"[39m[49m : 5, "mindy" : 6, "jack" : 7}
+          9 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
+         10 LOAD_CONST           w = {"joe" : 5, "mindy" : [43m[30m6[39m[49m, "jack" : 7}
+         13 LOAD_CONST           w = {"joe" : 5, [43m[30m"mindy"[39m[49m : 6, "jack" : 7}
+         16 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
+         17 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, "jack" : [43m[30m7[39m[49m}
+         20 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, [43m[30m"jack"[39m[49m : 7}
+         23 STORE_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m
+         24 STORE_NAME           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
+         27 LOAD_CONST           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
+         30 RETURN_VALUE         [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
