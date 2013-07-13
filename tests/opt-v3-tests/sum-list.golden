@@ -26,8 +26,8 @@ Disassembling top-level module in ./opt-v3-tests/sum-list.txt
 
 Disassembling function sumList
   4       0 LOAD_FAST              if not [43m[30mnode[39m[49m:
-          3 UNARY_NOT              if [43m[30mn[39m[49mot node:
-          4 POP_JUMP_IF_FALSE      if [43m[30mn[39m[49mot node:
+          3 UNARY_NOT              if [43m[30mnot node[39m[49m:
+          4 POP_JUMP_IF_FALSE      if [43m[30mnot node[39m[49m:
 
   5       7 LOAD_FAST                return [43m[30msubtotal[39m[49m
          10 RETURN_VALUE             return [43m[30msubtotal[39m[49m

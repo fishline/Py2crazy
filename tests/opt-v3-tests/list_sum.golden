@@ -21,8 +21,8 @@ Disassembling top-level module in ./opt-v3-tests/list_sum.txt
 
 Disassembling function listSum
   2       0 LOAD_FAST              if not [43m[30mnumbers[39m[49m:
-          3 UNARY_NOT              if [43m[30mn[39m[49mot numbers:
-          4 POP_JUMP_IF_FALSE      if [43m[30mn[39m[49mot numbers:
+          3 UNARY_NOT              if [43m[30mnot numbers[39m[49m:
+          4 POP_JUMP_IF_FALSE      if [43m[30mnot numbers[39m[49m:
 
   3       7 LOAD_CONST               return [43m[30m0[39m[49m
          10 RETURN_VALUE             return [43m[30m0[39m[49m

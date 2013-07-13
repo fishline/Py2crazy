@@ -71,7 +71,6 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.BoolOp,
                ast.ListComp, ast.DictComp, ast.SetComp,
                ast.IfExp,
-               ast.UnaryOp,
                ast.Expr, # ALWAYS ignore this or else you get into bad conflicts
                ast.Slice, ast.ExtSlice, ast.Ellipsis,
                ast.Print]
@@ -175,6 +174,13 @@ class AddExtentsVisitor(ast.NodeVisitor):
         self.add_attrs(node)
         node.start_col = node.left.start_col
         node.extent = (node.right.start_col + node.right.extent - node.start_col)
+    self.visit_children(node)
+
+  def visit_UnaryOp(self, node):
+    if hasattr(node.operand, 'extent'):
+      self.add_attrs(node)
+      node.start_col = node.col_offset
+      node.extent = (node.operand.start_col + node.operand.extent - node.start_col)
     self.visit_children(node)
 
   # NOP for now since it looks prettier that way ...
