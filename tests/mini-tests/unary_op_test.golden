@@ -1,0 +1,13 @@
+Disassembling top-level module in ./mini-tests/unary_op_test.txt
+  1       0 LOAD_NAME            x = not not not - + - - ~ [43m[30mxxx[39m[49m
+          3 UNARY_INVERT         x = not not not - + - - [43m[30m~ xxx[39m[49m
+          4 UNARY_NEGATIVE       x = not not not - + - [43m[30m- ~ xxx[39m[49m
+          5 UNARY_NEGATIVE       x = not not not - + [43m[30m- - ~ xxx[39m[49m
+          6 UNARY_POSITIVE       x = not not not - [43m[30m+ - - ~ xxx[39m[49m
+          7 UNARY_NEGATIVE       x = not not not [43m[30m- + - - ~ xxx[39m[49m
+          8 UNARY_NOT            x = not not [43m[30mnot - + - - ~ xxx[39m[49m
+          9 UNARY_NOT            x = not [43m[30mnot not - + - - ~ xxx[39m[49m
+         10 UNARY_NOT            x = [43m[30mnot not not - + - - ~ xxx[39m[49m
+         11 STORE_NAME           [43m[30mx[39m[49m = not not not - + - - ~ xxx
+         14 LOAD_CONST           [43m[30mx[39m[49m = not not not - + - - ~ xxx
+         17 RETURN_VALUE         [43m[30mx[39m[49m = not not not - + - - ~ xxx
