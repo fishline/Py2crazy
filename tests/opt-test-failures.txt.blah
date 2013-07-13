@@ -1,9 +1,4 @@
 Bugs:
-opt-v3-tests/sum-list.txt
-  - unary 'not' in sumList
-opt-v3-tests/list_sum.txt
-  - unary 'not' in listSum
-
 opt-v3-tests/strtok.txt
   - binary comp '==' in 
       96 COMPARE_OP           isMale = (tokens[5] == 'male')

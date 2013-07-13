@@ -8,6 +8,8 @@ by Philip Guo
 import os, re, shutil, optparse, difflib
 from subprocess import *
 
+RED   = '\033[91m'
+ENDC  = '\033[0m'  # end color
 
 def filter_output(s):
   return s
@@ -21,7 +23,7 @@ def execute(input_filename):
   (stdout, stderr) = Popen(PROGRAM + [input_filename], stdout=PIPE, stderr=PIPE).communicate()
 
   if stderr:
-    print '(has stderr)'
+    print RED + '>>' + ENDC + ' (has stderr)'
   #  print '  stderr {'
   #  print stderr, '}'
   else:
@@ -102,7 +104,7 @@ def run_test(input_filename, clobber_golden=False):
   golden_file = base + GOLDEN_FILE_EXTENSION
   if os.path.isfile(golden_file):
     if golden_differs_from_out(golden_file):
-      print "  FAILED!!!"
+      print "  " + RED + "FAILED!!!" + ENDC
     if clobber_golden:
       clobber_golden_file(golden_file)
   else:
