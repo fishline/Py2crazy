@@ -61,5 +61,5 @@ Disassembling function __str__
           9 LOAD_FAST                    return "(%d, %d)" % (self.x, [43m[30mself[39m[49m.y)
          12 LOAD_ATTR                    return "(%d, %d)" % (self.x, [43m[30mself.y[39m[49m)
          15 BUILD_TUPLE                  return "(%d, %d)" % (self.x, [43m[30mself.y[39m[49m)
-         18 BINARY_MODULO                return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)
-         19 RETURN_VALUE                 return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)
+         18 BINARY_MODULO                return [43m[30m"(%d, %d)" % (self.x, self.y)[39m[49m
+         19 RETURN_VALUE                 return [43m[30m"(%d, %d)" % (self.x, self.y)[39m[49m

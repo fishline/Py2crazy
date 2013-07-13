@@ -158,15 +158,30 @@ def disassemble(co, extent_map):
         lc = (lineno, column)
         if lc in extent_map:
           v = dict(extent_map[lc]) # make a copy so we can mutate freely
+
+          # set this first, then override with special case if necessary:
+          start_col, extent = v.values()[0]
+
           # special case hacks! TODO: kludgy, ugh
-          if '_SUBSCR' in opcode and 'Subscript' in v: # subscripting opcodes
-            start_col, extent = v['Subscript']
-          else:
-            try:
+          if 'Subscript' in v:
+            if '_SUBSCR' in opcode: # subscripting opcodes
+              start_col, extent = v['Subscript']
+            else:
               del v['Subscript']
-            except KeyError:
-              pass
-            start_col, extent = v.values()[0]
+              start_col, extent = v.values()[0] # override
+          elif 'List' in v:
+            if 'BUILD_LIST' == opcode: # subscripting opcodes
+              start_col, extent = v['List']
+            else:
+              del v['List']
+              start_col, extent = v.values()[0] # override
+          elif 'Tuple' in v:
+            if 'BUILD_TUPLE' == opcode: # subscripting opcodes
+              start_col, extent = v['Tuple']
+            else:
+              del v['Tuple']
+              start_col, extent = v.values()[0] # override
+
 
         yield DisLine(lineno=lineno, column=column,
                       start_col=start_col, extent=extent,

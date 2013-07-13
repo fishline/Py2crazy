@@ -65,7 +65,7 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.Module, ast.Interactive, ast.Expression,
                ast.arguments, ast.keyword, ast.alias,
                ast.excepthandler,
-               ast.Dict, ast.Set, ast.List, ast.Tuple, # TODO: maybe keep extents for these too
+               ast.Dict, ast.Set, # TODO: maybe keep extents for these too
                ast.If, ast.With, ast.GeneratorExp,
                ast.comprehension,
                ast.BoolOp,
@@ -212,6 +212,26 @@ class AddExtentsVisitor(ast.NodeVisitor):
       node.extent = node.value.extent + 2 # add 2 for surrounding backquotes
     self.visit_children(node)
 
+  def visit_Tuple(self, node):
+    self.visit_Tuple_or_List(node)
+  def visit_List(self, node):
+    self.visit_Tuple_or_List(node)
+
+  def visit_Tuple_or_List(self, node):
+    # empty case
+    if len(node.elts) == 0:
+      node.start_col = node.col_offset
+      node.extent = 2 # for '()' or '[]' case; obviously doesn't handle blank spaces
+    else:
+      last_elt = node.elts[-1]
+      if hasattr(last_elt, 'extent') and \
+         hasattr(last_elt, 'lineno') and \
+         (node.lineno == last_elt.lineno):
+        self.add_attrs(node)
+        node.start_col = node.col_offset
+        node.extent = last_elt.start_col + last_elt.extent + 1 - node.start_col
+
+    self.visit_children(node)
 
   # TODO: abstract out this recurring pattern ...
   def visit_FunctionDef(self, node):

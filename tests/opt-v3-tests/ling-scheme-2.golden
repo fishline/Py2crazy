@@ -42,7 +42,7 @@ Disassembling function loop
          34 LOAD_FAST                  return loop([[43m[30mk[39m[49m] + acc, k + 1)
          37 BUILD_LIST                 return loop([[43m[30mk[39m[49m] + acc, k + 1)
          40 LOAD_FAST                  return loop([k] + [43m[30macc[39m[49m, k + 1)
-         43 BINARY_ADD                 return loop([k] [43m[30m+[39m[49m acc, k + 1)
+         43 BINARY_ADD                 return loop([43m[30m[k] + acc[39m[49m, k + 1)
          44 LOAD_FAST                  return loop([k] + acc, [43m[30mk[39m[49m + 1)
          47 LOAD_CONST                 return loop([k] + acc, k + [43m[30m1[39m[49m)
          50 BINARY_ADD                 return loop([k] + acc, [43m[30mk + 1[39m[49m)

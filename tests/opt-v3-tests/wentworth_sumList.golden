@@ -65,9 +65,9 @@ Disassembling function sumList
          61 LOAD_FAST                        print(("sumList(%s) returned %s" % ([43m[30me[39m[49m, v)))
          64 LOAD_FAST                        print(("sumList(%s) returned %s" % (e, [43m[30mv[39m[49m)))
          67 BUILD_TUPLE                      print(("sumList(%s) returned %s" % (e, [43m[30mv[39m[49m)))
-         70 BINARY_MODULO                    print(("sumList(%s) returned %s" [43m[30m%[39m[49m (e, v)))
-         71 PRINT_ITEM                       print(("sumList(%s) returned %s" [43m[30m%[39m[49m (e, v)))
-         72 PRINT_NEWLINE                    print(("sumList(%s) returned %s" [43m[30m%[39m[49m (e, v)))
+         70 BINARY_MODULO                    print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))
+         71 PRINT_ITEM                       print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))
+         72 PRINT_NEWLINE                    print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))
 
  15      73 LOAD_FAST                        [43m[30msum[39m[49m += v
          76 LOAD_FAST                        sum += [43m[30mv[39m[49m

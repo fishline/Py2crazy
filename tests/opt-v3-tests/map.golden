@@ -25,8 +25,8 @@ Disassembling top-level module in ./opt-v3-tests/map.txt
 Disassembling function map
   6       0 LOAD_FAST                if [43m[30mlst[39m[49m == []:
           3 BUILD_LIST               if lst == [43m[30m[[39m[49m]:
-          6 COMPARE_OP               if lst [43m[30m=[39m[49m= []:
-          9 POP_JUMP_IF_FALSE        if lst [43m[30m=[39m[49m= []:
+          6 COMPARE_OP               if [43m[30mlst == [][39m[49m:
+          9 POP_JUMP_IF_FALSE        if [43m[30mlst == [][39m[49m:
 
   7      12 BUILD_LIST                   return [43m[30m[[39m[49m]
          15 RETURN_VALUE                 return [43m[30m[[39m[49m]
@@ -44,10 +44,10 @@ Disassembling function map
          44 LOAD_CONST                   return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
          47 SLICE+1                      return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
          48 CALL_FUNCTION                return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
-         51 BINARY_ADD                   return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
-         52 RETURN_VALUE                 return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
-    >>   53 LOAD_CONST                   return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
-         56 RETURN_VALUE                 return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
+         51 BINARY_ADD                   return [43m[30m[func(lst[0])] + map[39m[49m(func, lst[1:])
+         52 RETURN_VALUE                 return [43m[30m[func(lst[0])] + map[39m[49m(func, lst[1:])
+    >>   53 LOAD_CONST                   return [43m[30m[func(lst[0])] + map[39m[49m(func, lst[1:])
+         56 RETURN_VALUE                 return [43m[30m[func(lst[0])] + map[39m[49m(func, lst[1:])
 
 Disassembling function halveElements
  12       0 LOAD_GLOBAL              return [43m[30mmap[39m[49m(lambda x: x / 2.0, lst)

@@ -25,9 +25,9 @@ Disassembling function main
          15 LOAD_FAST                print(("Finding gcd(%d, %d)" % ([43m[30mm[39m[49m,n)))
          18 LOAD_FAST                print(("Finding gcd(%d, %d)" % (m,[43m[30mn[39m[49m)))
          21 BUILD_TUPLE              print(("Finding gcd(%d, %d)" % (m,[43m[30mn[39m[49m)))
-         24 BINARY_MODULO            print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
-         25 PRINT_ITEM               print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
-         26 PRINT_NEWLINE            print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
+         24 BINARY_MODULO            print(([43m[30m"Finding gcd(%d, %d)" % (m,n)[39m[49m))
+         25 PRINT_ITEM               print(([43m[30m"Finding gcd(%d, %d)" % (m,n)[39m[49m))
+         26 PRINT_NEWLINE            print(([43m[30m"Finding gcd(%d, %d)" % (m,n)[39m[49m))
 
  21      27 LOAD_GLOBAL              g = [43m[30mgcd[39m[49m(m, n)
          30 LOAD_FAST                g = gcd([43m[30mm[39m[49m, n)
@@ -68,9 +68,9 @@ Disassembling function gcd
          40 LOAD_FAST                    print(("%s About to recursively call gcd(%d, %d)" % (indent, y, x%[43m[30my[39m[49m)))
          43 BINARY_MODULO                print(("%s About to recursively call gcd(%d, %d)" % (indent, y, [43m[30mx%y[39m[49m)))
          44 BUILD_TUPLE                  print(("%s About to recursively call gcd(%d, %d)" % (indent, y, [43m[30mx%y[39m[49m)))
-         47 BINARY_MODULO                print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
-         48 PRINT_ITEM                   print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
-         49 PRINT_NEWLINE                print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
+         47 BINARY_MODULO                print(([43m[30m"%s About to recursively call gcd(%d, %d)" % (indent, y, x%y)[39m[49m))
+         48 PRINT_ITEM                   print(([43m[30m"%s About to recursively call gcd(%d, %d)" % (indent, y, x%y)[39m[49m))
+         49 PRINT_NEWLINE                print(([43m[30m"%s About to recursively call gcd(%d, %d)" % (indent, y, x%y)[39m[49m))
 
  13      50 LOAD_GLOBAL                  result = [43m[30mgcd[39m[49m(y, x % y, depth+1)
          53 LOAD_FAST                    result = gcd([43m[30my[39m[49m, x % y, depth+1)
@@ -87,10 +87,10 @@ Disassembling function gcd
          79 LOAD_FAST                    print(("%s result is %d" % ([43m[30mindent[39m[49m, result)))
          82 LOAD_FAST                    print(("%s result is %d" % (indent, [43m[30mresult[39m[49m)))
          85 BUILD_TUPLE                  print(("%s result is %d" % (indent, [43m[30mresult[39m[49m)))
-         88 BINARY_MODULO                print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
-         89 PRINT_ITEM                   print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
-         90 PRINT_NEWLINE                print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
-         91 JUMP_FORWARD                 print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
+         88 BINARY_MODULO                print(([43m[30m"%s result is %d" % (indent, result)[39m[49m))
+         89 PRINT_ITEM                   print(([43m[30m"%s result is %d" % (indent, result)[39m[49m))
+         90 PRINT_NEWLINE                print(([43m[30m"%s result is %d" % (indent, result)[39m[49m))
+         91 JUMP_FORWARD                 print(([43m[30m"%s result is %d" % (indent, result)[39m[49m))
 
  15 >>   94 LOAD_FAST                return [43m[30mresult[39m[49m
          97 RETURN_VALUE             return [43m[30mresult[39m[49m
