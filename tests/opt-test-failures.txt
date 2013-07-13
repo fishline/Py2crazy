@@ -1,0 +1,46 @@
+Bugs:
+opt-v3-tests/sum-list.txt
+  - unary 'not' in sumList
+opt-v3-tests/list_sum.txt
+  - unary 'not' in listSum
+
+opt-v3-tests/strtok.txt
+  - binary comp '==' in 
+      96 COMPARE_OP           isMale = (tokens[5] == 'male')
+
+crashes in:
+  opt-v3-tests/class_test.txt
+  opt-v3-tests/class_test_2.txt
+  opt-v3-tests/class_test_3.txt
+  opt-v3-tests/nested-class-test.txt
+  opt-v3-tests/newstyle_class.txt
+  (basically ALL OOP examples crash)
+  (when disassembling <genexpr>)
+    opt-v3-tests/generator_test.txt
+    opt-v3-tests/generator_use_test.txt
+
+This renders kinda ugly in general:
+BUILD_MAP            w = {"joe" : 5, "mindy" : 6, "jack" : 7}
+                         ^
+
+In general, the result of a function call would look prettier if it
+highlighted the body too rather than just the name
+40 RETURN_VALUE                 return n * fact(n - 1)
+                                           ----
+39 BINARY_ADD               s = s + f(x)
+                                    ----
+
+opt-v3-tests/wentworth_try_finally.txt
+63 BINARY_ADD                   print("Bye from f where n = " + str(n))
+                                      -----------------------------    
+
+  - remember to account for more than one argument in a function, like f(a, b+c, d+e)
+  - hmmm, that might be hard since the CALL_FUNCTION call might conflict
+    in terms of column number with LOAD_FAST for loading the name of the function
+
+Can't seem to get the entire expression for function repeat() in
+opt-v3-tests/ling-scheme-1.txt:
+
+44 BINARY_ADD               return [f()] + repeat(f, n - 1)
+                                         ^
+
