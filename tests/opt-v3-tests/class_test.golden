@@ -1,0 +1,32 @@
+Disassembling top-level module in ./opt-v3-tests/class_test.txt
+  1       0 LOAD_CONST           [43m[30mclass[39m[49m Point:
+          3 BUILD_TUPLE          [43m[30mclass[39m[49m Point:
+          6 LOAD_CONST           [43m[30mclass[39m[49m Point:
+          9 MAKE_FUNCTION        [43m[30mclass[39m[49m Point:
+         12 CALL_FUNCTION        [43m[30mclass[39m[49m Point:
+         15 BUILD_CLASS          [43m[30mclass[39m[49m Point:
+         16 STORE_NAME           [43m[30mclass[39m[49m Point:
+
+  9      19 LOAD_NAME            p = [43m[30mPoint[39m[49m(1, 2)
+         22 LOAD_CONST           p = Point([43m[30m1[39m[49m, 2)
+         25 LOAD_CONST           p = Point(1, [43m[30m2[39m[49m)
+         28 CALL_FUNCTION        p = Point(1, [43m[30m2[39m[49m)
+         31 STORE_NAME           [43m[30mp[39m[49m = Point(1, 2)
+
+ 10      34 LOAD_NAME            print([43m[30mp[39m[49m)
+         37 PRINT_ITEM           print([43m[30mp[39m[49m)
+         38 PRINT_NEWLINE        print([43m[30mp[39m[49m)
+
+ 11      39 LOAD_NAME            p2 = [43m[30mPoint[39m[49m(3, -4)
+         42 LOAD_CONST           p2 = Point([43m[30m3[39m[49m, -4)
+         45 LOAD_CONST           p2 = Point(3, [43m[30m-4[39m[49m)
+         48 CALL_FUNCTION        p2 = Point(3, [43m[30m-4[39m[49m)
+         51 STORE_NAME           [43m[30mp2[39m[49m = Point(3, -4)
+
+ 12      54 LOAD_NAME            print([43m[30mp2[39m[49m)
+         57 PRINT_ITEM           print([43m[30mp2[39m[49m)
+         58 PRINT_NEWLINE        print([43m[30mp2[39m[49m)
+         59 LOAD_CONST           print([43m[30mp2[39m[49m)
+         62 RETURN_VALUE         print([43m[30mp2[39m[49m)
+
+Disassembling function Point

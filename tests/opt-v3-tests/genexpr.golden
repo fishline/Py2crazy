@@ -1,0 +1,25 @@
+Disassembling top-level module in ./opt-v3-tests/genexpr.txt
+  2       0 LOAD_CONST           x = ([43m[30mi[39m[49m for i in range(10))
+          3 MAKE_FUNCTION        x = ([43m[30mi[39m[49m for i in range(10))
+          6 LOAD_NAME            x = (i for i in [43m[30mrange[39m[49m(10))
+          9 LOAD_CONST           x = (i for i in range([43m[30m10[39m[49m))
+         12 CALL_FUNCTION        x = (i for i in range([43m[30m10[39m[49m))
+         15 GET_ITER             x = (i for i in range([43m[30m10[39m[49m))
+         16 CALL_FUNCTION        x = (i for i in range([43m[30m10[39m[49m))
+         19 STORE_NAME           [43m[30mx[39m[49m = (i for i in range(10))
+
+  4      22 SETUP_LOOP           [43m[30mfor[39m[49m e in x:
+         25 LOAD_NAME            for e in [43m[30mx[39m[49m:
+         28 GET_ITER             for e in [43m[30mx[39m[49m:
+    >>   29 FOR_ITER             for e in [43m[30mx[39m[49m:
+         32 STORE_NAME           for [43m[30me[39m[49m in x:
+
+  5      35 LOAD_NAME                print([43m[30me[39m[49m)
+         38 PRINT_ITEM               print([43m[30me[39m[49m)
+         39 PRINT_NEWLINE            print([43m[30me[39m[49m)
+         40 JUMP_ABSOLUTE            print([43m[30me[39m[49m)
+    >>   43 POP_BLOCK                print([43m[30me[39m[49m)
+    >>   44 LOAD_CONST               print([43m[30me[39m[49m)
+         47 RETURN_VALUE             print([43m[30me[39m[49m)
+
+Disassembling function <genexpr>

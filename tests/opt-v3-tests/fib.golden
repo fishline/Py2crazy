@@ -1,0 +1,40 @@
+Disassembling top-level module in ./opt-v3-tests/fib.txt
+  3       0 LOAD_CONST           arr = [[43m[30m1[39m[49m, 1]
+          3 LOAD_CONST           arr = [1, [43m[30m1[39m[49m]
+          6 BUILD_LIST           arr = [1, [43m[30m1[39m[49m]
+          9 STORE_NAME           [43m[30marr[39m[49m = [1, 1]
+
+  5      12 LOAD_NAME            print([43m[30marr[39m[49m[0])
+         15 LOAD_CONST           print(arr[[43m[30m0[39m[49m])
+         18 BINARY_SUBSCR        print(arr[[43m[30m0[39m[49m])
+         19 PRINT_ITEM           print(arr[[43m[30m0[39m[49m])
+         20 PRINT_NEWLINE        print(arr[[43m[30m0[39m[49m])
+
+  7      21 SETUP_LOOP           [43m[30mwhile[39m[49m True:
+    >>   24 LOAD_NAME            while [43m[30mTrue[39m[49m:
+         27 POP_JUMP_IF_FALSE    while [43m[30mTrue[39m[49m:
+
+  8      30 LOAD_NAME                print([43m[30marr[39m[49m[-1])
+         33 LOAD_CONST               print(arr[[43m[30m-1[39m[49m])
+         36 BINARY_SUBSCR            print(arr[[43m[30m-1[39m[49m])
+         37 PRINT_ITEM               print(arr[[43m[30m-1[39m[49m])
+         38 PRINT_NEWLINE            print(arr[[43m[30m-1[39m[49m])
+
+  9      39 LOAD_NAME                tmp = [43m[30msum[39m[49m(arr)
+         42 LOAD_NAME                tmp = sum([43m[30marr[39m[49m)
+         45 CALL_FUNCTION            tmp = sum([43m[30marr[39m[49m)
+         48 STORE_NAME               [43m[30mtmp[39m[49m = sum(arr)
+
+ 10      51 LOAD_NAME                [43m[30marr[39m[49m.append(tmp)
+         54 LOAD_ATTR                arr[43m[30m.append[39m[49m(tmp)
+         57 LOAD_NAME                arr.append([43m[30mtmp[39m[49m)
+         60 CALL_FUNCTION            arr.append([43m[30mtmp[39m[49m)
+         63 POP_TOP                  arr.append([43m[30mtmp[39m[49m)
+
+ 11      64 LOAD_NAME                del [43m[30marr[39m[49m[0]
+         67 LOAD_CONST               del arr[[43m[30m0[39m[49m]
+         70 DELETE_SUBSCR            del arr[[43m[30m0[39m[49m]
+         71 JUMP_ABSOLUTE            del arr[[43m[30m0[39m[49m]
+    >>   74 POP_BLOCK                del arr[[43m[30m0[39m[49m]
+    >>   75 LOAD_CONST               del arr[[43m[30m0[39m[49m]
+         78 RETURN_VALUE             del arr[[43m[30m0[39m[49m]

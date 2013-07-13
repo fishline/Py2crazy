@@ -1,0 +1,27 @@
+Disassembling top-level module in ./opt-v3-tests/oop_inherit.txt
+  5       0 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          3 BUILD_TUPLE          [43m[30mclass[39m[49m Staff601:
+          6 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          9 MAKE_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         12 CALL_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         15 BUILD_CLASS          [43m[30mclass[39m[49m Staff601:
+         16 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+
+ 13      19 LOAD_CONST           [43m[30mclass[39m[49m Prof601(Staff601):
+         22 LOAD_NAME            class Prof601([43m[30mStaff601[39m[49m):
+         25 BUILD_TUPLE          class Prof601([43m[30mStaff601[39m[49m):
+         28 LOAD_CONST           class Prof601([43m[30mStaff601[39m[49m):
+         31 MAKE_FUNCTION        class Prof601([43m[30mStaff601[39m[49m):
+         34 CALL_FUNCTION        class Prof601([43m[30mStaff601[39m[49m):
+         37 BUILD_CLASS          class Prof601([43m[30mStaff601[39m[49m):
+         38 STORE_NAME           class Prof601([43m[30mStaff601[39m[49m):
+
+ 23      41 LOAD_NAME            pat = [43m[30mProf601[39m[49m('Pat', 60)
+         44 LOAD_CONST           pat = Prof601([43m[30m'Pat'[39m[49m, 60)
+         47 LOAD_CONST           pat = Prof601('Pat', [43m[30m60[39m[49m)
+         50 CALL_FUNCTION        pat = Prof601('Pat', [43m[30m60[39m[49m)
+         53 STORE_NAME           [43m[30mpat[39m[49m = Prof601('Pat', 60)
+         56 LOAD_CONST           [43m[30mpat[39m[49m = Prof601('Pat', 60)
+         59 RETURN_VALUE         [43m[30mpat[39m[49m = Prof601('Pat', 60)
+
+Disassembling function Prof601

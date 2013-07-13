@@ -1,0 +1,86 @@
+Disassembling top-level module in ./opt-v3-tests/ins_sort.txt
+  2       0 LOAD_CONST           [43m[30mdef[39m[49m InsertionSort(A):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m InsertionSort(A):
+          6 STORE_NAME           [43m[30mdef[39m[49m InsertionSort(A):
+
+ 11       9 LOAD_CONST           input = [[43m[30m8[39m[49m, 3, 9, 15, 29, 7, 10]
+         12 LOAD_CONST           input = [8, [43m[30m3[39m[49m, 9, 15, 29, 7, 10]
+         15 LOAD_CONST           input = [8, 3, [43m[30m9[39m[49m, 15, 29, 7, 10]
+         18 LOAD_CONST           input = [8, 3, 9, [43m[30m15[39m[49m, 29, 7, 10]
+         21 LOAD_CONST           input = [8, 3, 9, 15, [43m[30m29[39m[49m, 7, 10]
+         24 LOAD_CONST           input = [8, 3, 9, 15, 29, [43m[30m7[39m[49m, 10]
+         27 LOAD_CONST           input = [8, 3, 9, 15, 29, 7, [43m[30m10[39m[49m]
+         30 BUILD_LIST           input = [8, 3, 9, 15, 29, 7, [43m[30m10[39m[49m]
+         33 STORE_NAME           [43m[30minput[39m[49m = [8, 3, 9, 15, 29, 7, 10]
+
+ 12      36 LOAD_NAME            [43m[30mInsertionSort[39m[49m(input)
+         39 LOAD_NAME            InsertionSort([43m[30minput[39m[49m)
+         42 CALL_FUNCTION        InsertionSort([43m[30minput[39m[49m)
+         45 POP_TOP              InsertionSort([43m[30minput[39m[49m)
+
+ 13      46 LOAD_NAME            print([43m[30minput[39m[49m)
+         49 PRINT_ITEM           print([43m[30minput[39m[49m)
+         50 PRINT_NEWLINE        print([43m[30minput[39m[49m)
+         51 LOAD_CONST           print([43m[30minput[39m[49m)
+         54 RETURN_VALUE         print([43m[30minput[39m[49m)
+
+Disassembling function InsertionSort
+  3       0 SETUP_LOOP               [43m[30mfor[39m[49m j in range(1, len(A)):
+          3 LOAD_GLOBAL              for j in [43m[30mrange[39m[49m(1, len(A)):
+          6 LOAD_CONST               for j in range([43m[30m1[39m[49m, len(A)):
+          9 LOAD_GLOBAL              for j in range(1, [43m[30mlen[39m[49m(A)):
+         12 LOAD_FAST                for j in range(1, len([43m[30mA[39m[49m)):
+         15 CALL_FUNCTION            for j in range(1, len([43m[30mA[39m[49m)):
+         18 CALL_FUNCTION            for j in range(1, len([43m[30mA[39m[49m)):
+         21 GET_ITER                 for j in range(1, len([43m[30mA[39m[49m)):
+    >>   22 FOR_ITER                 for j in range(1, len([43m[30mA[39m[49m)):
+         25 STORE_FAST               for [43m[30mj[39m[49m in range(1, len(A)):
+
+  4      28 LOAD_FAST                    key = [43m[30mA[39m[49m[j]
+         31 LOAD_FAST                    key = A[[43m[30mj[39m[49m]
+         34 BINARY_SUBSCR                key = A[[43m[30mj[39m[49m]
+         35 STORE_FAST                   [43m[30mkey[39m[49m = A[j]
+
+  5      38 LOAD_FAST                    i = [43m[30mj[39m[49m - 1
+         41 LOAD_CONST                   i = j - [43m[30m1[39m[49m
+         44 BINARY_SUBTRACT              i = [43m[30mj - 1[39m[49m
+         45 STORE_FAST                   [43m[30mi[39m[49m = j - 1
+
+  6      48 SETUP_LOOP                   [43m[30mwhile[39m[49m (i >= 0) and (A[i] > key):
+    >>   51 LOAD_FAST                    while ([43m[30mi[39m[49m >= 0) and (A[i] > key):
+         54 LOAD_CONST                   while (i >= [43m[30m0[39m[49m) and (A[i] > key):
+         57 COMPARE_OP                   while ([43m[30mi >= 0[39m[49m) and (A[i] > key):
+         60 JUMP_IF_FALSE_OR_POP         while ([43m[30mi >= 0[39m[49m) and (A[i] > key):
+         63 LOAD_FAST                    while (i >= 0) and ([43m[30mA[39m[49m[i] > key):
+         66 LOAD_FAST                    while (i >= 0) and (A[[43m[30mi[39m[49m] > key):
+         69 BINARY_SUBSCR                while (i >= 0) and (A[[43m[30mi[39m[49m] > key):
+         70 LOAD_FAST                    while (i >= 0) and (A[i] > [43m[30mkey[39m[49m):
+         73 COMPARE_OP                   while (i >= 0) and (A[i] [43m[30m>[39m[49m key):
+    >>   76 POP_JUMP_IF_FALSE            while (i >= 0) and (A[i] [43m[30m>[39m[49m key):
+
+  7      79 LOAD_FAST                        A[i+1] = [43m[30mA[39m[49m[i]
+         82 LOAD_FAST                        A[i+1] = A[[43m[30mi[39m[49m]
+         85 BINARY_SUBSCR                    A[i+1] = A[[43m[30mi[39m[49m]
+         86 LOAD_FAST                        [43m[30mA[39m[49m[i+1] = A[i]
+         89 LOAD_FAST                        A[[43m[30mi[39m[49m+1] = A[i]
+         92 LOAD_CONST                       A[i+[43m[30m1[39m[49m] = A[i]
+         95 BINARY_ADD                       A[[43m[30mi+1[39m[49m] = A[i]
+         96 STORE_SUBSCR                     A[[43m[30mi+1[39m[49m] = A[i]
+
+  8      97 LOAD_FAST                        i = [43m[30mi[39m[49m - 1
+        100 LOAD_CONST                       i = i - [43m[30m1[39m[49m
+        103 BINARY_SUBTRACT                  i = [43m[30mi - 1[39m[49m
+        104 STORE_FAST                       [43m[30mi[39m[49m = i - 1
+        107 JUMP_ABSOLUTE                    [43m[30mi[39m[49m = i - 1
+    >>  110 POP_BLOCK                        [43m[30mi[39m[49m = i - 1
+
+  9 >>  111 LOAD_FAST                    A[i+1] = [43m[30mkey[39m[49m
+        114 LOAD_FAST                    [43m[30mA[39m[49m[i+1] = key
+        117 LOAD_FAST                    A[[43m[30mi[39m[49m+1] = key
+        120 LOAD_CONST                   A[i+[43m[30m1[39m[49m] = key
+        123 BINARY_ADD                   A[[43m[30mi+1[39m[49m] = key
+        124 STORE_SUBSCR                 A[[43m[30mi+1[39m[49m] = key
+        125 JUMP_ABSOLUTE                A[[43m[30mi+1[39m[49m] = key
+    >>  128 POP_BLOCK                    A[[43m[30mi+1[39m[49m] = key
+    >>  129 LOAD_CONST                   A[[43m[30mi+1[39m[49m] = key
+        132 RETURN_VALUE                 A[[43m[30mi+1[39m[49m] = key

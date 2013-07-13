@@ -1,0 +1,70 @@
+Disassembling top-level module in ./opt-v3-tests/lambda_1.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m summation(low, high, f, next):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m summation(low, high, f, next):
+          6 STORE_NAME           [43m[30mdef[39m[49m summation(low, high, f, next):
+
+  9       9 LOAD_CONST           [43m[30mdef[39m[49m sumsquares(low, high):
+         12 MAKE_FUNCTION        [43m[30mdef[39m[49m sumsquares(low, high):
+         15 STORE_NAME           [43m[30mdef[39m[49m sumsquares(low, high):
+
+ 12      18 LOAD_NAME            print([43m[30msumsquares[39m[49m(1, 5))
+         21 LOAD_CONST           print(sumsquares([43m[30m1[39m[49m, 5))
+         24 LOAD_CONST           print(sumsquares(1, [43m[30m5[39m[49m))
+         27 CALL_FUNCTION        print(sumsquares(1, [43m[30m5[39m[49m))
+         30 PRINT_ITEM           print(sumsquares(1, [43m[30m5[39m[49m))
+         31 PRINT_NEWLINE        print(sumsquares(1, [43m[30m5[39m[49m))
+         32 LOAD_CONST           print(sumsquares(1, [43m[30m5[39m[49m))
+         35 RETURN_VALUE         print(sumsquares(1, [43m[30m5[39m[49m))
+
+Disassembling function sumsquares
+ 10       0 LOAD_GLOBAL            return [43m[30msummation[39m[49m(low, high, lambda x: x**2, lambda x: x+1)
+          3 LOAD_FAST              return summation([43m[30mlow[39m[49m, high, lambda x: x**2, lambda x: x+1)
+          6 LOAD_FAST              return summation(low, [43m[30mhigh[39m[49m, lambda x: x**2, lambda x: x+1)
+          9 LOAD_CONST             return summation(low, high, [43m[30mlambda[39m[49m x: x**2, lambda x: x+1)
+         12 MAKE_FUNCTION          return summation(low, high, [43m[30mlambda[39m[49m x: x**2, lambda x: x+1)
+         15 LOAD_CONST             return summation(low, high, lambda x: x**2, [43m[30mlambda[39m[49m x: x+1)
+         18 MAKE_FUNCTION          return summation(low, high, lambda x: x**2, [43m[30mlambda[39m[49m x: x+1)
+         21 CALL_FUNCTION          return summation(low, high, lambda x: x**2, [43m[30mlambda[39m[49m x: x+1)
+         24 RETURN_VALUE           return summation(low, high, lambda x: x**2, [43m[30mlambda[39m[49m x: x+1)
+
+Disassembling function <lambda>
+ 10       0 LOAD_FAST              return summation(low, high, lambda x: x**2, lambda x: [43m[30mx[39m[49m+1)
+          3 LOAD_CONST             return summation(low, high, lambda x: x**2, lambda x: x+[43m[30m1[39m[49m)
+          6 BINARY_ADD             return summation(low, high, lambda x: x**2, lambda x: [43m[30mx+1[39m[49m)
+          7 RETURN_VALUE           return summation(low, high, lambda x: x**2, lambda x: [43m[30mx+1[39m[49m)
+
+Disassembling function <lambda>
+ 10       0 LOAD_FAST              return summation(low, high, lambda x: [43m[30mx[39m[49m**2, lambda x: x+1)
+          3 LOAD_CONST             return summation(low, high, lambda x: x**[43m[30m2[39m[49m, lambda x: x+1)
+          6 BINARY_POWER           return summation(low, high, lambda x: [43m[30mx**2[39m[49m, lambda x: x+1)
+          7 RETURN_VALUE           return summation(low, high, lambda x: [43m[30mx**2[39m[49m, lambda x: x+1)
+
+Disassembling function summation
+  2       0 LOAD_CONST             s = [43m[30m0[39m[49m
+          3 STORE_FAST             [43m[30ms[39m[49m = 0
+
+  3       6 LOAD_FAST              x = [43m[30mlow[39m[49m
+          9 STORE_FAST             [43m[30mx[39m[49m = low
+
+  4      12 SETUP_LOOP             [43m[30mwhile[39m[49m x <= high:
+    >>   15 LOAD_FAST              while [43m[30mx[39m[49m <= high:
+         18 LOAD_FAST              while x <= [43m[30mhigh[39m[49m:
+         21 COMPARE_OP             while [43m[30mx <= high[39m[49m:
+         24 POP_JUMP_IF_FALSE      while [43m[30mx <= high[39m[49m:
+
+  5      27 LOAD_FAST                s = [43m[30ms[39m[49m + f(x)
+         30 LOAD_FAST                s = s + [43m[30mf[39m[49m(x)
+         33 LOAD_FAST                s = s + f([43m[30mx[39m[49m)
+         36 CALL_FUNCTION            s = s + f([43m[30mx[39m[49m)
+         39 BINARY_ADD               s = [43m[30ms + f[39m[49m(x)
+         40 STORE_FAST               [43m[30ms[39m[49m = s + f(x)
+
+  6      43 LOAD_FAST                x = [43m[30mnext[39m[49m(x)
+         46 LOAD_FAST                x = next([43m[30mx[39m[49m)
+         49 CALL_FUNCTION            x = next([43m[30mx[39m[49m)
+         52 STORE_FAST               [43m[30mx[39m[49m = next(x)
+         55 JUMP_ABSOLUTE            [43m[30mx[39m[49m = next(x)
+    >>   58 POP_BLOCK                [43m[30mx[39m[49m = next(x)
+
+  7 >>   59 LOAD_FAST              return [43m[30ms[39m[49m
+         62 RETURN_VALUE           return [43m[30ms[39m[49m

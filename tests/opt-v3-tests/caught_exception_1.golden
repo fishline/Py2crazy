@@ -1,0 +1,21 @@
+Disassembling top-level module in ./opt-v3-tests/caught_exception_1.txt
+  1       0 SETUP_EXCEPT         [43m[30mtry[39m[49m:
+
+  2       3 LOAD_CONST             x = [43m[30m1[39m[49m / 0
+          6 LOAD_CONST             x = 1 / [43m[30m0[39m[49m
+          9 BINARY_DIVIDE          x = [43m[30m1 / 0[39m[49m
+         10 STORE_NAME             [43m[30mx[39m[49m = 1 / 0
+         13 POP_BLOCK              [43m[30mx[39m[49m = 1 / 0
+         14 JUMP_FORWARD           [43m[30mx[39m[49m = 1 / 0
+
+  3 >>   17 POP_TOP              [43m[30mexcept[39m[49m:
+         18 POP_TOP              [43m[30mexcept[39m[49m:
+         19 POP_TOP              [43m[30mexcept[39m[49m:
+
+  4      20 LOAD_CONST             print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+         23 PRINT_ITEM             print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+         24 PRINT_NEWLINE          print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+         25 JUMP_FORWARD           print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+         28 END_FINALLY            print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+    >>   29 LOAD_CONST             print([43m[30m"DIVIDE BY ZERO"[39m[49m)
+         32 RETURN_VALUE           print([43m[30m"DIVIDE BY ZERO"[39m[49m)

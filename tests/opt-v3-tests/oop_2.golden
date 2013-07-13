@@ -1,0 +1,26 @@
+Disassembling top-level module in ./opt-v3-tests/oop_2.txt
+  5       0 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          3 BUILD_TUPLE          [43m[30mclass[39m[49m Staff601:
+          6 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          9 MAKE_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         12 CALL_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         15 BUILD_CLASS          [43m[30mclass[39m[49m Staff601:
+         16 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+
+ 19      19 LOAD_NAME            pat = [43m[30mStaff601[39m[49m('Pat', 'Professor', 60, 100000)
+         22 LOAD_CONST           pat = Staff601([43m[30m'Pat'[39m[49m, 'Professor', 60, 100000)
+         25 LOAD_CONST           pat = Staff601('Pat', [43m[30m'Professor'[39m[49m, 60, 100000)
+         28 LOAD_CONST           pat = Staff601('Pat', 'Professor', [43m[30m60[39m[49m, 100000)
+         31 LOAD_CONST           pat = Staff601('Pat', 'Professor', 60, [43m[30m100000[39m[49m)
+         34 CALL_FUNCTION        pat = Staff601('Pat', 'Professor', 60, [43m[30m100000[39m[49m)
+         37 STORE_NAME           [43m[30mpat[39m[49m = Staff601('Pat', 'Professor', 60, 100000)
+
+ 20      40 LOAD_NAME            print([43m[30mpat[39m[49m.salutation())
+         43 LOAD_ATTR            print(pat[43m[30m.salutation[39m[49m())
+         46 CALL_FUNCTION        print(pat[43m[30m.salutation[39m[49m())
+         49 PRINT_ITEM           print(pat[43m[30m.salutation[39m[49m())
+         50 PRINT_NEWLINE        print(pat[43m[30m.salutation[39m[49m())
+         51 LOAD_CONST           print(pat[43m[30m.salutation[39m[49m())
+         54 RETURN_VALUE         print(pat[43m[30m.salutation[39m[49m())
+
+Disassembling function Staff601

@@ -1,0 +1,33 @@
+Disassembling top-level module in ./opt-v3-tests/data_test.txt
+  1       0 LOAD_CONST           x = ([43m[30m'hello'[39m[49m, 'world', 1, 2, 3, 'goodbye')
+          3 LOAD_CONST           x = ('hello', [43m[30m'world'[39m[49m, 1, 2, 3, 'goodbye')
+          6 LOAD_CONST           x = ('hello', 'world', [43m[30m1[39m[49m, 2, 3, 'goodbye')
+          9 LOAD_CONST           x = ('hello', 'world', 1, [43m[30m2[39m[49m, 3, 'goodbye')
+         12 LOAD_CONST           x = ('hello', 'world', 1, 2, [43m[30m3[39m[49m, 'goodbye')
+         15 LOAD_CONST           x = ('hello', 'world', 1, 2, 3, [43m[30m'goodbye'[39m[49m)
+         18 BUILD_TUPLE          x = ('hello', 'world', 1, 2, 3, [43m[30m'goodbye'[39m[49m)
+         21 STORE_NAME           [43m[30mx[39m[49m = ('hello', 'world', 1, 2, 3, 'goodbye')
+
+  2      24 LOAD_NAME            y = [43m[30mlist[39m[49m(x)
+         27 LOAD_NAME            y = list([43m[30mx[39m[49m)
+         30 CALL_FUNCTION        y = list([43m[30mx[39m[49m)
+         33 STORE_NAME           [43m[30my[39m[49m = list(x)
+
+  3      36 LOAD_NAME            z = [43m[30mset[39m[49m(x)
+         39 LOAD_NAME            z = set([43m[30mx[39m[49m)
+         42 CALL_FUNCTION        z = set([43m[30mx[39m[49m)
+         45 STORE_NAME           [43m[30mz[39m[49m = set(x)
+
+  4      48 BUILD_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         51 LOAD_CONST           w = {"joe" : [43m[30m5[39m[49m, "mindy" : 6, "jack" : 7}
+         54 LOAD_CONST           w = {[43m[30m"joe"[39m[49m : 5, "mindy" : 6, "jack" : 7}
+         57 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         58 LOAD_CONST           w = {"joe" : 5, "mindy" : [43m[30m6[39m[49m, "jack" : 7}
+         61 LOAD_CONST           w = {"joe" : 5, [43m[30m"mindy"[39m[49m : 6, "jack" : 7}
+         64 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         65 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, "jack" : [43m[30m7[39m[49m}
+         68 LOAD_CONST           w = {"joe" : 5, "mindy" : 6, [43m[30m"jack"[39m[49m : 7}
+         71 STORE_MAP            w = [43m[30m{[39m[49m"joe" : 5, "mindy" : 6, "jack" : 7}
+         72 STORE_NAME           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
+         75 LOAD_CONST           [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}
+         78 RETURN_VALUE         [43m[30mw[39m[49m = {"joe" : 5, "mindy" : 6, "jack" : 7}

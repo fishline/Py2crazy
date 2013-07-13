@@ -1,0 +1,60 @@
+Disassembling top-level module in ./opt-v3-tests/oop_1.txt
+  5       0 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          3 BUILD_TUPLE          [43m[30mclass[39m[49m Staff601:
+          6 LOAD_CONST           [43m[30mclass[39m[49m Staff601:
+          9 MAKE_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         12 CALL_FUNCTION        [43m[30mclass[39m[49m Staff601:
+         15 BUILD_CLASS          [43m[30mclass[39m[49m Staff601:
+         16 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+
+ 13      19 LOAD_NAME            pat = [43m[30mStaff601[39m[49m()
+         22 CALL_FUNCTION        pat = [43m[30mStaff601[39m[49m()
+         25 STORE_NAME           [43m[30mpat[39m[49m = Staff601()
+
+ 14      28 LOAD_NAME            print([43m[30mpat[39m[49m.course)
+         31 LOAD_ATTR            print(pat[43m[30m.course[39m[49m)
+         34 PRINT_ITEM           print(pat[43m[30m.course[39m[49m)
+         35 PRINT_NEWLINE        print(pat[43m[30m.course[39m[49m)
+
+ 16      36 LOAD_CONST           pat.name = [43m[30m'Pat'[39m[49m
+         39 LOAD_NAME            [43m[30mpat[39m[49m.name = 'Pat'
+         42 STORE_ATTR           pat[43m[30m.name[39m[49m = 'Pat'
+
+ 17      45 LOAD_CONST           pat.age = [43m[30m60[39m[49m
+         48 LOAD_NAME            [43m[30mpat[39m[49m.age = 60
+         51 STORE_ATTR           pat[43m[30m.age[39m[49m = 60
+
+ 18      54 LOAD_CONST           pat.role = [43m[30m'Professor'[39m[49m
+         57 LOAD_NAME            [43m[30mpat[39m[49m.role = 'Professor'
+         60 STORE_ATTR           pat[43m[30m.role[39m[49m = 'Professor'
+
+ 20      63 LOAD_NAME            print([43m[30mpat[39m[49m.building)
+         66 LOAD_ATTR            print(pat[43m[30m.building[39m[49m)
+         69 PRINT_ITEM           print(pat[43m[30m.building[39m[49m)
+         70 PRINT_NEWLINE        print(pat[43m[30m.building[39m[49m)
+
+ 21      71 LOAD_CONST           pat.building = [43m[30m32[39m[49m
+         74 LOAD_NAME            [43m[30mpat[39m[49m.building = 32
+         77 STORE_ATTR           pat[43m[30m.building[39m[49m = 32
+
+ 22      80 LOAD_NAME            print([43m[30mpat[39m[49m.building)
+         83 LOAD_ATTR            print(pat[43m[30m.building[39m[49m)
+         86 PRINT_ITEM           print(pat[43m[30m.building[39m[49m)
+         87 PRINT_NEWLINE        print(pat[43m[30m.building[39m[49m)
+
+ 24      88 LOAD_NAME            print([43m[30mpat[39m[49m.salutation())
+         91 LOAD_ATTR            print(pat[43m[30m.salutation[39m[49m())
+         94 CALL_FUNCTION        print(pat[43m[30m.salutation[39m[49m())
+         97 PRINT_ITEM           print(pat[43m[30m.salutation[39m[49m())
+         98 PRINT_NEWLINE        print(pat[43m[30m.salutation[39m[49m())
+
+ 25      99 LOAD_NAME            print([43m[30mStaff601[39m[49m.salutation(pat))
+        102 LOAD_ATTR            print(Staff601[43m[30m.salutation[39m[49m(pat))
+        105 LOAD_NAME            print(Staff601.salutation([43m[30mpat[39m[49m))
+        108 CALL_FUNCTION        print(Staff601.salutation([43m[30mpat[39m[49m))
+        111 PRINT_ITEM           print(Staff601.salutation([43m[30mpat[39m[49m))
+        112 PRINT_NEWLINE        print(Staff601.salutation([43m[30mpat[39m[49m))
+        113 LOAD_CONST           print(Staff601.salutation([43m[30mpat[39m[49m))
+        116 RETURN_VALUE         print(Staff601.salutation([43m[30mpat[39m[49m))
+
+Disassembling function Staff601

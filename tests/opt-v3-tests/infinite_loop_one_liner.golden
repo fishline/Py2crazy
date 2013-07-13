@@ -1,0 +1,9 @@
+Disassembling top-level module in ./opt-v3-tests/infinite_loop_one_liner.txt
+  1       0 SETUP_LOOP           [43m[30mwhile[39m[49m 1:
+
+  2 >>    3 LOAD_CONST             print([43m[30m"hahahaha"[39m[49m)
+          6 PRINT_ITEM             print([43m[30m"hahahaha"[39m[49m)
+          7 PRINT_NEWLINE          print([43m[30m"hahahaha"[39m[49m)
+          8 JUMP_ABSOLUTE          print([43m[30m"hahahaha"[39m[49m)
+    >>   11 LOAD_CONST             print([43m[30m"hahahaha"[39m[49m)
+         14 RETURN_VALUE           print([43m[30m"hahahaha"[39m[49m)

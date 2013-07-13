@@ -1,0 +1,26 @@
+Disassembling top-level module in ./opt-v3-tests/py-modules.txt
+  3       0 LOAD_CONST           [43m[30mimport[39m[49m random
+          3 LOAD_CONST           [43m[30mimport[39m[49m random
+          6 IMPORT_NAME          [43m[30mimport[39m[49m random
+          9 STORE_NAME           [43m[30mimport[39m[49m random
+
+  4      12 LOAD_NAME            [43m[30mrandom[39m[49m.randint(10, 100)
+         15 LOAD_ATTR            random[43m[30m.randint[39m[49m(10, 100)
+         18 LOAD_CONST           random.randint([43m[30m10[39m[49m, 100)
+         21 LOAD_CONST           random.randint(10, [43m[30m100[39m[49m)
+         24 CALL_FUNCTION        random.randint(10, [43m[30m100[39m[49m)
+         27 POP_TOP              random.randint(10, [43m[30m100[39m[49m)
+
+  6      28 LOAD_CONST           [43m[30mfrom[39m[49m re import compile
+         31 LOAD_CONST           [43m[30mfrom[39m[49m re import compile
+         34 IMPORT_NAME          [43m[30mfrom[39m[49m re import compile
+         37 IMPORT_FROM          [43m[30mfrom[39m[49m re import compile
+         40 STORE_NAME           [43m[30mfrom[39m[49m re import compile
+         43 POP_TOP              [43m[30mfrom[39m[49m re import compile
+
+  7      44 LOAD_NAME            x = [43m[30mcompile[39m[49m('foo')
+         47 LOAD_CONST           x = compile([43m[30m'foo'[39m[49m)
+         50 CALL_FUNCTION        x = compile([43m[30m'foo'[39m[49m)
+         53 STORE_NAME           [43m[30mx[39m[49m = compile('foo')
+         56 LOAD_CONST           [43m[30mx[39m[49m = compile('foo')
+         59 RETURN_VALUE         [43m[30mx[39m[49m = compile('foo')

@@ -1,0 +1,13 @@
+Disassembling top-level module in ./opt-v3-tests/import_error.txt
+  2       0 LOAD_CONST           [43m[30mimport[39m[49m os
+          3 LOAD_CONST           [43m[30mimport[39m[49m os
+          6 IMPORT_NAME          [43m[30mimport[39m[49m os
+          9 STORE_NAME           [43m[30mimport[39m[49m os
+
+  4      12 LOAD_NAME            [43m[30mos[39m[49m.system("echo security breach")
+         15 LOAD_ATTR            os[43m[30m.system[39m[49m("echo security breach")
+         18 LOAD_CONST           os.system([43m[30m"echo security breach"[39m[49m)
+         21 CALL_FUNCTION        os.system([43m[30m"echo security breach"[39m[49m)
+         24 POP_TOP              os.system([43m[30m"echo security breach"[39m[49m)
+         25 LOAD_CONST           os.system([43m[30m"echo security breach"[39m[49m)
+         28 RETURN_VALUE         os.system([43m[30m"echo security breach"[39m[49m)

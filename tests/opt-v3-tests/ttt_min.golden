@@ -1,0 +1,34 @@
+Disassembling top-level module in ./opt-v3-tests/ttt_min.txt
+  3       0 LOAD_CONST           [43m[30mimport[39m[49m ttt_module
+          3 LOAD_CONST           [43m[30mimport[39m[49m ttt_module
+          6 IMPORT_NAME          [43m[30mimport[39m[49m ttt_module
+          9 STORE_NAME           [43m[30mimport[39m[49m ttt_module
+
+  5      12 LOAD_CONST           [43m[30mdef[39m[49m interactive_player(board, symbol):
+         15 MAKE_FUNCTION        [43m[30mdef[39m[49m interactive_player(board, symbol):
+         18 STORE_NAME           [43m[30mdef[39m[49m interactive_player(board, symbol):
+
+  8      21 LOAD_NAME            g = [43m[30mttt_module[39m[49m.TTTGame(interactive_player, interactive_player, verbose=True)
+         24 LOAD_ATTR            g = ttt_module[43m[30m.TTTGame[39m[49m(interactive_player, interactive_player, verbose=True)
+         27 LOAD_NAME            g = ttt_module.TTTGame([43m[30minteractive_player[39m[49m, interactive_player, verbose=True)
+         30 LOAD_NAME            g = ttt_module.TTTGame(interactive_player, [43m[30minteractive_player[39m[49m, verbose=True)
+         33 LOAD_CONST           g = ttt_module.TTTGame(interactive_player, [43m[30minteractive_player[39m[49m, verbose=True)
+         36 LOAD_NAME            g = ttt_module.TTTGame(interactive_player, interactive_player, verbose=[43m[30mTrue[39m[49m)
+         39 CALL_FUNCTION        g = ttt_module.TTTGame(interactive_player, interactive_player, verbose=[43m[30mTrue[39m[49m)
+         42 STORE_NAME           [43m[30mg[39m[49m = ttt_module.TTTGame(interactive_player, interactive_player, verbose=True)
+
+  9      45 LOAD_NAME            print([43m[30mg[39m[49m.play())
+         48 LOAD_ATTR            print(g[43m[30m.play[39m[49m())
+         51 CALL_FUNCTION        print(g[43m[30m.play[39m[49m())
+         54 PRINT_ITEM           print(g[43m[30m.play[39m[49m())
+         55 PRINT_NEWLINE        print(g[43m[30m.play[39m[49m())
+         56 LOAD_CONST           print(g[43m[30m.play[39m[49m())
+         59 RETURN_VALUE         print(g[43m[30m.play[39m[49m())
+
+Disassembling function interactive_player
+  6       0 LOAD_GLOBAL              return [43m[30mint[39m[49m(mouse_input("Click on board"))
+          3 LOAD_GLOBAL              return int([43m[30mmouse_input[39m[49m("Click on board"))
+          6 LOAD_CONST               return int(mouse_input([43m[30m"Click on board"[39m[49m))
+          9 CALL_FUNCTION            return int(mouse_input([43m[30m"Click on board"[39m[49m))
+         12 CALL_FUNCTION            return int(mouse_input([43m[30m"Click on board"[39m[49m))
+         15 RETURN_VALUE             return int(mouse_input([43m[30m"Click on board"[39m[49m))

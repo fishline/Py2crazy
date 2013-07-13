@@ -1,0 +1,106 @@
+Disassembling top-level module in ./opt-v3-tests/aliasing.txt
+  1       0 LOAD_CONST           x = [[43m[30m1[39m[49m, 2, 3]
+          3 LOAD_CONST           x = [1, [43m[30m2[39m[49m, 3]
+          6 LOAD_CONST           x = [1, 2, [43m[30m3[39m[49m]
+          9 BUILD_LIST           x = [1, 2, [43m[30m3[39m[49m]
+         12 STORE_NAME           [43m[30mx[39m[49m = [1, 2, 3]
+
+  2      15 LOAD_CONST           y = [[43m[30m4[39m[49m, 5, 6]
+         18 LOAD_CONST           y = [4, [43m[30m5[39m[49m, 6]
+         21 LOAD_CONST           y = [4, 5, [43m[30m6[39m[49m]
+         24 BUILD_LIST           y = [4, 5, [43m[30m6[39m[49m]
+         27 STORE_NAME           [43m[30my[39m[49m = [4, 5, 6]
+
+  3      30 LOAD_NAME            z = [43m[30my[39m[49m
+         33 STORE_NAME           [43m[30mz[39m[49m = y
+
+  4      36 LOAD_NAME            y = [43m[30mx[39m[49m
+         39 STORE_NAME           [43m[30my[39m[49m = x
+
+  5      42 LOAD_NAME            x = [43m[30mz[39m[49m
+         45 STORE_NAME           [43m[30mx[39m[49m = z
+
+  7      48 LOAD_CONST           x = [[43m[30m1[39m[49m, 2, 3] # a different [1, 2, 3] list!
+         51 LOAD_CONST           x = [1, [43m[30m2[39m[49m, 3] # a different [1, 2, 3] list!
+         54 LOAD_CONST           x = [1, 2, [43m[30m3[39m[49m] # a different [1, 2, 3] list!
+         57 BUILD_LIST           x = [1, 2, [43m[30m3[39m[49m] # a different [1, 2, 3] list!
+         60 STORE_NAME           [43m[30mx[39m[49m = [1, 2, 3] # a different [1, 2, 3] list!
+
+  8      63 LOAD_NAME            y = [43m[30mx[39m[49m
+         66 STORE_NAME           [43m[30my[39m[49m = x
+
+  9      69 LOAD_NAME            [43m[30mx[39m[49m.append(4)
+         72 LOAD_ATTR            x[43m[30m.append[39m[49m(4)
+         75 LOAD_CONST           x.append([43m[30m4[39m[49m)
+         78 CALL_FUNCTION        x.append([43m[30m4[39m[49m)
+         81 POP_TOP              x.append([43m[30m4[39m[49m)
+
+ 10      82 LOAD_NAME            [43m[30my[39m[49m.append(5)
+         85 LOAD_ATTR            y[43m[30m.append[39m[49m(5)
+         88 LOAD_CONST           y.append([43m[30m5[39m[49m)
+         91 CALL_FUNCTION        y.append([43m[30m5[39m[49m)
+         94 POP_TOP              y.append([43m[30m5[39m[49m)
+
+ 11      95 LOAD_CONST           z = [[43m[30m1[39m[49m, 2, 3, 4, 5] # a different list!
+         98 LOAD_CONST           z = [1, [43m[30m2[39m[49m, 3, 4, 5] # a different list!
+        101 LOAD_CONST           z = [1, 2, [43m[30m3[39m[49m, 4, 5] # a different list!
+        104 LOAD_CONST           z = [1, 2, 3, [43m[30m4[39m[49m, 5] # a different list!
+        107 LOAD_CONST           z = [1, 2, 3, 4, [43m[30m5[39m[49m] # a different list!
+        110 BUILD_LIST           z = [1, 2, 3, 4, [43m[30m5[39m[49m] # a different list!
+        113 STORE_NAME           [43m[30mz[39m[49m = [1, 2, 3, 4, 5] # a different list!
+
+ 12     116 LOAD_NAME            [43m[30mx[39m[49m.append(6)
+        119 LOAD_ATTR            x[43m[30m.append[39m[49m(6)
+        122 LOAD_CONST           x.append([43m[30m6[39m[49m)
+        125 CALL_FUNCTION        x.append([43m[30m6[39m[49m)
+        128 POP_TOP              x.append([43m[30m6[39m[49m)
+
+ 13     129 LOAD_NAME            [43m[30my[39m[49m.append(7)
+        132 LOAD_ATTR            y[43m[30m.append[39m[49m(7)
+        135 LOAD_CONST           y.append([43m[30m7[39m[49m)
+        138 CALL_FUNCTION        y.append([43m[30m7[39m[49m)
+        141 POP_TOP              y.append([43m[30m7[39m[49m)
+
+ 14     142 LOAD_CONST           y = [43m[30m"hello"[39m[49m
+        145 STORE_NAME           [43m[30my[39m[49m = "hello"
+
+ 17     148 LOAD_CONST           [43m[30mdef[39m[49m foo(lst):
+        151 MAKE_FUNCTION        [43m[30mdef[39m[49m foo(lst):
+        154 STORE_NAME           [43m[30mdef[39m[49m foo(lst):
+
+ 21     157 LOAD_CONST           [43m[30mdef[39m[49m bar(myLst):
+        160 MAKE_FUNCTION        [43m[30mdef[39m[49m bar(myLst):
+        163 STORE_NAME           [43m[30mdef[39m[49m bar(myLst):
+
+ 24     166 LOAD_NAME            [43m[30mfoo[39m[49m(x)
+        169 LOAD_NAME            foo([43m[30mx[39m[49m)
+        172 CALL_FUNCTION        foo([43m[30mx[39m[49m)
+        175 POP_TOP              foo([43m[30mx[39m[49m)
+
+ 25     176 LOAD_NAME            [43m[30mfoo[39m[49m(z)
+        179 LOAD_NAME            foo([43m[30mz[39m[49m)
+        182 CALL_FUNCTION        foo([43m[30mz[39m[49m)
+        185 POP_TOP              foo([43m[30mz[39m[49m)
+        186 LOAD_CONST           foo([43m[30mz[39m[49m)
+        189 RETURN_VALUE         foo([43m[30mz[39m[49m)
+
+Disassembling function bar
+ 22       0 LOAD_FAST                print([43m[30mmyLst[39m[49m)
+          3 PRINT_ITEM               print([43m[30mmyLst[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30mmyLst[39m[49m)
+          5 LOAD_CONST               print([43m[30mmyLst[39m[49m)
+          8 RETURN_VALUE             print([43m[30mmyLst[39m[49m)
+
+Disassembling function foo
+ 18       0 LOAD_FAST                [43m[30mlst[39m[49m.append("hello")
+          3 LOAD_ATTR                lst[43m[30m.append[39m[49m("hello")
+          6 LOAD_CONST               lst.append([43m[30m"hello"[39m[49m)
+          9 CALL_FUNCTION            lst.append([43m[30m"hello"[39m[49m)
+         12 POP_TOP                  lst.append([43m[30m"hello"[39m[49m)
+
+ 19      13 LOAD_GLOBAL              [43m[30mbar[39m[49m(lst)
+         16 LOAD_FAST                bar([43m[30mlst[39m[49m)
+         19 CALL_FUNCTION            bar([43m[30mlst[39m[49m)
+         22 POP_TOP                  bar([43m[30mlst[39m[49m)
+         23 LOAD_CONST               bar([43m[30mlst[39m[49m)
+         26 RETURN_VALUE             bar([43m[30mlst[39m[49m)

@@ -1,0 +1,90 @@
+Disassembling top-level module in ./opt-v3-tests/sqrt.txt
+  4       0 LOAD_CONST           [43m[30mdef[39m[49m sqrt(x):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m sqrt(x):
+          6 STORE_NAME           [43m[30mdef[39m[49m sqrt(x):
+
+ 23       9 LOAD_NAME            ans = [43m[30msqrt[39m[49m(9)
+         12 LOAD_CONST           ans = sqrt([43m[30m9[39m[49m)
+         15 CALL_FUNCTION        ans = sqrt([43m[30m9[39m[49m)
+         18 STORE_NAME           [43m[30mans[39m[49m = sqrt(9)
+         21 LOAD_CONST           [43m[30mans[39m[49m = sqrt(9)
+         24 RETURN_VALUE         [43m[30mans[39m[49m = sqrt(9)
+
+Disassembling function sqrt
+  5       0 LOAD_CONST               [43m[30mdef[39m[49m average(a, b):
+          3 MAKE_FUNCTION            [43m[30mdef[39m[49m average(a, b):
+          6 STORE_DEREF              [43m[30mdef[39m[49m average(a, b):
+
+  8       9 LOAD_CLOSURE             [43m[30mdef[39m[49m is_good_enough(guess):
+         12 BUILD_TUPLE              [43m[30mdef[39m[49m is_good_enough(guess):
+         15 LOAD_CONST               [43m[30mdef[39m[49m is_good_enough(guess):
+         18 MAKE_CLOSURE             [43m[30mdef[39m[49m is_good_enough(guess):
+         21 STORE_DEREF              [43m[30mdef[39m[49m is_good_enough(guess):
+
+ 11      24 LOAD_CLOSURE             [43m[30mdef[39m[49m improve(guess):
+         27 LOAD_CLOSURE             [43m[30mdef[39m[49m improve(guess):
+         30 BUILD_TUPLE              [43m[30mdef[39m[49m improve(guess):
+         33 LOAD_CONST               [43m[30mdef[39m[49m improve(guess):
+         36 MAKE_CLOSURE             [43m[30mdef[39m[49m improve(guess):
+         39 STORE_DEREF              [43m[30mdef[39m[49m improve(guess):
+
+ 14      42 LOAD_CLOSURE             [43m[30mdef[39m[49m sqrt_iter(guess):
+         45 LOAD_CLOSURE             [43m[30mdef[39m[49m sqrt_iter(guess):
+         48 LOAD_CLOSURE             [43m[30mdef[39m[49m sqrt_iter(guess):
+         51 BUILD_TUPLE              [43m[30mdef[39m[49m sqrt_iter(guess):
+         54 LOAD_CONST               [43m[30mdef[39m[49m sqrt_iter(guess):
+         57 MAKE_CLOSURE             [43m[30mdef[39m[49m sqrt_iter(guess):
+         60 STORE_DEREF              [43m[30mdef[39m[49m sqrt_iter(guess):
+
+ 20      63 LOAD_DEREF               return [43m[30msqrt_iter[39m[49m(1.0)
+         66 LOAD_CONST               return sqrt_iter([43m[30m1.0[39m[49m)
+         69 CALL_FUNCTION            return sqrt_iter([43m[30m1.0[39m[49m)
+         72 RETURN_VALUE             return sqrt_iter([43m[30m1.0[39m[49m)
+
+Disassembling function improve
+ 12       0 LOAD_DEREF                   return [43m[30maverage[39m[49m(guess, x / guess)
+          3 LOAD_FAST                    return average([43m[30mguess[39m[49m, x / guess)
+          6 LOAD_DEREF                   return average(guess, [43m[30mx[39m[49m / guess)
+          9 LOAD_FAST                    return average(guess, x / [43m[30mguess[39m[49m)
+         12 BINARY_DIVIDE                return average(guess, [43m[30mx / guess[39m[49m)
+         13 CALL_FUNCTION                return average(guess, [43m[30mx / guess[39m[49m)
+         16 RETURN_VALUE                 return average(guess, [43m[30mx / guess[39m[49m)
+
+Disassembling function average
+  6       0 LOAD_FAST                    return ([43m[30ma[39m[49m + b) / 2.0
+          3 LOAD_FAST                    return (a + [43m[30mb[39m[49m) / 2.0
+          6 BINARY_ADD                   return ([43m[30ma + b[39m[49m) / 2.0
+          7 LOAD_CONST                   return (a + b) / [43m[30m2.0[39m[49m
+         10 BINARY_DIVIDE                return ([43m[30ma + b) / 2.0[39m[49m
+         11 RETURN_VALUE                 return ([43m[30ma + b) / 2.0[39m[49m
+
+Disassembling function is_good_enough
+  9       0 LOAD_GLOBAL                  return ([43m[30mabs[39m[49m((guess * guess) - x) < 0.001)
+          3 LOAD_FAST                    return (abs(([43m[30mguess[39m[49m * guess) - x) < 0.001)
+          6 LOAD_FAST                    return (abs((guess * [43m[30mguess[39m[49m) - x) < 0.001)
+          9 BINARY_MULTIPLY              return (abs(([43m[30mguess * guess[39m[49m) - x) < 0.001)
+         10 LOAD_DEREF                   return (abs((guess * guess) - [43m[30mx[39m[49m) < 0.001)
+         13 BINARY_SUBTRACT              return (abs(([43m[30mguess * guess) - x[39m[49m) < 0.001)
+         14 CALL_FUNCTION                return (abs(([43m[30mguess * guess) - x[39m[49m) < 0.001)
+         17 LOAD_CONST                   return (abs((guess * guess) - x) < [43m[30m0.001[39m[49m)
+         20 COMPARE_OP                   return ([43m[30mabs((guess * guess) - x) < 0.001[39m[49m)
+         23 RETURN_VALUE                 return ([43m[30mabs((guess * guess) - x) < 0.001[39m[49m)
+
+Disassembling function sqrt_iter
+ 15       0 LOAD_DEREF                   if [43m[30mis_good_enough[39m[49m(guess):
+          3 LOAD_FAST                    if is_good_enough([43m[30mguess[39m[49m):
+          6 CALL_FUNCTION                if is_good_enough([43m[30mguess[39m[49m):
+          9 POP_JUMP_IF_FALSE            if is_good_enough([43m[30mguess[39m[49m):
+
+ 16      12 LOAD_FAST                        return [43m[30mguess[39m[49m
+         15 RETURN_VALUE                     return [43m[30mguess[39m[49m
+         16 JUMP_FORWARD                     return [43m[30mguess[39m[49m
+
+ 18 >>   19 LOAD_DEREF                       return [43m[30msqrt_iter[39m[49m(improve(guess))
+         22 LOAD_DEREF                       return sqrt_iter([43m[30mimprove[39m[49m(guess))
+         25 LOAD_FAST                        return sqrt_iter(improve([43m[30mguess[39m[49m))
+         28 CALL_FUNCTION                    return sqrt_iter(improve([43m[30mguess[39m[49m))
+         31 CALL_FUNCTION                    return sqrt_iter(improve([43m[30mguess[39m[49m))
+         34 RETURN_VALUE                     return sqrt_iter(improve([43m[30mguess[39m[49m))
+    >>   35 LOAD_CONST                       return sqrt_iter(improve([43m[30mguess[39m[49m))
+         38 RETURN_VALUE                     return sqrt_iter(improve([43m[30mguess[39m[49m))

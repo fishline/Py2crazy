@@ -1,0 +1,96 @@
+Disassembling top-level module in ./opt-v3-tests/wentworth_gcd.txt
+  4       0 LOAD_CONST           def gcd(x, y, depth=[43m[30m1[39m[49m):
+          3 LOAD_CONST           def gcd(x, y, depth=[43m[30m1[39m[49m):
+          6 MAKE_FUNCTION        def gcd(x, y, depth=[43m[30m1[39m[49m):
+          9 STORE_NAME           def gcd(x, y, depth=[43m[30m1[39m[49m):
+
+ 17      12 LOAD_CONST           [43m[30mdef[39m[49m main():
+         15 MAKE_FUNCTION        [43m[30mdef[39m[49m main():
+         18 STORE_NAME           [43m[30mdef[39m[49m main():
+
+ 25      21 LOAD_NAME            [43m[30mmain[39m[49m()
+         24 CALL_FUNCTION        [43m[30mmain[39m[49m()
+         27 POP_TOP              [43m[30mmain[39m[49m()
+         28 LOAD_CONST           [43m[30mmain[39m[49m()
+         31 RETURN_VALUE         [43m[30mmain[39m[49m()
+
+Disassembling function main
+ 18       0 LOAD_CONST               m = [43m[30m77[39m[49m
+          3 STORE_FAST               [43m[30mm[39m[49m = 77
+
+ 19       6 LOAD_CONST               n = [43m[30m28[39m[49m
+          9 STORE_FAST               [43m[30mn[39m[49m = 28
+
+ 20      12 LOAD_CONST               print(([43m[30m"Finding gcd(%d, %d)"[39m[49m % (m,n)))
+         15 LOAD_FAST                print(("Finding gcd(%d, %d)" % ([43m[30mm[39m[49m,n)))
+         18 LOAD_FAST                print(("Finding gcd(%d, %d)" % (m,[43m[30mn[39m[49m)))
+         21 BUILD_TUPLE              print(("Finding gcd(%d, %d)" % (m,[43m[30mn[39m[49m)))
+         24 BINARY_MODULO            print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
+         25 PRINT_ITEM               print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
+         26 PRINT_NEWLINE            print(("Finding gcd(%d, %d)" [43m[30m%[39m[49m (m,n)))
+
+ 21      27 LOAD_GLOBAL              g = [43m[30mgcd[39m[49m(m, n)
+         30 LOAD_FAST                g = gcd([43m[30mm[39m[49m, n)
+         33 LOAD_FAST                g = gcd(m, [43m[30mn[39m[49m)
+         36 CALL_FUNCTION            g = gcd(m, [43m[30mn[39m[49m)
+         39 STORE_FAST               [43m[30mg[39m[49m = gcd(m, n)
+
+ 22      42 LOAD_CONST               print(([43m[30m'Greatest common divisor of %d, %d = %d'[39m[49m
+
+ 23      45 LOAD_FAST                      % ([43m[30mm[39m[49m, n, g)))
+         48 LOAD_FAST                      % (m, [43m[30mn[39m[49m, g)))
+         51 LOAD_FAST                      % (m, n, [43m[30mg[39m[49m)))
+         54 BUILD_TUPLE                    % (m, n, [43m[30mg[39m[49m)))
+         57 BINARY_MODULO                  [43m[30m%[39m[49m (m, n, g)))
+         58 PRINT_ITEM                     [43m[30m%[39m[49m (m, n, g)))
+         59 PRINT_NEWLINE                  [43m[30m%[39m[49m (m, n, g)))
+         60 LOAD_CONST                     [43m[30m%[39m[49m (m, n, g)))
+         63 RETURN_VALUE                   [43m[30m%[39m[49m (m, n, g)))
+
+Disassembling function gcd
+  9       0 LOAD_FAST                result = [43m[30mx[39m[49m       # set provisional return value
+          3 STORE_FAST               [43m[30mresult[39m[49m = x       # set provisional return value
+
+ 10       6 LOAD_FAST                if [43m[30my[39m[49m != 0:
+          9 LOAD_CONST               if y != [43m[30m0[39m[49m:
+         12 COMPARE_OP               if [43m[30my != 0[39m[49m:
+         15 POP_JUMP_IF_FALSE        if [43m[30my != 0[39m[49m:
+
+ 11      18 LOAD_CONST                   indent = [43m[30m"**"[39m[49m * depth
+         21 LOAD_FAST                    indent = "**" * [43m[30mdepth[39m[49m
+         24 BINARY_MULTIPLY              indent = [43m[30m"**" * depth[39m[49m
+         25 STORE_FAST                   [43m[30mindent[39m[49m = "**" * depth
+
+ 12      28 LOAD_CONST                   print(([43m[30m"%s About to recursively call gcd(%d, %d)"[39m[49m % (indent, y, x%y)))
+         31 LOAD_FAST                    print(("%s About to recursively call gcd(%d, %d)" % ([43m[30mindent[39m[49m, y, x%y)))
+         34 LOAD_FAST                    print(("%s About to recursively call gcd(%d, %d)" % (indent, [43m[30my[39m[49m, x%y)))
+         37 LOAD_FAST                    print(("%s About to recursively call gcd(%d, %d)" % (indent, y, [43m[30mx[39m[49m%y)))
+         40 LOAD_FAST                    print(("%s About to recursively call gcd(%d, %d)" % (indent, y, x%[43m[30my[39m[49m)))
+         43 BINARY_MODULO                print(("%s About to recursively call gcd(%d, %d)" % (indent, y, [43m[30mx%y[39m[49m)))
+         44 BUILD_TUPLE                  print(("%s About to recursively call gcd(%d, %d)" % (indent, y, [43m[30mx%y[39m[49m)))
+         47 BINARY_MODULO                print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
+         48 PRINT_ITEM                   print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
+         49 PRINT_NEWLINE                print(("%s About to recursively call gcd(%d, %d)" [43m[30m%[39m[49m (indent, y, x%y)))
+
+ 13      50 LOAD_GLOBAL                  result = [43m[30mgcd[39m[49m(y, x % y, depth+1)
+         53 LOAD_FAST                    result = gcd([43m[30my[39m[49m, x % y, depth+1)
+         56 LOAD_FAST                    result = gcd(y, [43m[30mx[39m[49m % y, depth+1)
+         59 LOAD_FAST                    result = gcd(y, x % [43m[30my[39m[49m, depth+1)
+         62 BINARY_MODULO                result = gcd(y, [43m[30mx % y[39m[49m, depth+1)
+         63 LOAD_FAST                    result = gcd(y, x % y, [43m[30mdepth[39m[49m+1)
+         66 LOAD_CONST                   result = gcd(y, x % y, depth+[43m[30m1[39m[49m)
+         69 BINARY_ADD                   result = gcd(y, x % y, [43m[30mdepth+1[39m[49m)
+         70 CALL_FUNCTION                result = gcd(y, x % y, [43m[30mdepth+1[39m[49m)
+         73 STORE_FAST                   [43m[30mresult[39m[49m = gcd(y, x % y, depth+1)
+
+ 14      76 LOAD_CONST                   print(([43m[30m"%s result is %d"[39m[49m % (indent, result)))
+         79 LOAD_FAST                    print(("%s result is %d" % ([43m[30mindent[39m[49m, result)))
+         82 LOAD_FAST                    print(("%s result is %d" % (indent, [43m[30mresult[39m[49m)))
+         85 BUILD_TUPLE                  print(("%s result is %d" % (indent, [43m[30mresult[39m[49m)))
+         88 BINARY_MODULO                print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
+         89 PRINT_ITEM                   print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
+         90 PRINT_NEWLINE                print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
+         91 JUMP_FORWARD                 print(("%s result is %d" [43m[30m%[39m[49m (indent, result)))
+
+ 15 >>   94 LOAD_FAST                return [43m[30mresult[39m[49m
+         97 RETURN_VALUE             return [43m[30mresult[39m[49m

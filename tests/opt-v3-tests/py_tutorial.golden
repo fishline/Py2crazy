@@ -1,0 +1,202 @@
+Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
+  4       0 LOAD_CONST           age = [43m[30m26[39m[49m
+          3 STORE_NAME           [43m[30mage[39m[49m = 26
+
+  5       6 LOAD_CONST           pi = [43m[30m3.14159[39m[49m
+          9 STORE_NAME           [43m[30mpi[39m[49m = 3.14159
+
+  8      12 LOAD_CONST           s = [43m[30m'Rutherford Birchard Hayes'[39m[49m
+         15 STORE_NAME           [43m[30ms[39m[49m = 'Rutherford Birchard Hayes'
+
+  9      18 LOAD_NAME            tokens = [43m[30ms[39m[49m.split()
+         21 LOAD_ATTR            tokens = s[43m[30m.split[39m[49m()
+         24 CALL_FUNCTION        tokens = s[43m[30m.split[39m[49m()
+         27 STORE_NAME           [43m[30mtokens[39m[49m = s.split()
+
+ 10      30 LOAD_NAME            firstName = [43m[30mtokens[39m[49m[0]
+         33 LOAD_CONST           firstName = tokens[[43m[30m0[39m[49m]
+         36 BINARY_SUBSCR        firstName = tokens[[43m[30m0[39m[49m]
+         37 STORE_NAME           [43m[30mfirstName[39m[49m = tokens[0]
+
+ 11      40 LOAD_NAME            middleName = [43m[30mtokens[39m[49m[1]
+         43 LOAD_CONST           middleName = tokens[[43m[30m1[39m[49m]
+         46 BINARY_SUBSCR        middleName = tokens[[43m[30m1[39m[49m]
+         47 STORE_NAME           [43m[30mmiddleName[39m[49m = tokens[1]
+
+ 12      50 LOAD_NAME            lastName = [43m[30mtokens[39m[49m[2]
+         53 LOAD_CONST           lastName = tokens[[43m[30m2[39m[49m]
+         56 BINARY_SUBSCR        lastName = tokens[[43m[30m2[39m[49m]
+         57 STORE_NAME           [43m[30mlastName[39m[49m = tokens[2]
+
+ 13      60 LOAD_NAME            s2 = [43m[30mfirstName[39m[49m + ' ' + middleName + ' ' + lastName
+         63 LOAD_CONST           s2 = firstName + [43m[30m' '[39m[49m + middleName + ' ' + lastName
+         66 BINARY_ADD           s2 = [43m[30mfirstName + ' '[39m[49m + middleName + ' ' + lastName
+         67 LOAD_NAME            s2 = firstName + ' ' + [43m[30mmiddleName[39m[49m + ' ' + lastName
+         70 BINARY_ADD           s2 = [43m[30mfirstName + ' ' + middleName[39m[49m + ' ' + lastName
+         71 LOAD_CONST           s2 = firstName + ' ' + middleName + [43m[30m' '[39m[49m + lastName
+         74 BINARY_ADD           s2 = [43m[30mfirstName + ' ' + middleName + ' '[39m[49m + lastName
+         75 LOAD_NAME            s2 = firstName + ' ' + middleName + ' ' + [43m[30mlastName[39m[49m
+         78 BINARY_ADD           s2 = [43m[30mfirstName + ' ' + middleName + ' ' + lastName[39m[49m
+         79 STORE_NAME           [43m[30ms2[39m[49m = firstName + ' ' + middleName + ' ' + lastName
+
+ 16      82 LOAD_NAME            if ([43m[30ms[39m[49m == s2):
+         85 LOAD_NAME            if (s == [43m[30ms2[39m[49m):
+         88 COMPARE_OP           if ([43m[30ms == s2[39m[49m):
+         91 POP_JUMP_IF_FALSE    if ([43m[30ms == s2[39m[49m):
+
+ 17      94 LOAD_CONST               print([43m[30m'yes!!!'[39m[49m)
+         97 PRINT_ITEM               print([43m[30m'yes!!!'[39m[49m)
+         98 PRINT_NEWLINE            print([43m[30m'yes!!!'[39m[49m)
+         99 JUMP_FORWARD             print([43m[30m'yes!!!'[39m[49m)
+
+ 19 >>  102 LOAD_CONST               print([43m[30m'nooooooo'[39m[49m)
+        105 PRINT_ITEM               print([43m[30m'nooooooo'[39m[49m)
+        106 PRINT_NEWLINE            print([43m[30m'nooooooo'[39m[49m)
+
+ 22 >>  107 LOAD_CONST           beatles = [[43m[30m'John'[39m[49m, 'Paul', 'George']
+        110 LOAD_CONST           beatles = ['John', [43m[30m'Paul'[39m[49m, 'George']
+        113 LOAD_CONST           beatles = ['John', 'Paul', [43m[30m'George'[39m[49m]
+        116 BUILD_LIST           beatles = ['John', 'Paul', [43m[30m'George'[39m[49m]
+        119 STORE_NAME           [43m[30mbeatles[39m[49m = ['John', 'Paul', 'George']
+
+ 23     122 LOAD_NAME            [43m[30mbeatles[39m[49m.append('Ringo')
+        125 LOAD_ATTR            beatles[43m[30m.append[39m[49m('Ringo')
+        128 LOAD_CONST           beatles.append([43m[30m'Ringo'[39m[49m)
+        131 CALL_FUNCTION        beatles.append([43m[30m'Ringo'[39m[49m)
+        134 POP_TOP              beatles.append([43m[30m'Ringo'[39m[49m)
+
+ 26     135 SETUP_LOOP           [43m[30mfor[39m[49m b in beatles:
+        138 LOAD_NAME            for b in [43m[30mbeatles[39m[49m:
+        141 GET_ITER             for b in [43m[30mbeatles[39m[49m:
+    >>  142 FOR_ITER             for b in [43m[30mbeatles[39m[49m:
+        145 STORE_NAME           for [43m[30mb[39m[49m in beatles:
+
+ 27     148 LOAD_CONST               print([43m[30m'Hello '[39m[49m + b)
+        151 LOAD_NAME                print('Hello ' + [43m[30mb[39m[49m)
+        154 BINARY_ADD               print([43m[30m'Hello ' + b[39m[49m)
+        155 PRINT_ITEM               print([43m[30m'Hello ' + b[39m[49m)
+        156 PRINT_NEWLINE            print([43m[30m'Hello ' + b[39m[49m)
+        157 JUMP_ABSOLUTE            print([43m[30m'Hello ' + b[39m[49m)
+    >>  160 POP_BLOCK                print([43m[30m'Hello ' + b[39m[49m)
+
+ 30 >>  161 LOAD_CONST           ages = ([43m[30m18[39m[49m, 21, 28, 21, 22, 18, 19, 34, 9)
+        164 LOAD_CONST           ages = (18, [43m[30m21[39m[49m, 28, 21, 22, 18, 19, 34, 9)
+        167 LOAD_CONST           ages = (18, 21, [43m[30m28[39m[49m, 21, 22, 18, 19, 34, 9)
+        170 LOAD_CONST           ages = (18, 21, 28, [43m[30m21[39m[49m, 22, 18, 19, 34, 9)
+        173 LOAD_CONST           ages = (18, 21, 28, 21, [43m[30m22[39m[49m, 18, 19, 34, 9)
+        176 LOAD_CONST           ages = (18, 21, 28, 21, 22, [43m[30m18[39m[49m, 19, 34, 9)
+        179 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, [43m[30m19[39m[49m, 34, 9)
+        182 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, 19, [43m[30m34[39m[49m, 9)
+        185 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, 19, 34, [43m[30m9[39m[49m)
+        188 BUILD_TUPLE          ages = (18, 21, 28, 21, 22, 18, 19, 34, [43m[30m9[39m[49m)
+        191 STORE_NAME           [43m[30mages[39m[49m = (18, 21, 28, 21, 22, 18, 19, 34, 9)
+
+ 33     194 LOAD_NAME            uniqueAges = [43m[30mset[39m[49m(ages)
+        197 LOAD_NAME            uniqueAges = set([43m[30mages[39m[49m)
+        200 CALL_FUNCTION        uniqueAges = set([43m[30mages[39m[49m)
+        203 STORE_NAME           [43m[30muniqueAges[39m[49m = set(ages)
+
+ 34     206 LOAD_NAME            [43m[30muniqueAges[39m[49m.add(18) # already in set, no effect
+        209 LOAD_ATTR            uniqueAges[43m[30m.add[39m[49m(18) # already in set, no effect
+        212 LOAD_CONST           uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
+        215 CALL_FUNCTION        uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
+        218 POP_TOP              uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
+
+ 35     219 LOAD_NAME            [43m[30muniqueAges[39m[49m.remove(21)
+        222 LOAD_ATTR            uniqueAges[43m[30m.remove[39m[49m(21)
+        225 LOAD_CONST           uniqueAges.remove([43m[30m21[39m[49m)
+        228 CALL_FUNCTION        uniqueAges.remove([43m[30m21[39m[49m)
+        231 POP_TOP              uniqueAges.remove([43m[30m21[39m[49m)
+
+ 38     232 SETUP_LOOP           [43m[30mfor[39m[49m thisAge in uniqueAges:
+        235 LOAD_NAME            for thisAge in [43m[30muniqueAges[39m[49m:
+        238 GET_ITER             for thisAge in [43m[30muniqueAges[39m[49m:
+    >>  239 FOR_ITER             for thisAge in [43m[30muniqueAges[39m[49m:
+        242 STORE_NAME           for [43m[30mthisAge[39m[49m in uniqueAges:
+
+ 39     245 LOAD_NAME                print([43m[30mthisAge[39m[49m)
+        248 PRINT_ITEM               print([43m[30mthisAge[39m[49m)
+        249 PRINT_NEWLINE            print([43m[30mthisAge[39m[49m)
+        250 JUMP_ABSOLUTE            print([43m[30mthisAge[39m[49m)
+    >>  253 POP_BLOCK                print([43m[30mthisAge[39m[49m)
+
+ 42 >>  254 LOAD_CONST           if [43m[30m18[39m[49m in uniqueAges:
+        257 LOAD_NAME            if 18 in [43m[30muniqueAges[39m[49m:
+        260 COMPARE_OP           if [43m[30m18 in uniqueAges[39m[49m:
+        263 POP_JUMP_IF_FALSE    if [43m[30m18 in uniqueAges[39m[49m:
+
+ 43     266 LOAD_CONST               print([43m[30m'There is an 18-year-old present!'[39m[49m)
+        269 PRINT_ITEM               print([43m[30m'There is an 18-year-old present!'[39m[49m)
+        270 PRINT_NEWLINE            print([43m[30m'There is an 18-year-old present!'[39m[49m)
+        271 JUMP_FORWARD             print([43m[30m'There is an 18-year-old present!'[39m[49m)
+
+ 46 >>  274 LOAD_NAME            [43m[30mbeatles[39m[49m.sort() # in-place
+        277 LOAD_ATTR            beatles[43m[30m.sort[39m[49m() # in-place
+        280 CALL_FUNCTION        beatles[43m[30m.sort[39m[49m() # in-place
+        283 POP_TOP              beatles[43m[30m.sort[39m[49m() # in-place
+
+ 47     284 LOAD_NAME            orderedUniqueAges = [43m[30msorted[39m[49m(uniqueAges) # new list
+        287 LOAD_NAME            orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
+        290 CALL_FUNCTION        orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
+        293 STORE_NAME           [43m[30morderedUniqueAges[39m[49m = sorted(uniqueAges) # new list
+
+ 50     296 BUILD_MAP            netWorth = [43m[30m{[39m[49m}
+        299 STORE_NAME           [43m[30mnetWorth[39m[49m = {}
+
+ 51     302 LOAD_CONST           netWorth['Donald Trump'] = [43m[30m3000000000[39m[49m
+        305 LOAD_NAME            [43m[30mnetWorth[39m[49m['Donald Trump'] = 3000000000
+        308 LOAD_CONST           netWorth[[43m[30m'Donald Trump'[39m[49m] = 3000000000
+        311 STORE_SUBSCR         netWorth[[43m[30m'Donald Trump'[39m[49m] = 3000000000
+
+ 52     312 LOAD_CONST           netWorth['Bill Gates'] = [43m[30m58000000000[39m[49m
+        315 LOAD_NAME            [43m[30mnetWorth[39m[49m['Bill Gates'] = 58000000000
+        318 LOAD_CONST           netWorth[[43m[30m'Bill Gates'[39m[49m] = 58000000000
+        321 STORE_SUBSCR         netWorth[[43m[30m'Bill Gates'[39m[49m] = 58000000000
+
+ 53     322 LOAD_CONST           netWorth['Tom Cruise'] = [43m[30m40000000[39m[49m
+        325 LOAD_NAME            [43m[30mnetWorth[39m[49m['Tom Cruise'] = 40000000
+        328 LOAD_CONST           netWorth[[43m[30m'Tom Cruise'[39m[49m] = 40000000
+        331 STORE_SUBSCR         netWorth[[43m[30m'Tom Cruise'[39m[49m] = 40000000
+
+ 54     332 LOAD_CONST           netWorth['Joe Postdoc'] = [43m[30m20000[39m[49m
+        335 LOAD_NAME            [43m[30mnetWorth[39m[49m['Joe Postdoc'] = 20000
+        338 LOAD_CONST           netWorth[[43m[30m'Joe Postdoc'[39m[49m] = 20000
+        341 STORE_SUBSCR         netWorth[[43m[30m'Joe Postdoc'[39m[49m] = 20000
+
+ 57     342 SETUP_LOOP           [43m[30mfor[39m[49m (person, worth) in netWorth.items():
+        345 LOAD_NAME            for (person, worth) in [43m[30mnetWorth[39m[49m.items():
+        348 LOAD_ATTR            for (person, worth) in netWorth[43m[30m.items[39m[49m():
+        351 CALL_FUNCTION        for (person, worth) in netWorth[43m[30m.items[39m[49m():
+        354 GET_ITER             for (person, worth) in netWorth[43m[30m.items[39m[49m():
+    >>  355 FOR_ITER             for (person, worth) in netWorth[43m[30m.items[39m[49m():
+        358 UNPACK_SEQUENCE      for ([43m[30mperson[39m[49m, worth) in netWorth.items():
+        361 STORE_NAME           for ([43m[30mperson[39m[49m, worth) in netWorth.items():
+        364 STORE_NAME           for (person, [43m[30mworth[39m[49m) in netWorth.items():
+
+ 58     367 LOAD_NAME                if [43m[30mworth[39m[49m < 1000000:
+        370 LOAD_CONST               if worth < [43m[30m1000000[39m[49m:
+        373 COMPARE_OP               if [43m[30mworth < 1000000[39m[49m:
+        376 POP_JUMP_IF_FALSE        if [43m[30mworth < 1000000[39m[49m:
+
+ 59     379 LOAD_CONST                   print([43m[30m'haha '[39m[49m + person + ' is not a millionaire')
+        382 LOAD_NAME                    print('haha ' + [43m[30mperson[39m[49m + ' is not a millionaire')
+        385 BINARY_ADD                   print([43m[30m'haha ' + person[39m[49m + ' is not a millionaire')
+        386 LOAD_CONST                   print('haha ' + person + [43m[30m' is not a millionaire'[39m[49m)
+        389 BINARY_ADD                   print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+        390 PRINT_ITEM                   print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+        391 PRINT_NEWLINE                print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+        392 JUMP_FORWARD                 print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+    >>  395 JUMP_ABSOLUTE                print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+    >>  398 POP_BLOCK                    print([43m[30m'haha ' + person + ' is not a millionaire'[39m[49m)
+
+ 62 >>  399 LOAD_CONST           if [43m[30m'Tom Cruise'[39m[49m in netWorth:
+        402 LOAD_NAME            if 'Tom Cruise' in [43m[30mnetWorth[39m[49m:
+        405 COMPARE_OP           if [43m[30m'Tom Cruise' in netWorth[39m[49m:
+        408 POP_JUMP_IF_FALSE    if [43m[30m'Tom Cruise' in netWorth[39m[49m:
+
+ 63     411 LOAD_CONST               print([43m[30m'show me the money!'[39m[49m)
+        414 PRINT_ITEM               print([43m[30m'show me the money!'[39m[49m)
+        415 PRINT_NEWLINE            print([43m[30m'show me the money!'[39m[49m)
+        416 JUMP_FORWARD             print([43m[30m'show me the money!'[39m[49m)
+    >>  419 LOAD_CONST               print([43m[30m'show me the money!'[39m[49m)
+        422 RETURN_VALUE             print([43m[30m'show me the money!'[39m[49m)

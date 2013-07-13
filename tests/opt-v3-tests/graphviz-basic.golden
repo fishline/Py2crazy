@@ -1,0 +1,30 @@
+Disassembling top-level module in ./opt-v3-tests/graphviz-basic.txt
+  1       0 LOAD_CONST           [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+          3 LOAD_CONST           [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+          6 IMPORT_NAME          [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+          9 IMPORT_FROM          [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+         12 STORE_NAME           [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+         15 POP_TOP              [43m[30mfrom[39m[49m GChartWrapper import GraphViz
+
+  2      16 LOAD_CONST           [43m[30mimport[39m[49m html_module
+         19 LOAD_CONST           [43m[30mimport[39m[49m html_module
+         22 IMPORT_NAME          [43m[30mimport[39m[49m html_module
+         25 STORE_NAME           [43m[30mimport[39m[49m html_module
+
+ 22      28 LOAD_CONST           ''[43m[30m[39m[49m'''
+         31 STORE_NAME           [43m[30m'[39m[49m''
+
+ 24      34 LOAD_NAME            g = [43m[30mGraphViz[39m[49m(DOTFILE)
+         37 LOAD_NAME            g = GraphViz([43m[30mDOTFILE[39m[49m)
+         40 CALL_FUNCTION        g = GraphViz([43m[30mDOTFILE[39m[49m)
+         43 STORE_NAME           [43m[30mg[39m[49m = GraphViz(DOTFILE)
+
+ 26      46 LOAD_NAME            [43m[30mhtml_module[39m[49m.display_img(str(g))
+         49 LOAD_ATTR            html_module[43m[30m.display_img[39m[49m(str(g))
+         52 LOAD_NAME            html_module.display_img([43m[30mstr[39m[49m(g))
+         55 LOAD_NAME            html_module.display_img(str([43m[30mg[39m[49m))
+         58 CALL_FUNCTION        html_module.display_img(str([43m[30mg[39m[49m))
+         61 CALL_FUNCTION        html_module.display_img(str([43m[30mg[39m[49m))
+         64 POP_TOP              html_module.display_img(str([43m[30mg[39m[49m))
+         65 LOAD_CONST           html_module.display_img(str([43m[30mg[39m[49m))
+         68 RETURN_VALUE         html_module.display_img(str([43m[30mg[39m[49m))

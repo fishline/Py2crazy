@@ -1,0 +1,32 @@
+Disassembling top-level module in ./opt-v3-tests/john-import-test.txt
+  1       0 LOAD_CONST           [43m[30mimport[39m[49m math
+          3 LOAD_CONST           [43m[30mimport[39m[49m math
+          6 IMPORT_NAME          [43m[30mimport[39m[49m math
+          9 STORE_NAME           [43m[30mimport[39m[49m math
+
+  2      12 LOAD_CONST           [43m[30mimport[39m[49m operator
+         15 LOAD_CONST           [43m[30mimport[39m[49m operator
+         18 IMPORT_NAME          [43m[30mimport[39m[49m operator
+         21 STORE_NAME           [43m[30mimport[39m[49m operator
+
+  3      24 LOAD_CONST           [43m[30mimport[39m[49m string
+         27 LOAD_CONST           [43m[30mimport[39m[49m string
+         30 IMPORT_NAME          [43m[30mimport[39m[49m string
+         33 STORE_NAME           [43m[30mimport[39m[49m string
+
+  4      36 LOAD_CONST           [43m[30mimport[39m[49m collections
+         39 LOAD_CONST           [43m[30mimport[39m[49m collections
+         42 IMPORT_NAME          [43m[30mimport[39m[49m collections
+         45 STORE_NAME           [43m[30mimport[39m[49m collections
+
+  5      48 LOAD_CONST           [43m[30mimport[39m[49m re
+         51 LOAD_CONST           [43m[30mimport[39m[49m re
+         54 IMPORT_NAME          [43m[30mimport[39m[49m re
+         57 STORE_NAME           [43m[30mimport[39m[49m re
+
+  6      60 LOAD_CONST           [43m[30mimport[39m[49m json
+         63 LOAD_CONST           [43m[30mimport[39m[49m json
+         66 IMPORT_NAME          [43m[30mimport[39m[49m json
+         69 STORE_NAME           [43m[30mimport[39m[49m json
+         72 LOAD_CONST           [43m[30mimport[39m[49m json
+         75 RETURN_VALUE         [43m[30mimport[39m[49m json

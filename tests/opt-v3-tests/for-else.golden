@@ -1,0 +1,41 @@
+Disassembling top-level module in ./opt-v3-tests/for-else.txt
+  2       0 SETUP_LOOP           [43m[30mfor[39m[49m n in range(2, 10):
+          3 LOAD_NAME            for n in [43m[30mrange[39m[49m(2, 10):
+          6 LOAD_CONST           for n in range([43m[30m2[39m[49m, 10):
+          9 LOAD_CONST           for n in range(2, [43m[30m10[39m[49m):
+         12 CALL_FUNCTION        for n in range(2, [43m[30m10[39m[49m):
+         15 GET_ITER             for n in range(2, [43m[30m10[39m[49m):
+    >>   16 FOR_ITER             for n in range(2, [43m[30m10[39m[49m):
+         19 STORE_NAME           for [43m[30mn[39m[49m in range(2, 10):
+
+  3      22 LOAD_NAME                x_range = [43m[30mrange[39m[49m(2, n)
+         25 LOAD_CONST               x_range = range([43m[30m2[39m[49m, n)
+         28 LOAD_NAME                x_range = range(2, [43m[30mn[39m[49m)
+         31 CALL_FUNCTION            x_range = range(2, [43m[30mn[39m[49m)
+         34 STORE_NAME               [43m[30mx_range[39m[49m = range(2, n)
+
+  4      37 SETUP_LOOP               [43m[30mfor[39m[49m x in x_range:
+         40 LOAD_NAME                for x in [43m[30mx_range[39m[49m:
+         43 GET_ITER                 for x in [43m[30mx_range[39m[49m:
+    >>   44 FOR_ITER                 for x in [43m[30mx_range[39m[49m:
+         47 STORE_NAME               for [43m[30mx[39m[49m in x_range:
+
+  5      50 LOAD_NAME                    if [43m[30mn[39m[49m % x == 0:
+         53 LOAD_NAME                    if n % [43m[30mx[39m[49m == 0:
+         56 BINARY_MODULO                if [43m[30mn % x[39m[49m == 0:
+         57 LOAD_CONST                   if n % x == [43m[30m0[39m[49m:
+         60 COMPARE_OP                   if [43m[30mn % x == 0[39m[49m:
+         63 POP_JUMP_IF_FALSE            if [43m[30mn % x == 0[39m[49m:
+
+  6      66 BREAK_LOOP                       [43m[30mbreak[39m[49m
+         67 JUMP_FORWARD                     [43m[30mbreak[39m[49m
+    >>   70 JUMP_ABSOLUTE                    [43m[30mbreak[39m[49m
+    >>   73 POP_BLOCK                        [43m[30mbreak[39m[49m
+
+  9      74 LOAD_NAME                    print([43m[30mn[39m[49m)
+         77 PRINT_ITEM                   print([43m[30mn[39m[49m)
+         78 PRINT_NEWLINE                print([43m[30mn[39m[49m)
+    >>   79 JUMP_ABSOLUTE                print([43m[30mn[39m[49m)
+    >>   82 POP_BLOCK                    print([43m[30mn[39m[49m)
+    >>   83 LOAD_CONST                   print([43m[30mn[39m[49m)
+         86 RETURN_VALUE                 print([43m[30mn[39m[49m)

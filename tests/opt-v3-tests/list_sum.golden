@@ -1,0 +1,43 @@
+Disassembling top-level module in ./opt-v3-tests/list_sum.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m listSum(numbers):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m listSum(numbers):
+          6 STORE_NAME           [43m[30mdef[39m[49m listSum(numbers):
+
+  8       9 LOAD_CONST           myList = ([43m[30m1[39m[49m, (2, (3, None)))
+         12 LOAD_CONST           myList = (1, ([43m[30m2[39m[49m, (3, None)))
+         15 LOAD_CONST           myList = (1, (2, ([43m[30m3[39m[49m, None)))
+         18 LOAD_NAME            myList = (1, (2, (3, [43m[30mNone[39m[49m)))
+         21 BUILD_TUPLE          myList = (1, (2, (3, [43m[30mNone[39m[49m)))
+         24 BUILD_TUPLE          myList = (1, (2, (3, [43m[30mNone[39m[49m)))
+         27 BUILD_TUPLE          myList = (1, (2, (3, [43m[30mNone[39m[49m)))
+         30 STORE_NAME           [43m[30mmyList[39m[49m = (1, (2, (3, None)))
+
+  9      33 LOAD_NAME            total = [43m[30mlistSum[39m[49m(myList)
+         36 LOAD_NAME            total = listSum([43m[30mmyList[39m[49m)
+         39 CALL_FUNCTION        total = listSum([43m[30mmyList[39m[49m)
+         42 STORE_NAME           [43m[30mtotal[39m[49m = listSum(myList)
+         45 LOAD_CONST           [43m[30mtotal[39m[49m = listSum(myList)
+         48 RETURN_VALUE         [43m[30mtotal[39m[49m = listSum(myList)
+
+Disassembling function listSum
+  2       0 LOAD_FAST              if not [43m[30mnumbers[39m[49m:
+          3 UNARY_NOT              if [43m[30mn[39m[49mot numbers:
+          4 POP_JUMP_IF_FALSE      if [43m[30mn[39m[49mot numbers:
+
+  3       7 LOAD_CONST               return [43m[30m0[39m[49m
+         10 RETURN_VALUE             return [43m[30m0[39m[49m
+         11 JUMP_FORWARD             return [43m[30m0[39m[49m
+
+  5 >>   14 LOAD_FAST                (f, rest) = [43m[30mnumbers[39m[49m
+         17 UNPACK_SEQUENCE          ([43m[30mf[39m[49m, rest) = numbers
+         20 STORE_FAST               ([43m[30mf[39m[49m, rest) = numbers
+         23 STORE_FAST               (f, [43m[30mrest[39m[49m) = numbers
+
+  6      26 LOAD_FAST                return [43m[30mf[39m[49m + listSum(rest)
+         29 LOAD_GLOBAL              return f + [43m[30mlistSum[39m[49m(rest)
+         32 LOAD_FAST                return f + listSum([43m[30mrest[39m[49m)
+         35 CALL_FUNCTION            return f + listSum([43m[30mrest[39m[49m)
+         38 BINARY_ADD               return [43m[30mf + listSum[39m[49m(rest)
+         39 RETURN_VALUE             return [43m[30mf + listSum[39m[49m(rest)
+    >>   40 LOAD_CONST               return [43m[30mf + listSum[39m[49m(rest)
+         43 RETURN_VALUE             return [43m[30mf + listSum[39m[49m(rest)

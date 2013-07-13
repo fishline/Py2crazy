@@ -1,0 +1,59 @@
+Disassembling top-level module in ./opt-v3-tests/decorators.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m make_bold(fn):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m make_bold(fn):
+          6 STORE_NAME           [43m[30mdef[39m[49m make_bold(fn):
+
+  4       9 LOAD_CONST           [43m[30mdef[39m[49m make_italic(fn):
+         12 MAKE_FUNCTION        [43m[30mdef[39m[49m make_italic(fn):
+         15 STORE_NAME           [43m[30mdef[39m[49m make_italic(fn):
+
+  7      18 LOAD_NAME            @[43m[30mmake_bold[39m[49m
+
+  8      21 LOAD_NAME            @[43m[30mmake_italic[39m[49m
+         24 LOAD_CONST           @[43m[30mmake_italic[39m[49m
+         27 MAKE_FUNCTION        @[43m[30mmake_italic[39m[49m
+         30 CALL_FUNCTION        @[43m[30mmake_italic[39m[49m
+         33 CALL_FUNCTION        @[43m[30mmake_italic[39m[49m
+         36 STORE_NAME           @[43m[30mmake_italic[39m[49m
+
+ 12      39 LOAD_NAME            helloHTML = [43m[30mhello[39m[49m()
+         42 CALL_FUNCTION        helloHTML = [43m[30mhello[39m[49m()
+         45 STORE_NAME           [43m[30mhelloHTML[39m[49m = hello()
+         48 LOAD_CONST           [43m[30mhelloHTML[39m[49m = hello()
+         51 RETURN_VALUE         [43m[30mhelloHTML[39m[49m = hello()
+
+Disassembling function make_bold
+  2       0 LOAD_CLOSURE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+          3 BUILD_TUPLE              return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+          6 LOAD_CONST               return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+          9 MAKE_CLOSURE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+         12 RETURN_VALUE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+
+Disassembling function <lambda>
+  2       0 LOAD_CONST               return lambda : [43m[30m"<b>"[39m[49m + fn() + "</b>"
+          3 LOAD_DEREF               return lambda : "<b>" + [43m[30mfn[39m[49m() + "</b>"
+          6 CALL_FUNCTION            return lambda : "<b>" + [43m[30mfn[39m[49m() + "</b>"
+          9 BINARY_ADD               return lambda : [43m[30m"<b>" + fn[39m[49m() + "</b>"
+         10 LOAD_CONST               return lambda : "<b>" + fn() + [43m[30m"</b>"[39m[49m
+         13 BINARY_ADD               return lambda : [43m[30m"<b>" + fn() + "</b>"[39m[49m
+         14 RETURN_VALUE             return lambda : [43m[30m"<b>" + fn() + "</b>"[39m[49m
+
+Disassembling function hello
+ 10       0 LOAD_CONST             return [43m[30m"hello world"[39m[49m
+          3 RETURN_VALUE           return [43m[30m"hello world"[39m[49m
+
+Disassembling function make_italic
+  5       0 LOAD_CLOSURE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+          3 BUILD_TUPLE              return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+          6 LOAD_CONST               return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+          9 MAKE_CLOSURE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+         12 RETURN_VALUE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+
+Disassembling function <lambda>
+  5       0 LOAD_CONST               return lambda : [43m[30m"<i>"[39m[49m + fn() + "</i>"
+          3 LOAD_DEREF               return lambda : "<i>" + [43m[30mfn[39m[49m() + "</i>"
+          6 CALL_FUNCTION            return lambda : "<i>" + [43m[30mfn[39m[49m() + "</i>"
+          9 BINARY_ADD               return lambda : [43m[30m"<i>" + fn[39m[49m() + "</i>"
+         10 LOAD_CONST               return lambda : "<i>" + fn() + [43m[30m"</i>"[39m[49m
+         13 BINARY_ADD               return lambda : [43m[30m"<i>" + fn() + "</i>"[39m[49m
+         14 RETURN_VALUE             return lambda : [43m[30m"<i>" + fn() + "</i>"[39m[49m

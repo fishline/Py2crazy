@@ -1,0 +1,32 @@
+Disassembling top-level module in ./opt-v3-tests/newstyle_class.txt
+  1       0 LOAD_CONST           [43m[30mclass[39m[49m A(object):
+          3 LOAD_NAME            class A([43m[30mobject[39m[49m):
+          6 BUILD_TUPLE          class A([43m[30mobject[39m[49m):
+          9 LOAD_CONST           class A([43m[30mobject[39m[49m):
+         12 MAKE_FUNCTION        class A([43m[30mobject[39m[49m):
+         15 CALL_FUNCTION        class A([43m[30mobject[39m[49m):
+         18 BUILD_CLASS          class A([43m[30mobject[39m[49m):
+         19 STORE_NAME           class A([43m[30mobject[39m[49m):
+
+  9      22 LOAD_NAME            a = [43m[30mA[39m[49m()
+         25 CALL_FUNCTION        a = [43m[30mA[39m[49m()
+         28 STORE_NAME           [43m[30ma[39m[49m = A()
+
+ 11      31 LOAD_NAME            [43m[30ma[39m[49m.x()
+         34 LOAD_ATTR            a[43m[30m.x[39m[49m()
+         37 CALL_FUNCTION        a[43m[30m.x[39m[49m()
+         40 POP_TOP              a[43m[30m.x[39m[49m()
+
+ 13      41 LOAD_NAME            print([43m[30ma[39m[49m.bla)
+         44 LOAD_ATTR            print(a[43m[30m.bla[39m[49m)
+         47 PRINT_ITEM           print(a[43m[30m.bla[39m[49m)
+         48 PRINT_NEWLINE        print(a[43m[30m.bla[39m[49m)
+
+ 14      49 LOAD_NAME            print([43m[30mA[39m[49m.bla)
+         52 LOAD_ATTR            print(A[43m[30m.bla[39m[49m)
+         55 PRINT_ITEM           print(A[43m[30m.bla[39m[49m)
+         56 PRINT_NEWLINE        print(A[43m[30m.bla[39m[49m)
+         57 LOAD_CONST           print(A[43m[30m.bla[39m[49m)
+         60 RETURN_VALUE         print(A[43m[30m.bla[39m[49m)
+
+Disassembling function A

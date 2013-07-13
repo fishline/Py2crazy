@@ -1,0 +1,16 @@
+Disassembling top-level module in ./opt-v3-tests/open_error.txt
+  1       0 SETUP_LOOP           [43m[30mfor[39m[49m line in open("/etc/passwd"):
+          3 LOAD_NAME            for line in [43m[30mopen[39m[49m("/etc/passwd"):
+          6 LOAD_CONST           for line in open([43m[30m"/etc/passwd"[39m[49m):
+          9 CALL_FUNCTION        for line in open([43m[30m"/etc/passwd"[39m[49m):
+         12 GET_ITER             for line in open([43m[30m"/etc/passwd"[39m[49m):
+    >>   13 FOR_ITER             for line in open([43m[30m"/etc/passwd"[39m[49m):
+         16 STORE_NAME           for [43m[30mline[39m[49m in open("/etc/passwd"):
+
+  2      19 LOAD_NAME                print([43m[30mline[39m[49m)
+         22 PRINT_ITEM               print([43m[30mline[39m[49m)
+         23 PRINT_NEWLINE            print([43m[30mline[39m[49m)
+         24 JUMP_ABSOLUTE            print([43m[30mline[39m[49m)
+    >>   27 POP_BLOCK                print([43m[30mline[39m[49m)
+    >>   28 LOAD_CONST               print([43m[30mline[39m[49m)
+         31 RETURN_VALUE             print([43m[30mline[39m[49m)

@@ -1,0 +1,55 @@
+Disassembling top-level module in ./opt-v3-tests/memo_fib.txt
+  4       0 BUILD_MAP            MemoTable = [43m[30m{[39m[49m}
+          3 STORE_NAME           [43m[30mMemoTable[39m[49m = {}
+
+  6       6 LOAD_CONST           [43m[30mdef[39m[49m MemoizedFib(n):
+          9 MAKE_FUNCTION        [43m[30mdef[39m[49m MemoizedFib(n):
+         12 STORE_NAME           [43m[30mdef[39m[49m MemoizedFib(n):
+
+ 17      15 LOAD_NAME            res = [43m[30mMemoizedFib[39m[49m(10)
+         18 LOAD_CONST           res = MemoizedFib([43m[30m10[39m[49m)
+         21 CALL_FUNCTION        res = MemoizedFib([43m[30m10[39m[49m)
+         24 STORE_NAME           [43m[30mres[39m[49m = MemoizedFib(10)
+         27 LOAD_CONST           [43m[30mres[39m[49m = MemoizedFib(10)
+         30 RETURN_VALUE         [43m[30mres[39m[49m = MemoizedFib(10)
+
+Disassembling function MemoizedFib
+  7       0 LOAD_FAST                if [43m[30mn[39m[49m <= 2:
+          3 LOAD_CONST               if n <= [43m[30m2[39m[49m:
+          6 COMPARE_OP               if [43m[30mn <= 2[39m[49m:
+          9 POP_JUMP_IF_FALSE        if [43m[30mn <= 2[39m[49m:
+
+  8      12 LOAD_CONST                   return [43m[30m1[39m[49m
+         15 RETURN_VALUE                 return [43m[30m1[39m[49m
+         16 JUMP_FORWARD                 return [43m[30m1[39m[49m
+
+ 10 >>   19 LOAD_FAST                if [43m[30mn[39m[49m in MemoTable:
+         22 LOAD_GLOBAL              if n in [43m[30mMemoTable[39m[49m:
+         25 COMPARE_OP               if [43m[30mn in MemoTable[39m[49m:
+         28 POP_JUMP_IF_FALSE        if [43m[30mn in MemoTable[39m[49m:
+
+ 11      31 LOAD_GLOBAL                  return [43m[30mMemoTable[39m[49m[n]
+         34 LOAD_FAST                    return MemoTable[[43m[30mn[39m[49m]
+         37 BINARY_SUBSCR                return MemoTable[[43m[30mn[39m[49m]
+         38 RETURN_VALUE                 return MemoTable[[43m[30mn[39m[49m]
+         39 JUMP_FORWARD                 return MemoTable[[43m[30mn[39m[49m]
+
+ 13 >>   42 LOAD_GLOBAL              MemoTable[n] = [43m[30mMemoizedFib[39m[49m(n-1) + MemoizedFib(n-2)
+         45 LOAD_FAST                MemoTable[n] = MemoizedFib([43m[30mn[39m[49m-1) + MemoizedFib(n-2)
+         48 LOAD_CONST               MemoTable[n] = MemoizedFib(n-[43m[30m1[39m[49m) + MemoizedFib(n-2)
+         51 BINARY_SUBTRACT          MemoTable[n] = MemoizedFib([43m[30mn-1[39m[49m) + MemoizedFib(n-2)
+         52 CALL_FUNCTION            MemoTable[n] = MemoizedFib([43m[30mn-1[39m[49m) + MemoizedFib(n-2)
+         55 LOAD_GLOBAL              MemoTable[n] = MemoizedFib(n-1) + [43m[30mMemoizedFib[39m[49m(n-2)
+         58 LOAD_FAST                MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn[39m[49m-2)
+         61 LOAD_CONST               MemoTable[n] = MemoizedFib(n-1) + MemoizedFib(n-[43m[30m2[39m[49m)
+         64 BINARY_SUBTRACT          MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
+         65 CALL_FUNCTION            MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
+         68 BINARY_ADD               MemoTable[n] = [43m[30mMemoizedFib(n-1) + MemoizedFib[39m[49m(n-2)
+         69 LOAD_GLOBAL              [43m[30mMemoTable[39m[49m[n] = MemoizedFib(n-1) + MemoizedFib(n-2)
+         72 LOAD_FAST                MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
+         75 STORE_SUBSCR             MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
+
+ 14      76 LOAD_GLOBAL              return [43m[30mMemoTable[39m[49m[n]
+         79 LOAD_FAST                return MemoTable[[43m[30mn[39m[49m]
+         82 BINARY_SUBSCR            return MemoTable[[43m[30mn[39m[49m]
+         83 RETURN_VALUE             return MemoTable[[43m[30mn[39m[49m]

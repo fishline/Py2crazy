@@ -1,0 +1,41 @@
+Disassembling top-level module in ./opt-v3-tests/ling-scheme-1.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m repeat(f, n):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m repeat(f, n):
+          6 STORE_NAME           [43m[30mdef[39m[49m repeat(f, n):
+
+  7       9 LOAD_NAME            [43m[30mrepeat[39m[49m(lambda : 5, 5)
+         12 LOAD_CONST           repeat([43m[30mlambda[39m[49m : 5, 5)
+         15 MAKE_FUNCTION        repeat([43m[30mlambda[39m[49m : 5, 5)
+         18 LOAD_CONST           repeat(lambda : 5, [43m[30m5[39m[49m)
+         21 CALL_FUNCTION        repeat(lambda : 5, [43m[30m5[39m[49m)
+         24 POP_TOP              repeat(lambda : 5, [43m[30m5[39m[49m)
+         25 LOAD_CONST           repeat(lambda : 5, [43m[30m5[39m[49m)
+         28 RETURN_VALUE         repeat(lambda : 5, [43m[30m5[39m[49m)
+
+Disassembling function repeat
+  2       0 LOAD_FAST              if [43m[30mn[39m[49m == 0:
+          3 LOAD_CONST             if n == [43m[30m0[39m[49m:
+          6 COMPARE_OP             if [43m[30mn == 0[39m[49m:
+          9 POP_JUMP_IF_FALSE      if [43m[30mn == 0[39m[49m:
+
+  3      12 BUILD_LIST               return [43m[30m[[39m[49m]
+         15 RETURN_VALUE             return [43m[30m[[39m[49m]
+         16 JUMP_FORWARD             return [43m[30m[[39m[49m]
+
+  5 >>   19 LOAD_FAST                return [[43m[30mf[39m[49m()] + repeat(f, n - 1)
+         22 CALL_FUNCTION            return [[43m[30mf[39m[49m()] + repeat(f, n - 1)
+         25 BUILD_LIST               return [[43m[30mf[39m[49m()] + repeat(f, n - 1)
+         28 LOAD_GLOBAL              return [f()] + [43m[30mrepeat[39m[49m(f, n - 1)
+         31 LOAD_FAST                return [f()] + repeat([43m[30mf[39m[49m, n - 1)
+         34 LOAD_FAST                return [f()] + repeat(f, [43m[30mn[39m[49m - 1)
+         37 LOAD_CONST               return [f()] + repeat(f, n - [43m[30m1[39m[49m)
+         40 BINARY_SUBTRACT          return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
+         41 CALL_FUNCTION            return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
+         44 BINARY_ADD               return [f()] [43m[30m+[39m[49m repeat(f, n - 1)
+         45 RETURN_VALUE             return [f()] [43m[30m+[39m[49m repeat(f, n - 1)
+    >>   46 LOAD_CONST               return [f()] [43m[30m+[39m[49m repeat(f, n - 1)
+         49 RETURN_VALUE             return [f()] [43m[30m+[39m[49m repeat(f, n - 1)
+
+Disassembling function <lambda>
+  7       0 LOAD_CONST           repeat(lambda : [43m[30m5[39m[49m, 5)
+          3 RETURN_VALUE         repeat(lambda : [43m[30m5[39m[49m, 5)

@@ -1,0 +1,30 @@
+Disassembling top-level module in ./opt-v3-tests/parent-finding-1.txt
+  2       0 LOAD_CONST           [43m[30mdef[39m[49m f(x, y):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m f(x, y):
+          6 STORE_NAME           [43m[30mdef[39m[49m f(x, y):
+
+  7       9 LOAD_NAME            [43m[30mf[39m[49m(1, 2)
+         12 LOAD_CONST           f([43m[30m1[39m[49m, 2)
+         15 LOAD_CONST           f(1, [43m[30m2[39m[49m)
+         18 CALL_FUNCTION        f(1, [43m[30m2[39m[49m)
+         21 POP_TOP              f(1, [43m[30m2[39m[49m)
+         22 LOAD_CONST           f(1, [43m[30m2[39m[49m)
+         25 RETURN_VALUE         f(1, [43m[30m2[39m[49m)
+
+Disassembling function f
+  3       0 LOAD_CLOSURE             [43m[30mdef[39m[49m g(x):
+          3 BUILD_TUPLE              [43m[30mdef[39m[49m g(x):
+          6 LOAD_CONST               [43m[30mdef[39m[49m g(x):
+          9 MAKE_CLOSURE             [43m[30mdef[39m[49m g(x):
+         12 STORE_FAST               [43m[30mdef[39m[49m g(x):
+
+  5      15 LOAD_FAST                return [43m[30mg[39m[49m(3)
+         18 LOAD_CONST               return g([43m[30m3[39m[49m)
+         21 CALL_FUNCTION            return g([43m[30m3[39m[49m)
+         24 RETURN_VALUE             return g([43m[30m3[39m[49m)
+
+Disassembling function g
+  4       0 LOAD_FAST                    return [43m[30mx[39m[49m + y
+          3 LOAD_DEREF                   return x + [43m[30my[39m[49m
+          6 BINARY_ADD                   return [43m[30mx + y[39m[49m
+          7 RETURN_VALUE                 return [43m[30mx + y[39m[49m

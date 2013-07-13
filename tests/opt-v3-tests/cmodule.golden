@@ -1,0 +1,9 @@
+Disassembling top-level module in ./opt-v3-tests/cmodule.txt
+  3       0 LOAD_CONST           [43m[30mfrom[39m[49m datetime import datetime_CAPI
+          3 LOAD_CONST           [43m[30mfrom[39m[49m datetime import datetime_CAPI
+          6 IMPORT_NAME          [43m[30mfrom[39m[49m datetime import datetime_CAPI
+          9 IMPORT_FROM          [43m[30mfrom[39m[49m datetime import datetime_CAPI
+         12 STORE_NAME           [43m[30mfrom[39m[49m datetime import datetime_CAPI
+         15 POP_TOP              [43m[30mfrom[39m[49m datetime import datetime_CAPI
+         16 LOAD_CONST           [43m[30mfrom[39m[49m datetime import datetime_CAPI
+         19 RETURN_VALUE         [43m[30mfrom[39m[49m datetime import datetime_CAPI

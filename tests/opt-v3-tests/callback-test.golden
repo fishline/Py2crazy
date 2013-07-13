@@ -1,0 +1,35 @@
+Disassembling top-level module in ./opt-v3-tests/callback-test.txt
+ 11       0 LOAD_CONST           [43m[30mimport[39m[49m callback_module
+          3 LOAD_CONST           [43m[30mimport[39m[49m callback_module
+          6 IMPORT_NAME          [43m[30mimport[39m[49m callback_module
+          9 STORE_NAME           [43m[30mimport[39m[49m callback_module
+
+ 13      12 LOAD_CONST           [43m[30mdef[39m[49m foo():
+         15 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
+         18 STORE_NAME           [43m[30mdef[39m[49m foo():
+
+ 16      21 LOAD_CONST           [43m[30mdef[39m[49m bar():
+         24 MAKE_FUNCTION        [43m[30mdef[39m[49m bar():
+         27 STORE_NAME           [43m[30mdef[39m[49m bar():
+
+ 19      30 LOAD_NAME            [43m[30mfoo[39m[49m()
+         33 CALL_FUNCTION        [43m[30mfoo[39m[49m()
+         36 POP_TOP              [43m[30mfoo[39m[49m()
+         37 LOAD_CONST           [43m[30mfoo[39m[49m()
+         40 RETURN_VALUE         [43m[30mfoo[39m[49m()
+
+Disassembling function foo
+ 14       0 LOAD_GLOBAL            [43m[30mcallback_module[39m[49m.callback_func(bar)
+          3 LOAD_ATTR              callback_module[43m[30m.callback_func[39m[49m(bar)
+          6 LOAD_GLOBAL            callback_module.callback_func([43m[30mbar[39m[49m)
+          9 CALL_FUNCTION          callback_module.callback_func([43m[30mbar[39m[49m)
+         12 POP_TOP                callback_module.callback_func([43m[30mbar[39m[49m)
+         13 LOAD_CONST             callback_module.callback_func([43m[30mbar[39m[49m)
+         16 RETURN_VALUE           callback_module.callback_func([43m[30mbar[39m[49m)
+
+Disassembling function bar
+ 17       0 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          3 PRINT_ITEM               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30m"I'm in a bar!!!"[39m[49m)
+          5 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          8 RETURN_VALUE             print([43m[30m"I'm in a bar!!!"[39m[49m)

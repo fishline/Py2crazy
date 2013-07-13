@@ -1,0 +1,48 @@
+Disassembling top-level module in ./opt-v3-tests/sum-list.txt
+  1       0 LOAD_CONST           myList = ([43m[30m1[39m[49m, (2, (3, (4, (5, None)))))
+          3 LOAD_CONST           myList = (1, ([43m[30m2[39m[49m, (3, (4, (5, None)))))
+          6 LOAD_CONST           myList = (1, (2, ([43m[30m3[39m[49m, (4, (5, None)))))
+          9 LOAD_CONST           myList = (1, (2, (3, ([43m[30m4[39m[49m, (5, None)))))
+         12 LOAD_CONST           myList = (1, (2, (3, (4, ([43m[30m5[39m[49m, None)))))
+         15 LOAD_NAME            myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         18 BUILD_TUPLE          myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         21 BUILD_TUPLE          myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         24 BUILD_TUPLE          myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         27 BUILD_TUPLE          myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         30 BUILD_TUPLE          myList = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         33 STORE_NAME           [43m[30mmyList[39m[49m = (1, (2, (3, (4, (5, None)))))
+
+  3      36 LOAD_CONST           [43m[30mdef[39m[49m sumList(node, subtotal):
+         39 MAKE_FUNCTION        [43m[30mdef[39m[49m sumList(node, subtotal):
+         42 STORE_NAME           [43m[30mdef[39m[49m sumList(node, subtotal):
+
+  9      45 LOAD_NAME            total = [43m[30msumList[39m[49m(myList, 0)
+         48 LOAD_NAME            total = sumList([43m[30mmyList[39m[49m, 0)
+         51 LOAD_CONST           total = sumList(myList, [43m[30m0[39m[49m)
+         54 CALL_FUNCTION        total = sumList(myList, [43m[30m0[39m[49m)
+         57 STORE_NAME           [43m[30mtotal[39m[49m = sumList(myList, 0)
+         60 LOAD_CONST           [43m[30mtotal[39m[49m = sumList(myList, 0)
+         63 RETURN_VALUE         [43m[30mtotal[39m[49m = sumList(myList, 0)
+
+Disassembling function sumList
+  4       0 LOAD_FAST              if not [43m[30mnode[39m[49m:
+          3 UNARY_NOT              if [43m[30mn[39m[49mot node:
+          4 POP_JUMP_IF_FALSE      if [43m[30mn[39m[49mot node:
+
+  5       7 LOAD_FAST                return [43m[30msubtotal[39m[49m
+         10 RETURN_VALUE             return [43m[30msubtotal[39m[49m
+         11 JUMP_FORWARD             return [43m[30msubtotal[39m[49m
+
+  7 >>   14 LOAD_GLOBAL              return [43m[30msumList[39m[49m(node[1], subtotal + node[0])
+         17 LOAD_FAST                return sumList([43m[30mnode[39m[49m[1], subtotal + node[0])
+         20 LOAD_CONST               return sumList(node[[43m[30m1[39m[49m], subtotal + node[0])
+         23 BINARY_SUBSCR            return sumList(node[[43m[30m1[39m[49m], subtotal + node[0])
+         24 LOAD_FAST                return sumList(node[1], [43m[30msubtotal[39m[49m + node[0])
+         27 LOAD_FAST                return sumList(node[1], subtotal + [43m[30mnode[39m[49m[0])
+         30 LOAD_CONST               return sumList(node[1], subtotal + node[[43m[30m0[39m[49m])
+         33 BINARY_SUBSCR            return sumList(node[1], subtotal + node[[43m[30m0[39m[49m])
+         34 BINARY_ADD               return sumList(node[1], subtotal [43m[30m+[39m[49m node[0])
+         35 CALL_FUNCTION            return sumList(node[1], subtotal [43m[30m+[39m[49m node[0])
+         38 RETURN_VALUE             return sumList(node[1], subtotal [43m[30m+[39m[49m node[0])
+    >>   39 LOAD_CONST               return sumList(node[1], subtotal [43m[30m+[39m[49m node[0])
+         42 RETURN_VALUE             return sumList(node[1], subtotal [43m[30m+[39m[49m node[0])

@@ -1,0 +1,68 @@
+Disassembling top-level module in ./opt-v3-tests/two_funcs.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m add(a, b, c):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m add(a, b, c):
+          6 STORE_NAME           [43m[30mdef[39m[49m add(a, b, c):
+
+  5       9 LOAD_CONST           [43m[30mdef[39m[49m double_add(a, b, c):
+         12 MAKE_FUNCTION        [43m[30mdef[39m[49m double_add(a, b, c):
+         15 STORE_NAME           [43m[30mdef[39m[49m double_add(a, b, c):
+
+ 10      18 LOAD_CONST           x = [43m[30m5[39m[49m
+         21 STORE_NAME           [43m[30mx[39m[49m = 5
+
+ 11      24 LOAD_CONST           y = [43m[30m10[39m[49m
+         27 STORE_NAME           [43m[30my[39m[49m = 10
+
+ 12      30 LOAD_NAME            z = [43m[30mx[39m[49m * y
+         33 LOAD_NAME            z = x * [43m[30my[39m[49m
+         36 BINARY_MULTIPLY      z = [43m[30mx * y[39m[49m
+         37 STORE_NAME           [43m[30mz[39m[49m = x * y
+
+ 13      40 LOAD_NAME            print([43m[30madd[39m[49m(x, y, z))
+         43 LOAD_NAME            print(add([43m[30mx[39m[49m, y, z))
+         46 LOAD_NAME            print(add(x, [43m[30my[39m[49m, z))
+         49 LOAD_NAME            print(add(x, y, [43m[30mz[39m[49m))
+         52 CALL_FUNCTION        print(add(x, y, [43m[30mz[39m[49m))
+         55 PRINT_ITEM           print(add(x, y, [43m[30mz[39m[49m))
+         56 PRINT_NEWLINE        print(add(x, y, [43m[30mz[39m[49m))
+
+ 14      57 LOAD_NAME            print([43m[30mdouble_add[39m[49m(x, y, z))
+         60 LOAD_NAME            print(double_add([43m[30mx[39m[49m, y, z))
+         63 LOAD_NAME            print(double_add(x, [43m[30my[39m[49m, z))
+         66 LOAD_NAME            print(double_add(x, y, [43m[30mz[39m[49m))
+         69 CALL_FUNCTION        print(double_add(x, y, [43m[30mz[39m[49m))
+         72 PRINT_ITEM           print(double_add(x, y, [43m[30mz[39m[49m))
+         73 PRINT_NEWLINE        print(double_add(x, y, [43m[30mz[39m[49m))
+         74 LOAD_CONST           print(double_add(x, y, [43m[30mz[39m[49m))
+         77 RETURN_VALUE         print(double_add(x, y, [43m[30mz[39m[49m))
+
+Disassembling function double_add
+  6       0 LOAD_GLOBAL            x = [43m[30madd[39m[49m(a, b, c)
+          3 LOAD_FAST              x = add([43m[30ma[39m[49m, b, c)
+          6 LOAD_FAST              x = add(a, [43m[30mb[39m[49m, c)
+          9 LOAD_FAST              x = add(a, b, [43m[30mc[39m[49m)
+         12 CALL_FUNCTION          x = add(a, b, [43m[30mc[39m[49m)
+         15 STORE_FAST             [43m[30mx[39m[49m = add(a, b, c)
+
+  7      18 LOAD_GLOBAL            y = [43m[30madd[39m[49m(a, b, c)
+         21 LOAD_FAST              y = add([43m[30ma[39m[49m, b, c)
+         24 LOAD_FAST              y = add(a, [43m[30mb[39m[49m, c)
+         27 LOAD_FAST              y = add(a, b, [43m[30mc[39m[49m)
+         30 CALL_FUNCTION          y = add(a, b, [43m[30mc[39m[49m)
+         33 STORE_FAST             [43m[30my[39m[49m = add(a, b, c)
+
+  8      36 LOAD_FAST              return [43m[30mx[39m[49m + y
+         39 LOAD_FAST              return x + [43m[30my[39m[49m
+         42 BINARY_ADD             return [43m[30mx + y[39m[49m
+         43 RETURN_VALUE           return [43m[30mx + y[39m[49m
+
+Disassembling function add
+  2       0 LOAD_FAST              d = [43m[30ma[39m[49m + b
+          3 LOAD_FAST              d = a + [43m[30mb[39m[49m
+          6 BINARY_ADD             d = [43m[30ma + b[39m[49m
+          7 STORE_FAST             [43m[30md[39m[49m = a + b
+
+  3      10 LOAD_FAST              return [43m[30mc[39m[49m + d
+         13 LOAD_FAST              return c + [43m[30md[39m[49m
+         16 BINARY_ADD             return [43m[30mc + d[39m[49m
+         17 RETURN_VALUE           return [43m[30mc + d[39m[49m

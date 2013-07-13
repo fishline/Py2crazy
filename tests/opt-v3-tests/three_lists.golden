@@ -1,0 +1,42 @@
+Disassembling top-level module in ./opt-v3-tests/three_lists.txt
+  3       0 LOAD_CONST           [43m[30mdef[39m[49m f(xs):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m f(xs):
+          6 STORE_NAME           [43m[30mdef[39m[49m f(xs):
+
+  6       9 LOAD_CONST           a = [[43m[30m10[39m[49m, 20, 30]
+         12 LOAD_CONST           a = [10, [43m[30m20[39m[49m, 30]
+         15 LOAD_CONST           a = [10, 20, [43m[30m30[39m[49m]
+         18 BUILD_LIST           a = [10, 20, [43m[30m30[39m[49m]
+         21 STORE_NAME           [43m[30ma[39m[49m = [10, 20, 30]
+
+  7      24 LOAD_NAME            b = [43m[30ma[39m[49m
+         27 STORE_NAME           [43m[30mb[39m[49m = a
+
+  8      30 LOAD_CONST           c = [[43m[30m10[39m[49m, 20, 30]
+         33 LOAD_CONST           c = [10, [43m[30m20[39m[49m, 30]
+         36 LOAD_CONST           c = [10, 20, [43m[30m30[39m[49m]
+         39 BUILD_LIST           c = [10, 20, [43m[30m30[39m[49m]
+         42 STORE_NAME           [43m[30mc[39m[49m = [10, 20, 30]
+
+  9      45 LOAD_CONST           d = [43m[30m24[39m[49m
+         48 STORE_NAME           [43m[30md[39m[49m = 24
+
+ 10      51 LOAD_NAME            e = ([43m[30ma[39m[49m, b, c)
+         54 LOAD_NAME            e = (a, [43m[30mb[39m[49m, c)
+         57 LOAD_NAME            e = (a, b, [43m[30mc[39m[49m)
+         60 BUILD_TUPLE          e = (a, b, [43m[30mc[39m[49m)
+         63 STORE_NAME           [43m[30me[39m[49m = (a, b, c)
+
+ 12      66 LOAD_NAME            [43m[30mf[39m[49m(b)
+         69 LOAD_NAME            f([43m[30mb[39m[49m)
+         72 CALL_FUNCTION        f([43m[30mb[39m[49m)
+         75 POP_TOP              f([43m[30mb[39m[49m)
+         76 LOAD_CONST           f([43m[30mb[39m[49m)
+         79 RETURN_VALUE         f([43m[30mb[39m[49m)
+
+Disassembling function f
+  4       0 LOAD_FAST                print([43m[30mxs[39m[49m)
+          3 PRINT_ITEM               print([43m[30mxs[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30mxs[39m[49m)
+          5 LOAD_CONST               print([43m[30mxs[39m[49m)
+          8 RETURN_VALUE             print([43m[30mxs[39m[49m)

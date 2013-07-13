@@ -1,0 +1,45 @@
+Disassembling top-level module in ./opt-v3-tests/happy.txt
+  2       0 LOAD_CONST           [43m[30mdef[39m[49m happy():
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m happy():
+          6 STORE_NAME           [43m[30mdef[39m[49m happy():
+
+  5       9 LOAD_CONST           [43m[30mdef[39m[49m sing(P):
+         12 MAKE_FUNCTION        [43m[30mdef[39m[49m sing(P):
+         15 STORE_NAME           [43m[30mdef[39m[49m sing(P):
+
+ 12      18 LOAD_NAME            [43m[30msing[39m[49m("Fred")
+         21 LOAD_CONST           sing([43m[30m"Fred"[39m[49m)
+         24 CALL_FUNCTION        sing([43m[30m"Fred"[39m[49m)
+         27 POP_TOP              sing([43m[30m"Fred"[39m[49m)
+         28 LOAD_CONST           sing([43m[30m"Fred"[39m[49m)
+         31 RETURN_VALUE         sing([43m[30m"Fred"[39m[49m)
+
+Disassembling function happy
+  3       0 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          3 PRINT_ITEM               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30m"Happy Birthday to you!"[39m[49m)
+          5 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          8 RETURN_VALUE             print([43m[30m"Happy Birthday to you!"[39m[49m)
+
+Disassembling function sing
+  6       0 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
+          3 CALL_FUNCTION            [43m[30mhappy[39m[49m()
+          6 POP_TOP                  [43m[30mhappy[39m[49m()
+
+  7       7 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
+         10 CALL_FUNCTION            [43m[30mhappy[39m[49m()
+         13 POP_TOP                  [43m[30mhappy[39m[49m()
+
+  8      14 LOAD_CONST               print([43m[30m"Happy Birthday dear "[39m[49m + P + "!")
+         17 LOAD_FAST                print("Happy Birthday dear " + [43m[30mP[39m[49m + "!")
+         20 BINARY_ADD               print([43m[30m"Happy Birthday dear " + P[39m[49m + "!")
+         21 LOAD_CONST               print("Happy Birthday dear " + P + [43m[30m"!"[39m[49m)
+         24 BINARY_ADD               print([43m[30m"Happy Birthday dear " + P + "!"[39m[49m)
+         25 PRINT_ITEM               print([43m[30m"Happy Birthday dear " + P + "!"[39m[49m)
+         26 PRINT_NEWLINE            print([43m[30m"Happy Birthday dear " + P + "!"[39m[49m)
+
+  9      27 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
+         30 CALL_FUNCTION            [43m[30mhappy[39m[49m()
+         33 POP_TOP                  [43m[30mhappy[39m[49m()
+         34 LOAD_CONST               [43m[30mhappy[39m[49m()
+         37 RETURN_VALUE             [43m[30mhappy[39m[49m()

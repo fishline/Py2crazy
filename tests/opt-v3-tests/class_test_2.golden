@@ -1,0 +1,28 @@
+Disassembling top-level module in ./opt-v3-tests/class_test_2.txt
+  1       0 LOAD_CONST           [43m[30mclass[39m[49m Outer():
+          3 BUILD_TUPLE          [43m[30mclass[39m[49m Outer():
+          6 LOAD_CONST           [43m[30mclass[39m[49m Outer():
+          9 MAKE_FUNCTION        [43m[30mclass[39m[49m Outer():
+         12 CALL_FUNCTION        [43m[30mclass[39m[49m Outer():
+         15 BUILD_CLASS          [43m[30mclass[39m[49m Outer():
+         16 STORE_NAME           [43m[30mclass[39m[49m Outer():
+
+  4      19 LOAD_NAME            o = [43m[30mOuter[39m[49m()
+         22 CALL_FUNCTION        o = [43m[30mOuter[39m[49m()
+         25 STORE_NAME           [43m[30mo[39m[49m = Outer()
+
+  5      28 LOAD_CONST           o.a = [43m[30m5[39m[49m
+         31 LOAD_NAME            [43m[30mo[39m[49m.a = 5
+         34 STORE_ATTR           o[43m[30m.a[39m[49m = 5
+
+  6      37 LOAD_CONST           o.b = [43m[30m"Hi"[39m[49m
+         40 LOAD_NAME            [43m[30mo[39m[49m.b = "Hi"
+         43 STORE_ATTR           o[43m[30m.b[39m[49m = "Hi"
+
+  7      46 LOAD_NAME            print([43m[30mo[39m[49m)
+         49 PRINT_ITEM           print([43m[30mo[39m[49m)
+         50 PRINT_NEWLINE        print([43m[30mo[39m[49m)
+         51 LOAD_CONST           print([43m[30mo[39m[49m)
+         54 RETURN_VALUE         print([43m[30mo[39m[49m)
+
+Disassembling function Outer

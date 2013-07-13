@@ -1,0 +1,65 @@
+Disassembling top-level module in ./opt-v3-tests/filter.txt
+  1       0 LOAD_CONST           input = [([43m[30m"Mary"[39m[49m, 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+          3 LOAD_CONST           input = [("Mary", [43m[30m27[39m[49m), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+          6 BUILD_TUPLE          input = [("Mary", [43m[30m27[39m[49m), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+          9 LOAD_CONST           input = [("Mary", 27), ([43m[30m"Joe"[39m[49m, 30), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+         12 LOAD_CONST           input = [("Mary", 27), ("Joe", [43m[30m30[39m[49m), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+         15 BUILD_TUPLE          input = [("Mary", 27), ("Joe", [43m[30m30[39m[49m), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+         18 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ([43m[30m"Ruth"[39m[49m, 43), ("Bob", 17), ("Jenny", 22)]
+         21 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ("Ruth", [43m[30m43[39m[49m), ("Bob", 17), ("Jenny", 22)]
+         24 BUILD_TUPLE          input = [("Mary", 27), ("Joe", 30), ("Ruth", [43m[30m43[39m[49m), ("Bob", 17), ("Jenny", 22)]
+         27 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ([43m[30m"Bob"[39m[49m, 17), ("Jenny", 22)]
+         30 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", [43m[30m17[39m[49m), ("Jenny", 22)]
+         33 BUILD_TUPLE          input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", [43m[30m17[39m[49m), ("Jenny", 22)]
+         36 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ([43m[30m"Jenny"[39m[49m, 22)]
+         39 LOAD_CONST           input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", [43m[30m22[39m[49m)]
+         42 BUILD_TUPLE          input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", [43m[30m22[39m[49m)]
+         45 BUILD_LIST           input = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", [43m[30m22[39m[49m)]
+         48 STORE_NAME           [43m[30minput[39m[49m = [("Mary", 27), ("Joe", 30), ("Ruth", 43), ("Bob", 17), ("Jenny", 22)]
+
+  3      51 BUILD_LIST           youngPeople = [43m[30m[[39m[49m]
+         54 STORE_NAME           [43m[30myoungPeople[39m[49m = []
+
+  5      57 SETUP_LOOP           [43m[30mfor[39m[49m (person, age) in input:
+         60 LOAD_NAME            for (person, age) in [43m[30minput[39m[49m:
+         63 GET_ITER             for (person, age) in [43m[30minput[39m[49m:
+    >>   64 FOR_ITER             for (person, age) in [43m[30minput[39m[49m:
+         67 UNPACK_SEQUENCE      for ([43m[30mperson[39m[49m, age) in input:
+         70 STORE_NAME           for ([43m[30mperson[39m[49m, age) in input:
+         73 STORE_NAME           for (person, [43m[30mage[39m[49m) in input:
+
+  6      76 LOAD_NAME                if [43m[30mage[39m[49m < 30:
+         79 LOAD_CONST               if age < [43m[30m30[39m[49m:
+         82 COMPARE_OP               if [43m[30mage < 30[39m[49m:
+         85 POP_JUMP_IF_FALSE        if [43m[30mage < 30[39m[49m:
+
+  7      88 LOAD_NAME                    [43m[30myoungPeople[39m[49m.append(person)
+         91 LOAD_ATTR                    youngPeople[43m[30m.append[39m[49m(person)
+         94 LOAD_NAME                    youngPeople.append([43m[30mperson[39m[49m)
+         97 CALL_FUNCTION                youngPeople.append([43m[30mperson[39m[49m)
+        100 POP_TOP                      youngPeople.append([43m[30mperson[39m[49m)
+        101 JUMP_FORWARD                 youngPeople.append([43m[30mperson[39m[49m)
+
+  9 >>  104 LOAD_CONST                   print([43m[30m"HAHA "[39m[49m + person + " is too old!")
+        107 LOAD_NAME                    print("HAHA " + [43m[30mperson[39m[49m + " is too old!")
+        110 BINARY_ADD                   print([43m[30m"HAHA " + person[39m[49m + " is too old!")
+        111 LOAD_CONST                   print("HAHA " + person + [43m[30m" is too old!"[39m[49m)
+        114 BINARY_ADD                   print([43m[30m"HAHA " + person + " is too old!"[39m[49m)
+        115 PRINT_ITEM                   print([43m[30m"HAHA " + person + " is too old!"[39m[49m)
+        116 PRINT_NEWLINE                print([43m[30m"HAHA " + person + " is too old!"[39m[49m)
+    >>  117 JUMP_ABSOLUTE                print([43m[30m"HAHA " + person + " is too old!"[39m[49m)
+    >>  120 POP_BLOCK                    print([43m[30m"HAHA " + person + " is too old!"[39m[49m)
+
+ 11 >>  121 LOAD_CONST           print([43m[30m"There are "[39m[49m + str(len(youngPeople)) + " young people")
+        124 LOAD_NAME            print("There are " + [43m[30mstr[39m[49m(len(youngPeople)) + " young people")
+        127 LOAD_NAME            print("There are " + str([43m[30mlen[39m[49m(youngPeople)) + " young people")
+        130 LOAD_NAME            print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
+        133 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
+        136 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
+        139 BINARY_ADD           print([43m[30m"There are " + str[39m[49m(len(youngPeople)) + " young people")
+        140 LOAD_CONST           print("There are " + str(len(youngPeople)) + [43m[30m" young people"[39m[49m)
+        143 BINARY_ADD           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)
+        144 PRINT_ITEM           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)
+        145 PRINT_NEWLINE        print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)
+        146 LOAD_CONST           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)
+        149 RETURN_VALUE         print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)

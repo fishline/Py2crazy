@@ -1,0 +1,64 @@
+Disassembling top-level module in ./opt-v3-tests/map.txt
+  5       0 LOAD_CONST           [43m[30mdef[39m[49m map(func, lst):
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m map(func, lst):
+          6 STORE_NAME           [43m[30mdef[39m[49m map(func, lst):
+
+ 11       9 LOAD_CONST           [43m[30mdef[39m[49m halveElements(lst):
+         12 MAKE_FUNCTION        [43m[30mdef[39m[49m halveElements(lst):
+         15 STORE_NAME           [43m[30mdef[39m[49m halveElements(lst):
+
+ 14      18 LOAD_CONST           input = [[43m[30m2[39m[49m, 4, 6, 8, 10]
+         21 LOAD_CONST           input = [2, [43m[30m4[39m[49m, 6, 8, 10]
+         24 LOAD_CONST           input = [2, 4, [43m[30m6[39m[49m, 8, 10]
+         27 LOAD_CONST           input = [2, 4, 6, [43m[30m8[39m[49m, 10]
+         30 LOAD_CONST           input = [2, 4, 6, 8, [43m[30m10[39m[49m]
+         33 BUILD_LIST           input = [2, 4, 6, 8, [43m[30m10[39m[49m]
+         36 STORE_NAME           [43m[30minput[39m[49m = [2, 4, 6, 8, 10]
+
+ 15      39 LOAD_NAME            output = [43m[30mhalveElements[39m[49m(input)
+         42 LOAD_NAME            output = halveElements([43m[30minput[39m[49m)
+         45 CALL_FUNCTION        output = halveElements([43m[30minput[39m[49m)
+         48 STORE_NAME           [43m[30moutput[39m[49m = halveElements(input)
+         51 LOAD_CONST           [43m[30moutput[39m[49m = halveElements(input)
+         54 RETURN_VALUE         [43m[30moutput[39m[49m = halveElements(input)
+
+Disassembling function map
+  6       0 LOAD_FAST                if [43m[30mlst[39m[49m == []:
+          3 BUILD_LIST               if lst == [43m[30m[[39m[49m]:
+          6 COMPARE_OP               if lst [43m[30m=[39m[49m= []:
+          9 POP_JUMP_IF_FALSE        if lst [43m[30m=[39m[49m= []:
+
+  7      12 BUILD_LIST                   return [43m[30m[[39m[49m]
+         15 RETURN_VALUE                 return [43m[30m[[39m[49m]
+         16 JUMP_FORWARD                 return [43m[30m[[39m[49m]
+
+  9 >>   19 LOAD_FAST                    return [[43m[30mfunc[39m[49m(lst[0])] + map(func, lst[1:])
+         22 LOAD_FAST                    return [func([43m[30mlst[39m[49m[0])] + map(func, lst[1:])
+         25 LOAD_CONST                   return [func(lst[[43m[30m0[39m[49m])] + map(func, lst[1:])
+         28 BINARY_SUBSCR                return [func(lst[[43m[30m0[39m[49m])] + map(func, lst[1:])
+         29 CALL_FUNCTION                return [func(lst[[43m[30m0[39m[49m])] + map(func, lst[1:])
+         32 BUILD_LIST                   return [func(lst[[43m[30m0[39m[49m])] + map(func, lst[1:])
+         35 LOAD_GLOBAL                  return [func(lst[0])] + [43m[30mmap[39m[49m(func, lst[1:])
+         38 LOAD_FAST                    return [func(lst[0])] + map([43m[30mfunc[39m[49m, lst[1:])
+         41 LOAD_FAST                    return [func(lst[0])] + map(func, [43m[30mlst[39m[49m[1:])
+         44 LOAD_CONST                   return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
+         47 SLICE+1                      return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
+         48 CALL_FUNCTION                return [func(lst[0])] + map(func, lst[[43m[30m1[39m[49m:])
+         51 BINARY_ADD                   return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
+         52 RETURN_VALUE                 return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
+    >>   53 LOAD_CONST                   return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
+         56 RETURN_VALUE                 return [func(lst[0])] [43m[30m+[39m[49m map(func, lst[1:])
+
+Disassembling function halveElements
+ 12       0 LOAD_GLOBAL              return [43m[30mmap[39m[49m(lambda x: x / 2.0, lst)
+          3 LOAD_CONST               return map([43m[30mlambda[39m[49m x: x / 2.0, lst)
+          6 MAKE_FUNCTION            return map([43m[30mlambda[39m[49m x: x / 2.0, lst)
+          9 LOAD_FAST                return map(lambda x: x / 2.0, [43m[30mlst[39m[49m)
+         12 CALL_FUNCTION            return map(lambda x: x / 2.0, [43m[30mlst[39m[49m)
+         15 RETURN_VALUE             return map(lambda x: x / 2.0, [43m[30mlst[39m[49m)
+
+Disassembling function <lambda>
+ 12       0 LOAD_FAST                return map(lambda x: [43m[30mx[39m[49m / 2.0, lst)
+          3 LOAD_CONST               return map(lambda x: x / [43m[30m2.0[39m[49m, lst)
+          6 BINARY_DIVIDE            return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)
+          7 RETURN_VALUE             return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)

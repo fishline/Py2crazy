@@ -1,0 +1,88 @@
+Disassembling top-level module in ./opt-v3-tests/watch_module_selection_sort.txt
+  2       0 LOAD_CONST           [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+          3 LOAD_CONST           [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+          6 IMPORT_NAME          [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+          9 IMPORT_FROM          [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+         12 STORE_NAME           [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+         15 IMPORT_FROM          [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+         18 STORE_NAME           [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+         21 POP_TOP              [43m[30mfrom[39m[49m watch_module import watchfn, watchedlist
+
+  6      22 LOAD_NAME            @[43m[30mwatchfn[39m[49m((watchedlist, 'i mini min_index'))
+         25 LOAD_NAME            @watchfn(([43m[30mwatchedlist[39m[49m, 'i mini min_index'))
+         28 LOAD_CONST           @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         31 BUILD_TUPLE          @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         34 CALL_FUNCTION        @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         37 LOAD_CONST           @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         40 MAKE_FUNCTION        @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         43 CALL_FUNCTION        @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         46 STORE_NAME           @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+
+ 15      49 LOAD_NAME            print([43m[30mselection_sort[39m[49m([3, 5, 2, 1, 8, 5, 9]))
+         52 LOAD_CONST           print(selection_sort([[43m[30m3[39m[49m, 5, 2, 1, 8, 5, 9]))
+         55 LOAD_CONST           print(selection_sort([3, [43m[30m5[39m[49m, 2, 1, 8, 5, 9]))
+         58 LOAD_CONST           print(selection_sort([3, 5, [43m[30m2[39m[49m, 1, 8, 5, 9]))
+         61 LOAD_CONST           print(selection_sort([3, 5, 2, [43m[30m1[39m[49m, 8, 5, 9]))
+         64 LOAD_CONST           print(selection_sort([3, 5, 2, 1, [43m[30m8[39m[49m, 5, 9]))
+         67 LOAD_CONST           print(selection_sort([3, 5, 2, 1, 8, [43m[30m5[39m[49m, 9]))
+         70 LOAD_CONST           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         73 BUILD_LIST           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         76 CALL_FUNCTION        print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         79 PRINT_ITEM           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         80 PRINT_NEWLINE        print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         81 LOAD_CONST           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         84 RETURN_VALUE         print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+
+Disassembling function selection_sort
+  8       0 SETUP_LOOP               [43m[30mfor[39m[49m i in range(len(A)):
+          3 LOAD_GLOBAL              for i in [43m[30mrange[39m[49m(len(A)):
+          6 LOAD_GLOBAL              for i in range([43m[30mlen[39m[49m(A)):
+          9 LOAD_FAST                for i in range(len([43m[30mA[39m[49m)):
+         12 CALL_FUNCTION            for i in range(len([43m[30mA[39m[49m)):
+         15 CALL_FUNCTION            for i in range(len([43m[30mA[39m[49m)):
+         18 GET_ITER                 for i in range(len([43m[30mA[39m[49m)):
+    >>   19 FOR_ITER                 for i in range(len([43m[30mA[39m[49m)):
+         22 STORE_FAST               for [43m[30mi[39m[49m in range(len(A)):
+
+  9      25 LOAD_GLOBAL                  mini = [43m[30mmin[39m[49m(A[i:])
+         28 LOAD_FAST                    mini = min([43m[30mA[39m[49m[i:])
+         31 LOAD_FAST                    mini = min(A[[43m[30mi[39m[49m:])
+         34 SLICE+1                      mini = min(A[[43m[30mi[39m[49m:])
+         35 CALL_FUNCTION                mini = min(A[[43m[30mi[39m[49m:])
+         38 STORE_FAST                   [43m[30mmini[39m[49m = min(A[i:])
+
+ 10      41 LOAD_FAST                    min_index = [43m[30mA[39m[49m[i:].index(mini) + i   
+         44 LOAD_FAST                    min_index = A[[43m[30mi[39m[49m:].index(mini) + i   
+         47 SLICE+1                      min_index = A[[43m[30mi[39m[49m:].index(mini) + i   
+         48 LOAD_ATTR                    min_index = A[i:][43m[30m.index[39m[49m(mini) + i   
+         51 LOAD_FAST                    min_index = A[i:].index([43m[30mmini[39m[49m) + i   
+         54 CALL_FUNCTION                min_index = A[i:].index([43m[30mmini[39m[49m) + i   
+         57 LOAD_FAST                    min_index = A[i:].index(mini) + [43m[30mi[39m[49m   
+         60 BINARY_ADD                   min_index = A[i:][43m[30m.index(mini) + i[39m[49m   
+         61 STORE_FAST                   [43m[30mmin_index[39m[49m = A[i:].index(mini) + i   
+
+ 11      64 LOAD_FAST                    if [43m[30mi[39m[49m != min_index:
+         67 LOAD_FAST                    if i != [43m[30mmin_index[39m[49m:
+         70 COMPARE_OP                   if [43m[30mi != min_index[39m[49m:
+         73 POP_JUMP_IF_FALSE            if [43m[30mi != min_index[39m[49m:
+
+ 12      76 LOAD_FAST                        A[min_index], A[i] = [43m[30mA[39m[49m[i], A[min_index]
+         79 LOAD_FAST                        A[min_index], A[i] = A[[43m[30mi[39m[49m], A[min_index]
+         82 BINARY_SUBSCR                    A[min_index], A[i] = A[[43m[30mi[39m[49m], A[min_index]
+         83 LOAD_FAST                        A[min_index], A[i] = A[i], [43m[30mA[39m[49m[min_index]
+         86 LOAD_FAST                        A[min_index], A[i] = A[i], A[[43m[30mmin_index[39m[49m]
+         89 BINARY_SUBSCR                    A[min_index], A[i] = A[i], A[[43m[30mmin_index[39m[49m]
+         90 BUILD_TUPLE                      A[min_index], A[i] = A[i], A[[43m[30mmin_index[39m[49m]
+         93 UNPACK_SEQUENCE                  [43m[30mA[39m[49m[min_index], A[i] = A[i], A[min_index]
+         96 LOAD_FAST                        [43m[30mA[39m[49m[min_index], A[i] = A[i], A[min_index]
+         99 LOAD_FAST                        A[[43m[30mmin_index[39m[49m], A[i] = A[i], A[min_index]
+        102 STORE_SUBSCR                     A[[43m[30mmin_index[39m[49m], A[i] = A[i], A[min_index]
+        103 LOAD_FAST                        A[min_index], [43m[30mA[39m[49m[i] = A[i], A[min_index]
+        106 LOAD_FAST                        A[min_index], A[[43m[30mi[39m[49m] = A[i], A[min_index]
+        109 STORE_SUBSCR                     A[min_index], A[[43m[30mi[39m[49m] = A[i], A[min_index]
+        110 JUMP_FORWARD                     A[min_index], A[[43m[30mi[39m[49m] = A[i], A[min_index]
+    >>  113 JUMP_ABSOLUTE                    A[min_index], A[[43m[30mi[39m[49m] = A[i], A[min_index]
+    >>  116 POP_BLOCK                        A[min_index], A[[43m[30mi[39m[49m] = A[i], A[min_index]
+
+ 13 >>  117 LOAD_FAST                return [43m[30mA[39m[49m
+        120 RETURN_VALUE             return [43m[30mA[39m[49m
