@@ -1,0 +1,11 @@
+Disassembling top-level module in ./mini-tests/expr_test.txt
+  1       0 LOAD_CONST           x = [43m[30m12[39m[49m + 34 ** 56.0 / 78
+          3 LOAD_CONST           x = 12 + [43m[30m34[39m[49m ** 56.0 / 78
+          6 LOAD_CONST           x = 12 + 34 ** [43m[30m56.0[39m[49m / 78
+          9 BINARY_POWER         x = 12 + [43m[30m34 ** 56.0[39m[49m / 78
+         10 LOAD_CONST           x = 12 + 34 ** 56.0 / [43m[30m78[39m[49m
+         13 BINARY_DIVIDE        x = 12 + [43m[30m34 ** 56.0 / 78[39m[49m
+         14 BINARY_ADD           x = [43m[30m12 + 34 ** 56.0 / 78[39m[49m
+         15 STORE_NAME           [43m[30mx[39m[49m = 12 + 34 ** 56.0 / 78
+         18 LOAD_CONST           [43m[30mx[39m[49m = 12 + 34 ** 56.0 / 78
+         21 RETURN_VALUE         [43m[30mx[39m[49m = 12 + 34 ** 56.0 / 78

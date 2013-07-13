@@ -1,0 +1,7 @@
+Disassembling top-level module in ./mini-tests/attr_test.txt
+  1       0 LOAD_NAME            x.foo = [43m[30my[39m[49m.baz
+          3 LOAD_ATTR            x.foo = y[43m[30m.baz[39m[49m
+          6 LOAD_NAME            [43m[30mx[39m[49m.foo = y.baz
+          9 STORE_ATTR           x[43m[30m.foo[39m[49m = y.baz
+         12 LOAD_CONST           x[43m[30m.foo[39m[49m = y.baz
+         15 RETURN_VALUE         x[43m[30m.foo[39m[49m = y.baz

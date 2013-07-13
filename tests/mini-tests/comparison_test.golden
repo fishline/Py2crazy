@@ -1,0 +1,9 @@
+Disassembling top-level module in ./mini-tests/comparison_test.txt
+  1       0 LOAD_NAME            x = [43m[30mfoo[39m[49m + bar < bazzz
+          3 LOAD_NAME            x = foo + [43m[30mbar[39m[49m < bazzz
+          6 BINARY_ADD           x = [43m[30mfoo + bar[39m[49m < bazzz
+          7 LOAD_NAME            x = foo + bar < [43m[30mbazzz[39m[49m
+         10 COMPARE_OP           x = [43m[30mfoo + bar < bazzz[39m[49m
+         13 STORE_NAME           [43m[30mx[39m[49m = foo + bar < bazzz
+         16 LOAD_CONST           [43m[30mx[39m[49m = foo + bar < bazzz
+         19 RETURN_VALUE         [43m[30mx[39m[49m = foo + bar < bazzz

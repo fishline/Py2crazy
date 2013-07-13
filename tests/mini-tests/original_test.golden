@@ -1,0 +1,35 @@
+Disassembling top-level module in ./mini-tests/original_test.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m foo():
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
+          6 STORE_NAME           [43m[30mdef[39m[49m foo():
+
+  4       9 LOAD_CONST           x = [43m[30m3[39m[49m
+         12 STORE_NAME           [43m[30mx[39m[49m = 3
+
+  5      15 LOAD_CONST           y = [43m[30m5[39m[49m
+         18 STORE_NAME           [43m[30my[39m[49m = 5
+
+  7      21 LOAD_NAME            if [43m[30mfoo[39m[49m() and (x + y > 7):
+         24 CALL_FUNCTION        if [43m[30mfoo[39m[49m() and (x + y > 7):
+         27 JUMP_IF_FALSE_OR_POP if [43m[30mfoo[39m[49m() and (x + y > 7):
+         30 LOAD_NAME            if foo() and ([43m[30mx[39m[49m + y > 7):
+         33 LOAD_NAME            if foo() and (x + [43m[30my[39m[49m > 7):
+         36 BINARY_ADD           if foo() and ([43m[30mx + y[39m[49m > 7):
+         37 LOAD_CONST           if foo() and (x + y > [43m[30m7[39m[49m):
+         40 COMPARE_OP           if foo() and ([43m[30mx + y > 7[39m[49m):
+    >>   43 POP_JUMP_IF_FALSE    if foo() and ([43m[30mx + y > 7[39m[49m):
+
+  8      46 LOAD_CONST             print [43m[30m'YES'[39m[49m
+         49 PRINT_ITEM             print [43m[30m'YES'[39m[49m
+         50 PRINT_NEWLINE          print [43m[30m'YES'[39m[49m
+         51 JUMP_FORWARD           print [43m[30m'YES'[39m[49m
+
+ 10 >>   54 LOAD_CONST             print [43m[30m'NO'[39m[49m
+         57 PRINT_ITEM             print [43m[30m'NO'[39m[49m
+         58 PRINT_NEWLINE          print [43m[30m'NO'[39m[49m
+    >>   59 LOAD_CONST             print [43m[30m'NO'[39m[49m
+         62 RETURN_VALUE           print [43m[30m'NO'[39m[49m
+
+Disassembling function foo
+  2       0 LOAD_GLOBAL            return [43m[30mTrue[39m[49m
+          3 RETURN_VALUE           return [43m[30mTrue[39m[49m
