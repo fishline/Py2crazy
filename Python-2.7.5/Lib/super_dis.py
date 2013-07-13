@@ -49,6 +49,11 @@ def format_dis_line(disline, source_lines, extent_map):
     lc = (disline.lineno, disline.column)
     cod_line = source_lines[disline.lineno - 1]
 
+    if disline.first:
+        lineno = '%3d' % disline.lineno
+    else:
+        lineno = '   '
+
     if lc in extent_map:
       start_col, extent = extent_map[lc]
     else:
@@ -63,7 +68,7 @@ def format_dis_line(disline, source_lines, extent_map):
         label = ">>"
     else:
         label = "  "
-    return "%s %4r %-20s %s" % (label, disline.offset, disline.opcode, cod_line)
+    return "%s %s %4r %-20s %s" % (lineno, label, disline.offset, disline.opcode, cod_line)
 
 def disgen(x=None):
     """Disassemble methods, functions, or code.
