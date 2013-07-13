@@ -58,3 +58,30 @@ Disassembling top-level module in ./opt-v3-tests/oop_1.txt
         116 RETURN_VALUE         print(Staff601.salutation([43m[30mpat[39m[49m))
 
 Disassembling function Staff601
+  5       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:
+          3 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+
+  6       6 LOAD_CONST               course = [43m[30m'6.01'[39m[49m
+          9 STORE_NAME               [43m[30mcourse[39m[49m = '6.01'
+
+  7      12 LOAD_CONST               building = [43m[30m34[39m[49m
+         15 STORE_NAME               [43m[30mbuilding[39m[49m = 34
+
+  8      18 LOAD_CONST               room = [43m[30m501[39m[49m
+         21 STORE_NAME               [43m[30mroom[39m[49m = 501
+
+ 10      24 LOAD_CONST               [43m[30mdef[39m[49m salutation(self):
+         27 MAKE_FUNCTION            [43m[30mdef[39m[49m salutation(self):
+         30 STORE_NAME               [43m[30mdef[39m[49m salutation(self):
+         33 LOAD_LOCALS              [43m[30mdef[39m[49m salutation(self):
+         34 RETURN_VALUE             [43m[30mdef[39m[49m salutation(self):
+
+Disassembling function salutation
+ 11       0 LOAD_FAST                    return [43m[30mself[39m[49m.role + ' ' + self.name
+          3 LOAD_ATTR                    return self[43m[30m.role[39m[49m + ' ' + self.name
+          6 LOAD_CONST                   return self.role + [43m[30m' '[39m[49m + self.name
+          9 BINARY_ADD                   return self[43m[30m.role + ' '[39m[49m + self.name
+         10 LOAD_FAST                    return self.role + ' ' + [43m[30mself[39m[49m.name
+         13 LOAD_ATTR                    return self.role + ' ' + self[43m[30m.name[39m[49m
+         16 BINARY_ADD                   return self[43m[30m.role + ' ' + self.name[39m[49m
+         17 RETURN_VALUE                 return self[43m[30m.role + ' ' + self.name[39m[49m

@@ -48,3 +48,44 @@ Disassembling top-level module in ./opt-v3-tests/oop_small.txt
         106 RETURN_VALUE         print(inst[43m[30m.salutation[39m[49m())
 
 Disassembling function B
+  5       0 LOAD_NAME            [43m[30mclass[39m[49m B:
+          3 STORE_NAME           [43m[30mclass[39m[49m B:
+
+  6       6 LOAD_CONST               z = [43m[30m'bye'[39m[49m
+          9 STORE_NAME               [43m[30mz[39m[49m = 'bye'
+         12 LOAD_LOCALS              [43m[30mz[39m[49m = 'bye'
+         13 RETURN_VALUE             [43m[30mz[39m[49m = 'bye'
+
+Disassembling function C
+  8       0 LOAD_NAME            [43m[30mclass[39m[49m C(A,B):
+          3 STORE_NAME           [43m[30mclass[39m[49m C(A,B):
+
+  9       6 LOAD_CONST               [43m[30mdef[39m[49m salutation(self):
+          9 MAKE_FUNCTION            [43m[30mdef[39m[49m salutation(self):
+         12 STORE_NAME               [43m[30mdef[39m[49m salutation(self):
+         15 LOAD_LOCALS              [43m[30mdef[39m[49m salutation(self):
+         16 RETURN_VALUE             [43m[30mdef[39m[49m salutation(self):
+
+Disassembling function salutation
+ 10       0 LOAD_CONST                   return [43m[30m'%d %s %s'[39m[49m % (self.x, self.y, self.z)
+          3 LOAD_FAST                    return '%d %s %s' % ([43m[30mself[39m[49m.x, self.y, self.z)
+          6 LOAD_ATTR                    return '%d %s %s' % (self[43m[30m.x[39m[49m, self.y, self.z)
+          9 LOAD_FAST                    return '%d %s %s' % (self.x, [43m[30mself[39m[49m.y, self.z)
+         12 LOAD_ATTR                    return '%d %s %s' % (self.x, self[43m[30m.y[39m[49m, self.z)
+         15 LOAD_FAST                    return '%d %s %s' % (self.x, self.y, [43m[30mself[39m[49m.z)
+         18 LOAD_ATTR                    return '%d %s %s' % (self.x, self.y, self[43m[30m.z[39m[49m)
+         21 BUILD_TUPLE                  return '%d %s %s' % (self.x, self.y, self[43m[30m.z[39m[49m)
+         24 BINARY_MODULO                return '%d %s %s' [43m[30m%[39m[49m (self.x, self.y, self.z)
+         25 RETURN_VALUE                 return '%d %s %s' [43m[30m%[39m[49m (self.x, self.y, self.z)
+
+Disassembling function A
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m A:
+          3 STORE_NAME           [43m[30mclass[39m[49m A:
+
+  2       6 LOAD_CONST               x = [43m[30m1[39m[49m
+          9 STORE_NAME               [43m[30mx[39m[49m = 1
+
+  3      12 LOAD_CONST               y = [43m[30m'hello'[39m[49m
+         15 STORE_NAME               [43m[30my[39m[49m = 'hello'
+         18 LOAD_LOCALS              [43m[30my[39m[49m = 'hello'
+         19 RETURN_VALUE             [43m[30my[39m[49m = 'hello'

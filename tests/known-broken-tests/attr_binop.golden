@@ -1,0 +1,9 @@
+Disassembling top-level module in ./known-broken-tests/attr_binop.txt
+  7       0 LOAD_NAME            x = [43m[30mfoo[39m[49m.first_attr + bar.second_attr
+          3 LOAD_ATTR            x = foo[43m[30m.first_attr[39m[49m + bar.second_attr
+          6 LOAD_NAME            x = foo.first_attr + [43m[30mbar[39m[49m.second_attr
+          9 LOAD_ATTR            x = foo.first_attr + bar[43m[30m.second_attr[39m[49m
+         12 BINARY_ADD           x = foo[43m[30m.first_attr + bar.second_attr[39m[49m
+         13 STORE_NAME           [43m[30mx[39m[49m = foo.first_attr + bar.second_attr
+         16 LOAD_CONST           [43m[30mx[39m[49m = foo.first_attr + bar.second_attr
+         19 RETURN_VALUE         [43m[30mx[39m[49m = foo.first_attr + bar.second_attr

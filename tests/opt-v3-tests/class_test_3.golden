@@ -45,3 +45,16 @@ Disassembling top-level module in ./opt-v3-tests/class_test_3.txt
          91 RETURN_VALUE         print(pat[43m[30m.building[39m[49m)
 
 Disassembling function Staff601
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:
+          3 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+
+  2       6 LOAD_CONST               course = [43m[30m'6.01'[39m[49m
+          9 STORE_NAME               [43m[30mcourse[39m[49m = '6.01'
+
+  3      12 LOAD_CONST               building = [43m[30m34[39m[49m
+         15 STORE_NAME               [43m[30mbuilding[39m[49m = 34
+
+  4      18 LOAD_CONST               room = [43m[30m501[39m[49m
+         21 STORE_NAME               [43m[30mroom[39m[49m = 501
+         24 LOAD_LOCALS              [43m[30mroom[39m[49m = 501
+         25 RETURN_VALUE             [43m[30mroom[39m[49m = 501

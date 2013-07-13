@@ -30,3 +30,36 @@ Disassembling top-level module in ./opt-v3-tests/class_test.txt
          62 RETURN_VALUE         print([43m[30mp2[39m[49m)
 
 Disassembling function Point
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m Point:
+          3 STORE_NAME           [43m[30mclass[39m[49m Point:
+
+  2       6 LOAD_CONST               [43m[30mdef[39m[49m __init__(self, x, y):
+          9 MAKE_FUNCTION            [43m[30mdef[39m[49m __init__(self, x, y):
+         12 STORE_NAME               [43m[30mdef[39m[49m __init__(self, x, y):
+
+  6      15 LOAD_CONST               [43m[30mdef[39m[49m __str__(self):
+         18 MAKE_FUNCTION            [43m[30mdef[39m[49m __str__(self):
+         21 STORE_NAME               [43m[30mdef[39m[49m __str__(self):
+         24 LOAD_LOCALS              [43m[30mdef[39m[49m __str__(self):
+         25 RETURN_VALUE             [43m[30mdef[39m[49m __str__(self):
+
+Disassembling function __init__
+  3       0 LOAD_FAST                    self.x = [43m[30mx[39m[49m
+          3 LOAD_FAST                    [43m[30mself[39m[49m.x = x
+          6 STORE_ATTR                   self[43m[30m.x[39m[49m = x
+
+  4       9 LOAD_FAST                    self.y = [43m[30my[39m[49m
+         12 LOAD_FAST                    [43m[30mself[39m[49m.y = y
+         15 STORE_ATTR                   self[43m[30m.y[39m[49m = y
+         18 LOAD_CONST                   self[43m[30m.y[39m[49m = y
+         21 RETURN_VALUE                 self[43m[30m.y[39m[49m = y
+
+Disassembling function __str__
+  7       0 LOAD_CONST                   return [43m[30m"(%d, %d)"[39m[49m % (self.x, self.y)
+          3 LOAD_FAST                    return "(%d, %d)" % ([43m[30mself[39m[49m.x, self.y)
+          6 LOAD_ATTR                    return "(%d, %d)" % (self[43m[30m.x[39m[49m, self.y)
+          9 LOAD_FAST                    return "(%d, %d)" % (self.x, [43m[30mself[39m[49m.y)
+         12 LOAD_ATTR                    return "(%d, %d)" % (self.x, self[43m[30m.y[39m[49m)
+         15 BUILD_TUPLE                  return "(%d, %d)" % (self.x, self[43m[30m.y[39m[49m)
+         18 BINARY_MODULO                return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)
+         19 RETURN_VALUE                 return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)

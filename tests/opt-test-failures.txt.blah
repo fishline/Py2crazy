@@ -1,15 +1,22 @@
-crashes in:
-  opt-v3-tests/class_test.txt
-  opt-v3-tests/class_test_2.txt
-  opt-v3-tests/class_test_3.txt
-  opt-v3-tests/nested-class-test.txt
-  opt-v3-tests/newstyle_class.txt
-  (basically ALL OOP examples crash)
-
-
 This renders kinda ugly in general:
 BUILD_MAP            w = {"joe" : 5, "mindy" : 6, "jack" : 7}
                          ^
+
+same with build list and build tuple!
+
+    return '%d %s %s' % (self.x, self.y, self.z)
+
+
+# nested classes ... for some reason, the first opcode in a class
+# doesn't match anything in extent_map
+
+./opt-v3-tests/nested-class-test.out
+class A:
+    class B:
+        class C:
+            pass
+
+
 
 In general, the result of a function call would look prettier if it
 highlighted the body too rather than just the name

@@ -131,7 +131,11 @@ def disassemble(co, lasti=-1):
         offset = i
         opcode = opname[op]
 
-        line_dup, column = co.co_coltab[i]
+        try:
+            line_dup, column = co.co_coltab[i]
+        except KeyError:
+            # when there's an error, punt to column 0
+            line_dup, column = lineno, 0
         assert lineno == line_dup
 
         code_obj = None # is this loading a code object that we should

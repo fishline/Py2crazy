@@ -26,3 +26,8 @@ Disassembling top-level module in ./opt-v3-tests/class_test_2.txt
          54 RETURN_VALUE         print([43m[30mo[39m[49m)
 
 Disassembling function Outer
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m Outer():
+          3 STORE_NAME           [43m[30mclass[39m[49m Outer():
+
+  2       6 LOAD_LOCALS             [43m[30mpass[39m[49m
+          7 RETURN_VALUE            [43m[30mpass[39m[49m

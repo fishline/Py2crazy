@@ -24,3 +24,44 @@ Disassembling top-level module in ./opt-v3-tests/nested-class-test.txt
          55 RETURN_VALUE         [43m[30mc[39m[49m = b.C()
 
 Disassembling function A
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m A:
+          3 STORE_NAME           [43m[30mclass[39m[49m A:
+
+  2       6 LOAD_CONST               x = [43m[30m5[39m[49m
+          9 STORE_NAME               [43m[30mx[39m[49m = 5
+
+  3      12 LOAD_CONST               [43m[30mclass[39m[49m B:
+         15 BUILD_TUPLE              [43m[30mclass[39m[49m B:
+         18 LOAD_CONST               [43m[30mclass[39m[49m B:
+         21 MAKE_FUNCTION            [43m[30mclass[39m[49m B:
+         24 CALL_FUNCTION            [43m[30mclass[39m[49m B:
+         27 BUILD_CLASS              [43m[30mclass[39m[49m B:
+         28 STORE_NAME               [43m[30mclass[39m[49m B:
+         31 LOAD_LOCALS              [43m[30mclass[39m[49m B:
+         32 RETURN_VALUE             [43m[30mclass[39m[49m B:
+
+Disassembling function B
+  3       0 LOAD_NAME            [43m[30m [39m[49m   class B:
+          3 STORE_NAME           [43m[30m [39m[49m   class B:
+
+  4       6 LOAD_CONST                   y = [43m[30m6[39m[49m
+          9 STORE_NAME                   [43m[30my[39m[49m = 6
+
+  5      12 LOAD_CONST                   [43m[30mclass[39m[49m C:
+         15 BUILD_TUPLE                  [43m[30mclass[39m[49m C:
+         18 LOAD_CONST                   [43m[30mclass[39m[49m C:
+         21 MAKE_FUNCTION                [43m[30mclass[39m[49m C:
+         24 CALL_FUNCTION                [43m[30mclass[39m[49m C:
+         27 BUILD_CLASS                  [43m[30mclass[39m[49m C:
+         28 STORE_NAME                   [43m[30mclass[39m[49m C:
+         31 LOAD_LOCALS                  [43m[30mclass[39m[49m C:
+         32 RETURN_VALUE                 [43m[30mclass[39m[49m C:
+
+Disassembling function C
+  5       0 LOAD_NAME            [43m[30m [39m[49m       class C:
+          3 STORE_NAME           [43m[30m [39m[49m       class C:
+
+  6       6 LOAD_CONST                       z = [43m[30m7[39m[49m
+          9 STORE_NAME                       [43m[30mz[39m[49m = 7
+         12 LOAD_LOCALS                      [43m[30mz[39m[49m = 7
+         13 RETURN_VALUE                     [43m[30mz[39m[49m = 7

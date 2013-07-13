@@ -65,7 +65,7 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.Module, ast.Interactive, ast.Expression,
                ast.arguments, ast.keyword, ast.alias,
                ast.excepthandler,
-               ast.Dict, ast.Set, ast.List, ast.Tuple,
+               ast.Dict, ast.Set, ast.List, ast.Tuple, # TODO: maybe keep extents for these too
                ast.If, ast.With, ast.GeneratorExp,
                ast.comprehension,
                ast.BoolOp,

@@ -30,3 +30,33 @@ Disassembling top-level module in ./opt-v3-tests/newstyle_class.txt
          60 RETURN_VALUE         print(A[43m[30m.bla[39m[49m)
 
 Disassembling function A
+  1       0 LOAD_NAME            [43m[30mclass[39m[49m A(object):
+          3 STORE_NAME           [43m[30mclass[39m[49m A(object):
+
+  2       6 LOAD_CONST             bla = [43m[30m"A"[39m[49m
+          9 STORE_NAME             [43m[30mbla[39m[49m = "A"
+
+  3      12 LOAD_CONST             [43m[30mdef[39m[49m __init__(self):
+         15 MAKE_FUNCTION          [43m[30mdef[39m[49m __init__(self):
+         18 STORE_NAME             [43m[30mdef[39m[49m __init__(self):
+
+  6      21 LOAD_CONST             [43m[30mdef[39m[49m x(self):
+         24 MAKE_FUNCTION          [43m[30mdef[39m[49m x(self):
+         27 STORE_NAME             [43m[30mdef[39m[49m x(self):
+         30 LOAD_LOCALS            [43m[30mdef[39m[49m x(self):
+         31 RETURN_VALUE           [43m[30mdef[39m[49m x(self):
+
+Disassembling function __init__
+  4       0 LOAD_CONST               self.blb = [43m[30m"B"[39m[49m
+          3 LOAD_FAST                [43m[30mself[39m[49m.blb = "B"
+          6 STORE_ATTR               self[43m[30m.blb[39m[49m = "B"
+          9 LOAD_CONST               self[43m[30m.blb[39m[49m = "B"
+         12 RETURN_VALUE             self[43m[30m.blb[39m[49m = "B"
+
+Disassembling function x
+  7       0 LOAD_FAST                self.bla = [43m[30mself[39m[49m.blb
+          3 LOAD_ATTR                self.bla = self[43m[30m.blb[39m[49m
+          6 LOAD_FAST                [43m[30mself[39m[49m.bla = self.blb
+          9 STORE_ATTR               self[43m[30m.bla[39m[49m = self.blb
+         12 LOAD_CONST               self[43m[30m.bla[39m[49m = self.blb
+         15 RETURN_VALUE             self[43m[30m.bla[39m[49m = self.blb
