@@ -1,4 +1,4 @@
-Disassembling top-level module in ./known-broken-tests/attr_binop.txt
+Disassembling top-level module in ./mini-tests/attr_binop.txt
   7       0 LOAD_NAME            x = [43m[30mfoo[39m[49m.first_attr + bar.second_attr
           3 LOAD_ATTR            x = [43m[30mfoo.first_attr[39m[49m + bar.second_attr
           6 LOAD_NAME            x = foo.first_attr + [43m[30mbar[39m[49m.second_attr

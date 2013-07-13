@@ -1,19 +1,19 @@
 Disassembling top-level module in ./known-broken-tests/decorator_test.txt
-  3       0 LOAD_NAME            @[43m[30mname.se[39m[49mtter
-          3 LOAD_ATTR            @[43m[30mname.se[39m[49mtter
-          6 LOAD_CONST           @[43m[30mname.se[39m[49mtter
-          9 MAKE_FUNCTION        @[43m[30mname.se[39m[49mtter
-         12 CALL_FUNCTION        @[43m[30mname.se[39m[49mtter
-         15 STORE_NAME           @[43m[30mname.se[39m[49mtter
+  3       0 LOAD_NAME            @[43m[30mname[39m[49m.setter
+          3 LOAD_ATTR            @[43m[30mname.setter[39m[49m
+          6 LOAD_CONST           @[43m[30mname.setter[39m[49m
+          9 MAKE_FUNCTION        @[43m[30mname.setter[39m[49m
+         12 CALL_FUNCTION        @[43m[30mname.setter[39m[49m
+         15 STORE_NAME           @[43m[30mname.setter[39m[49m
 
-  8      18 LOAD_NAME            @[43m[30mfieldna[39m[49mmes.setter
-         21 LOAD_ATTR            @[43m[30mfieldna[39m[49mmes.setter
-         24 LOAD_CONST           @[43m[30mfieldna[39m[49mmes.setter
-         27 MAKE_FUNCTION        @[43m[30mfieldna[39m[49mmes.setter
-         30 CALL_FUNCTION        @[43m[30mfieldna[39m[49mmes.setter
-         33 STORE_NAME           @[43m[30mfieldna[39m[49mmes.setter
-         36 LOAD_CONST           @[43m[30mfieldna[39m[49mmes.setter
-         39 RETURN_VALUE         @[43m[30mfieldna[39m[49mmes.setter
+  8      18 LOAD_NAME            @[43m[30mfieldnames[39m[49m.setter
+         21 LOAD_ATTR            @[43m[30mfieldnames.setter[39m[49m
+         24 LOAD_CONST           @[43m[30mfieldnames.setter[39m[49m
+         27 MAKE_FUNCTION        @[43m[30mfieldnames.setter[39m[49m
+         30 CALL_FUNCTION        @[43m[30mfieldnames.setter[39m[49m
+         33 STORE_NAME           @[43m[30mfieldnames.setter[39m[49m
+         36 LOAD_CONST           @[43m[30mfieldnames.setter[39m[49m
+         39 RETURN_VALUE         @[43m[30mfieldnames.setter[39m[49m
 
 Disassembling function name
   5       0 LOAD_CONST               [43m[30mpass[39m[49m

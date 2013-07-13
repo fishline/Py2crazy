@@ -824,7 +824,9 @@ ast_for_dotted_name(struct compiling *c, const node *n)
         id = NEW_IDENTIFIER(CHILD(n, i));
         if (!id)
             return NULL;
-        e = Attribute(e, id, Load, lineno, col_offset, c->c_arena);
+        // pgbovine - grab the column offset of the child
+        // for better column numbering precision
+        e = Attribute(e, id, Load, lineno, CHILD(n, i)->n_col_offset, c->c_arena);
         if (!e)
             return NULL;
     }
