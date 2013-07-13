@@ -3,19 +3,7 @@ BUILD_MAP            w = {"joe" : 5, "mindy" : 6, "jack" : 7}
                          ^
 
 same with build list and build tuple!
-
     return '%d %s %s' % (self.x, self.y, self.z)
-
-
-# nested classes ... for some reason, the first opcode in a class
-# doesn't match anything in extent_map
-
-./opt-v3-tests/nested-class-test.out
-class A:
-    class B:
-        class C:
-            pass
-
 
 
 In general, the result of a function call would look prettier if it
@@ -38,4 +26,21 @@ opt-v3-tests/ling-scheme-1.txt:
 
 44 BINARY_ADD               return [f()] + repeat(f, n - 1)
                                          ^
+
+(probably due to a lack of handling of BUILD_LIST in [f()])
+
+
+---
+
+# nested classes ... for some reason, the first opcode in a class
+# doesn't match anything in extent_map, so we punt to column 0, ugly
+
+# but it seems like that ugly code is never executed in OPT, so don't
+# worry about it for now.
+
+./opt-v3-tests/nested-class-test.out
+class A:
+    class B:
+        class C:
+            pass
 
