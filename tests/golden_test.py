@@ -23,7 +23,7 @@ def execute(input_filename):
   (stdout, stderr) = Popen(PROGRAM + [input_filename], stdout=PIPE, stderr=PIPE).communicate()
 
   if stderr:
-    print RED + '>>' + ENDC + ' (has stderr)'
+    print RED + '(ERROR)' + ENDC
   #  print '  stderr {'
   #  print stderr, '}'
   else:

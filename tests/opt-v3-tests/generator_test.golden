@@ -21,5 +21,3 @@ Disassembling top-level module in ./opt-v3-tests/generator_test.txt
          47 STORE_NAME           [43m[30mz[39m[49m = (e for e in range(10))
          50 LOAD_CONST           [43m[30mz[39m[49m = (e for e in range(10))
          53 RETURN_VALUE         [43m[30mz[39m[49m = (e for e in range(10))
-
-Disassembling function <genexpr>

@@ -1,8 +1,3 @@
-Bugs:
-opt-v3-tests/strtok.txt
-  - binary comp '==' in 
-      96 COMPARE_OP           isMale = (tokens[5] == 'male')
-
 crashes in:
   opt-v3-tests/class_test.txt
   opt-v3-tests/class_test_2.txt
@@ -10,9 +5,7 @@ crashes in:
   opt-v3-tests/nested-class-test.txt
   opt-v3-tests/newstyle_class.txt
   (basically ALL OOP examples crash)
-  (when disassembling <genexpr>)
-    opt-v3-tests/generator_test.txt
-    opt-v3-tests/generator_use_test.txt
+
 
 This renders kinda ugly in general:
 BUILD_MAP            w = {"joe" : 5, "mindy" : 6, "jack" : 7}

@@ -21,5 +21,3 @@ Disassembling top-level module in ./opt-v3-tests/genexpr.txt
     >>   43 POP_BLOCK                print([43m[30me[39m[49m)
     >>   44 LOAD_CONST               print([43m[30me[39m[49m)
          47 RETURN_VALUE             print([43m[30me[39m[49m)
-
-Disassembling function <genexpr>

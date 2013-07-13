@@ -29,9 +29,9 @@ def dis(x=None, filename=None, source=None):
             print('')
         print(format_dis_line(disline, source_lines, extent_map))
 
-    # recurse but avoid infinite loop!
+    # recurse (TODO: how to avoid infinite loops?)
     for c in child_code:
-        if c.co_filename == filename:
+        if c.co_filename == filename and c.co_name != '<genexpr>':
             print
             print 'Disassembling function', c.co_name
             dis(c, filename, source)
