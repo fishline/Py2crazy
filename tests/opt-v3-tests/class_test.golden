@@ -46,20 +46,20 @@ Disassembling function Point
 Disassembling function __init__
   3       0 LOAD_FAST                    self.x = [43m[30mx[39m[49m
           3 LOAD_FAST                    [43m[30mself[39m[49m.x = x
-          6 STORE_ATTR                   self[43m[30m.x[39m[49m = x
+          6 STORE_ATTR                   [43m[30mself.x[39m[49m = x
 
   4       9 LOAD_FAST                    self.y = [43m[30my[39m[49m
          12 LOAD_FAST                    [43m[30mself[39m[49m.y = y
-         15 STORE_ATTR                   self[43m[30m.y[39m[49m = y
-         18 LOAD_CONST                   self[43m[30m.y[39m[49m = y
-         21 RETURN_VALUE                 self[43m[30m.y[39m[49m = y
+         15 STORE_ATTR                   [43m[30mself.y[39m[49m = y
+         18 LOAD_CONST                   [43m[30mself.y[39m[49m = y
+         21 RETURN_VALUE                 [43m[30mself.y[39m[49m = y
 
 Disassembling function __str__
   7       0 LOAD_CONST                   return [43m[30m"(%d, %d)"[39m[49m % (self.x, self.y)
           3 LOAD_FAST                    return "(%d, %d)" % ([43m[30mself[39m[49m.x, self.y)
-          6 LOAD_ATTR                    return "(%d, %d)" % (self[43m[30m.x[39m[49m, self.y)
+          6 LOAD_ATTR                    return "(%d, %d)" % ([43m[30mself.x[39m[49m, self.y)
           9 LOAD_FAST                    return "(%d, %d)" % (self.x, [43m[30mself[39m[49m.y)
-         12 LOAD_ATTR                    return "(%d, %d)" % (self.x, self[43m[30m.y[39m[49m)
-         15 BUILD_TUPLE                  return "(%d, %d)" % (self.x, self[43m[30m.y[39m[49m)
+         12 LOAD_ATTR                    return "(%d, %d)" % (self.x, [43m[30mself.y[39m[49m)
+         15 BUILD_TUPLE                  return "(%d, %d)" % (self.x, [43m[30mself.y[39m[49m)
          18 BINARY_MODULO                return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)
          19 RETURN_VALUE                 return "(%d, %d)" [43m[30m%[39m[49m (self.x, self.y)

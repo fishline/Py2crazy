@@ -13,11 +13,11 @@ Disassembling top-level module in ./opt-v3-tests/class_test_2.txt
 
   5      28 LOAD_CONST           o.a = [43m[30m5[39m[49m
          31 LOAD_NAME            [43m[30mo[39m[49m.a = 5
-         34 STORE_ATTR           o[43m[30m.a[39m[49m = 5
+         34 STORE_ATTR           [43m[30mo.a[39m[49m = 5
 
   6      37 LOAD_CONST           o.b = [43m[30m"Hi"[39m[49m
          40 LOAD_NAME            [43m[30mo[39m[49m.b = "Hi"
-         43 STORE_ATTR           o[43m[30m.b[39m[49m = "Hi"
+         43 STORE_ATTR           [43m[30mo.b[39m[49m = "Hi"
 
   7      46 LOAD_NAME            print([43m[30mo[39m[49m)
          49 PRINT_ITEM           print([43m[30mo[39m[49m)

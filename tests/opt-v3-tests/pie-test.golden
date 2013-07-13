@@ -14,7 +14,7 @@ Disassembling top-level module in ./opt-v3-tests/pie-test.txt
          33 POP_TOP              [43m[30mfrom[39m[49m math import pi, e
 
   3      34 LOAD_NAME            pie = [43m[30moperator[39m[49m.add(pi, e)
-         37 LOAD_ATTR            pie = operator[43m[30m.add[39m[49m(pi, e)
+         37 LOAD_ATTR            pie = [43m[30moperator.add[39m[49m(pi, e)
          40 LOAD_NAME            pie = operator.add([43m[30mpi[39m[49m, e)
          43 LOAD_NAME            pie = operator.add(pi, [43m[30me[39m[49m)
          46 CALL_FUNCTION        pie = operator.add(pi, [43m[30me[39m[49m)

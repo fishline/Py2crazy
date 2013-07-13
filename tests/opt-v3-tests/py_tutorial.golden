@@ -9,8 +9,8 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
          15 STORE_NAME           [43m[30ms[39m[49m = 'Rutherford Birchard Hayes'
 
   9      18 LOAD_NAME            tokens = [43m[30ms[39m[49m.split()
-         21 LOAD_ATTR            tokens = s[43m[30m.split[39m[49m()
-         24 CALL_FUNCTION        tokens = s[43m[30m.split[39m[49m()
+         21 LOAD_ATTR            tokens = [43m[30ms.split[39m[49m()
+         24 CALL_FUNCTION        tokens = [43m[30ms.split[39m[49m()
          27 STORE_NAME           [43m[30mtokens[39m[49m = s.split()
 
  10      30 LOAD_NAME            firstName = [43m[30mtokens[39m[49m[0]
@@ -60,7 +60,7 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
         119 STORE_NAME           [43m[30mbeatles[39m[49m = ['John', 'Paul', 'George']
 
  23     122 LOAD_NAME            [43m[30mbeatles[39m[49m.append('Ringo')
-        125 LOAD_ATTR            beatles[43m[30m.append[39m[49m('Ringo')
+        125 LOAD_ATTR            [43m[30mbeatles.append[39m[49m('Ringo')
         128 LOAD_CONST           beatles.append([43m[30m'Ringo'[39m[49m)
         131 CALL_FUNCTION        beatles.append([43m[30m'Ringo'[39m[49m)
         134 POP_TOP              beatles.append([43m[30m'Ringo'[39m[49m)
@@ -97,13 +97,13 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
         203 STORE_NAME           [43m[30muniqueAges[39m[49m = set(ages)
 
  34     206 LOAD_NAME            [43m[30muniqueAges[39m[49m.add(18) # already in set, no effect
-        209 LOAD_ATTR            uniqueAges[43m[30m.add[39m[49m(18) # already in set, no effect
+        209 LOAD_ATTR            [43m[30muniqueAges.add[39m[49m(18) # already in set, no effect
         212 LOAD_CONST           uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
         215 CALL_FUNCTION        uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
         218 POP_TOP              uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
 
  35     219 LOAD_NAME            [43m[30muniqueAges[39m[49m.remove(21)
-        222 LOAD_ATTR            uniqueAges[43m[30m.remove[39m[49m(21)
+        222 LOAD_ATTR            [43m[30muniqueAges.remove[39m[49m(21)
         225 LOAD_CONST           uniqueAges.remove([43m[30m21[39m[49m)
         228 CALL_FUNCTION        uniqueAges.remove([43m[30m21[39m[49m)
         231 POP_TOP              uniqueAges.remove([43m[30m21[39m[49m)
@@ -131,9 +131,9 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
         271 JUMP_FORWARD             print([43m[30m'There is an 18-year-old present!'[39m[49m)
 
  46 >>  274 LOAD_NAME            [43m[30mbeatles[39m[49m.sort() # in-place
-        277 LOAD_ATTR            beatles[43m[30m.sort[39m[49m() # in-place
-        280 CALL_FUNCTION        beatles[43m[30m.sort[39m[49m() # in-place
-        283 POP_TOP              beatles[43m[30m.sort[39m[49m() # in-place
+        277 LOAD_ATTR            [43m[30mbeatles.sort[39m[49m() # in-place
+        280 CALL_FUNCTION        [43m[30mbeatles.sort[39m[49m() # in-place
+        283 POP_TOP              [43m[30mbeatles.sort[39m[49m() # in-place
 
  47     284 LOAD_NAME            orderedUniqueAges = [43m[30msorted[39m[49m(uniqueAges) # new list
         287 LOAD_NAME            orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
@@ -165,10 +165,10 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
  57     342 SETUP_LOOP           [43m[30mfor[39m[49m (person, worth) in netWorth.items():
         345 LOAD_NAME            for (person, worth) in [43m[30mnetWorth[39m[49m.items():
-        348 LOAD_ATTR            for (person, worth) in netWorth[43m[30m.items[39m[49m():
-        351 CALL_FUNCTION        for (person, worth) in netWorth[43m[30m.items[39m[49m():
-        354 GET_ITER             for (person, worth) in netWorth[43m[30m.items[39m[49m():
-    >>  355 FOR_ITER             for (person, worth) in netWorth[43m[30m.items[39m[49m():
+        348 LOAD_ATTR            for (person, worth) in [43m[30mnetWorth.items[39m[49m():
+        351 CALL_FUNCTION        for (person, worth) in [43m[30mnetWorth.items[39m[49m():
+        354 GET_ITER             for (person, worth) in [43m[30mnetWorth.items[39m[49m():
+    >>  355 FOR_ITER             for (person, worth) in [43m[30mnetWorth.items[39m[49m():
         358 UNPACK_SEQUENCE      for ([43m[30mperson[39m[49m, worth) in netWorth.items():
         361 STORE_NAME           for ([43m[30mperson[39m[49m, worth) in netWorth.items():
         364 STORE_NAME           for (person, [43m[30mworth[39m[49m) in netWorth.items():

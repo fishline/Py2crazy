@@ -34,7 +34,7 @@ Disassembling top-level module in ./opt-v3-tests/filter.txt
          85 POP_JUMP_IF_FALSE        if [43m[30mage < 30[39m[49m:
 
   7      88 LOAD_NAME                    [43m[30myoungPeople[39m[49m.append(person)
-         91 LOAD_ATTR                    youngPeople[43m[30m.append[39m[49m(person)
+         91 LOAD_ATTR                    [43m[30myoungPeople.append[39m[49m(person)
          94 LOAD_NAME                    youngPeople.append([43m[30mperson[39m[49m)
          97 CALL_FUNCTION                youngPeople.append([43m[30mperson[39m[49m)
         100 POP_TOP                      youngPeople.append([43m[30mperson[39m[49m)

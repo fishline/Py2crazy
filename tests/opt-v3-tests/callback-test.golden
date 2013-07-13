@@ -20,7 +20,7 @@ Disassembling top-level module in ./opt-v3-tests/callback-test.txt
 
 Disassembling function foo
  14       0 LOAD_GLOBAL            [43m[30mcallback_module[39m[49m.callback_func(bar)
-          3 LOAD_ATTR              callback_module[43m[30m.callback_func[39m[49m(bar)
+          3 LOAD_ATTR              [43m[30mcallback_module.callback_func[39m[49m(bar)
           6 LOAD_GLOBAL            callback_module.callback_func([43m[30mbar[39m[49m)
           9 CALL_FUNCTION          callback_module.callback_func([43m[30mbar[39m[49m)
          12 POP_TOP                callback_module.callback_func([43m[30mbar[39m[49m)

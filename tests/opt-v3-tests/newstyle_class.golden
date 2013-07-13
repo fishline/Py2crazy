@@ -13,21 +13,21 @@ Disassembling top-level module in ./opt-v3-tests/newstyle_class.txt
          28 STORE_NAME           [43m[30ma[39m[49m = A()
 
  11      31 LOAD_NAME            [43m[30ma[39m[49m.x()
-         34 LOAD_ATTR            a[43m[30m.x[39m[49m()
-         37 CALL_FUNCTION        a[43m[30m.x[39m[49m()
-         40 POP_TOP              a[43m[30m.x[39m[49m()
+         34 LOAD_ATTR            [43m[30ma.x[39m[49m()
+         37 CALL_FUNCTION        [43m[30ma.x[39m[49m()
+         40 POP_TOP              [43m[30ma.x[39m[49m()
 
  13      41 LOAD_NAME            print([43m[30ma[39m[49m.bla)
-         44 LOAD_ATTR            print(a[43m[30m.bla[39m[49m)
-         47 PRINT_ITEM           print(a[43m[30m.bla[39m[49m)
-         48 PRINT_NEWLINE        print(a[43m[30m.bla[39m[49m)
+         44 LOAD_ATTR            print([43m[30ma.bla[39m[49m)
+         47 PRINT_ITEM           print([43m[30ma.bla[39m[49m)
+         48 PRINT_NEWLINE        print([43m[30ma.bla[39m[49m)
 
  14      49 LOAD_NAME            print([43m[30mA[39m[49m.bla)
-         52 LOAD_ATTR            print(A[43m[30m.bla[39m[49m)
-         55 PRINT_ITEM           print(A[43m[30m.bla[39m[49m)
-         56 PRINT_NEWLINE        print(A[43m[30m.bla[39m[49m)
-         57 LOAD_CONST           print(A[43m[30m.bla[39m[49m)
-         60 RETURN_VALUE         print(A[43m[30m.bla[39m[49m)
+         52 LOAD_ATTR            print([43m[30mA.bla[39m[49m)
+         55 PRINT_ITEM           print([43m[30mA.bla[39m[49m)
+         56 PRINT_NEWLINE        print([43m[30mA.bla[39m[49m)
+         57 LOAD_CONST           print([43m[30mA.bla[39m[49m)
+         60 RETURN_VALUE         print([43m[30mA.bla[39m[49m)
 
 Disassembling function A
   1       0 LOAD_NAME            [43m[30mclass[39m[49m A(object):
@@ -49,14 +49,14 @@ Disassembling function A
 Disassembling function __init__
   4       0 LOAD_CONST               self.blb = [43m[30m"B"[39m[49m
           3 LOAD_FAST                [43m[30mself[39m[49m.blb = "B"
-          6 STORE_ATTR               self[43m[30m.blb[39m[49m = "B"
-          9 LOAD_CONST               self[43m[30m.blb[39m[49m = "B"
-         12 RETURN_VALUE             self[43m[30m.blb[39m[49m = "B"
+          6 STORE_ATTR               [43m[30mself.blb[39m[49m = "B"
+          9 LOAD_CONST               [43m[30mself.blb[39m[49m = "B"
+         12 RETURN_VALUE             [43m[30mself.blb[39m[49m = "B"
 
 Disassembling function x
   7       0 LOAD_FAST                self.bla = [43m[30mself[39m[49m.blb
-          3 LOAD_ATTR                self.bla = self[43m[30m.blb[39m[49m
+          3 LOAD_ATTR                self.bla = [43m[30mself.blb[39m[49m
           6 LOAD_FAST                [43m[30mself[39m[49m.bla = self.blb
-          9 STORE_ATTR               self[43m[30m.bla[39m[49m = self.blb
-         12 LOAD_CONST               self[43m[30m.bla[39m[49m = self.blb
-         15 RETURN_VALUE             self[43m[30m.bla[39m[49m = self.blb
+          9 STORE_ATTR               [43m[30mself.bla[39m[49m = self.blb
+         12 LOAD_CONST               [43m[30mself.bla[39m[49m = self.blb
+         15 RETURN_VALUE             [43m[30mself.bla[39m[49m = self.blb

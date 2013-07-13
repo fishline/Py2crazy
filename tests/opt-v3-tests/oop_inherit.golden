@@ -43,21 +43,21 @@ Disassembling function Prof601
 
 Disassembling function salutation
  21       0 LOAD_FAST                    return [43m[30mself[39m[49m.role + ' ' + self.name
-          3 LOAD_ATTR                    return self[43m[30m.role[39m[49m + ' ' + self.name
+          3 LOAD_ATTR                    return [43m[30mself.role[39m[49m + ' ' + self.name
           6 LOAD_CONST                   return self.role + [43m[30m' '[39m[49m + self.name
-          9 BINARY_ADD                   return self[43m[30m.role + ' '[39m[49m + self.name
+          9 BINARY_ADD                   return [43m[30mself.role + ' '[39m[49m + self.name
          10 LOAD_FAST                    return self.role + ' ' + [43m[30mself[39m[49m.name
-         13 LOAD_ATTR                    return self.role + ' ' + self[43m[30m.name[39m[49m
-         16 BINARY_ADD                   return self[43m[30m.role + ' ' + self.name[39m[49m
-         17 RETURN_VALUE                 return self[43m[30m.role + ' ' + self.name[39m[49m
+         13 LOAD_ATTR                    return self.role + ' ' + [43m[30mself.name[39m[49m
+         16 BINARY_ADD                   return [43m[30mself.role + ' ' + self.name[39m[49m
+         17 RETURN_VALUE                 return [43m[30mself.role + ' ' + self.name[39m[49m
 
 Disassembling function __init__
  17       0 LOAD_FAST                    self.name = [43m[30mname[39m[49m
           3 LOAD_FAST                    [43m[30mself[39m[49m.name = name
-          6 STORE_ATTR                   self[43m[30m.name[39m[49m = name
+          6 STORE_ATTR                   [43m[30mself.name[39m[49m = name
 
  18       9 LOAD_FAST                    [43m[30mself[39m[49m.giveRaise((age - 18) * 0.03)
-         12 LOAD_ATTR                    self[43m[30m.giveRaise[39m[49m((age - 18) * 0.03)
+         12 LOAD_ATTR                    [43m[30mself.giveRaise[39m[49m((age - 18) * 0.03)
          15 LOAD_FAST                    self.giveRaise(([43m[30mage[39m[49m - 18) * 0.03)
          18 LOAD_CONST                   self.giveRaise((age - [43m[30m18[39m[49m) * 0.03)
          21 BINARY_SUBTRACT              self.giveRaise(([43m[30mage - 18[39m[49m) * 0.03)
@@ -89,13 +89,13 @@ Disassembling function Staff601
 
 Disassembling function giveRaise
  11       0 LOAD_FAST                    self.salary = [43m[30mself[39m[49m.salary + self.salary * percentage
-          3 LOAD_ATTR                    self.salary = self[43m[30m.salary[39m[49m + self.salary * percentage
+          3 LOAD_ATTR                    self.salary = [43m[30mself.salary[39m[49m + self.salary * percentage
           6 LOAD_FAST                    self.salary = self.salary + [43m[30mself[39m[49m.salary * percentage
-          9 LOAD_ATTR                    self.salary = self.salary + self[43m[30m.salary[39m[49m * percentage
+          9 LOAD_ATTR                    self.salary = self.salary + [43m[30mself.salary[39m[49m * percentage
          12 LOAD_FAST                    self.salary = self.salary + self.salary * [43m[30mpercentage[39m[49m
-         15 BINARY_MULTIPLY              self.salary = self.salary + self[43m[30m.salary * percentage[39m[49m
-         16 BINARY_ADD                   self.salary = self[43m[30m.salary + self.salary * percentage[39m[49m
+         15 BINARY_MULTIPLY              self.salary = self.salary + [43m[30mself.salary * percentage[39m[49m
+         16 BINARY_ADD                   self.salary = [43m[30mself.salary + self.salary * percentage[39m[49m
          17 LOAD_FAST                    [43m[30mself[39m[49m.salary = self.salary + self.salary * percentage
-         20 STORE_ATTR                   self[43m[30m.salary[39m[49m = self.salary + self.salary * percentage
-         23 LOAD_CONST                   self[43m[30m.salary[39m[49m = self.salary + self.salary * percentage
-         26 RETURN_VALUE                 self[43m[30m.salary[39m[49m = self.salary + self.salary * percentage
+         20 STORE_ATTR                   [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage
+         23 LOAD_CONST                   [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage
+         26 RETURN_VALUE                 [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage

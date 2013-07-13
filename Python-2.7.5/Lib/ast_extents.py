@@ -4,7 +4,34 @@
 # standard library, so that it's easily importable
 
 # This module is designed SPECIFICALLY to work with Py2crazy, which is a
-# hacked Python 2.7.5 interpreter
+# hacked Python 2.7.5 interpreter. It won't work well with regular Python!
+
+__all__ = ['create_extent_map']
+# The public interface is a function called create_extent_map
+# that takes a string of Python source code and creates this map:
+#
+# Key: (line number, col_offset)
+# Value: A dict where:
+#          Key: AST type
+#          Value: (start_col, extent)
+#
+# start_col - starting column corresponding to the key
+# extent - number of characters to highlight starting at start_col
+#
+# Note that start_col might not equal col_offset, since a tool might want
+# to highlight a larger portion of the expression not rooted at col_offset.
+# The classic example is:
+#
+# x + y
+#
+# For the BinOp expression, col_offset is 2 (the location of the '+'
+# operator), but start_col is 0, and extent is 5, which highlights the
+# entirety of 'x + y' while pointing the cursor at the '+' smack dab in
+# the middle.
+#
+# Note that most of the time, there will be only ONE entry in the value
+# dict, but sometimes there will be multiple entries corresponding to
+# different AST types. e.g.,:
 
 
 import sys
@@ -17,18 +44,14 @@ from collections import defaultdict
 # - BinOps involving ** and field attribute accesses interact funny
 #   e.g., "self.val = self.val ** 2"
 #
-# see tests/calculate_ast_extents_tests.py for other weirdness
-
-
-#TEST_STR = 'res = apple + banana * carrot'
-#TEST_STR = '_,_ = apple + banana * carrot'
-TEST_STR = 'x = 5\nprint `x`'
+# see tests/known-broken-tests/ for other weirdness
 
 
 # Consult Parser/Python.asdl for full AST description
 
-# Tested by running AddExtentsVisitor on a bunch of files from the Python
-# standard library, starting with Lib/ast.py.
+
+# Informally tested by running AddExtentsVisitor on a bunch of files
+# from the Python standard library, starting with Lib/ast.py.
 # Also test on the Online Python Tutor test suite as well.
 
 # for e in Lib/*.py; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
@@ -36,27 +59,6 @@ TEST_STR = 'x = 5\nprint `x`'
 # for e in OnlinePythonTutor/v3/tests/backend-tests/*.txt; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
 
 # for e in OnlinePythonTutor/v3/tests/example-code/*.txt; do echo $e; ./python.exe ../calculate_ast_extents.py $e; done > out 2> err
-
-
-
-# start_col - starting column to highlight
-# extent - number of characters to highlight starting at start_col
-# NOTE THAT start_col might not equal col_offset, since we might want to
-# highlight a larger portion of the expression not rooted at col_offset.
-# The classic example is:
-#
-# x + y
-#
-# For the BinOp expression, col_offset is 2 (the location of the '+'
-# operator), but start_col is 0, and extent is 5, which highlights the
-# entirety of 'x + y' while pointing the cursor at the '+' smack dab in
-# the middle.
-
-
-# The hope is that this visitor doesn't have to be perfect, since
-# Py2crazy stops only on each unique line/column combo, so some of these
-# AST types might be "shadowed" by one of its children with start_col and
-# extent info, even if it doesn't get a start_col and extent to itself.
 
 
 # NOPs
@@ -139,10 +141,13 @@ class AddExtentsVisitor(ast.NodeVisitor):
     '''
 
   def visit_Attribute(self, node):
-    self.add_attrs(node)
-    node.start_col = node.col_offset
-    node.extent = len(node.attr) + 1 # extra for dot
-    self.visit_children(node)
+      if hasattr(node.value, 'extent'):
+          self.add_attrs(node)
+          node.start_col = node.value.start_col
+          # tricky tricky. the key point here is that node.col_offset
+          # is the column of the '.' dot operator
+          node.extent = (node.col_offset + len(node.attr) + 1) - node.start_col
+      self.visit_children(node)
 
   def visit_Call(self, node):
     if hasattr(node.func, 'extent'):
@@ -383,8 +388,10 @@ class DepthCountingVisitor(object):
 
 class BuildExtentMapVisitor(ast.NodeVisitor):
     def __init__(self, extent_map):
-        # Key: (lineno, col_offset)
-        # Value: (start_col, extent)
+        # Key: (line number, col_offset)
+        # Value: A dict where:
+        #          Key: AST type
+        #          Value: (start_col, extent)
         self.extent_map = extent_map
 
     def generic_visit(self, node):
@@ -393,13 +400,16 @@ class BuildExtentMapVisitor(ast.NodeVisitor):
             'col_offset' in node._attributes:
             k = (node.lineno, node.col_offset)
             v = (node.start_col, node.extent)
+            ast_typename = node.__class__.__name__
 
-            # STRICT TEST - DON'T ALLOW DUPS!
-            assert k not in self.extent_map or v == self.extent_map[k]
+            if k not in self.extent_map:
+                self.extent_map[k] = {}
 
-            self.extent_map[k] = v
-            # for debugging!
-            #self.extent_map[k].add((v, ast.dump(node)))
+            # don't allow duplicates of the same AST type:
+            assert ast_typename not in self.extent_map[k]
+
+            self.extent_map[k][ast_typename] = v
+
 
         ast.NodeVisitor.generic_visit(self, node)
 

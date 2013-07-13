@@ -30,13 +30,13 @@ Disassembling top-level module in ./opt-v3-tests/breakpoints.txt
          66 STORE_NAME           [43m[30my[39m[49m = x
 
  11      69 LOAD_NAME            [43m[30mx[39m[49m.append(4) #break
-         72 LOAD_ATTR            x[43m[30m.append[39m[49m(4) #break
+         72 LOAD_ATTR            [43m[30mx.append[39m[49m(4) #break
          75 LOAD_CONST           x.append([43m[30m4[39m[49m) #break
          78 CALL_FUNCTION        x.append([43m[30m4[39m[49m) #break
          81 POP_TOP              x.append([43m[30m4[39m[49m) #break
 
  12      82 LOAD_NAME            [43m[30my[39m[49m.append(5)
-         85 LOAD_ATTR            y[43m[30m.append[39m[49m(5)
+         85 LOAD_ATTR            [43m[30my.append[39m[49m(5)
          88 LOAD_CONST           y.append([43m[30m5[39m[49m)
          91 CALL_FUNCTION        y.append([43m[30m5[39m[49m)
          94 POP_TOP              y.append([43m[30m5[39m[49m)
@@ -50,13 +50,13 @@ Disassembling top-level module in ./opt-v3-tests/breakpoints.txt
         113 STORE_NAME           [43m[30mz[39m[49m = [1, 2, 3, 4, 5] # a different list!  #break
 
  14     116 LOAD_NAME            [43m[30mx[39m[49m.append(6)
-        119 LOAD_ATTR            x[43m[30m.append[39m[49m(6)
+        119 LOAD_ATTR            [43m[30mx.append[39m[49m(6)
         122 LOAD_CONST           x.append([43m[30m6[39m[49m)
         125 CALL_FUNCTION        x.append([43m[30m6[39m[49m)
         128 POP_TOP              x.append([43m[30m6[39m[49m)
 
  15     129 LOAD_NAME            [43m[30my[39m[49m.append(7)
-        132 LOAD_ATTR            y[43m[30m.append[39m[49m(7)
+        132 LOAD_ATTR            [43m[30my.append[39m[49m(7)
         135 LOAD_CONST           y.append([43m[30m7[39m[49m)
         138 CALL_FUNCTION        y.append([43m[30m7[39m[49m)
         141 POP_TOP              y.append([43m[30m7[39m[49m)
@@ -93,7 +93,7 @@ Disassembling function bar
 
 Disassembling function foo
  20       0 LOAD_FAST                [43m[30mlst[39m[49m.append("hello") #break
-          3 LOAD_ATTR                lst[43m[30m.append[39m[49m("hello") #break
+          3 LOAD_ATTR                [43m[30mlst.append[39m[49m("hello") #break
           6 LOAD_CONST               lst.append([43m[30m"hello"[39m[49m) #break
           9 CALL_FUNCTION            lst.append([43m[30m"hello"[39m[49m) #break
          12 POP_TOP                  lst.append([43m[30m"hello"[39m[49m) #break

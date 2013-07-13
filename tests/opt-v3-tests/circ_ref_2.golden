@@ -11,7 +11,7 @@ Disassembling top-level module in ./opt-v3-tests/circ_ref_2.txt
          24 STORE_NAME           [43m[30my[39m[49m = [3, 4, x]
 
   5      27 LOAD_NAME            [43m[30mx[39m[49m.append(y)
-         30 LOAD_ATTR            x[43m[30m.append[39m[49m(y)
+         30 LOAD_ATTR            [43m[30mx.append[39m[49m(y)
          33 LOAD_NAME            x.append([43m[30my[39m[49m)
          36 CALL_FUNCTION        x.append([43m[30my[39m[49m)
          39 POP_TOP              x.append([43m[30my[39m[49m)

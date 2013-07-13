@@ -30,22 +30,22 @@ Disassembling top-level module in ./opt-v3-tests/oop_small.txt
          69 STORE_NAME           [43m[30minst[39m[49m = C()
 
  13      72 LOAD_NAME            print([43m[30minst[39m[49m.salutation())
-         75 LOAD_ATTR            print(inst[43m[30m.salutation[39m[49m())
-         78 CALL_FUNCTION        print(inst[43m[30m.salutation[39m[49m())
-         81 PRINT_ITEM           print(inst[43m[30m.salutation[39m[49m())
-         82 PRINT_NEWLINE        print(inst[43m[30m.salutation[39m[49m())
+         75 LOAD_ATTR            print([43m[30minst.salutation[39m[49m())
+         78 CALL_FUNCTION        print([43m[30minst.salutation[39m[49m())
+         81 PRINT_ITEM           print([43m[30minst.salutation[39m[49m())
+         82 PRINT_NEWLINE        print([43m[30minst.salutation[39m[49m())
 
  14      83 LOAD_CONST           inst.x = [43m[30m100[39m[49m
          86 LOAD_NAME            [43m[30minst[39m[49m.x = 100
-         89 STORE_ATTR           inst[43m[30m.x[39m[49m = 100
+         89 STORE_ATTR           [43m[30minst.x[39m[49m = 100
 
  15      92 LOAD_NAME            print([43m[30minst[39m[49m.salutation())
-         95 LOAD_ATTR            print(inst[43m[30m.salutation[39m[49m())
-         98 CALL_FUNCTION        print(inst[43m[30m.salutation[39m[49m())
-        101 PRINT_ITEM           print(inst[43m[30m.salutation[39m[49m())
-        102 PRINT_NEWLINE        print(inst[43m[30m.salutation[39m[49m())
-        103 LOAD_CONST           print(inst[43m[30m.salutation[39m[49m())
-        106 RETURN_VALUE         print(inst[43m[30m.salutation[39m[49m())
+         95 LOAD_ATTR            print([43m[30minst.salutation[39m[49m())
+         98 CALL_FUNCTION        print([43m[30minst.salutation[39m[49m())
+        101 PRINT_ITEM           print([43m[30minst.salutation[39m[49m())
+        102 PRINT_NEWLINE        print([43m[30minst.salutation[39m[49m())
+        103 LOAD_CONST           print([43m[30minst.salutation[39m[49m())
+        106 RETURN_VALUE         print([43m[30minst.salutation[39m[49m())
 
 Disassembling function B
   5       0 LOAD_NAME            [43m[30mclass[39m[49m B:
@@ -69,12 +69,12 @@ Disassembling function C
 Disassembling function salutation
  10       0 LOAD_CONST                   return [43m[30m'%d %s %s'[39m[49m % (self.x, self.y, self.z)
           3 LOAD_FAST                    return '%d %s %s' % ([43m[30mself[39m[49m.x, self.y, self.z)
-          6 LOAD_ATTR                    return '%d %s %s' % (self[43m[30m.x[39m[49m, self.y, self.z)
+          6 LOAD_ATTR                    return '%d %s %s' % ([43m[30mself.x[39m[49m, self.y, self.z)
           9 LOAD_FAST                    return '%d %s %s' % (self.x, [43m[30mself[39m[49m.y, self.z)
-         12 LOAD_ATTR                    return '%d %s %s' % (self.x, self[43m[30m.y[39m[49m, self.z)
+         12 LOAD_ATTR                    return '%d %s %s' % (self.x, [43m[30mself.y[39m[49m, self.z)
          15 LOAD_FAST                    return '%d %s %s' % (self.x, self.y, [43m[30mself[39m[49m.z)
-         18 LOAD_ATTR                    return '%d %s %s' % (self.x, self.y, self[43m[30m.z[39m[49m)
-         21 BUILD_TUPLE                  return '%d %s %s' % (self.x, self.y, self[43m[30m.z[39m[49m)
+         18 LOAD_ATTR                    return '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
+         21 BUILD_TUPLE                  return '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
          24 BINARY_MODULO                return '%d %s %s' [43m[30m%[39m[49m (self.x, self.y, self.z)
          25 RETURN_VALUE                 return '%d %s %s' [43m[30m%[39m[49m (self.x, self.y, self.z)
 

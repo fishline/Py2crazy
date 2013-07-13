@@ -16,12 +16,12 @@ Disassembling top-level module in ./opt-v3-tests/oop_2.txt
          37 STORE_NAME           [43m[30mpat[39m[49m = Staff601('Pat', 'Professor', 60, 100000)
 
  20      40 LOAD_NAME            print([43m[30mpat[39m[49m.salutation())
-         43 LOAD_ATTR            print(pat[43m[30m.salutation[39m[49m())
-         46 CALL_FUNCTION        print(pat[43m[30m.salutation[39m[49m())
-         49 PRINT_ITEM           print(pat[43m[30m.salutation[39m[49m())
-         50 PRINT_NEWLINE        print(pat[43m[30m.salutation[39m[49m())
-         51 LOAD_CONST           print(pat[43m[30m.salutation[39m[49m())
-         54 RETURN_VALUE         print(pat[43m[30m.salutation[39m[49m())
+         43 LOAD_ATTR            print([43m[30mpat.salutation[39m[49m())
+         46 CALL_FUNCTION        print([43m[30mpat.salutation[39m[49m())
+         49 PRINT_ITEM           print([43m[30mpat.salutation[39m[49m())
+         50 PRINT_NEWLINE        print([43m[30mpat.salutation[39m[49m())
+         51 LOAD_CONST           print([43m[30mpat.salutation[39m[49m())
+         54 RETURN_VALUE         print([43m[30mpat.salutation[39m[49m())
 
 Disassembling function Staff601
   5       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:
@@ -49,28 +49,28 @@ Disassembling function Staff601
 Disassembling function __init__
  11       0 LOAD_FAST                  self.name = [43m[30mname[39m[49m
           3 LOAD_FAST                  [43m[30mself[39m[49m.name = name
-          6 STORE_ATTR                 self[43m[30m.name[39m[49m = name
+          6 STORE_ATTR                 [43m[30mself.name[39m[49m = name
 
  12       9 LOAD_FAST                  self.role = [43m[30mrole[39m[49m
          12 LOAD_FAST                  [43m[30mself[39m[49m.role = role
-         15 STORE_ATTR                 self[43m[30m.role[39m[49m = role
+         15 STORE_ATTR                 [43m[30mself.role[39m[49m = role
 
  13      18 LOAD_FAST                  self.age = [43m[30myears[39m[49m
          21 LOAD_FAST                  [43m[30mself[39m[49m.age = years
-         24 STORE_ATTR                 self[43m[30m.age[39m[49m = years
+         24 STORE_ATTR                 [43m[30mself.age[39m[49m = years
 
  14      27 LOAD_FAST                  self.salary = [43m[30msalary[39m[49m
          30 LOAD_FAST                  [43m[30mself[39m[49m.salary = salary
-         33 STORE_ATTR                 self[43m[30m.salary[39m[49m = salary
-         36 LOAD_CONST                 self[43m[30m.salary[39m[49m = salary
-         39 RETURN_VALUE               self[43m[30m.salary[39m[49m = salary
+         33 STORE_ATTR                 [43m[30mself.salary[39m[49m = salary
+         36 LOAD_CONST                 [43m[30mself.salary[39m[49m = salary
+         39 RETURN_VALUE               [43m[30mself.salary[39m[49m = salary
 
 Disassembling function salutation
  17       0 LOAD_FAST                    return [43m[30mself[39m[49m.role + ' ' + self.name
-          3 LOAD_ATTR                    return self[43m[30m.role[39m[49m + ' ' + self.name
+          3 LOAD_ATTR                    return [43m[30mself.role[39m[49m + ' ' + self.name
           6 LOAD_CONST                   return self.role + [43m[30m' '[39m[49m + self.name
-          9 BINARY_ADD                   return self[43m[30m.role + ' '[39m[49m + self.name
+          9 BINARY_ADD                   return [43m[30mself.role + ' '[39m[49m + self.name
          10 LOAD_FAST                    return self.role + ' ' + [43m[30mself[39m[49m.name
-         13 LOAD_ATTR                    return self.role + ' ' + self[43m[30m.name[39m[49m
-         16 BINARY_ADD                   return self[43m[30m.role + ' ' + self.name[39m[49m
-         17 RETURN_VALUE                 return self[43m[30m.role + ' ' + self.name[39m[49m
+         13 LOAD_ATTR                    return self.role + ' ' + [43m[30mself.name[39m[49m
+         16 BINARY_ADD                   return [43m[30mself.role + ' ' + self.name[39m[49m
+         17 RETURN_VALUE                 return [43m[30mself.role + ' ' + self.name[39m[49m

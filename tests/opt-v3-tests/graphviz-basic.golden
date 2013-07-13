@@ -20,7 +20,7 @@ Disassembling top-level module in ./opt-v3-tests/graphviz-basic.txt
          43 STORE_NAME           [43m[30mg[39m[49m = GraphViz(DOTFILE)
 
  26      46 LOAD_NAME            [43m[30mhtml_module[39m[49m.display_img(str(g))
-         49 LOAD_ATTR            html_module[43m[30m.display_img[39m[49m(str(g))
+         49 LOAD_ATTR            [43m[30mhtml_module.display_img[39m[49m(str(g))
          52 LOAD_NAME            html_module.display_img([43m[30mstr[39m[49m(g))
          55 LOAD_NAME            html_module.display_img(str([43m[30mg[39m[49m))
          58 CALL_FUNCTION        html_module.display_img(str([43m[30mg[39m[49m))

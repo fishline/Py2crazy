@@ -32,6 +32,10 @@ opt-v3-tests/ling-scheme-1.txt:
 
 ---
 
+./opt-v3-tests/watch_module_selection_sort.txt looks weird
+
+---
+
 # nested classes ... for some reason, the first opcode in a class
 # doesn't match anything in extent_map, so we punt to column 0, ugly
 
@@ -43,4 +47,5 @@ class A:
     class B:
         class C:
             pass
+
 

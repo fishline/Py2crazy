@@ -55,7 +55,9 @@ def format_dis_line(disline, source_lines, extent_map):
         lineno = '   '
 
     if lc in extent_map:
-      start_col, extent = extent_map[lc]
+      # TODO: handle ambiguities when there are more than one entry!
+      v = extent_map[lc]
+      start_col, extent = v.values()[0]
     else:
       # boring defaults
       start_col, extent = disline.column, 1
