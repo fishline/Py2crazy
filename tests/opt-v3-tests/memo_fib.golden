@@ -30,7 +30,7 @@ Disassembling function MemoizedFib
 
  11      31 LOAD_GLOBAL                  return [43m[30mMemoTable[39m[49m[n]
          34 LOAD_FAST                    return MemoTable[[43m[30mn[39m[49m]
-         37 BINARY_SUBSCR                return MemoTable[[43m[30mn[39m[49m]
+         37 BINARY_SUBSCR                return [43m[30mMemoTable[n][39m[49m
          38 RETURN_VALUE                 return MemoTable[[43m[30mn[39m[49m]
          39 JUMP_FORWARD                 return MemoTable[[43m[30mn[39m[49m]
 
@@ -47,9 +47,9 @@ Disassembling function MemoizedFib
          68 BINARY_ADD               MemoTable[n] = [43m[30mMemoizedFib(n-1) + MemoizedFib[39m[49m(n-2)
          69 LOAD_GLOBAL              [43m[30mMemoTable[39m[49m[n] = MemoizedFib(n-1) + MemoizedFib(n-2)
          72 LOAD_FAST                MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
-         75 STORE_SUBSCR             MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
+         75 STORE_SUBSCR             [43m[30mMemoTable[n][39m[49m = MemoizedFib(n-1) + MemoizedFib(n-2)
 
  14      76 LOAD_GLOBAL              return [43m[30mMemoTable[39m[49m[n]
          79 LOAD_FAST                return MemoTable[[43m[30mn[39m[49m]
-         82 BINARY_SUBSCR            return MemoTable[[43m[30mn[39m[49m]
+         82 BINARY_SUBSCR            return [43m[30mMemoTable[n][39m[49m
          83 RETURN_VALUE             return MemoTable[[43m[30mn[39m[49m]

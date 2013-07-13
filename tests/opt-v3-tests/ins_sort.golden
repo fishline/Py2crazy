@@ -38,7 +38,7 @@ Disassembling function InsertionSort
 
   4      28 LOAD_FAST                    key = [43m[30mA[39m[49m[j]
          31 LOAD_FAST                    key = A[[43m[30mj[39m[49m]
-         34 BINARY_SUBSCR                key = A[[43m[30mj[39m[49m]
+         34 BINARY_SUBSCR                key = [43m[30mA[j][39m[49m
          35 STORE_FAST                   [43m[30mkey[39m[49m = A[j]
 
   5      38 LOAD_FAST                    i = [43m[30mj[39m[49m - 1
@@ -53,14 +53,14 @@ Disassembling function InsertionSort
          60 JUMP_IF_FALSE_OR_POP         while ([43m[30mi >= 0[39m[49m) and (A[i] > key):
          63 LOAD_FAST                    while (i >= 0) and ([43m[30mA[39m[49m[i] > key):
          66 LOAD_FAST                    while (i >= 0) and (A[[43m[30mi[39m[49m] > key):
-         69 BINARY_SUBSCR                while (i >= 0) and (A[[43m[30mi[39m[49m] > key):
+         69 BINARY_SUBSCR                while (i >= 0) and ([43m[30mA[i][39m[49m > key):
          70 LOAD_FAST                    while (i >= 0) and (A[i] > [43m[30mkey[39m[49m):
-         73 COMPARE_OP                   while (i >= 0) and (A[i] [43m[30m>[39m[49m key):
-    >>   76 POP_JUMP_IF_FALSE            while (i >= 0) and (A[i] [43m[30m>[39m[49m key):
+         73 COMPARE_OP                   while (i >= 0) and ([43m[30mA[i] > key[39m[49m):
+    >>   76 POP_JUMP_IF_FALSE            while (i >= 0) and ([43m[30mA[i] > key[39m[49m):
 
   7      79 LOAD_FAST                        A[i+1] = [43m[30mA[39m[49m[i]
          82 LOAD_FAST                        A[i+1] = A[[43m[30mi[39m[49m]
-         85 BINARY_SUBSCR                    A[i+1] = A[[43m[30mi[39m[49m]
+         85 BINARY_SUBSCR                    A[i+1] = [43m[30mA[i][39m[49m
          86 LOAD_FAST                        [43m[30mA[39m[49m[i+1] = A[i]
          89 LOAD_FAST                        A[[43m[30mi[39m[49m+1] = A[i]
          92 LOAD_CONST                       A[i+[43m[30m1[39m[49m] = A[i]

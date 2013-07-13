@@ -33,7 +33,7 @@ Disassembling function append
 
  11 >>   19 LOAD_FAST                return [[43m[30mxs[39m[49m[0]] + append(xs[1:], ys)
          22 LOAD_CONST               return [xs[[43m[30m0[39m[49m]] + append(xs[1:], ys)
-         25 BINARY_SUBSCR            return [xs[[43m[30m0[39m[49m]] + append(xs[1:], ys)
+         25 BINARY_SUBSCR            return [[43m[30mxs[0][39m[49m] + append(xs[1:], ys)
          26 BUILD_LIST               return [xs[[43m[30m0[39m[49m]] + append(xs[1:], ys)
          29 LOAD_GLOBAL              return [xs[0]] + [43m[30mappend[39m[49m(xs[1:], ys)
          32 LOAD_FAST                return [xs[0]] + append([43m[30mxs[39m[49m[1:], ys)
@@ -59,7 +59,7 @@ Disassembling function map
   5 >>   19 LOAD_FAST                return [[43m[30mf[39m[49m(xs[0])] + list(map(f, xs[1:]))
          22 LOAD_FAST                return [f([43m[30mxs[39m[49m[0])] + list(map(f, xs[1:]))
          25 LOAD_CONST               return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
-         28 BINARY_SUBSCR            return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
+         28 BINARY_SUBSCR            return [f([43m[30mxs[0][39m[49m)] + list(map(f, xs[1:]))
          29 CALL_FUNCTION            return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
          32 BUILD_LIST               return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
          35 LOAD_GLOBAL              return [f(xs[0])] + [43m[30mlist[39m[49m(map(f, xs[1:]))
@@ -119,7 +119,7 @@ Disassembling function pairs
 Disassembling function <lambda>
  19       0 LOAD_DEREF               return append(map(lambda x: [[43m[30mxs[39m[49m[0], x], xs[1:]), pairs(xs[1:]))
           3 LOAD_CONST               return append(map(lambda x: [xs[[43m[30m0[39m[49m], x], xs[1:]), pairs(xs[1:]))
-          6 BINARY_SUBSCR            return append(map(lambda x: [xs[[43m[30m0[39m[49m], x], xs[1:]), pairs(xs[1:]))
+          6 BINARY_SUBSCR            return append(map(lambda x: [[43m[30mxs[0][39m[49m, x], xs[1:]), pairs(xs[1:]))
           7 LOAD_FAST                return append(map(lambda x: [xs[0], [43m[30mx[39m[49m], xs[1:]), pairs(xs[1:]))
          10 BUILD_LIST               return append(map(lambda x: [xs[0], [43m[30mx[39m[49m], xs[1:]), pairs(xs[1:]))
          13 RETURN_VALUE             return append(map(lambda x: [xs[0], [43m[30mx[39m[49m], xs[1:]), pairs(xs[1:]))

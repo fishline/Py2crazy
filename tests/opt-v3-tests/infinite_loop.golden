@@ -6,7 +6,7 @@ Disassembling top-level module in ./opt-v3-tests/infinite_loop.txt
 
   5      12 LOAD_NAME            print([43m[30marr[39m[49m[0])
          15 LOAD_CONST           print(arr[[43m[30m0[39m[49m])
-         18 BINARY_SUBSCR        print(arr[[43m[30m0[39m[49m])
+         18 BINARY_SUBSCR        print([43m[30marr[0][39m[49m)
          19 PRINT_ITEM           print(arr[[43m[30m0[39m[49m])
          20 PRINT_NEWLINE        print(arr[[43m[30m0[39m[49m])
 
@@ -16,7 +16,7 @@ Disassembling top-level module in ./opt-v3-tests/infinite_loop.txt
 
   8      30 LOAD_NAME              print([43m[30marr[39m[49m[-1])
          33 LOAD_CONST             print(arr[[43m[30m-1[39m[49m])
-         36 BINARY_SUBSCR          print(arr[[43m[30m-1[39m[49m])
+         36 BINARY_SUBSCR          print([43m[30marr[-1][39m[49m)
          37 PRINT_ITEM             print(arr[[43m[30m-1[39m[49m])
          38 PRINT_NEWLINE          print(arr[[43m[30m-1[39m[49m])
 
@@ -33,7 +33,7 @@ Disassembling top-level module in ./opt-v3-tests/infinite_loop.txt
 
  11      64 LOAD_NAME              del [43m[30marr[39m[49m[0]
          67 LOAD_CONST             del arr[[43m[30m0[39m[49m]
-         70 DELETE_SUBSCR          del arr[[43m[30m0[39m[49m]
+         70 DELETE_SUBSCR          del [43m[30marr[0][39m[49m
          71 JUMP_ABSOLUTE          del arr[[43m[30m0[39m[49m]
     >>   74 POP_BLOCK              del arr[[43m[30m0[39m[49m]
     >>   75 LOAD_CONST             del arr[[43m[30m0[39m[49m]

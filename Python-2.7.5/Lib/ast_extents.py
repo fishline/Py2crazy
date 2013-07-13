@@ -36,7 +36,6 @@ __all__ = ['create_extent_map']
 
 import sys
 import ast
-from collections import defaultdict
 
 # Limitations
 # - doesn't support extents that span MULTIPLE LINES
@@ -112,32 +111,24 @@ class AddExtentsVisitor(ast.NodeVisitor):
   # (unless you know you're a terminal node)
   # TODO: encapsulate in a decorator
 
-  # NOP for now since it looks prettier
-  # also, it might conflict with the LOAD_NAME of the value. e.g.,:
-  #   arr[ind]
-  # LOAD_NAME of 'arr' and 'arr[ind]' both start at the same index, so
-  # we can't resolve the ambiguity unless we hack Py2crazy to do
-  # something more extreme.
   def visit_Subscript(self, node):
     self.visit_children(node)
-    '''
     if hasattr(node.value, 'extent') and hasattr(node.slice, 'extent'):
       self.add_attrs(node)
       node.start_col = node.value.start_col
-      node.extent = node.slice.extent
+      # add 1 for trailing ']'
+      # of course, that doesn't work so well when you put spaces before
+      # like '  ]', but it's okay for the common case.
+      node.extent = node.slice.start_col + node.slice.extent + 1 - node.start_col
     self.visit_children(node)
-    '''
 
-  # NOP for now since it looks prettier
   def visit_Index(self, node):
     self.visit_children(node)
-    '''
     if hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.value.start_col
       node.extent = node.value.extent
     self.visit_children(node)
-    '''
 
   def visit_Attribute(self, node):
       if hasattr(node.value, 'extent'):

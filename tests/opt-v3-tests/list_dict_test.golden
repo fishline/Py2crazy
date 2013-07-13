@@ -21,7 +21,7 @@ Disassembling top-level module in ./opt-v3-tests/list_dict_test.txt
   4      46 LOAD_NAME                x[e] = [43m[30mi[39m[49m
          49 LOAD_NAME                [43m[30mx[39m[49m[e] = i
          52 LOAD_NAME                x[[43m[30me[39m[49m] = i
-         55 STORE_SUBSCR             x[[43m[30me[39m[49m] = i
+         55 STORE_SUBSCR             [43m[30mx[e][39m[49m = i
          56 JUMP_ABSOLUTE            x[[43m[30me[39m[49m] = i
     >>   59 POP_BLOCK                x[[43m[30me[39m[49m] = i
 

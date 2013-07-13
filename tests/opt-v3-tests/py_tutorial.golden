@@ -15,17 +15,17 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
  10      30 LOAD_NAME            firstName = [43m[30mtokens[39m[49m[0]
          33 LOAD_CONST           firstName = tokens[[43m[30m0[39m[49m]
-         36 BINARY_SUBSCR        firstName = tokens[[43m[30m0[39m[49m]
+         36 BINARY_SUBSCR        firstName = [43m[30mtokens[0][39m[49m
          37 STORE_NAME           [43m[30mfirstName[39m[49m = tokens[0]
 
  11      40 LOAD_NAME            middleName = [43m[30mtokens[39m[49m[1]
          43 LOAD_CONST           middleName = tokens[[43m[30m1[39m[49m]
-         46 BINARY_SUBSCR        middleName = tokens[[43m[30m1[39m[49m]
+         46 BINARY_SUBSCR        middleName = [43m[30mtokens[1][39m[49m
          47 STORE_NAME           [43m[30mmiddleName[39m[49m = tokens[1]
 
  12      50 LOAD_NAME            lastName = [43m[30mtokens[39m[49m[2]
          53 LOAD_CONST           lastName = tokens[[43m[30m2[39m[49m]
-         56 BINARY_SUBSCR        lastName = tokens[[43m[30m2[39m[49m]
+         56 BINARY_SUBSCR        lastName = [43m[30mtokens[2][39m[49m
          57 STORE_NAME           [43m[30mlastName[39m[49m = tokens[2]
 
  13      60 LOAD_NAME            s2 = [43m[30mfirstName[39m[49m + ' ' + middleName + ' ' + lastName
@@ -146,22 +146,22 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
  51     302 LOAD_CONST           netWorth['Donald Trump'] = [43m[30m3000000000[39m[49m
         305 LOAD_NAME            [43m[30mnetWorth[39m[49m['Donald Trump'] = 3000000000
         308 LOAD_CONST           netWorth[[43m[30m'Donald Trump'[39m[49m] = 3000000000
-        311 STORE_SUBSCR         netWorth[[43m[30m'Donald Trump'[39m[49m] = 3000000000
+        311 STORE_SUBSCR         [43m[30mnetWorth['Donald Trump'][39m[49m = 3000000000
 
  52     312 LOAD_CONST           netWorth['Bill Gates'] = [43m[30m58000000000[39m[49m
         315 LOAD_NAME            [43m[30mnetWorth[39m[49m['Bill Gates'] = 58000000000
         318 LOAD_CONST           netWorth[[43m[30m'Bill Gates'[39m[49m] = 58000000000
-        321 STORE_SUBSCR         netWorth[[43m[30m'Bill Gates'[39m[49m] = 58000000000
+        321 STORE_SUBSCR         [43m[30mnetWorth['Bill Gates'][39m[49m = 58000000000
 
  53     322 LOAD_CONST           netWorth['Tom Cruise'] = [43m[30m40000000[39m[49m
         325 LOAD_NAME            [43m[30mnetWorth[39m[49m['Tom Cruise'] = 40000000
         328 LOAD_CONST           netWorth[[43m[30m'Tom Cruise'[39m[49m] = 40000000
-        331 STORE_SUBSCR         netWorth[[43m[30m'Tom Cruise'[39m[49m] = 40000000
+        331 STORE_SUBSCR         [43m[30mnetWorth['Tom Cruise'][39m[49m = 40000000
 
  54     332 LOAD_CONST           netWorth['Joe Postdoc'] = [43m[30m20000[39m[49m
         335 LOAD_NAME            [43m[30mnetWorth[39m[49m['Joe Postdoc'] = 20000
         338 LOAD_CONST           netWorth[[43m[30m'Joe Postdoc'[39m[49m] = 20000
-        341 STORE_SUBSCR         netWorth[[43m[30m'Joe Postdoc'[39m[49m] = 20000
+        341 STORE_SUBSCR         [43m[30mnetWorth['Joe Postdoc'][39m[49m = 20000
 
  57     342 SETUP_LOOP           [43m[30mfor[39m[49m (person, worth) in netWorth.items():
         345 LOAD_NAME            for (person, worth) in [43m[30mnetWorth[39m[49m.items():

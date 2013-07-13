@@ -55,9 +55,18 @@ def format_dis_line(disline, source_lines, extent_map):
         lineno = '   '
 
     if lc in extent_map:
-      # TODO: handle ambiguities when there are more than one entry!
-      v = extent_map[lc]
-      start_col, extent = v.values()[0]
+      v = dict(extent_map[lc]) # make a copy so we can mutate freely
+
+      # special case hacks!
+      # TODO: kludgy, ugh
+      if '_SUBSCR' in disline.opcode and 'Subscript' in v: # subscripting opcodes
+        start_col, extent = v['Subscript']
+      else:
+        try:
+          del v['Subscript']
+        except KeyError:
+          pass
+        start_col, extent = v.values()[0]
     else:
       # boring defaults
       start_col, extent = disline.column, 1

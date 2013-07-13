@@ -1,9 +1,9 @@
-Disassembling top-level module in ./known-broken-tests/array_subscript_equals.txt
+Disassembling top-level module in ./mini-tests/array_subscript_equals.txt
   1       0 LOAD_NAME            x = ([43m[30mtokens[39m[49m[5] == 'male')
           3 LOAD_CONST           x = (tokens[[43m[30m5[39m[49m] == 'male')
-          6 BINARY_SUBSCR        x = (tokens[[43m[30m5[39m[49m] == 'male')
+          6 BINARY_SUBSCR        x = ([43m[30mtokens[5][39m[49m == 'male')
           7 LOAD_CONST           x = (tokens[5] == [43m[30m'male'[39m[49m)
-         10 COMPARE_OP           x = (tokens[5] [43m[30m=[39m[49m= 'male')
+         10 COMPARE_OP           x = ([43m[30mtokens[5] == 'male'[39m[49m)
          13 STORE_NAME           [43m[30mx[39m[49m = (tokens[5] == 'male')
          16 LOAD_CONST           [43m[30mx[39m[49m = (tokens[5] == 'male')
          19 RETURN_VALUE         [43m[30mx[39m[49m = (tokens[5] == 'male')

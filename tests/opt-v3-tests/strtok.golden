@@ -10,37 +10,37 @@ Disassembling top-level module in ./opt-v3-tests/strtok.txt
 
   4      21 LOAD_NAME            firstName = [43m[30mtokens[39m[49m[0]
          24 LOAD_CONST           firstName = tokens[[43m[30m0[39m[49m]
-         27 BINARY_SUBSCR        firstName = tokens[[43m[30m0[39m[49m]
+         27 BINARY_SUBSCR        firstName = [43m[30mtokens[0][39m[49m
          28 STORE_NAME           [43m[30mfirstName[39m[49m = tokens[0]
 
   5      31 LOAD_NAME            lastName = [43m[30mtokens[39m[49m[1]
          34 LOAD_CONST           lastName = tokens[[43m[30m1[39m[49m]
-         37 BINARY_SUBSCR        lastName = tokens[[43m[30m1[39m[49m]
+         37 BINARY_SUBSCR        lastName = [43m[30mtokens[1][39m[49m
          38 STORE_NAME           [43m[30mlastName[39m[49m = tokens[1]
 
   6      41 LOAD_NAME            birthdate = ([43m[30mint[39m[49m(tokens[2]), int(tokens[3]), int(tokens[4]))
          44 LOAD_NAME            birthdate = (int([43m[30mtokens[39m[49m[2]), int(tokens[3]), int(tokens[4]))
          47 LOAD_CONST           birthdate = (int(tokens[[43m[30m2[39m[49m]), int(tokens[3]), int(tokens[4]))
-         50 BINARY_SUBSCR        birthdate = (int(tokens[[43m[30m2[39m[49m]), int(tokens[3]), int(tokens[4]))
+         50 BINARY_SUBSCR        birthdate = (int([43m[30mtokens[2][39m[49m), int(tokens[3]), int(tokens[4]))
          51 CALL_FUNCTION        birthdate = (int(tokens[[43m[30m2[39m[49m]), int(tokens[3]), int(tokens[4]))
          54 LOAD_NAME            birthdate = (int(tokens[2]), [43m[30mint[39m[49m(tokens[3]), int(tokens[4]))
          57 LOAD_NAME            birthdate = (int(tokens[2]), int([43m[30mtokens[39m[49m[3]), int(tokens[4]))
          60 LOAD_CONST           birthdate = (int(tokens[2]), int(tokens[[43m[30m3[39m[49m]), int(tokens[4]))
-         63 BINARY_SUBSCR        birthdate = (int(tokens[2]), int(tokens[[43m[30m3[39m[49m]), int(tokens[4]))
+         63 BINARY_SUBSCR        birthdate = (int(tokens[2]), int([43m[30mtokens[3][39m[49m), int(tokens[4]))
          64 CALL_FUNCTION        birthdate = (int(tokens[2]), int(tokens[[43m[30m3[39m[49m]), int(tokens[4]))
          67 LOAD_NAME            birthdate = (int(tokens[2]), int(tokens[3]), [43m[30mint[39m[49m(tokens[4]))
          70 LOAD_NAME            birthdate = (int(tokens[2]), int(tokens[3]), int([43m[30mtokens[39m[49m[4]))
          73 LOAD_CONST           birthdate = (int(tokens[2]), int(tokens[3]), int(tokens[[43m[30m4[39m[49m]))
-         76 BINARY_SUBSCR        birthdate = (int(tokens[2]), int(tokens[3]), int(tokens[[43m[30m4[39m[49m]))
+         76 BINARY_SUBSCR        birthdate = (int(tokens[2]), int(tokens[3]), int([43m[30mtokens[4][39m[49m))
          77 CALL_FUNCTION        birthdate = (int(tokens[2]), int(tokens[3]), int(tokens[[43m[30m4[39m[49m]))
          80 BUILD_TUPLE          birthdate = (int(tokens[2]), int(tokens[3]), int(tokens[[43m[30m4[39m[49m]))
          83 STORE_NAME           [43m[30mbirthdate[39m[49m = (int(tokens[2]), int(tokens[3]), int(tokens[4]))
 
   7      86 LOAD_NAME            isMale = ([43m[30mtokens[39m[49m[5] == 'male')
          89 LOAD_CONST           isMale = (tokens[[43m[30m5[39m[49m] == 'male')
-         92 BINARY_SUBSCR        isMale = (tokens[[43m[30m5[39m[49m] == 'male')
+         92 BINARY_SUBSCR        isMale = ([43m[30mtokens[5][39m[49m == 'male')
          93 LOAD_CONST           isMale = (tokens[5] == [43m[30m'male'[39m[49m)
-         96 COMPARE_OP           isMale = (tokens[5] [43m[30m=[39m[49m= 'male')
+         96 COMPARE_OP           isMale = ([43m[30mtokens[5] == 'male'[39m[49m)
          99 STORE_NAME           [43m[30misMale[39m[49m = (tokens[5] == 'male')
 
   9     102 LOAD_CONST           print([43m[30m'Hi '[39m[49m + firstName + ' ' + lastName)
