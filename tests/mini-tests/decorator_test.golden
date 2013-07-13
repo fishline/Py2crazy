@@ -1,4 +1,4 @@
-Disassembling top-level module in ./known-broken-tests/decorator_test.txt
+Disassembling top-level module in ./mini-tests/decorator_test.txt
   3       0 LOAD_NAME            @[43m[30mname[39m[49m.setter
           3 LOAD_ATTR            @[43m[30mname.setter[39m[49m
           6 LOAD_CONST           @[43m[30mname.setter[39m[49m

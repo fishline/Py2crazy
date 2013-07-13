@@ -40,7 +40,6 @@ from collections import defaultdict
 
 # Limitations
 # - doesn't support extents that span MULTIPLE LINES
-# - doesn't support decorators
 # - BinOps involving ** and field attribute accesses interact funny
 #   e.g., "self.val = self.val ** 2"
 #
