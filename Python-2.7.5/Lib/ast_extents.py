@@ -426,13 +426,49 @@ def create_extent_map(code_str):
     return extent_map
 
 
+# adapted from ast.dump
+def pretty_dump(node):
+    def _format(node, indent=0, newline=False):
+        ind = ('    ' * indent)
+        next_ind = ('    ' * (indent+1))
+
+        if isinstance(node, ast.AST):
+            if newline:
+                print ind + node.__class__.__name__,
+            else:
+                print node.__class__.__name__,
+
+            if hasattr(node, 'lineno'):
+                print '(L=%s, C=%s)' % (node.lineno, node.col_offset)
+            else:
+                print
+
+            for (fieldname, f) in ast.iter_fields(node):
+                print next_ind + fieldname + ':',
+                _format(f, indent+1)
+
+        elif isinstance(node, list):
+            print '['
+            for e in node:
+                _format(e, indent+1, True)
+            print ind + ']'
+        else:
+            print repr(node)
+
+    if not isinstance(node, ast.AST):
+        raise TypeError('expected AST, got %r' % node.__class__.__name__)
+
+    return _format(node, 0)
+
 
 if __name__ == "__main__":
-    extent_map = create_extent_map(open(sys.argv[1]).read())
+    src_cod = open(sys.argv[1]).read()
+    extent_map = create_extent_map(src_cod)
 
     import pprint
     pp = pprint.PrettyPrinter()
 
+    pretty_dump(ast.parse(src_cod))
+
     for k,v in extent_map.iteritems():
         print k, v
-
