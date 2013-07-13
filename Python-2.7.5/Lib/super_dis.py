@@ -22,12 +22,12 @@ def dis(x=None, filename=None, source=None):
     source_lines = source.splitlines()
 
     child_code = set()
-    for disline in disgen(x):
+    for disline in disgen(x, extent_map):
         if disline.code_obj:
             child_code.add(disline.code_obj)
         if disline.first and disline.offset > 0:
             print('')
-        print(format_dis_line(disline, source_lines, extent_map))
+        print(format_dis_line(disline, source_lines))
 
     # recurse (TODO: how to avoid infinite loops?)
     for c in child_code:
@@ -45,7 +45,7 @@ STOP_BG = '\033[49m'
 def highlight(s):
   return YELLOW_BG + BLACK_FG + s + STOP_FG + STOP_BG
 
-def format_dis_line(disline, source_lines, extent_map):
+def format_dis_line(disline, source_lines):
     lc = (disline.lineno, disline.column)
     cod_line = source_lines[disline.lineno - 1]
 
@@ -54,26 +54,9 @@ def format_dis_line(disline, source_lines, extent_map):
     else:
         lineno = '   '
 
-    if lc in extent_map:
-      v = dict(extent_map[lc]) # make a copy so we can mutate freely
-
-      # special case hacks!
-      # TODO: kludgy, ugh
-      if '_SUBSCR' in disline.opcode and 'Subscript' in v: # subscripting opcodes
-        start_col, extent = v['Subscript']
-      else:
-        try:
-          del v['Subscript']
-        except KeyError:
-          pass
-        start_col, extent = v.values()[0]
-    else:
-      # boring defaults
-      start_col, extent = disline.column, 1
-
-    cod_line = cod_line[:start_col] + \
-               highlight(cod_line[start_col:start_col+extent]) + \
-               cod_line[start_col+extent:]
+    cod_line = cod_line[:disline.start_col] + \
+               highlight(cod_line[disline.start_col:disline.start_col+disline.extent]) + \
+               cod_line[disline.start_col+disline.extent:]
 
     if disline.target:
         label = ">>"
@@ -81,44 +64,30 @@ def format_dis_line(disline, source_lines, extent_map):
         label = "  "
     return "%s %s %4r %-20s %s" % (lineno, label, disline.offset, disline.opcode, cod_line)
 
-def disgen(x=None):
-    """Disassemble methods, functions, or code.
-
-    With no argument, disassemble the last traceback.
-
-    """
-    if x is None:
-        return distb()
+def disgen(x, extent_map=None):
+    """Disassemble methods, functions, or code."""
     if hasattr(x, 'im_func'):
         x = x.im_func
     if hasattr(x, 'func_code'):
         x = x.func_code
     if hasattr(x, 'co_code'):
-        return disassemble(x)
+        return disassemble(x, extent_map)
     else:
         raise TypeError(
             "don't know how to disassemble %s objects" %
             type(x).__name__
         )
 
-def distb(tb=None):
-    """Disassemble a traceback (default: last traceback)."""
-    if tb is None:
-        try:
-            tb = sys.last_traceback
-        except AttributeError:
-            raise RuntimeError("no last traceback to disassemble")
-        while tb.tb_next: 
-            tb = tb.tb_next
-    return disassemble(tb.tb_frame.f_code, tb.tb_lasti)
 
 DisLine = collections.namedtuple(
     'DisLine',
-    "lineno column first target offset opcode oparg argstr code_obj"
+    "lineno column start_col extent first target offset opcode oparg argstr code_obj"
     )
 
-def disassemble(co, lasti=-1):
+def disassemble(co, extent_map):
     """Disassemble a code object."""
+    lasti=-1
+
     code = co.co_code
     labels = findlabels(code)
     linestarts = dict(findlinestarts(co))
@@ -184,7 +153,23 @@ def disassemble(co, lasti=-1):
             oparg = None
             argstr = ""
 
+
+        start_col, extent = column, 1 # set boring defaults
+        lc = (lineno, column)
+        if lc in extent_map:
+          v = dict(extent_map[lc]) # make a copy so we can mutate freely
+          # special case hacks! TODO: kludgy, ugh
+          if '_SUBSCR' in opcode and 'Subscript' in v: # subscripting opcodes
+            start_col, extent = v['Subscript']
+          else:
+            try:
+              del v['Subscript']
+            except KeyError:
+              pass
+            start_col, extent = v.values()[0]
+
         yield DisLine(lineno=lineno, column=column,
+                      start_col=start_col, extent=extent,
                       first=first, target=target,
                       offset=offset,
                       opcode=opcode, oparg=oparg,
