@@ -5,7 +5,7 @@ Disassembling top-level module in ./opt-v3-tests/list_dict_test.txt
   2       6 LOAD_CONST           l = [[43m[30m'hello'[39m[49m, "world", 'goodbye']
           9 LOAD_CONST           l = ['hello', [43m[30m"world"[39m[49m, 'goodbye']
          12 LOAD_CONST           l = ['hello', "world", [43m[30m'goodbye'[39m[49m]
-         15 BUILD_LIST           l = ['hello', "world", [43m[30m'goodbye'[39m[49m]
+         15 BUILD_LIST           l = [43m[30m['hello', "world", 'goodbye'][39m[49m
          18 STORE_NAME           [43m[30ml[39m[49m = ['hello', "world", 'goodbye']
 
   3      21 SETUP_LOOP           [43m[30mfor[39m[49m (i, e) in enumerate(l):

@@ -7,7 +7,7 @@ Disassembling top-level module in ./opt-v3-tests/towers_of_hanoi.txt
          12 LOAD_CONST           stack1 = [4,[43m[30m3[39m[49m,2,1]
          15 LOAD_CONST           stack1 = [4,3,[43m[30m2[39m[49m,1]
          18 LOAD_CONST           stack1 = [4,3,2,[43m[30m1[39m[49m]
-         21 BUILD_LIST           stack1 = [4,3,2,[43m[30m1[39m[49m]
+         21 BUILD_LIST           stack1 = [43m[30m[4,3,2,1][39m[49m
          24 STORE_NAME           [43m[30mstack1[39m[49m = [4,3,2,1]
 
  12      27 BUILD_LIST           stack2 = [43m[30m[[39m[49m]

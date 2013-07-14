@@ -40,7 +40,7 @@ Disassembling function loop
 
   6 >>   31 LOAD_DEREF                 return [43m[30mloop[39m[49m([k] + acc, k + 1)
          34 LOAD_FAST                  return loop([[43m[30mk[39m[49m] + acc, k + 1)
-         37 BUILD_LIST                 return loop([[43m[30mk[39m[49m] + acc, k + 1)
+         37 BUILD_LIST                 return loop([43m[30m[k][39m[49m + acc, k + 1)
          40 LOAD_FAST                  return loop([k] + [43m[30macc[39m[49m, k + 1)
          43 BINARY_ADD                 return loop([43m[30m[k] + acc[39m[49m, k + 1)
          44 LOAD_FAST                  return loop([k] + acc, [43m[30mk[39m[49m + 1)

@@ -7,11 +7,11 @@ Disassembling top-level module in ./opt-v3-tests/wentworth_sumList.txt
          12 LOAD_CONST           testData = [10, [[43m[30m20[39m[49m, 30, [40], 50], 60]
          15 LOAD_CONST           testData = [10, [20, [43m[30m30[39m[49m, [40], 50], 60]
          18 LOAD_CONST           testData = [10, [20, 30, [[43m[30m40[39m[49m], 50], 60]
-         21 BUILD_LIST           testData = [10, [20, 30, [[43m[30m40[39m[49m], 50], 60]
+         21 BUILD_LIST           testData = [10, [20, 30, [43m[30m[40][39m[49m, 50], 60]
          24 LOAD_CONST           testData = [10, [20, 30, [40], [43m[30m50[39m[49m], 60]
-         27 BUILD_LIST           testData = [10, [20, 30, [40], [43m[30m50[39m[49m], 60]
+         27 BUILD_LIST           testData = [10, [43m[30m[20, 30, [40], 50][39m[49m, 60]
          30 LOAD_CONST           testData = [10, [20, 30, [40], 50], [43m[30m60[39m[49m]
-         33 BUILD_LIST           testData = [10, [20, 30, [40], 50], [43m[30m60[39m[49m]
+         33 BUILD_LIST           testData = [43m[30m[10, [20, 30, [40], 50], 60][39m[49m
          36 STORE_NAME           [43m[30mtestData[39m[49m = [10, [20, 30, [40], 50], 60]
 
  22      39 LOAD_CONST           print(([43m[30m"Calling sumList(%s)"[39m[49m % testData))
@@ -64,7 +64,7 @@ Disassembling function sumList
  14      58 LOAD_CONST                       print(([43m[30m"sumList(%s) returned %s"[39m[49m % (e, v)))
          61 LOAD_FAST                        print(("sumList(%s) returned %s" % ([43m[30me[39m[49m, v)))
          64 LOAD_FAST                        print(("sumList(%s) returned %s" % (e, [43m[30mv[39m[49m)))
-         67 BUILD_TUPLE                      print(("sumList(%s) returned %s" % (e, [43m[30mv[39m[49m)))
+         67 BUILD_TUPLE                      print(("sumList(%s) returned %s" % [43m[30m(e, v)[39m[49m))
          70 BINARY_MODULO                    print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))
          71 PRINT_ITEM                       print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))
          72 PRINT_NEWLINE                    print(([43m[30m"sumList(%s) returned %s" % (e, v)[39m[49m))

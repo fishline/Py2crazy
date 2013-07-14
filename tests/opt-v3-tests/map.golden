@@ -12,7 +12,7 @@ Disassembling top-level module in ./opt-v3-tests/map.txt
          24 LOAD_CONST           input = [2, 4, [43m[30m6[39m[49m, 8, 10]
          27 LOAD_CONST           input = [2, 4, 6, [43m[30m8[39m[49m, 10]
          30 LOAD_CONST           input = [2, 4, 6, 8, [43m[30m10[39m[49m]
-         33 BUILD_LIST           input = [2, 4, 6, 8, [43m[30m10[39m[49m]
+         33 BUILD_LIST           input = [43m[30m[2, 4, 6, 8, 10][39m[49m
          36 STORE_NAME           [43m[30minput[39m[49m = [2, 4, 6, 8, 10]
 
  15      39 LOAD_NAME            output = [43m[30mhalveElements[39m[49m(input)
@@ -37,7 +37,7 @@ Disassembling function map
          25 LOAD_CONST                   return [func(lst[[43m[30m0[39m[49m])] + map(func, lst[1:])
          28 BINARY_SUBSCR                return [func([43m[30mlst[0][39m[49m)] + map(func, lst[1:])
          29 CALL_FUNCTION                return [[43m[30mfunc(lst[0])[39m[49m] + map(func, lst[1:])
-         32 BUILD_LIST                   return [[43m[30mfunc(lst[0])[39m[49m] + map(func, lst[1:])
+         32 BUILD_LIST                   return [43m[30m[func(lst[0])][39m[49m + map(func, lst[1:])
          35 LOAD_GLOBAL                  return [func(lst[0])] + [43m[30mmap[39m[49m(func, lst[1:])
          38 LOAD_FAST                    return [func(lst[0])] + map([43m[30mfunc[39m[49m, lst[1:])
          41 LOAD_FAST                    return [func(lst[0])] + map(func, [43m[30mlst[39m[49m[1:])

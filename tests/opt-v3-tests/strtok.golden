@@ -33,7 +33,7 @@ Disassembling top-level module in ./opt-v3-tests/strtok.txt
          73 LOAD_CONST           birthdate = (int(tokens[2]), int(tokens[3]), int(tokens[[43m[30m4[39m[49m]))
          76 BINARY_SUBSCR        birthdate = (int(tokens[2]), int(tokens[3]), int([43m[30mtokens[4][39m[49m))
          77 CALL_FUNCTION        birthdate = (int(tokens[2]), int(tokens[3]), [43m[30mint(tokens[4])[39m[49m)
-         80 BUILD_TUPLE          birthdate = (int(tokens[2]), int(tokens[3]), [43m[30mint(tokens[4])[39m[49m)
+         80 BUILD_TUPLE          birthdate = [43m[30m(int(tokens[2]), int(tokens[3]), int(tokens[4]))[39m[49m
          83 STORE_NAME           [43m[30mbirthdate[39m[49m = (int(tokens[2]), int(tokens[3]), int(tokens[4]))
 
   7      86 LOAD_NAME            isMale = ([43m[30mtokens[39m[49m[5] == 'male')

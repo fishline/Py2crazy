@@ -72,7 +72,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
         184 LOAD_NAME            RL = [R1, R2, R3, [43m[30mR4[39m[49m, R5, R6]
         187 LOAD_NAME            RL = [R1, R2, R3, R4, [43m[30mR5[39m[49m, R6]
         190 LOAD_NAME            RL = [R1, R2, R3, R4, R5, [43m[30mR6[39m[49m]
-        193 BUILD_LIST           RL = [R1, R2, R3, R4, R5, [43m[30mR6[39m[49m]
+        193 BUILD_LIST           RL = [43m[30m[R1, R2, R3, R4, R5, R6][39m[49m
         196 STORE_NAME           [43m[30mRL[39m[49m = [R1, R2, R3, R4, R5, R6]
 
  15     199 BUILD_LIST           FrenchRestaurants = [[43m[30mr[39m[49m for r in RL if r.cuisine=="French"]

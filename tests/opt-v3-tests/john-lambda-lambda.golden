@@ -23,12 +23,12 @@ Disassembling function a
 
 Disassembling function <lambda>
   5       0 LOAD_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m, a))
-          3 BUILD_TUPLE          a(lambda a: ([43m[30mlambda b: a, a)[39m[49m)
+          3 BUILD_TUPLE          a(lambda a: [43m[30m(lambda b: a, a)[39m[49m)
           6 LOAD_CONST           a(lambda a: ([43m[30mlambda b: a[39m[49m, a))
           9 MAKE_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m, a))
          12 LOAD_DEREF           a(lambda a: (lambda b: a, [43m[30ma[39m[49m))
-         15 BUILD_TUPLE          a(lambda a: (lambda b: a, [43m[30ma[39m[49m))
-         18 RETURN_VALUE         a(lambda a: (lambda b: a, [43m[30ma[39m[49m))
+         15 BUILD_TUPLE          a(lambda a: [43m[30m(lambda b: a, a)[39m[49m)
+         18 RETURN_VALUE         a(lambda a: ([43m[30mlambda b: a[39m[49m, a))
 
 Disassembling function <lambda>
   5       0 LOAD_DEREF           a(lambda a: (lambda b: [43m[30ma[39m[49m, a))

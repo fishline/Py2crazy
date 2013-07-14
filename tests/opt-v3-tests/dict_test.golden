@@ -9,13 +9,13 @@ Disassembling top-level module in ./opt-v3-tests/dict_test.txt
          16 LOAD_CONST           x[('tup', 'le')] = set([[43m[30m1[39m[49m, 2, 3])
          19 LOAD_CONST           x[('tup', 'le')] = set([1, [43m[30m2[39m[49m, 3])
          22 LOAD_CONST           x[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
-         25 BUILD_LIST           x[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
+         25 BUILD_LIST           x[('tup', 'le')] = set([43m[30m[1, 2, 3][39m[49m)
          28 CALL_FUNCTION        x[('tup', 'le')] = [43m[30mset([1, 2, 3])[39m[49m
          31 LOAD_NAME            [43m[30mx[39m[49m[('tup', 'le')] = set([1, 2, 3])
          34 LOAD_CONST           x[([43m[30m'tup'[39m[49m, 'le')] = set([1, 2, 3])
          37 LOAD_CONST           x[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
-         40 BUILD_TUPLE          x[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
-         43 STORE_SUBSCR         x[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
+         40 BUILD_TUPLE          x[[43m[30m('tup', 'le')[39m[49m] = set([1, 2, 3])
+         43 STORE_SUBSCR         x[([43m[30m'tup'[39m[49m, 'le')] = set([1, 2, 3])
 
   4      44 LOAD_CONST           [43m[30mdef[39m[49m foo():
          47 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
@@ -41,13 +41,13 @@ Disassembling function foo
          22 LOAD_CONST             local_y[('tup', 'le')] = set([[43m[30m1[39m[49m, 2, 3])
          25 LOAD_CONST             local_y[('tup', 'le')] = set([1, [43m[30m2[39m[49m, 3])
          28 LOAD_CONST             local_y[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
-         31 BUILD_LIST             local_y[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
+         31 BUILD_LIST             local_y[('tup', 'le')] = set([43m[30m[1, 2, 3][39m[49m)
          34 CALL_FUNCTION          local_y[('tup', 'le')] = [43m[30mset([1, 2, 3])[39m[49m
          37 LOAD_FAST              [43m[30mlocal_y[39m[49m[('tup', 'le')] = set([1, 2, 3])
          40 LOAD_CONST             local_y[([43m[30m'tup'[39m[49m, 'le')] = set([1, 2, 3])
          43 LOAD_CONST             local_y[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
-         46 BUILD_TUPLE            local_y[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
-         49 STORE_SUBSCR           local_y[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])
+         46 BUILD_TUPLE            local_y[[43m[30m('tup', 'le')[39m[49m] = set([1, 2, 3])
+         49 STORE_SUBSCR           local_y[([43m[30m'tup'[39m[49m, 'le')] = set([1, 2, 3])
 
   8      50 LOAD_CONST             print([43m[30m"hello"[39m[49m, list(local_y.values()))
          53 LOAD_GLOBAL            print("hello", [43m[30mlist[39m[49m(local_y.values()))
@@ -55,8 +55,8 @@ Disassembling function foo
          59 LOAD_ATTR              print("hello", list([43m[30mlocal_y.values[39m[49m()))
          62 CALL_FUNCTION          print("hello", list([43m[30mlocal_y.values()[39m[49m))
          65 CALL_FUNCTION          print("hello", [43m[30mlist(local_y.values())[39m[49m)
-         68 BUILD_TUPLE            print("hello", [43m[30mlist(local_y.values())[39m[49m)
-         71 PRINT_ITEM             print("hello", [43m[30mlist(local_y.values())[39m[49m)
-         72 PRINT_NEWLINE          print("hello", [43m[30mlist(local_y.values())[39m[49m)
-         73 LOAD_CONST             print("hello", [43m[30mlist(local_y.values())[39m[49m)
-         76 RETURN_VALUE           print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         68 BUILD_TUPLE            print[43m[30m("hello", list(local_y.values()))[39m[49m
+         71 PRINT_ITEM             print([43m[30m"hello"[39m[49m, list(local_y.values()))
+         72 PRINT_NEWLINE          print([43m[30m"hello"[39m[49m, list(local_y.values()))
+         73 LOAD_CONST             print([43m[30m"hello"[39m[49m, list(local_y.values()))
+         76 RETURN_VALUE           print([43m[30m"hello"[39m[49m, list(local_y.values()))

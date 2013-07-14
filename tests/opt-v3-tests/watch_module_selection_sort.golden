@@ -11,7 +11,7 @@ Disassembling top-level module in ./opt-v3-tests/watch_module_selection_sort.txt
   6      22 LOAD_NAME            @[43m[30mwatchfn[39m[49m((watchedlist, 'i mini min_index'))
          25 LOAD_NAME            @watchfn(([43m[30mwatchedlist[39m[49m, 'i mini min_index'))
          28 LOAD_CONST           @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
-         31 BUILD_TUPLE          @watchfn((watchedlist, [43m[30m'i mini min_index'[39m[49m))
+         31 BUILD_TUPLE          @watchfn([43m[30m(watchedlist, 'i mini min_index')[39m[49m)
          34 CALL_FUNCTION        @[43m[30mwatchfn((watchedlist, 'i mini min_index'))[39m[49m
          37 LOAD_CONST           @[43m[30mwatchfn((watchedlist, 'i mini min_index'))[39m[49m
          40 MAKE_FUNCTION        @[43m[30mwatchfn((watchedlist, 'i mini min_index'))[39m[49m
@@ -26,7 +26,7 @@ Disassembling top-level module in ./opt-v3-tests/watch_module_selection_sort.txt
          64 LOAD_CONST           print(selection_sort([3, 5, 2, 1, [43m[30m8[39m[49m, 5, 9]))
          67 LOAD_CONST           print(selection_sort([3, 5, 2, 1, 8, [43m[30m5[39m[49m, 9]))
          70 LOAD_CONST           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
-         73 BUILD_LIST           print(selection_sort([3, 5, 2, 1, 8, 5, [43m[30m9[39m[49m]))
+         73 BUILD_LIST           print(selection_sort([43m[30m[3, 5, 2, 1, 8, 5, 9][39m[49m))
          76 CALL_FUNCTION        print([43m[30mselection_sort([3, 5, 2, 1, 8, 5, 9])[39m[49m)
          79 PRINT_ITEM           print([43m[30mselection_sort([3, 5, 2, 1, 8, 5, 9])[39m[49m)
          80 PRINT_NEWLINE        print([43m[30mselection_sort([3, 5, 2, 1, 8, 5, 9])[39m[49m)
@@ -72,7 +72,7 @@ Disassembling function selection_sort
          83 LOAD_FAST                        A[min_index], A[i] = A[i], [43m[30mA[39m[49m[min_index]
          86 LOAD_FAST                        A[min_index], A[i] = A[i], A[[43m[30mmin_index[39m[49m]
          89 BINARY_SUBSCR                    A[min_index], A[i] = A[i], [43m[30mA[min_index][39m[49m
-         90 BUILD_TUPLE                      A[min_index], A[i] = A[i], A[[43m[30mmin_index[39m[49m]
+         90 BUILD_TUPLE                      A[min_index], A[i] =[43m[30m A[i], A[min_index][39m[49m
          93 UNPACK_SEQUENCE                  [43m[30mA[39m[49m[min_index], A[i] = A[i], A[min_index]
          96 LOAD_FAST                        [43m[30mA[39m[49m[min_index], A[i] = A[i], A[min_index]
          99 LOAD_FAST                        A[[43m[30mmin_index[39m[49m], A[i] = A[i], A[min_index]

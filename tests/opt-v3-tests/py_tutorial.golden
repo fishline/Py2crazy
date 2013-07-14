@@ -56,7 +56,7 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
  22 >>  107 LOAD_CONST           beatles = [[43m[30m'John'[39m[49m, 'Paul', 'George']
         110 LOAD_CONST           beatles = ['John', [43m[30m'Paul'[39m[49m, 'George']
         113 LOAD_CONST           beatles = ['John', 'Paul', [43m[30m'George'[39m[49m]
-        116 BUILD_LIST           beatles = ['John', 'Paul', [43m[30m'George'[39m[49m]
+        116 BUILD_LIST           beatles = [43m[30m['John', 'Paul', 'George'][39m[49m
         119 STORE_NAME           [43m[30mbeatles[39m[49m = ['John', 'Paul', 'George']
 
  23     122 LOAD_NAME            [43m[30mbeatles[39m[49m.append('Ringo')
@@ -88,7 +88,7 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
         179 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, [43m[30m19[39m[49m, 34, 9)
         182 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, 19, [43m[30m34[39m[49m, 9)
         185 LOAD_CONST           ages = (18, 21, 28, 21, 22, 18, 19, 34, [43m[30m9[39m[49m)
-        188 BUILD_TUPLE          ages = (18, 21, 28, 21, 22, 18, 19, 34, [43m[30m9[39m[49m)
+        188 BUILD_TUPLE          ages = [43m[30m(18, 21, 28, 21, 22, 18, 19, 34, 9)[39m[49m
         191 STORE_NAME           [43m[30mages[39m[49m = (18, 21, 28, 21, 22, 18, 19, 34, 9)
 
  33     194 LOAD_NAME            uniqueAges = [43m[30mset[39m[49m(ages)

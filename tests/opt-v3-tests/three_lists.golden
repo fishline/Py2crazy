@@ -6,7 +6,7 @@ Disassembling top-level module in ./opt-v3-tests/three_lists.txt
   6       9 LOAD_CONST           a = [[43m[30m10[39m[49m, 20, 30]
          12 LOAD_CONST           a = [10, [43m[30m20[39m[49m, 30]
          15 LOAD_CONST           a = [10, 20, [43m[30m30[39m[49m]
-         18 BUILD_LIST           a = [10, 20, [43m[30m30[39m[49m]
+         18 BUILD_LIST           a = [43m[30m[10, 20, 30][39m[49m
          21 STORE_NAME           [43m[30ma[39m[49m = [10, 20, 30]
 
   7      24 LOAD_NAME            b = [43m[30ma[39m[49m
@@ -15,7 +15,7 @@ Disassembling top-level module in ./opt-v3-tests/three_lists.txt
   8      30 LOAD_CONST           c = [[43m[30m10[39m[49m, 20, 30]
          33 LOAD_CONST           c = [10, [43m[30m20[39m[49m, 30]
          36 LOAD_CONST           c = [10, 20, [43m[30m30[39m[49m]
-         39 BUILD_LIST           c = [10, 20, [43m[30m30[39m[49m]
+         39 BUILD_LIST           c = [43m[30m[10, 20, 30][39m[49m
          42 STORE_NAME           [43m[30mc[39m[49m = [10, 20, 30]
 
   9      45 LOAD_CONST           d = [43m[30m24[39m[49m
@@ -24,7 +24,7 @@ Disassembling top-level module in ./opt-v3-tests/three_lists.txt
  10      51 LOAD_NAME            e = ([43m[30ma[39m[49m, b, c)
          54 LOAD_NAME            e = (a, [43m[30mb[39m[49m, c)
          57 LOAD_NAME            e = (a, b, [43m[30mc[39m[49m)
-         60 BUILD_TUPLE          e = (a, b, [43m[30mc[39m[49m)
+         60 BUILD_TUPLE          e = [43m[30m(a, b, c)[39m[49m
          63 STORE_NAME           [43m[30me[39m[49m = (a, b, c)
 
  12      66 LOAD_NAME            [43m[30mf[39m[49m(b)

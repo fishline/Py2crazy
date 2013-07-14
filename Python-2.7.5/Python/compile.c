@@ -2528,6 +2528,7 @@ compiler_list(struct compiler *c, expr_ty e)
     }
     VISIT_SEQ(c, expr, e->v.List.elts);
     if (e->v.List.ctx == Load) {
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP_I(c, BUILD_LIST, n);
     }
     return 1;
@@ -2542,6 +2543,7 @@ compiler_tuple(struct compiler *c, expr_ty e)
     }
     VISIT_SEQ(c, expr, e->v.Tuple.elts);
     if (e->v.Tuple.ctx == Load) {
+        c->u->u_col_offset = e->col_offset; // pgbovine - re-set in case clobbered by VISIT()
         ADDOP_I(c, BUILD_TUPLE, n);
     }
     return 1;

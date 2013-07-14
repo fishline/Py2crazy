@@ -1,0 +1,35 @@
+Disassembling top-level module in ./mini-tests/linked_list.txt
+  1       0 LOAD_CONST           x = [[43m[30m1[39m[49m, [2, [3, [4, None]]]]
+          3 LOAD_CONST           x = [1, [[43m[30m2[39m[49m, [3, [4, None]]]]
+          6 LOAD_CONST           x = [1, [2, [[43m[30m3[39m[49m, [4, None]]]]
+          9 LOAD_CONST           x = [1, [2, [3, [[43m[30m4[39m[49m, None]]]]
+         12 LOAD_NAME            x = [1, [2, [3, [4, [43m[30mNone[39m[49m]]]]
+         15 BUILD_LIST           x = [1, [2, [3, [43m[30m[4, None][39m[49m]]]
+         18 BUILD_LIST           x = [1, [2, [43m[30m[3, [4, None]][39m[49m]]
+         21 BUILD_LIST           x = [1, [43m[30m[2, [3, [4, None]]][39m[49m]
+         24 BUILD_LIST           x = [43m[30m[1, [2, [3, [4, None]]]][39m[49m
+         27 STORE_NAME           [43m[30mx[39m[49m = [1, [2, [3, [4, None]]]]
+
+  2      30 LOAD_CONST           y = ([43m[30m1[39m[49m, (2, (3, (4, (5, None)))))
+         33 LOAD_CONST           y = (1, ([43m[30m2[39m[49m, (3, (4, (5, None)))))
+         36 LOAD_CONST           y = (1, (2, ([43m[30m3[39m[49m, (4, (5, None)))))
+         39 LOAD_CONST           y = (1, (2, (3, ([43m[30m4[39m[49m, (5, None)))))
+         42 LOAD_CONST           y = (1, (2, (3, (4, ([43m[30m5[39m[49m, None)))))
+         45 LOAD_NAME            y = (1, (2, (3, (4, (5, [43m[30mNone[39m[49m)))))
+         48 BUILD_TUPLE          y = (1, (2, (3, (4, [43m[30m(5, None)[39m[49m))))
+         51 BUILD_TUPLE          y = (1, (2, (3, [43m[30m(4, (5, None))[39m[49m)))
+         54 BUILD_TUPLE          y = (1, (2, [43m[30m(3, (4, (5, None)))[39m[49m))
+         57 BUILD_TUPLE          y = (1, [43m[30m(2, (3, (4, (5, None))))[39m[49m)
+         60 BUILD_TUPLE          y = [43m[30m(1, (2, (3, (4, (5, None)))))[39m[49m
+         63 STORE_NAME           [43m[30my[39m[49m = (1, (2, (3, (4, (5, None)))))
+
+  4      66 LOAD_CONST           z = [43m[30m1[39m[49m, 2, 3, 4, 5, None
+         69 LOAD_CONST           z = 1, [43m[30m2[39m[49m, 3, 4, 5, None
+         72 LOAD_CONST           z = 1, 2, [43m[30m3[39m[49m, 4, 5, None
+         75 LOAD_CONST           z = 1, 2, 3, [43m[30m4[39m[49m, 5, None
+         78 LOAD_CONST           z = 1, 2, 3, 4, [43m[30m5[39m[49m, None
+         81 LOAD_NAME            z = 1, 2, 3, 4, 5, [43m[30mNone[39m[49m
+         84 BUILD_TUPLE          z =[43m[30m 1, 2, 3, 4, 5, None[39m[49m
+         87 STORE_NAME           [43m[30mz[39m[49m = 1, 2, 3, 4, 5, None
+         90 LOAD_CONST           [43m[30mz[39m[49m = 1, 2, 3, 4, 5, None
+         93 RETURN_VALUE         [43m[30mz[39m[49m = 1, 2, 3, 4, 5, None

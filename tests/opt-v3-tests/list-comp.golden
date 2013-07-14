@@ -3,7 +3,7 @@ Disassembling top-level module in ./opt-v3-tests/list-comp.txt
           3 LOAD_CONST           ppl = ['Alice', [43m[30m'Bob'[39m[49m, 'Carol', 'Doug']
           6 LOAD_CONST           ppl = ['Alice', 'Bob', [43m[30m'Carol'[39m[49m, 'Doug']
           9 LOAD_CONST           ppl = ['Alice', 'Bob', 'Carol', [43m[30m'Doug'[39m[49m]
-         12 BUILD_LIST           ppl = ['Alice', 'Bob', 'Carol', [43m[30m'Doug'[39m[49m]
+         12 BUILD_LIST           ppl = [43m[30m['Alice', 'Bob', 'Carol', 'Doug'][39m[49m
          15 STORE_NAME           [43m[30mppl[39m[49m = ['Alice', 'Bob', 'Carol', 'Doug']
 
   2      18 BUILD_LIST           excited_ppl = [[43m[30me[39m[49m + '!!' for e in ppl]

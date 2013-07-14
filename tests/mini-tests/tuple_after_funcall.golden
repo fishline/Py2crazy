@@ -1,0 +1,15 @@
+Disassembling top-level module in ./mini-tests/tuple_after_funcall.txt
+  2       0 LOAD_NAME            x = ([43m[30mint[39m[49m(tokens[2]), int(tokens[3]))
+          3 LOAD_NAME            x = (int([43m[30mtokens[39m[49m[2]), int(tokens[3]))
+          6 LOAD_CONST           x = (int(tokens[[43m[30m2[39m[49m]), int(tokens[3]))
+          9 BINARY_SUBSCR        x = (int([43m[30mtokens[2][39m[49m), int(tokens[3]))
+         10 CALL_FUNCTION        x = ([43m[30mint(tokens[2])[39m[49m, int(tokens[3]))
+         13 LOAD_NAME            x = (int(tokens[2]), [43m[30mint[39m[49m(tokens[3]))
+         16 LOAD_NAME            x = (int(tokens[2]), int([43m[30mtokens[39m[49m[3]))
+         19 LOAD_CONST           x = (int(tokens[2]), int(tokens[[43m[30m3[39m[49m]))
+         22 BINARY_SUBSCR        x = (int(tokens[2]), int([43m[30mtokens[3][39m[49m))
+         23 CALL_FUNCTION        x = (int(tokens[2]), [43m[30mint(tokens[3])[39m[49m)
+         26 BUILD_TUPLE          x = [43m[30m(int(tokens[2]), int(tokens[3]))[39m[49m
+         29 STORE_NAME           [43m[30mx[39m[49m = (int(tokens[2]), int(tokens[3]))
+         32 LOAD_CONST           [43m[30mx[39m[49m = (int(tokens[2]), int(tokens[3]))
+         35 RETURN_VALUE         [43m[30mx[39m[49m = (int(tokens[2]), int(tokens[3]))

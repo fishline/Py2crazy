@@ -10,7 +10,7 @@ Disassembling top-level module in ./opt-v3-tests/ins_sort.txt
          21 LOAD_CONST           input = [8, 3, 9, 15, [43m[30m29[39m[49m, 7, 10]
          24 LOAD_CONST           input = [8, 3, 9, 15, 29, [43m[30m7[39m[49m, 10]
          27 LOAD_CONST           input = [8, 3, 9, 15, 29, 7, [43m[30m10[39m[49m]
-         30 BUILD_LIST           input = [8, 3, 9, 15, 29, 7, [43m[30m10[39m[49m]
+         30 BUILD_LIST           input = [43m[30m[8, 3, 9, 15, 29, 7, 10][39m[49m
          33 STORE_NAME           [43m[30minput[39m[49m = [8, 3, 9, 15, 29, 7, 10]
 
  12      36 LOAD_NAME            [43m[30mInsertionSort[39m[49m(input)

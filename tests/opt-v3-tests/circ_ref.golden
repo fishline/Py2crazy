@@ -1,7 +1,7 @@
 Disassembling top-level module in ./opt-v3-tests/circ_ref.txt
   3       0 LOAD_CONST           x = [[43m[30m1[39m[49m, 2]
           3 LOAD_CONST           x = [1, [43m[30m2[39m[49m]
-          6 BUILD_LIST           x = [1, [43m[30m2[39m[49m]
+          6 BUILD_LIST           x = [43m[30m[1, 2][39m[49m
           9 STORE_NAME           [43m[30mx[39m[49m = [1, 2]
 
   4      12 LOAD_NAME            [43m[30mx[39m[49m.append(x)

@@ -74,7 +74,7 @@ Disassembling function salutation
          12 LOAD_ATTR                    return '%d %s %s' % (self.x, [43m[30mself.y[39m[49m, self.z)
          15 LOAD_FAST                    return '%d %s %s' % (self.x, self.y, [43m[30mself[39m[49m.z)
          18 LOAD_ATTR                    return '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
-         21 BUILD_TUPLE                  return '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
+         21 BUILD_TUPLE                  return '%d %s %s' % [43m[30m(self.x, self.y, self.z)[39m[49m
          24 BINARY_MODULO                return [43m[30m'%d %s %s' % (self.x, self.y, self.z)[39m[49m
          25 RETURN_VALUE                 return [43m[30m'%d %s %s' % (self.x, self.y, self.z)[39m[49m
 

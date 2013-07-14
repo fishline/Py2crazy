@@ -6,7 +6,7 @@ Disassembling top-level module in ./mini-tests/build-tuple.txt
          12 LOAD_ATTR            str = '%d %s %s' % (self.x, [43m[30mself.y[39m[49m, self.z)
          15 LOAD_NAME            str = '%d %s %s' % (self.x, self.y, [43m[30mself[39m[49m.z)
          18 LOAD_ATTR            str = '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
-         21 BUILD_TUPLE          str = '%d %s %s' % (self.x, self.y, [43m[30mself.z[39m[49m)
+         21 BUILD_TUPLE          str = '%d %s %s' % [43m[30m(self.x, self.y, self.z)[39m[49m
          24 BINARY_MODULO        str = [43m[30m'%d %s %s' % (self.x, self.y, self.z)[39m[49m
          25 STORE_NAME           [43m[30mstr[39m[49m = '%d %s %s' % (self.x, self.y, self.z)
          28 LOAD_CONST           [43m[30mstr[39m[49m = '%d %s %s' % (self.x, self.y, self.z)

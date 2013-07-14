@@ -4,7 +4,7 @@ Disassembling top-level module in ./mini-tests/double_call.txt
           6 LOAD_CONST           x =  [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
           9 BINARY_SUBSCR        x =  [f([43m[30mxs[0][39m[49m)] + list(map(f, xs[1:]))
          10 CALL_FUNCTION        x =  [[43m[30mf(xs[0])[39m[49m] + list(map(f, xs[1:]))
-         13 BUILD_LIST           x =  [[43m[30mf(xs[0])[39m[49m] + list(map(f, xs[1:]))
+         13 BUILD_LIST           x =  [43m[30m[f(xs[0])][39m[49m + list(map(f, xs[1:]))
          16 LOAD_NAME            x =  [f(xs[0])] + [43m[30mlist[39m[49m(map(f, xs[1:]))
          19 LOAD_NAME            x =  [f(xs[0])] + list([43m[30mmap[39m[49m(f, xs[1:]))
          22 LOAD_NAME            x =  [f(xs[0])] + list(map([43m[30mf[39m[49m, xs[1:]))

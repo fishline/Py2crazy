@@ -263,15 +263,34 @@ class AddExtentsVisitor(ast.NodeVisitor):
     self.visit_children(node)
 
   def visit_Tuple(self, node):
-    self.visit_Tuple_or_List(node)
-  def visit_List(self, node):
-    self.visit_Tuple_or_List(node)
-
-  def visit_Tuple_or_List(self, node):
     # empty case
     if len(node.elts) == 0:
       node.start_col = node.col_offset
-      node.extent = 2 # for '()' or '[]' case; obviously doesn't handle blank spaces
+      node.extent = 2 # for '()' case; obviously doesn't handle blank spaces
+    else:
+      last_elt = node.elts[-1]
+
+      # add 1 to get the offset of the trailing ')'
+      trailing_offset = 1
+      # a singleton tuple is like '(x,)', so add 1 more for the trailing comma
+      if len(node.elts) == 1:
+        trailing_offset += 1
+      if hasattr(last_elt, 'extent') and \
+         hasattr(last_elt, 'lineno') and \
+         (node.lineno == last_elt.lineno):
+        self.add_attrs(node)
+        # tuples start at the first element since "naked tuples" are
+        # possible. so in the common case, subtract 1 to get the
+        # col_offset of the starting '('
+        node.start_col = node.col_offset - 1
+        node.extent = last_elt.start_col + last_elt.extent + trailing_offset - node.start_col
+    self.visit_children(node)
+
+  def visit_List(self, node):
+    # empty case
+    if len(node.elts) == 0:
+      node.start_col = node.col_offset
+      node.extent = 2 # for '[]' case; obviously doesn't handle blank spaces
     else:
       last_elt = node.elts[-1]
       if hasattr(last_elt, 'extent') and \
@@ -279,6 +298,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
          (node.lineno == last_elt.lineno):
         self.add_attrs(node)
         node.start_col = node.col_offset
+        # node.col_offset starts at the '[', so add 1 to the right to end at ']'
         node.extent = last_elt.start_col + last_elt.extent + 1 - node.start_col
     self.visit_children(node)
 

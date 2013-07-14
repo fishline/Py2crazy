@@ -216,8 +216,11 @@ def disassemble(co, extent_map):
             #          6 CALL_FUNCTION        print repr("aoooooooooga")
             #          9 PRINT_ITEM           print repr("aoooooooooga")
             #         10 PRINT_NEWLINE        print repr("aoooooooooga")
+            #
+            # very subtle -- if we're already done, then don't try
+            # this hysteresis_map trick!
             if opcode.startswith('CALL_') or \
-               (hysteresis_map.get(lc, None) == 'Call'):
+               (not done and hysteresis_map.get(lc, None) == 'Call'):
               start_col, extent = v['Call']
               hysteresis_map[lc] = 'Call'
               done = True

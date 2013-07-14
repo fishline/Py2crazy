@@ -2,13 +2,13 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
   1       0 LOAD_CONST           x = [[43m[30m1[39m[49m, 2, 3]
           3 LOAD_CONST           x = [1, [43m[30m2[39m[49m, 3]
           6 LOAD_CONST           x = [1, 2, [43m[30m3[39m[49m]
-          9 BUILD_LIST           x = [1, 2, [43m[30m3[39m[49m]
+          9 BUILD_LIST           x = [43m[30m[1, 2, 3][39m[49m
          12 STORE_NAME           [43m[30mx[39m[49m = [1, 2, 3]
 
   2      15 LOAD_CONST           y = [[43m[30m4[39m[49m, 5, 6]
          18 LOAD_CONST           y = [4, [43m[30m5[39m[49m, 6]
          21 LOAD_CONST           y = [4, 5, [43m[30m6[39m[49m]
-         24 BUILD_LIST           y = [4, 5, [43m[30m6[39m[49m]
+         24 BUILD_LIST           y = [43m[30m[4, 5, 6][39m[49m
          27 STORE_NAME           [43m[30my[39m[49m = [4, 5, 6]
 
   3      30 LOAD_NAME            z = [43m[30my[39m[49m
@@ -23,7 +23,7 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
   7      48 LOAD_CONST           x = [[43m[30m1[39m[49m, 2, 3] # a different [1, 2, 3] list!
          51 LOAD_CONST           x = [1, [43m[30m2[39m[49m, 3] # a different [1, 2, 3] list!
          54 LOAD_CONST           x = [1, 2, [43m[30m3[39m[49m] # a different [1, 2, 3] list!
-         57 BUILD_LIST           x = [1, 2, [43m[30m3[39m[49m] # a different [1, 2, 3] list!
+         57 BUILD_LIST           x = [43m[30m[1, 2, 3][39m[49m # a different [1, 2, 3] list!
          60 STORE_NAME           [43m[30mx[39m[49m = [1, 2, 3] # a different [1, 2, 3] list!
 
   8      63 LOAD_NAME            y = [43m[30mx[39m[49m
@@ -46,7 +46,7 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
         101 LOAD_CONST           z = [1, 2, [43m[30m3[39m[49m, 4, 5] # a different list!
         104 LOAD_CONST           z = [1, 2, 3, [43m[30m4[39m[49m, 5] # a different list!
         107 LOAD_CONST           z = [1, 2, 3, 4, [43m[30m5[39m[49m] # a different list!
-        110 BUILD_LIST           z = [1, 2, 3, 4, [43m[30m5[39m[49m] # a different list!
+        110 BUILD_LIST           z = [43m[30m[1, 2, 3, 4, 5][39m[49m # a different list!
         113 STORE_NAME           [43m[30mz[39m[49m = [1, 2, 3, 4, 5] # a different list!
 
  12     116 LOAD_NAME            [43m[30mx[39m[49m.append(6)

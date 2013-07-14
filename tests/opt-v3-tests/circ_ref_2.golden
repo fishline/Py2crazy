@@ -1,13 +1,13 @@
 Disassembling top-level module in ./opt-v3-tests/circ_ref_2.txt
   3       0 LOAD_CONST           x = [[43m[30m1[39m[49m, 2]
           3 LOAD_CONST           x = [1, [43m[30m2[39m[49m]
-          6 BUILD_LIST           x = [1, [43m[30m2[39m[49m]
+          6 BUILD_LIST           x = [43m[30m[1, 2][39m[49m
           9 STORE_NAME           [43m[30mx[39m[49m = [1, 2]
 
   4      12 LOAD_CONST           y = [[43m[30m3[39m[49m, 4, x]
          15 LOAD_CONST           y = [3, [43m[30m4[39m[49m, x]
          18 LOAD_NAME            y = [3, 4, [43m[30mx[39m[49m]
-         21 BUILD_LIST           y = [3, 4, [43m[30mx[39m[49m]
+         21 BUILD_LIST           y = [43m[30m[3, 4, x][39m[49m
          24 STORE_NAME           [43m[30my[39m[49m = [3, 4, x]
 
   5      27 LOAD_NAME            [43m[30mx[39m[49m.append(y)
