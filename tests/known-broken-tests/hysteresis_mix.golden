@@ -1,0 +1,18 @@
+Disassembling top-level module in ./known-broken-tests/hysteresis_mix.txt
+  2       0 LOAD_CONST           [43m[30mdef[39m[49m foo():
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
+          6 STORE_NAME           [43m[30mdef[39m[49m foo():
+          9 LOAD_CONST           [43m[30mdef[39m[49m foo():
+         12 RETURN_VALUE         [43m[30mdef[39m[49m foo():
+
+Disassembling function foo
+  3       0 LOAD_GLOBAL            return ([43m[30mfunc1[39m[49m(x, y), func2(z, w))
+          3 LOAD_GLOBAL            return (func1([43m[30mx[39m[49m, y), func2(z, w))
+          6 LOAD_GLOBAL            return (func1(x, [43m[30my[39m[49m), func2(z, w))
+          9 CALL_FUNCTION          return ([43m[30mfunc1(x, y)[39m[49m, func2(z, w))
+         12 LOAD_GLOBAL            return (func1(x, y), [43m[30mfunc2[39m[49m(z, w))
+         15 LOAD_GLOBAL            return (func1(x, y), func2([43m[30mz[39m[49m, w))
+         18 LOAD_GLOBAL            return (func1(x, y), func2(z, [43m[30mw[39m[49m))
+         21 CALL_FUNCTION          return (func1(x, y), [43m[30mfunc2(z, w)[39m[49m)
+         24 BUILD_TUPLE            return [43m[30m(func1(x, y), func2(z, w))[39m[49m
+         27 RETURN_VALUE           return ([43m[30mfunc1(x, y)[39m[49m, func2(z, w))

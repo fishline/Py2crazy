@@ -171,6 +171,11 @@ def disassemble(co, extent_map):
 
           # special case hacks!
           # make these non-exclusive if's
+          #
+          # TODO: implement hysteresis feature for ALL of these special
+          # types, not just function calls. It's tricky because the
+          # different hystereses might interact weirdly and conflict
+          # with one another!
           if 'Subscript' in v:
             if '_SUBSCR' in opcode: # subscripting opcodes
               start_col, extent = v['Subscript']

@@ -1,0 +1,13 @@
+Disassembling top-level module in ./known-broken-tests/tuple_hysteresis.txt
+  1       0 LOAD_CONST           [43m[30mdef[39m[49m foo():
+          3 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
+          6 STORE_NAME           [43m[30mdef[39m[49m foo():
+          9 LOAD_CONST           [43m[30mdef[39m[49m foo():
+         12 RETURN_VALUE         [43m[30mdef[39m[49m foo():
+
+Disassembling function foo
+  2       0 LOAD_CONST             return ([43m[30m1[39m[49m,2,3)
+          3 LOAD_CONST             return (1,[43m[30m2[39m[49m,3)
+          6 LOAD_CONST             return (1,2,[43m[30m3[39m[49m)
+          9 BUILD_TUPLE            return [43m[30m(1,2,3)[39m[49m
+         12 RETURN_VALUE           return ([43m[30m1[39m[49m,2,3)
