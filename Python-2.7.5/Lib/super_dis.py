@@ -176,19 +176,32 @@ def disassemble(co, extent_map):
               start_col, extent = v['Subscript']
               done = True
             else:
-              del v['Subscript']
+              if len(v) > 1:
+                del v['Subscript']
           if 'List' in v:
             if 'BUILD_LIST' == opcode: # subscripting opcodes
               start_col, extent = v['List']
               done = True
             else:
-              del v['List']
+              if len(v) > 1:
+                del v['List']
           if 'Tuple' in v:
             if 'BUILD_TUPLE' == opcode: # subscripting opcodes
               start_col, extent = v['Tuple']
               done = True
             else:
-              del v['Tuple']
+              if len(v) > 1:
+                del v['Tuple']
+
+          if 'Slice' in v:
+            if 'SLICE' in opcode:
+              start_col, extent = v['Slice']
+              done = True
+            else:
+              if len(v) > 1:
+                del v['Slice']
+
+          # very brittle -- do this last due to hysteresis
           if 'Call' in v:
             # Apply hysteresis to "remember" the call on this line so
             # that bytecodes afterward with the same lc (lineno,
@@ -203,19 +216,17 @@ def disassemble(co, extent_map):
             #          6 CALL_FUNCTION        print repr("aoooooooooga")
             #          9 PRINT_ITEM           print repr("aoooooooooga")
             #         10 PRINT_NEWLINE        print repr("aoooooooooga")
-            if opcode.startswith('CALL_') or (hysteresis_map.get(lc, None) == 'Call'):
+            #
+            # very subtle -- if we're already done, then don't try
+            # this hysteresis_map trick!
+            if opcode.startswith('CALL_') or \
+               (not done and hysteresis_map.get(lc, None) == 'Call'):
               start_col, extent = v['Call']
               hysteresis_map[lc] = 'Call'
               done = True
             else:
-              del v['Call']
-
-          if 'Slice' in v:
-            if 'SLICE' in opcode:
-              start_col, extent = v['Slice']
-              done = True
-            else:
-              del v['Slice']
+              if len(v) > 1:
+                del v['Call']
 
           if not done:
             # there should be only one surviving entry left after all
