@@ -6,14 +6,37 @@ debugging.
 
 I've implemented three main features:
 
-1. Debuggers now call the trace function at (roughly) each executed
-bytecode rather than each new executed line.
+1. Each instruction in compiled Python bytecode now maps to a precise line number
+and range of column numbers corresponding to the source code snippet that produced that bytecode.
 
 2. Peephole optimizations are disabled so that bytecodes match source
 code more closely.
 
-3. Code objects now contain a new field called `code.co_coltab`, which
-maps each bytecode instruction to a pair of line and column numbers.
+3. Debuggers now call the trace function at (roughly) each executed
+bytecode rather than each new executed line.
+
+
+### Precise line and column information in bytecodes
+
+Here's an illustration of the first feature. If you compile this code ...
+
+    x = 5
+    y = 13
+    if (x + 5 > 7) and (y - 3 == 10):
+        print 'You win'
+
+... with regular Python 2.7.5 and disassemble it, you get roughly the following bytecode:
+![compiled with Python](screenshots/python-regular-example.png)
+
+Note that each bytecode instruction maps to one line of source code.
+
+In contrast, if you compile with Py2crazy and disassemble, you can see that each bytecode maps to
+not only a line, but a precise range of columns within the line. I've highlighted the substrings
+in yellow:
+
+![compiled with Py2crazy](screenshots/py2crazy-example.png)
+
+This level of detail makes it possible to create much more fine-grained tracing and debugging tools!
 
 
 ### Why would anyone do this?
@@ -23,12 +46,15 @@ for [Online Python Tutor](http://pythontutor.com). This [wiki
 page](https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/project-ideas.md#hack-cpython-to-enable-sub-expression-level-tracing)
 discusses some of the rationale behind its design.
 
-To illustrate, notice how running Online Python Tutor with Py2crazy provides fine-grained
+To illustrate:
+
+- Running Online Python Tutor with Py2crazy provides fine-grained
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">expression-level stepping</a>.
 
-In contrast, running with regular Python 2.7 supports only
+- In contrast, running with regular Python 2.7 supports only
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
 like in an ordinary single-step debugger such as `pdb`.
+
 
 
 ### What did you change in CPython 2.7.5?
@@ -107,6 +133,10 @@ number mappings, and the corresponding points in the source code.
                                                                              ^
     (7, 20)    >>   43 POP_JUMP_IF_FALSE       54        if foo() and (x + y > 7):
                                                                              ^
+
+### How do you see expression start columns and extents?
+
+TODO: write me!
 
 
 ### Changelog
