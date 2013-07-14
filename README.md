@@ -15,28 +15,6 @@ code more closely.
 bytecode rather than each new executed line.
 
 
-### Precise line and column information in bytecodes
-
-Here's an illustration of the first (and most significant) feature. If you compile this code ...
-
-    x = 5
-    y = 13
-    if (x + 5 > 7) and (y - 3 == 10):
-        print 'You win'
-
-... with regular Python 2.7.5 and disassemble it, you get roughly the following bytecode:
-![compiled with Python](screenshots/python-regular-example.png)
-
-Note that each bytecode instruction maps to one line of source code.
-
-In contrast, if you compile this code with Py2crazy and disassemble, you can see that each bytecode
-maps to not only a line, but also a precise range of columns within that line (highlighted in yellow):
-
-![compiled with Py2crazy](screenshots/py2crazy-example.png)
-
-This level of detail makes it possible to create much more fine-grained tracing and debugging tools!
-
-
 ### Why would anyone do this?
 
 I created Py2crazy to support finer-grained expression-level tracing
@@ -54,17 +32,39 @@ To illustrate:
 like in an ordinary `pdb` style debugger.
 
 
-### What did you change in CPython 2.7.5?
+### Precise line and column information in bytecodes
 
-Check out the Git repo and run
+Here's an illustration of the first (and most significant) feature. If you compile this code
 
-    git diff d36dfc8ffaf5337adb96bd582e0733fe2ffe3f02
+    x = 5
+    y = 13
+    if (x + 5 > 7) and (y - 3 == 10):
+        print 'You win'
 
-to see diffs against a fresh Python 2.7.5 source distribution.
+with regular Python 2.7.5 and disassemble it, you get roughly the following bytecode:
+![compiled with Python](screenshots/python-regular-example.png)
 
-Although you might find some ideas in Py2crazy to be useful, its design
-is ultimately driven by pedagogical goals, not by industrial-strength
-debugging goals. For instance, efficiency wasn't a major concern.
+Note that each bytecode instruction maps to one line of source code.
+
+In contrast, if you compile this code with Py2crazy and disassemble, you can see that each bytecode
+maps to not only a line, but also a precise range of columns within that line (highlighted in yellow):
+
+![compiled with Py2crazy](screenshots/py2crazy-example.png)
+
+This level of detail makes it possible to create much more fine-grained tracing and debugging tools!
+
+
+### How do you view line and column number information?
+
+Compile Py2crazy and then run the special
+"Super Disassembler" ([Python-2.7.5/lib/super_dis.py](https://github.com/pgbovine/Py2crazy/blob/master/Python-2.7.5/Lib/super_dis.py))
+module on a Python source file to see detailed line/number column information:
+
+    Py2crazy/Python-2.7.5/python -m super_dis test.py
+
+Most terminals support colors, so you should be able to see the yellow highlights.
+
+Note that `super_dis.py` works only with Py2crazy, not with regular Python.
 
 
 ### How does Py2crazy debugger stepping differ from regular Python stepping?
@@ -89,17 +89,23 @@ closely to one another, which helps in tracing and debugging
 applications.
 
 
-### How do you see line/column number information?
+### What did you change in CPython 2.7.5?
 
-TODO: write me
+Check out the Git repo and run
+
+    git diff d36dfc8ffaf5337adb96bd582e0733fe2ffe3f02
+
+to see diffs against a fresh Python 2.7.5 source distribution.
+
+Although you might find some ideas in Py2crazy to be useful, its design
+is ultimately driven by pedagogical goals, not by industrial-strength
+debugging goals. For instance, efficiency wasn't a major concern.
 
 
-### Changelog
+### Footer
 
 Created on 2013-07-03 by [Philip Guo](http://www.pgbovine.net/)
 (philip@pgbovine.net)
 
-### Acknowledgments
-
-Thanks to [Ned Batchelder](http://nedbatchelder.com/) for inspiring this project, and for providing technical guidance.
+Special thanks to [Ned Batchelder](http://nedbatchelder.com/) for inspiring this project, and for providing technical guidance.
 
