@@ -36,9 +36,9 @@ Disassembling top-level module in ./opt-v3-tests/filter.txt
   7      88 LOAD_NAME                    [43m[30myoungPeople[39m[49m.append(person)
          91 LOAD_ATTR                    [43m[30myoungPeople.append[39m[49m(person)
          94 LOAD_NAME                    youngPeople.append([43m[30mperson[39m[49m)
-         97 CALL_FUNCTION                youngPeople.append([43m[30mperson[39m[49m)
-        100 POP_TOP                      youngPeople.append([43m[30mperson[39m[49m)
-        101 JUMP_FORWARD                 youngPeople.append([43m[30mperson[39m[49m)
+         97 CALL_FUNCTION                [43m[30myoungPeople.append(person)[39m[49m
+        100 POP_TOP                      [43m[30myoungPeople.append(person)[39m[49m
+        101 JUMP_FORWARD                 [43m[30myoungPeople.append(person)[39m[49m
 
   9 >>  104 LOAD_CONST                   print([43m[30m"HAHA "[39m[49m + person + " is too old!")
         107 LOAD_NAME                    print("HAHA " + [43m[30mperson[39m[49m + " is too old!")
@@ -54,8 +54,8 @@ Disassembling top-level module in ./opt-v3-tests/filter.txt
         124 LOAD_NAME            print("There are " + [43m[30mstr[39m[49m(len(youngPeople)) + " young people")
         127 LOAD_NAME            print("There are " + str([43m[30mlen[39m[49m(youngPeople)) + " young people")
         130 LOAD_NAME            print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
-        133 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
-        136 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
+        133 CALL_FUNCTION        print("There are " + str([43m[30mlen(youngPeople)[39m[49m) + " young people")
+        136 CALL_FUNCTION        print("There are " + [43m[30mstr(len(youngPeople))[39m[49m + " young people")
         139 BINARY_ADD           print([43m[30m"There are " + str(len(youngPeople))[39m[49m + " young people")
         140 LOAD_CONST           print("There are " + str(len(youngPeople)) + [43m[30m" young people"[39m[49m)
         143 BINARY_ADD           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)

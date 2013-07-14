@@ -22,7 +22,7 @@ Disassembling top-level module in ./opt-v3-tests/wentworth_sumList.txt
 
  23      48 LOAD_NAME            result = [43m[30msumList[39m[49m(testData)
          51 LOAD_NAME            result = sumList([43m[30mtestData[39m[49m)
-         54 CALL_FUNCTION        result = sumList([43m[30mtestData[39m[49m)
+         54 CALL_FUNCTION        result = [43m[30msumList(testData)[39m[49m
          57 STORE_NAME           [43m[30mresult[39m[49m = sumList(testData)
 
  24      60 LOAD_CONST           print(([43m[30m"Final sum of all numbers in initial list is %s"[39m[49m % result))
@@ -45,7 +45,7 @@ Disassembling function sumList
 
  11      19 LOAD_GLOBAL                  if [43m[30mtype[39m[49m(e) is list:
          22 LOAD_FAST                    if type([43m[30me[39m[49m) is list:
-         25 CALL_FUNCTION                if type([43m[30me[39m[49m) is list:
+         25 CALL_FUNCTION                if [43m[30mtype(e)[39m[49m is list:
          28 LOAD_GLOBAL                  if type(e) is [43m[30mlist[39m[49m:
          31 COMPARE_OP                   if [43m[30mtype(e) is list[39m[49m:
          34 POP_JUMP_IF_FALSE            if [43m[30mtype(e) is list[39m[49m:
@@ -58,7 +58,7 @@ Disassembling function sumList
 
  13      46 LOAD_GLOBAL                      v = [43m[30msumList[39m[49m(e)
          49 LOAD_FAST                        v = sumList([43m[30me[39m[49m)
-         52 CALL_FUNCTION                    v = sumList([43m[30me[39m[49m)
+         52 CALL_FUNCTION                    v = [43m[30msumList(e)[39m[49m
          55 STORE_FAST                       [43m[30mv[39m[49m = sumList(e)
 
  14      58 LOAD_CONST                       print(([43m[30m"sumList(%s) returned %s"[39m[49m % (e, v)))

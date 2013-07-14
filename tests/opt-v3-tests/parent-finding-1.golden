@@ -6,10 +6,10 @@ Disassembling top-level module in ./opt-v3-tests/parent-finding-1.txt
   7       9 LOAD_NAME            [43m[30mf[39m[49m(1, 2)
          12 LOAD_CONST           f([43m[30m1[39m[49m, 2)
          15 LOAD_CONST           f(1, [43m[30m2[39m[49m)
-         18 CALL_FUNCTION        f(1, [43m[30m2[39m[49m)
-         21 POP_TOP              f(1, [43m[30m2[39m[49m)
-         22 LOAD_CONST           f(1, [43m[30m2[39m[49m)
-         25 RETURN_VALUE         f(1, [43m[30m2[39m[49m)
+         18 CALL_FUNCTION        [43m[30mf(1, 2)[39m[49m
+         21 POP_TOP              [43m[30mf(1, 2)[39m[49m
+         22 LOAD_CONST           [43m[30mf(1, 2)[39m[49m
+         25 RETURN_VALUE         [43m[30mf(1, 2)[39m[49m
 
 Disassembling function f
   3       0 LOAD_CLOSURE             [43m[30mdef[39m[49m g(x):
@@ -20,8 +20,8 @@ Disassembling function f
 
   5      15 LOAD_FAST                return [43m[30mg[39m[49m(3)
          18 LOAD_CONST               return g([43m[30m3[39m[49m)
-         21 CALL_FUNCTION            return g([43m[30m3[39m[49m)
-         24 RETURN_VALUE             return g([43m[30m3[39m[49m)
+         21 CALL_FUNCTION            return [43m[30mg(3)[39m[49m
+         24 RETURN_VALUE             return [43m[30mg(3)[39m[49m
 
 Disassembling function g
   4       0 LOAD_FAST                    return [43m[30mx[39m[49m + y

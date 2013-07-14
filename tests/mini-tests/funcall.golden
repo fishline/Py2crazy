@@ -9,7 +9,7 @@ Disassembling top-level module in ./mini-tests/funcall.txt
          19 BINARY_ADD           one = call_foo(1 + 2, y, [43m[30mz+w[39m[49m-2)
          20 LOAD_CONST           one = call_foo(1 + 2, y, z+w-[43m[30m2[39m[49m)
          23 BINARY_SUBTRACT      one = call_foo(1 + 2, y, [43m[30mz+w-2[39m[49m)
-         24 CALL_FUNCTION        one = call_foo(1 + 2, y, [43m[30mz+w-2[39m[49m)
+         24 CALL_FUNCTION        one = [43m[30mcall_foo(1 + 2, y, z+w-2)[39m[49m
          27 STORE_NAME           [43m[30mone[39m[49m = call_foo(1 + 2, y, z+w-2)
 
   2      30 LOAD_NAME            two = [43m[30mcall_foo[39m[49m(1 + 2, y, z+w-2, optional1=True, optional2=two/one+four)
@@ -30,7 +30,7 @@ Disassembling top-level module in ./mini-tests/funcall.txt
          69 BINARY_DIVIDE        two = call_foo(1 + 2, y, z+w-2, optional1=True, optional2=[43m[30mtwo/one[39m[49m+four)
          70 LOAD_NAME            two = call_foo(1 + 2, y, z+w-2, optional1=True, optional2=two/one+[43m[30mfour[39m[49m)
          73 BINARY_ADD           two = call_foo(1 + 2, y, z+w-2, optional1=True, optional2=[43m[30mtwo/one+four[39m[49m)
-         74 CALL_FUNCTION        two = call_foo(1 + 2, y, z+w-2, optional1=True, optional2=[43m[30mtwo/one+four[39m[49m)
+         74 CALL_FUNCTION        two = [43m[30mcall_foo(1 + 2, y, z+w-2, optional1=True, optional2=two/one+four)[39m[49m
          77 STORE_NAME           [43m[30mtwo[39m[49m = call_foo(1 + 2, y, z+w-2, optional1=True, optional2=two/one+four)
 
   3      80 LOAD_NAME            three = [43m[30mcall_foo[39m[49m(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four)
@@ -52,7 +52,7 @@ Disassembling top-level module in ./mini-tests/funcall.txt
         120 LOAD_NAME            three = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+[43m[30mfour[39m[49m)
         123 BINARY_ADD           three = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=[43m[30mtwo/one+four[39m[49m)
         124 LOAD_NAME            three = call_foo(1 + 2, y, z+w-2, optional1=True, *[43m[30mstararg[39m[49m, optional2=two/one+four)
-        127 CALL_FUNCTION_VAR    three = call_foo(1 + 2, y, z+w-2, optional1=True, *[43m[30mstararg[39m[49m, optional2=two/one+four)
+        127 CALL_FUNCTION_VAR    three = [43m[30mcall_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four)[39m[49m
         130 STORE_NAME           [43m[30mthree[39m[49m = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four)
 
   4     133 LOAD_NAME            four = [43m[30mcall_foo[39m[49m(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **my_kwargs)
@@ -75,7 +75,7 @@ Disassembling top-level module in ./mini-tests/funcall.txt
         176 BINARY_ADD           four = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=[43m[30mtwo/one+four[39m[49m, **my_kwargs)
         177 LOAD_NAME            four = call_foo(1 + 2, y, z+w-2, optional1=True, *[43m[30mstararg[39m[49m, optional2=two/one+four, **my_kwargs)
         180 LOAD_NAME            four = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **[43m[30mmy_kwargs[39m[49m)
-        183 CALL_FUNCTION_VAR_KW four = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **[43m[30mmy_kwargs[39m[49m)
+        183 CALL_FUNCTION_VAR_KW four = [43m[30mcall_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **my_kwargs)[39m[49m
         186 STORE_NAME           [43m[30mfour[39m[49m = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **my_kwargs)
         189 LOAD_CONST           [43m[30mfour[39m[49m = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **my_kwargs)
         192 RETURN_VALUE         [43m[30mfour[39m[49m = call_foo(1 + 2, y, z+w-2, optional1=True, *stararg, optional2=two/one+four, **my_kwargs)

@@ -1,9 +1,9 @@
 Disassembling top-level module in ./mini-tests/repr_test.txt
   1       0 LOAD_NAME            print [43m[30mrepr[39m[49m("aoooooooooga")
           3 LOAD_CONST           print repr([43m[30m"aoooooooooga"[39m[49m)
-          6 CALL_FUNCTION        print repr([43m[30m"aoooooooooga"[39m[49m)
-          9 PRINT_ITEM           print repr([43m[30m"aoooooooooga"[39m[49m)
-         10 PRINT_NEWLINE        print repr([43m[30m"aoooooooooga"[39m[49m)
+          6 CALL_FUNCTION        print [43m[30mrepr("aoooooooooga")[39m[49m
+          9 PRINT_ITEM           print [43m[30mrepr("aoooooooooga")[39m[49m
+         10 PRINT_NEWLINE        print [43m[30mrepr("aoooooooooga")[39m[49m
 
   2      11 LOAD_CONST           x = [43m[30m'bahhhhhhh'[39m[49m
          14 STORE_NAME           [43m[30mx[39m[49m = 'bahhhhhhh'

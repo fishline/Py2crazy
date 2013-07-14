@@ -7,10 +7,10 @@ Disassembling top-level module in ./opt-v3-tests/ling-scheme-1.txt
          12 LOAD_CONST           repeat([43m[30mlambda[39m[49m : 5, 5)
          15 MAKE_FUNCTION        repeat([43m[30mlambda[39m[49m : 5, 5)
          18 LOAD_CONST           repeat(lambda : 5, [43m[30m5[39m[49m)
-         21 CALL_FUNCTION        repeat(lambda : 5, [43m[30m5[39m[49m)
-         24 POP_TOP              repeat(lambda : 5, [43m[30m5[39m[49m)
-         25 LOAD_CONST           repeat(lambda : 5, [43m[30m5[39m[49m)
-         28 RETURN_VALUE         repeat(lambda : 5, [43m[30m5[39m[49m)
+         21 CALL_FUNCTION        [43m[30mrepeat(lambda : 5, 5)[39m[49m
+         24 POP_TOP              [43m[30mrepeat(lambda : 5, 5)[39m[49m
+         25 LOAD_CONST           [43m[30mrepeat(lambda : 5, 5)[39m[49m
+         28 RETURN_VALUE         [43m[30mrepeat(lambda : 5, 5)[39m[49m
 
 Disassembling function repeat
   2       0 LOAD_FAST              if [43m[30mn[39m[49m == 0:
@@ -30,7 +30,7 @@ Disassembling function repeat
          34 LOAD_FAST                return [f()] + repeat(f, [43m[30mn[39m[49m - 1)
          37 LOAD_CONST               return [f()] + repeat(f, n - [43m[30m1[39m[49m)
          40 BINARY_SUBTRACT          return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
-         41 CALL_FUNCTION            return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
+         41 CALL_FUNCTION            return [f()] + [43m[30mrepeat(f, n - 1)[39m[49m
          44 BINARY_ADD               return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
          45 RETURN_VALUE             return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
     >>   46 LOAD_CONST               return [43m[30m[f()] + repeat(f, n - 1)[39m[49m

@@ -15,8 +15,8 @@ Disassembling top-level module in ./opt-v3-tests/ins_sort.txt
 
  12      36 LOAD_NAME            [43m[30mInsertionSort[39m[49m(input)
          39 LOAD_NAME            InsertionSort([43m[30minput[39m[49m)
-         42 CALL_FUNCTION        InsertionSort([43m[30minput[39m[49m)
-         45 POP_TOP              InsertionSort([43m[30minput[39m[49m)
+         42 CALL_FUNCTION        [43m[30mInsertionSort(input)[39m[49m
+         45 POP_TOP              [43m[30mInsertionSort(input)[39m[49m
 
  13      46 LOAD_NAME            print([43m[30minput[39m[49m)
          49 PRINT_ITEM           print([43m[30minput[39m[49m)
@@ -30,10 +30,10 @@ Disassembling function InsertionSort
           6 LOAD_CONST               for j in range([43m[30m1[39m[49m, len(A)):
           9 LOAD_GLOBAL              for j in range(1, [43m[30mlen[39m[49m(A)):
          12 LOAD_FAST                for j in range(1, len([43m[30mA[39m[49m)):
-         15 CALL_FUNCTION            for j in range(1, len([43m[30mA[39m[49m)):
-         18 CALL_FUNCTION            for j in range(1, len([43m[30mA[39m[49m)):
-         21 GET_ITER                 for j in range(1, len([43m[30mA[39m[49m)):
-    >>   22 FOR_ITER                 for j in range(1, len([43m[30mA[39m[49m)):
+         15 CALL_FUNCTION            for j in range(1, [43m[30mlen(A)[39m[49m):
+         18 CALL_FUNCTION            for j in [43m[30mrange(1, len(A))[39m[49m:
+         21 GET_ITER                 for j in [43m[30mrange(1, len(A))[39m[49m:
+    >>   22 FOR_ITER                 for j in [43m[30mrange(1, len(A))[39m[49m:
          25 STORE_FAST               for [43m[30mj[39m[49m in range(1, len(A)):
 
   4      28 LOAD_FAST                    key = [43m[30mA[39m[49m[j]

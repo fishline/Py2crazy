@@ -5,9 +5,9 @@ Disassembling top-level module in ./opt-v3-tests/runtime_error.txt
   2       6 SETUP_LOOP           [43m[30mfor[39m[49m i in range(10):
           9 LOAD_NAME            for i in [43m[30mrange[39m[49m(10):
          12 LOAD_CONST           for i in range([43m[30m10[39m[49m):
-         15 CALL_FUNCTION        for i in range([43m[30m10[39m[49m):
-         18 GET_ITER             for i in range([43m[30m10[39m[49m):
-    >>   19 FOR_ITER             for i in range([43m[30m10[39m[49m):
+         15 CALL_FUNCTION        for i in [43m[30mrange(10)[39m[49m:
+         18 GET_ITER             for i in [43m[30mrange(10)[39m[49m:
+    >>   19 FOR_ITER             for i in [43m[30mrange(10)[39m[49m:
          22 STORE_NAME           for [43m[30mi[39m[49m in range(10):
 
   3      25 LOAD_NAME              if [43m[30mi[39m[49m == x:

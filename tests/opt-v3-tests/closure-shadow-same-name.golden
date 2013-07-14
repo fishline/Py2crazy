@@ -7,10 +7,10 @@ Disassembling top-level module in ./opt-v3-tests/closure-shadow-same-name.txt
          12 LOAD_CONST           f([43m[30m1[39m[49m, 2, 3)
          15 LOAD_CONST           f(1, [43m[30m2[39m[49m, 3)
          18 LOAD_CONST           f(1, 2, [43m[30m3[39m[49m)
-         21 CALL_FUNCTION        f(1, 2, [43m[30m3[39m[49m)
-         24 POP_TOP              f(1, 2, [43m[30m3[39m[49m)
-         25 LOAD_CONST           f(1, 2, [43m[30m3[39m[49m)
-         28 RETURN_VALUE         f(1, 2, [43m[30m3[39m[49m)
+         21 CALL_FUNCTION        [43m[30mf(1, 2, 3)[39m[49m
+         24 POP_TOP              [43m[30mf(1, 2, 3)[39m[49m
+         25 LOAD_CONST           [43m[30mf(1, 2, 3)[39m[49m
+         28 RETURN_VALUE         [43m[30mf(1, 2, 3)[39m[49m
 
 Disassembling function f
   4       0 LOAD_CONST             [43m[30mdef[39m[49m g(x, y):
@@ -20,8 +20,8 @@ Disassembling function f
   6       9 LOAD_FAST              return [43m[30mg[39m[49m(x, y)
          12 LOAD_FAST              return g([43m[30mx[39m[49m, y)
          15 LOAD_FAST              return g(x, [43m[30my[39m[49m)
-         18 CALL_FUNCTION          return g(x, [43m[30my[39m[49m)
-         21 RETURN_VALUE           return g(x, [43m[30my[39m[49m)
+         18 CALL_FUNCTION          return [43m[30mg(x, y)[39m[49m
+         21 RETURN_VALUE           return [43m[30mg(x, y)[39m[49m
 
 Disassembling function g
   5       0 LOAD_FAST                return [43m[30mx[39m[49m

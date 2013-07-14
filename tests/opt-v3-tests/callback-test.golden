@@ -22,10 +22,10 @@ Disassembling function foo
  14       0 LOAD_GLOBAL            [43m[30mcallback_module[39m[49m.callback_func(bar)
           3 LOAD_ATTR              [43m[30mcallback_module.callback_func[39m[49m(bar)
           6 LOAD_GLOBAL            callback_module.callback_func([43m[30mbar[39m[49m)
-          9 CALL_FUNCTION          callback_module.callback_func([43m[30mbar[39m[49m)
-         12 POP_TOP                callback_module.callback_func([43m[30mbar[39m[49m)
-         13 LOAD_CONST             callback_module.callback_func([43m[30mbar[39m[49m)
-         16 RETURN_VALUE           callback_module.callback_func([43m[30mbar[39m[49m)
+          9 CALL_FUNCTION          [43m[30mcallback_module.callback_func(bar)[39m[49m
+         12 POP_TOP                [43m[30mcallback_module.callback_func(bar)[39m[49m
+         13 LOAD_CONST             [43m[30mcallback_module.callback_func(bar)[39m[49m
+         16 RETURN_VALUE           [43m[30mcallback_module.callback_func(bar)[39m[49m
 
 Disassembling function bar
  17       0 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)

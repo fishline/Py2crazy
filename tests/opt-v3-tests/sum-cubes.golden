@@ -17,10 +17,10 @@ Disassembling top-level module in ./opt-v3-tests/sum-cubes.txt
 
  16      36 LOAD_NAME            [43m[30msum_cubes[39m[49m(3)
          39 LOAD_CONST           sum_cubes([43m[30m3[39m[49m)
-         42 CALL_FUNCTION        sum_cubes([43m[30m3[39m[49m)
-         45 POP_TOP              sum_cubes([43m[30m3[39m[49m)
-         46 LOAD_CONST           sum_cubes([43m[30m3[39m[49m)
-         49 RETURN_VALUE         sum_cubes([43m[30m3[39m[49m)
+         42 CALL_FUNCTION        [43m[30msum_cubes(3)[39m[49m
+         45 POP_TOP              [43m[30msum_cubes(3)[39m[49m
+         46 LOAD_CONST           [43m[30msum_cubes(3)[39m[49m
+         49 RETURN_VALUE         [43m[30msum_cubes(3)[39m[49m
 
 Disassembling function successor
  11       0 LOAD_FAST              return [43m[30mk[39m[49m + 1
@@ -33,15 +33,15 @@ Disassembling function sum_cubes
           3 LOAD_FAST              return summation([43m[30mn[39m[49m, cube, successor)
           6 LOAD_GLOBAL            return summation(n, [43m[30mcube[39m[49m, successor)
           9 LOAD_GLOBAL            return summation(n, cube, [43m[30msuccessor[39m[49m)
-         12 CALL_FUNCTION          return summation(n, cube, [43m[30msuccessor[39m[49m)
-         15 RETURN_VALUE           return summation(n, cube, [43m[30msuccessor[39m[49m)
+         12 CALL_FUNCTION          return [43m[30msummation(n, cube, successor)[39m[49m
+         15 RETURN_VALUE           return [43m[30msummation(n, cube, successor)[39m[49m
 
 Disassembling function cube
   8       0 LOAD_GLOBAL            return [43m[30mpow[39m[49m(k, 3)
           3 LOAD_FAST              return pow([43m[30mk[39m[49m, 3)
           6 LOAD_CONST             return pow(k, [43m[30m3[39m[49m)
-          9 CALL_FUNCTION          return pow(k, [43m[30m3[39m[49m)
-         12 RETURN_VALUE           return pow(k, [43m[30m3[39m[49m)
+          9 CALL_FUNCTION          return [43m[30mpow(k, 3)[39m[49m
+         12 RETURN_VALUE           return [43m[30mpow(k, 3)[39m[49m
 
 Disassembling function summation
   2       0 LOAD_CONST             total, k = [43m[30m0[39m[49m, 1
@@ -60,12 +60,12 @@ Disassembling function summation
   4      33 LOAD_FAST                total, k = [43m[30mtotal[39m[49m + term(k), next(k)
          36 LOAD_FAST                total, k = total + [43m[30mterm[39m[49m(k), next(k)
          39 LOAD_FAST                total, k = total + term([43m[30mk[39m[49m), next(k)
-         42 CALL_FUNCTION            total, k = total + term([43m[30mk[39m[49m), next(k)
+         42 CALL_FUNCTION            total, k = total + [43m[30mterm(k)[39m[49m, next(k)
          45 BINARY_ADD               total, k = [43m[30mtotal + term(k)[39m[49m, next(k)
          46 LOAD_FAST                total, k = total + term(k), [43m[30mnext[39m[49m(k)
          49 LOAD_FAST                total, k = total + term(k), next([43m[30mk[39m[49m)
-         52 CALL_FUNCTION            total, k = total + term(k), next([43m[30mk[39m[49m)
-         55 BUILD_TUPLE              total, k = total + term(k), next([43m[30mk[39m[49m)
+         52 CALL_FUNCTION            total, k = total + term(k), [43m[30mnext(k)[39m[49m
+         55 BUILD_TUPLE              total, k = total + term(k), [43m[30mnext(k)[39m[49m
          58 UNPACK_SEQUENCE          [43m[30mtotal[39m[49m, k = total + term(k), next(k)
          61 STORE_FAST               [43m[30mtotal[39m[49m, k = total + term(k), next(k)
          64 STORE_FAST               total, [43m[30mk[39m[49m = total + term(k), next(k)

@@ -99,6 +99,13 @@ def disassemble(co, extent_map):
     dislines = []
     lineno = linestarts[0]
 
+    # "Remembers" what special (start_col, extent) value has already
+    # been set for a particular (lineno, col_offset) combo with a special
+    # AST type name
+    # Key: (lineno, col_offset)
+    # Value: name of AST type that's been set for this location
+    hysteresis_map = {}
+
     while i < n:
         op = byte_from_code(code, i)
         first = i in linestarts
@@ -112,14 +119,15 @@ def disassemble(co, extent_map):
         opcode = opname[op]
 
         try:
-            line_dup, column = co.co_coltab[i]
+            # this might be pretty darn controversial, but override
+            # lineno with the entry from co_coltab. seems to do a
+            # reasonable job for (ANNOYING!) multi-line expressions ...
+            lineno, column = co.co_coltab[i]
         except KeyError:
             # when there's an error, punt to column 0
-            line_dup, column = lineno, 0
-        assert lineno == line_dup
+            column = 0
 
-        code_obj = None # is this loading a code object that we should
-                        # maybe recurse into?
+        code_obj = None # is this loading a code object that we should maybe recurse into?
 
         i = i+1
         if op >= HAVE_ARGUMENT:
@@ -182,8 +190,22 @@ def disassemble(co, extent_map):
               del v['Tuple']
               start_col, extent = v.values()[0] # override
           elif 'Call' in v:
-            if opcode.startswith('CALL_'):
+            # Apply hysteresis to "remember" the call on this line so
+            # that bytecodes afterward with the same lc (lineno,
+            # col_offset) value can also get the same start_col and extent.
+            #
+            # e.g., in this example, the PRINT_ITEM and PRINT_NEWLINE
+            # after CALL_FUNCTION have the same lc as CALL_FUNCTION. So
+            # after we set start_col, extent = v['Call'], we also set
+            # hysteresis_map[lc] so that the PRINT_ITEM and PRINT_NEWLINE
+            # instructions also get the same consistent start_col and
+            # extent values.
+            #          6 CALL_FUNCTION        print repr("aoooooooooga")
+            #          9 PRINT_ITEM           print repr("aoooooooooga")
+            #         10 PRINT_NEWLINE        print repr("aoooooooooga")
+            if opcode.startswith('CALL_') or (hysteresis_map.get(lc, None) == 'Call'):
               start_col, extent = v['Call']
+              hysteresis_map[lc] = 'Call'
             else:
               del v['Call']
               start_col, extent = v.values()[0] # override

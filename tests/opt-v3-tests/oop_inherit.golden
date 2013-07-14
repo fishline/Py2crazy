@@ -19,7 +19,7 @@ Disassembling top-level module in ./opt-v3-tests/oop_inherit.txt
  23      41 LOAD_NAME            pat = [43m[30mProf601[39m[49m('Pat', 60)
          44 LOAD_CONST           pat = Prof601([43m[30m'Pat'[39m[49m, 60)
          47 LOAD_CONST           pat = Prof601('Pat', [43m[30m60[39m[49m)
-         50 CALL_FUNCTION        pat = Prof601('Pat', [43m[30m60[39m[49m)
+         50 CALL_FUNCTION        pat = [43m[30mProf601('Pat', 60)[39m[49m
          53 STORE_NAME           [43m[30mpat[39m[49m = Prof601('Pat', 60)
          56 LOAD_CONST           [43m[30mpat[39m[49m = Prof601('Pat', 60)
          59 RETURN_VALUE         [43m[30mpat[39m[49m = Prof601('Pat', 60)
@@ -63,10 +63,10 @@ Disassembling function __init__
          21 BINARY_SUBTRACT              self.giveRaise(([43m[30mage - 18[39m[49m) * 0.03)
          22 LOAD_CONST                   self.giveRaise((age - 18) * [43m[30m0.03[39m[49m)
          25 BINARY_MULTIPLY              self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
-         26 CALL_FUNCTION                self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
-         29 POP_TOP                      self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
-         30 LOAD_CONST                   self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
-         33 RETURN_VALUE                 self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
+         26 CALL_FUNCTION                [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         29 POP_TOP                      [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         30 LOAD_CONST                   [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         33 RETURN_VALUE                 [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
 
 Disassembling function Staff601
   5       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:

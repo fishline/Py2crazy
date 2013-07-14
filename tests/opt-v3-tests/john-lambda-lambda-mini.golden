@@ -6,10 +6,10 @@ Disassembling top-level module in ./opt-v3-tests/john-lambda-lambda-mini.txt
   5       9 LOAD_NAME            [43m[30ma[39m[49m(lambda a: (lambda b: a))
          12 LOAD_CONST           a([43m[30mlambda[39m[49m a: (lambda b: a))
          15 MAKE_FUNCTION        a([43m[30mlambda[39m[49m a: (lambda b: a))
-         18 CALL_FUNCTION        a([43m[30mlambda[39m[49m a: (lambda b: a))
-         21 POP_TOP              a([43m[30mlambda[39m[49m a: (lambda b: a))
-         22 LOAD_CONST           a([43m[30mlambda[39m[49m a: (lambda b: a))
-         25 RETURN_VALUE         a([43m[30mlambda[39m[49m a: (lambda b: a))
+         18 CALL_FUNCTION        [43m[30ma(lambda [39m[49ma: (lambda b: a))
+         21 POP_TOP              [43m[30ma(lambda [39m[49ma: (lambda b: a))
+         22 LOAD_CONST           [43m[30ma(lambda [39m[49ma: (lambda b: a))
+         25 RETURN_VALUE         [43m[30ma(lambda [39m[49ma: (lambda b: a))
 
 Disassembling function <lambda>
   5       0 LOAD_CLOSURE         a(lambda a: ([43m[30mlambda[39m[49m b: a))
@@ -25,12 +25,12 @@ Disassembling function <lambda>
 Disassembling function a
   2       0 LOAD_FAST                a = [43m[30mb[39m[49m(3)
           3 LOAD_CONST               a = b([43m[30m3[39m[49m)
-          6 CALL_FUNCTION            a = b([43m[30m3[39m[49m)
+          6 CALL_FUNCTION            a = [43m[30mb(3)[39m[49m
           9 STORE_FAST               [43m[30ma[39m[49m = b(3)
 
   3      12 LOAD_FAST                [43m[30ma[39m[49m(100)
          15 LOAD_CONST               a([43m[30m100[39m[49m)
-         18 CALL_FUNCTION            a([43m[30m100[39m[49m)
-         21 POP_TOP                  a([43m[30m100[39m[49m)
-         22 LOAD_CONST               a([43m[30m100[39m[49m)
-         25 RETURN_VALUE             a([43m[30m100[39m[49m)
+         18 CALL_FUNCTION            [43m[30ma(100)[39m[49m
+         21 POP_TOP                  [43m[30ma(100)[39m[49m
+         22 LOAD_CONST               [43m[30ma(100)[39m[49m
+         25 RETURN_VALUE             [43m[30ma(100)[39m[49m

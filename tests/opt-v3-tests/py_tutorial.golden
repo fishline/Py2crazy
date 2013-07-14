@@ -62,8 +62,8 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
  23     122 LOAD_NAME            [43m[30mbeatles[39m[49m.append('Ringo')
         125 LOAD_ATTR            [43m[30mbeatles.append[39m[49m('Ringo')
         128 LOAD_CONST           beatles.append([43m[30m'Ringo'[39m[49m)
-        131 CALL_FUNCTION        beatles.append([43m[30m'Ringo'[39m[49m)
-        134 POP_TOP              beatles.append([43m[30m'Ringo'[39m[49m)
+        131 CALL_FUNCTION        [43m[30mbeatles.append('Ringo')[39m[49m
+        134 POP_TOP              [43m[30mbeatles.append('Ringo')[39m[49m
 
  26     135 SETUP_LOOP           [43m[30mfor[39m[49m b in beatles:
         138 LOAD_NAME            for b in [43m[30mbeatles[39m[49m:
@@ -93,20 +93,20 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
  33     194 LOAD_NAME            uniqueAges = [43m[30mset[39m[49m(ages)
         197 LOAD_NAME            uniqueAges = set([43m[30mages[39m[49m)
-        200 CALL_FUNCTION        uniqueAges = set([43m[30mages[39m[49m)
+        200 CALL_FUNCTION        uniqueAges = [43m[30mset(ages)[39m[49m
         203 STORE_NAME           [43m[30muniqueAges[39m[49m = set(ages)
 
  34     206 LOAD_NAME            [43m[30muniqueAges[39m[49m.add(18) # already in set, no effect
         209 LOAD_ATTR            [43m[30muniqueAges.add[39m[49m(18) # already in set, no effect
         212 LOAD_CONST           uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
-        215 CALL_FUNCTION        uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
-        218 POP_TOP              uniqueAges.add([43m[30m18[39m[49m) # already in set, no effect
+        215 CALL_FUNCTION        [43m[30muniqueAges.add(18)[39m[49m # already in set, no effect
+        218 POP_TOP              [43m[30muniqueAges.add(18)[39m[49m # already in set, no effect
 
  35     219 LOAD_NAME            [43m[30muniqueAges[39m[49m.remove(21)
         222 LOAD_ATTR            [43m[30muniqueAges.remove[39m[49m(21)
         225 LOAD_CONST           uniqueAges.remove([43m[30m21[39m[49m)
-        228 CALL_FUNCTION        uniqueAges.remove([43m[30m21[39m[49m)
-        231 POP_TOP              uniqueAges.remove([43m[30m21[39m[49m)
+        228 CALL_FUNCTION        [43m[30muniqueAges.remove(21)[39m[49m
+        231 POP_TOP              [43m[30muniqueAges.remove(21)[39m[49m
 
  38     232 SETUP_LOOP           [43m[30mfor[39m[49m thisAge in uniqueAges:
         235 LOAD_NAME            for thisAge in [43m[30muniqueAges[39m[49m:
@@ -137,7 +137,7 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
  47     284 LOAD_NAME            orderedUniqueAges = [43m[30msorted[39m[49m(uniqueAges) # new list
         287 LOAD_NAME            orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
-        290 CALL_FUNCTION        orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
+        290 CALL_FUNCTION        orderedUniqueAges = [43m[30msorted(uniqueAges)[39m[49m # new list
         293 STORE_NAME           [43m[30morderedUniqueAges[39m[49m = sorted(uniqueAges) # new list
 
  50     296 BUILD_MAP            netWorth = [43m[30m{[39m[49m}

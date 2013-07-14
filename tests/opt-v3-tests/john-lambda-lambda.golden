@@ -6,15 +6,15 @@ Disassembling top-level module in ./opt-v3-tests/john-lambda-lambda.txt
   5       9 LOAD_NAME            [43m[30ma[39m[49m(lambda a: (lambda b: a, a))
          12 LOAD_CONST           a([43m[30mlambda[39m[49m a: (lambda b: a, a))
          15 MAKE_FUNCTION        a([43m[30mlambda[39m[49m a: (lambda b: a, a))
-         18 CALL_FUNCTION        a([43m[30mlambda[39m[49m a: (lambda b: a, a))
-         21 POP_TOP              a([43m[30mlambda[39m[49m a: (lambda b: a, a))
-         22 LOAD_CONST           a([43m[30mlambda[39m[49m a: (lambda b: a, a))
-         25 RETURN_VALUE         a([43m[30mlambda[39m[49m a: (lambda b: a, a))
+         18 CALL_FUNCTION        [43m[30ma(lambda [39m[49ma: (lambda b: a, a))
+         21 POP_TOP              [43m[30ma(lambda [39m[49ma: (lambda b: a, a))
+         22 LOAD_CONST           [43m[30ma(lambda [39m[49ma: (lambda b: a, a))
+         25 RETURN_VALUE         [43m[30ma(lambda [39m[49ma: (lambda b: a, a))
 
 Disassembling function a
   3       0 LOAD_FAST                a, b = [43m[30mb[39m[49m(3)
           3 LOAD_CONST               a, b = b([43m[30m3[39m[49m)
-          6 CALL_FUNCTION            a, b = b([43m[30m3[39m[49m)
+          6 CALL_FUNCTION            a, b = [43m[30mb(3)[39m[49m
           9 UNPACK_SEQUENCE          [43m[30ma[39m[49m, b = b(3)
          12 STORE_FAST               [43m[30ma[39m[49m, b = b(3)
          15 STORE_FAST               a, [43m[30mb[39m[49m = b(3)

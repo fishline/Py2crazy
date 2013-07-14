@@ -32,7 +32,7 @@ Disassembling function main
  21      27 LOAD_GLOBAL              g = [43m[30mgcd[39m[49m(m, n)
          30 LOAD_FAST                g = gcd([43m[30mm[39m[49m, n)
          33 LOAD_FAST                g = gcd(m, [43m[30mn[39m[49m)
-         36 CALL_FUNCTION            g = gcd(m, [43m[30mn[39m[49m)
+         36 CALL_FUNCTION            g = [43m[30mgcd(m, n)[39m[49m
          39 STORE_FAST               [43m[30mg[39m[49m = gcd(m, n)
 
  22      42 LOAD_CONST               print(([43m[30m'Greatest common divisor of %d, %d = %d'[39m[49m
@@ -80,7 +80,7 @@ Disassembling function gcd
          63 LOAD_FAST                    result = gcd(y, x % y, [43m[30mdepth[39m[49m+1)
          66 LOAD_CONST                   result = gcd(y, x % y, depth+[43m[30m1[39m[49m)
          69 BINARY_ADD                   result = gcd(y, x % y, [43m[30mdepth+1[39m[49m)
-         70 CALL_FUNCTION                result = gcd(y, x % y, [43m[30mdepth+1[39m[49m)
+         70 CALL_FUNCTION                result = [43m[30mgcd(y, x % y, depth+1)[39m[49m
          73 STORE_FAST                   [43m[30mresult[39m[49m = gcd(y, x % y, depth+1)
 
  14      76 LOAD_CONST                   print(([43m[30m"%s result is %d"[39m[49m % (indent, result)))

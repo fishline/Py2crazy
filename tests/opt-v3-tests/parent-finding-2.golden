@@ -9,16 +9,16 @@ Disassembling top-level module in ./opt-v3-tests/parent-finding-2.txt
 
  10      18 LOAD_NAME            [43m[30mhorse[39m[49m(mask)
          21 LOAD_NAME            horse([43m[30mmask[39m[49m)
-         24 CALL_FUNCTION        horse([43m[30mmask[39m[49m)
-         27 POP_TOP              horse([43m[30mmask[39m[49m)
-         28 LOAD_CONST           horse([43m[30mmask[39m[49m)
-         31 RETURN_VALUE         horse([43m[30mmask[39m[49m)
+         24 CALL_FUNCTION        [43m[30mhorse(mask)[39m[49m
+         27 POP_TOP              [43m[30mhorse(mask)[39m[49m
+         28 LOAD_CONST           [43m[30mhorse(mask)[39m[49m
+         31 RETURN_VALUE         [43m[30mhorse(mask)[39m[49m
 
 Disassembling function <lambda>
   8       0 LOAD_FAST            mask = lambda horse: [43m[30mhorse[39m[49m(2)
           3 LOAD_CONST           mask = lambda horse: horse([43m[30m2[39m[49m)
-          6 CALL_FUNCTION        mask = lambda horse: horse([43m[30m2[39m[49m)
-          9 RETURN_VALUE         mask = lambda horse: horse([43m[30m2[39m[49m)
+          6 CALL_FUNCTION        mask = lambda horse: [43m[30mhorse(2)[39m[49m
+          9 RETURN_VALUE         mask = lambda horse: [43m[30mhorse(2)[39m[49m
 
 Disassembling function horse
   3       0 LOAD_FAST                horse = [43m[30mmask[39m[49m
@@ -30,8 +30,8 @@ Disassembling function horse
 
   6      15 LOAD_FAST                return [43m[30mhorse[39m[49m(mask)
          18 LOAD_FAST                return horse([43m[30mmask[39m[49m)
-         21 CALL_FUNCTION            return horse([43m[30mmask[39m[49m)
-         24 RETURN_VALUE             return horse([43m[30mmask[39m[49m)
+         21 CALL_FUNCTION            return [43m[30mhorse(mask)[39m[49m
+         24 RETURN_VALUE             return [43m[30mhorse(mask)[39m[49m
 
 Disassembling function mask
   5       0 LOAD_FAST                    return [43m[30mhorse[39m[49m

@@ -17,9 +17,9 @@ Disassembling top-level module in ./opt-v3-tests/simple.txt
   5      27 SETUP_LOOP           [43m[30mfor[39m[49m i in range(10):
          30 LOAD_NAME            for i in [43m[30mrange[39m[49m(10):
          33 LOAD_CONST           for i in range([43m[30m10[39m[49m):
-         36 CALL_FUNCTION        for i in range([43m[30m10[39m[49m):
-         39 GET_ITER             for i in range([43m[30m10[39m[49m):
-    >>   40 FOR_ITER             for i in range([43m[30m10[39m[49m):
+         36 CALL_FUNCTION        for i in [43m[30mrange(10)[39m[49m:
+         39 GET_ITER             for i in [43m[30mrange(10)[39m[49m:
+    >>   40 FOR_ITER             for i in [43m[30mrange(10)[39m[49m:
          43 STORE_NAME           for [43m[30mi[39m[49m in range(10):
 
   6      46 LOAD_NAME              print([43m[30mz[39m[49m * i)

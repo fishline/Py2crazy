@@ -9,7 +9,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
   3      16 LOAD_NAME            Restaurant = [43m[30mnamedtuple[39m[49m('Restaurant', 'name cuisine phone dish price')
          19 LOAD_CONST           Restaurant = namedtuple([43m[30m'Restaurant'[39m[49m, 'name cuisine phone dish price')
          22 LOAD_CONST           Restaurant = namedtuple('Restaurant', [43m[30m'name cuisine phone dish price'[39m[49m)
-         25 CALL_FUNCTION        Restaurant = namedtuple('Restaurant', [43m[30m'name cuisine phone dish price'[39m[49m)
+         25 CALL_FUNCTION        Restaurant = [43m[30mnamedtuple('Restaurant', 'name cuisine phone dish price')[39m[49m
          28 STORE_NAME           [43m[30mRestaurant[39m[49m = namedtuple('Restaurant', 'name cuisine phone dish price')
 
   5      31 LOAD_NAME            R1 = [43m[30mRestaurant[39m[49m("Taillevent", "French", "343-3434", "Escargots", 24.50)
@@ -18,7 +18,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
          40 LOAD_CONST           R1 = Restaurant("Taillevent", "French", [43m[30m"343-3434"[39m[49m, "Escargots", 24.50)
          43 LOAD_CONST           R1 = Restaurant("Taillevent", "French", "343-3434", [43m[30m"Escargots"[39m[49m, 24.50)
          46 LOAD_CONST           R1 = Restaurant("Taillevent", "French", "343-3434", "Escargots", [43m[30m24.5[39m[49m0)
-         49 CALL_FUNCTION        R1 = Restaurant("Taillevent", "French", "343-3434", "Escargots", [43m[30m24.5[39m[49m0)
+         49 CALL_FUNCTION        R1 = [43m[30mRestaurant("Taillevent", "French", "343-3434", "Escargots", 24.50[39m[49m)
          52 STORE_NAME           [43m[30mR1[39m[49m = Restaurant("Taillevent", "French", "343-3434", "Escargots", 24.50)
 
   6      55 LOAD_NAME            R2 = [43m[30mRestaurant[39m[49m("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50)
@@ -27,7 +27,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
          64 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", [43m[30m"343-3344"[39m[49m, "Ris de Veau", 48.50)
          67 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", "343-3344", [43m[30m"Ris de Veau"[39m[49m, 48.50)
          70 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", [43m[30m48.5[39m[49m0)
-         73 CALL_FUNCTION        R2 = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", [43m[30m48.5[39m[49m0)
+         73 CALL_FUNCTION        R2 = [43m[30mRestaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50[39m[49m)
          76 STORE_NAME           [43m[30mR2[39m[49m = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50)
 
   7      79 LOAD_NAME            R3 = [43m[30mRestaurant[39m[49m("Pascal", "French", "333-4444", "Bouillabaisse", 32.00)
@@ -36,7 +36,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
          88 LOAD_CONST           R3 = Restaurant("Pascal", "French", [43m[30m"333-4444"[39m[49m, "Bouillabaisse", 32.00)
          91 LOAD_CONST           R3 = Restaurant("Pascal", "French", "333-4444", [43m[30m"Bouillabaisse"[39m[49m, 32.00)
          94 LOAD_CONST           R3 = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", [43m[30m32.0[39m[49m0)
-         97 CALL_FUNCTION        R3 = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", [43m[30m32.0[39m[49m0)
+         97 CALL_FUNCTION        R3 = [43m[30mRestaurant("Pascal", "French", "333-4444", "Bouillabaisse", 32.00[39m[49m)
         100 STORE_NAME           [43m[30mR3[39m[49m = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", 32.00)
 
   8     103 LOAD_NAME            R4 = [43m[30mRestaurant[39m[49m("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)
@@ -45,7 +45,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         112 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", [43m[30m"444-3333"[39m[49m, "Mee Krob", 10.95)
         115 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", "444-3333", [43m[30m"Mee Krob"[39m[49m, 10.95)
         118 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", [43m[30m10.95[39m[49m)
-        121 CALL_FUNCTION        R4 = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", [43m[30m10.95[39m[49m)
+        121 CALL_FUNCTION        R4 = [43m[30mRestaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)[39m[49m
         124 STORE_NAME           [43m[30mR4[39m[49m = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)
 
   9     127 LOAD_NAME            R5 = [43m[30mRestaurant[39m[49m("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50)
@@ -54,7 +54,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         136 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", [43m[30m"333-4433"[39m[49m, "Paht Woon Sen",  8.50)
         139 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", "333-4433", [43m[30m"Paht Woon Sen"[39m[49m,  8.50)
         142 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  [43m[30m8.5[39m[49m0)
-        145 CALL_FUNCTION        R5 = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  [43m[30m8.5[39m[49m0)
+        145 CALL_FUNCTION        R5 = [43m[30mRestaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50[39m[49m)
         148 STORE_NAME           [43m[30mR5[39m[49m = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50)
 
  10     151 LOAD_NAME            R6 = [43m[30mRestaurant[39m[49m("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00)
@@ -63,7 +63,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         160 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", [43m[30m"334-3344"[39m[49m, "Mussamun", 9.00)
         163 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", "334-3344", [43m[30m"Mussamun"[39m[49m, 9.00)
         166 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", [43m[30m9.0[39m[49m0)
-        169 CALL_FUNCTION        R6 = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", [43m[30m9.0[39m[49m0)
+        169 CALL_FUNCTION        R6 = [43m[30mRestaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00[39m[49m)
         172 STORE_NAME           [43m[30mR6[39m[49m = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00)
 
  11     175 LOAD_NAME            R7 = [43m[30mRestaurant[39m[49m("McDonald's", "Burgers", "333-4443", "Big Mac", 3.95)
@@ -72,7 +72,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         184 LOAD_CONST           R7 = Restaurant("McDonald's", "Burgers", [43m[30m"333-4443"[39m[49m, "Big Mac", 3.95)
         187 LOAD_CONST           R7 = Restaurant("McDonald's", "Burgers", "333-4443", [43m[30m"Big Mac"[39m[49m, 3.95)
         190 LOAD_CONST           R7 = Restaurant("McDonald's", "Burgers", "333-4443", "Big Mac", [43m[30m3.95[39m[49m)
-        193 CALL_FUNCTION        R7 = Restaurant("McDonald's", "Burgers", "333-4443", "Big Mac", [43m[30m3.95[39m[49m)
+        193 CALL_FUNCTION        R7 = [43m[30mRestaurant("McDonald's", "Burgers", "333-4443", "Big Mac", 3.95)[39m[49m
         196 STORE_NAME           [43m[30mR7[39m[49m = Restaurant("McDonald's", "Burgers", "333-4443", "Big Mac", 3.95)
 
  12     199 LOAD_NAME            R8 = [43m[30mRestaurant[39m[49m("Burger King", "Burgers", "444-3344", "Whopper", 3.75)
@@ -81,7 +81,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         208 LOAD_CONST           R8 = Restaurant("Burger King", "Burgers", [43m[30m"444-3344"[39m[49m, "Whopper", 3.75)
         211 LOAD_CONST           R8 = Restaurant("Burger King", "Burgers", "444-3344", [43m[30m"Whopper"[39m[49m, 3.75)
         214 LOAD_CONST           R8 = Restaurant("Burger King", "Burgers", "444-3344", "Whopper", [43m[30m3.75[39m[49m)
-        217 CALL_FUNCTION        R8 = Restaurant("Burger King", "Burgers", "444-3344", "Whopper", [43m[30m3.75[39m[49m)
+        217 CALL_FUNCTION        R8 = [43m[30mRestaurant("Burger King", "Burgers", "444-3344", "Whopper", 3.75)[39m[49m
         220 STORE_NAME           [43m[30mR8[39m[49m = Restaurant("Burger King", "Burgers", "444-3344", "Whopper", 3.75)
 
  13     223 LOAD_NAME            R9 = [43m[30mRestaurant[39m[49m("Wahoo's", "Fish Tacos", "443-4443", "Mahi Mahi Burrito", 7.50)
@@ -90,7 +90,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         232 LOAD_CONST           R9 = Restaurant("Wahoo's", "Fish Tacos", [43m[30m"443-4443"[39m[49m, "Mahi Mahi Burrito", 7.50)
         235 LOAD_CONST           R9 = Restaurant("Wahoo's", "Fish Tacos", "443-4443", [43m[30m"Mahi Mahi Burrito"[39m[49m, 7.50)
         238 LOAD_CONST           R9 = Restaurant("Wahoo's", "Fish Tacos", "443-4443", "Mahi Mahi Burrito", [43m[30m7.5[39m[49m0)
-        241 CALL_FUNCTION        R9 = Restaurant("Wahoo's", "Fish Tacos", "443-4443", "Mahi Mahi Burrito", [43m[30m7.5[39m[49m0)
+        241 CALL_FUNCTION        R9 = [43m[30mRestaurant("Wahoo's", "Fish Tacos", "443-4443", "Mahi Mahi Burrito", 7.50[39m[49m)
         244 STORE_NAME           [43m[30mR9[39m[49m = Restaurant("Wahoo's", "Fish Tacos", "443-4443", "Mahi Mahi Burrito", 7.50)
 
  14     247 LOAD_NAME            R10 = [43m[30mRestaurant[39m[49m("In-N-Out Burger", "Burgers", "434-3344", "Cheeseburger", 2.50)
@@ -99,7 +99,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         256 LOAD_CONST           R10 = Restaurant("In-N-Out Burger", "Burgers", [43m[30m"434-3344"[39m[49m, "Cheeseburger", 2.50)
         259 LOAD_CONST           R10 = Restaurant("In-N-Out Burger", "Burgers", "434-3344", [43m[30m"Cheeseburger"[39m[49m, 2.50)
         262 LOAD_CONST           R10 = Restaurant("In-N-Out Burger", "Burgers", "434-3344", "Cheeseburger", [43m[30m2.5[39m[49m0)
-        265 CALL_FUNCTION        R10 = Restaurant("In-N-Out Burger", "Burgers", "434-3344", "Cheeseburger", [43m[30m2.5[39m[49m0)
+        265 CALL_FUNCTION        R10 = [43m[30mRestaurant("In-N-Out Burger", "Burgers", "434-3344", "Cheeseburger", 2.50[39m[49m)
         268 STORE_NAME           [43m[30mR10[39m[49m = Restaurant("In-N-Out Burger", "Burgers", "434-3344", "Cheeseburger", 2.50)
 
  15     271 LOAD_NAME            R11 = [43m[30mRestaurant[39m[49m("The Shack", "Burgers", "333-3334", "Hot Link Burger", 4.50)
@@ -108,7 +108,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         280 LOAD_CONST           R11 = Restaurant("The Shack", "Burgers", [43m[30m"333-3334"[39m[49m, "Hot Link Burger", 4.50)
         283 LOAD_CONST           R11 = Restaurant("The Shack", "Burgers", "333-3334", [43m[30m"Hot Link Burger"[39m[49m, 4.50)
         286 LOAD_CONST           R11 = Restaurant("The Shack", "Burgers", "333-3334", "Hot Link Burger", [43m[30m4.5[39m[49m0)
-        289 CALL_FUNCTION        R11 = Restaurant("The Shack", "Burgers", "333-3334", "Hot Link Burger", [43m[30m4.5[39m[49m0)
+        289 CALL_FUNCTION        R11 = [43m[30mRestaurant("The Shack", "Burgers", "333-3334", "Hot Link Burger", 4.50[39m[49m)
         292 STORE_NAME           [43m[30mR11[39m[49m = Restaurant("The Shack", "Burgers", "333-3334", "Hot Link Burger", 4.50)
 
  16     295 LOAD_NAME            R12 = [43m[30mRestaurant[39m[49m("Gina's", "Pizza", "334-4433", "Combo Pizza", 12.95)
@@ -117,7 +117,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         304 LOAD_CONST           R12 = Restaurant("Gina's", "Pizza", [43m[30m"334-4433"[39m[49m, "Combo Pizza", 12.95)
         307 LOAD_CONST           R12 = Restaurant("Gina's", "Pizza", "334-4433", [43m[30m"Combo Pizza"[39m[49m, 12.95)
         310 LOAD_CONST           R12 = Restaurant("Gina's", "Pizza", "334-4433", "Combo Pizza", [43m[30m12.95[39m[49m)
-        313 CALL_FUNCTION        R12 = Restaurant("Gina's", "Pizza", "334-4433", "Combo Pizza", [43m[30m12.95[39m[49m)
+        313 CALL_FUNCTION        R12 = [43m[30mRestaurant("Gina's", "Pizza", "334-4433", "Combo Pizza", 12.95)[39m[49m
         316 STORE_NAME           [43m[30mR12[39m[49m = Restaurant("Gina's", "Pizza", "334-4433", "Combo Pizza", 12.95)
 
  17     319 LOAD_NAME            R13 = [43m[30mRestaurant[39m[49m("Peacock, Room", "Indian", "333-4443", "Rogan Josh", 12.50)
@@ -126,7 +126,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         328 LOAD_CONST           R13 = Restaurant("Peacock, Room", "Indian", [43m[30m"333-4443"[39m[49m, "Rogan Josh", 12.50)
         331 LOAD_CONST           R13 = Restaurant("Peacock, Room", "Indian", "333-4443", [43m[30m"Rogan Josh"[39m[49m, 12.50)
         334 LOAD_CONST           R13 = Restaurant("Peacock, Room", "Indian", "333-4443", "Rogan Josh", [43m[30m12.5[39m[49m0)
-        337 CALL_FUNCTION        R13 = Restaurant("Peacock, Room", "Indian", "333-4443", "Rogan Josh", [43m[30m12.5[39m[49m0)
+        337 CALL_FUNCTION        R13 = [43m[30mRestaurant("Peacock, Room", "Indian", "333-4443", "Rogan Josh", 12.50[39m[49m)
         340 STORE_NAME           [43m[30mR13[39m[49m = Restaurant("Peacock, Room", "Indian", "333-4443", "Rogan Josh", 12.50)
 
  18     343 LOAD_NAME            R14 = [43m[30mRestaurant[39m[49m("Gaylord", "Indian", "333-3433", "Tandoori Chicken", 13.50)
@@ -135,7 +135,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         352 LOAD_CONST           R14 = Restaurant("Gaylord", "Indian", [43m[30m"333-3433"[39m[49m, "Tandoori Chicken", 13.50)
         355 LOAD_CONST           R14 = Restaurant("Gaylord", "Indian", "333-3433", [43m[30m"Tandoori Chicken"[39m[49m, 13.50)
         358 LOAD_CONST           R14 = Restaurant("Gaylord", "Indian", "333-3433", "Tandoori Chicken", [43m[30m13.5[39m[49m0)
-        361 CALL_FUNCTION        R14 = Restaurant("Gaylord", "Indian", "333-3433", "Tandoori Chicken", [43m[30m13.5[39m[49m0)
+        361 CALL_FUNCTION        R14 = [43m[30mRestaurant("Gaylord", "Indian", "333-3433", "Tandoori Chicken", 13.50[39m[49m)
         364 STORE_NAME           [43m[30mR14[39m[49m = Restaurant("Gaylord", "Indian", "333-3433", "Tandoori Chicken", 13.50)
 
  19     367 LOAD_NAME            R15 = [43m[30mRestaurant[39m[49m("Mr. Chow", "Chinese", "222-3333", "Peking Duck", 24.50)
@@ -144,7 +144,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         376 LOAD_CONST           R15 = Restaurant("Mr. Chow", "Chinese", [43m[30m"222-3333"[39m[49m, "Peking Duck", 24.50)
         379 LOAD_CONST           R15 = Restaurant("Mr. Chow", "Chinese", "222-3333", [43m[30m"Peking Duck"[39m[49m, 24.50)
         382 LOAD_CONST           R15 = Restaurant("Mr. Chow", "Chinese", "222-3333", "Peking Duck", [43m[30m24.5[39m[49m0)
-        385 CALL_FUNCTION        R15 = Restaurant("Mr. Chow", "Chinese", "222-3333", "Peking Duck", [43m[30m24.5[39m[49m0)
+        385 CALL_FUNCTION        R15 = [43m[30mRestaurant("Mr. Chow", "Chinese", "222-3333", "Peking Duck", 24.50[39m[49m)
         388 STORE_NAME           [43m[30mR15[39m[49m = Restaurant("Mr. Chow", "Chinese", "222-3333", "Peking Duck", 24.50)
 
  20     391 LOAD_NAME            R16 = [43m[30mRestaurant[39m[49m("Chez Panisse", "California", "222-3322", "Grilled Duck Breast", 25.00)
@@ -153,7 +153,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         400 LOAD_CONST           R16 = Restaurant("Chez Panisse", "California", [43m[30m"222-3322"[39m[49m, "Grilled Duck Breast", 25.00)
         403 LOAD_CONST           R16 = Restaurant("Chez Panisse", "California", "222-3322", [43m[30m"Grilled Duck Breast"[39m[49m, 25.00)
         406 LOAD_CONST           R16 = Restaurant("Chez Panisse", "California", "222-3322", "Grilled Duck Breast", [43m[30m25.0[39m[49m0)
-        409 CALL_FUNCTION        R16 = Restaurant("Chez Panisse", "California", "222-3322", "Grilled Duck Breast", [43m[30m25.0[39m[49m0)
+        409 CALL_FUNCTION        R16 = [43m[30mRestaurant("Chez Panisse", "California", "222-3322", "Grilled Duck Breast", 25.00[39m[49m)
         412 STORE_NAME           [43m[30mR16[39m[49m = Restaurant("Chez Panisse", "California", "222-3322", "Grilled Duck Breast", 25.00)
 
  21     415 LOAD_NAME            R17 = [43m[30mRestaurant[39m[49m("Spago", "California", "333-2222", "Striped Bass", 24.50)
@@ -162,7 +162,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         424 LOAD_CONST           R17 = Restaurant("Spago", "California", [43m[30m"333-2222"[39m[49m, "Striped Bass", 24.50)
         427 LOAD_CONST           R17 = Restaurant("Spago", "California", "333-2222", [43m[30m"Striped Bass"[39m[49m, 24.50)
         430 LOAD_CONST           R17 = Restaurant("Spago", "California", "333-2222", "Striped Bass", [43m[30m24.5[39m[49m0)
-        433 CALL_FUNCTION        R17 = Restaurant("Spago", "California", "333-2222", "Striped Bass", [43m[30m24.5[39m[49m0)
+        433 CALL_FUNCTION        R17 = [43m[30mRestaurant("Spago", "California", "333-2222", "Striped Bass", 24.50[39m[49m)
         436 STORE_NAME           [43m[30mR17[39m[49m = Restaurant("Spago", "California", "333-2222", "Striped Bass", 24.50)
 
  22     439 LOAD_NAME            R18 = [43m[30mRestaurant[39m[49m("Sriped Bass", "Seafood", "333-2233", "Cedar Plank Salmon", 21.50)
@@ -171,7 +171,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         448 LOAD_CONST           R18 = Restaurant("Sriped Bass", "Seafood", [43m[30m"333-2233"[39m[49m, "Cedar Plank Salmon", 21.50)
         451 LOAD_CONST           R18 = Restaurant("Sriped Bass", "Seafood", "333-2233", [43m[30m"Cedar Plank Salmon"[39m[49m, 21.50)
         454 LOAD_CONST           R18 = Restaurant("Sriped Bass", "Seafood", "333-2233", "Cedar Plank Salmon", [43m[30m21.5[39m[49m0)
-        457 CALL_FUNCTION        R18 = Restaurant("Sriped Bass", "Seafood", "333-2233", "Cedar Plank Salmon", [43m[30m21.5[39m[49m0)
+        457 CALL_FUNCTION        R18 = [43m[30mRestaurant("Sriped Bass", "Seafood", "333-2233", "Cedar Plank Salmon", 21.50[39m[49m)
         460 STORE_NAME           [43m[30mR18[39m[49m = Restaurant("Sriped Bass", "Seafood", "333-2233", "Cedar Plank Salmon", 21.50)
 
  23     463 LOAD_NAME            R19 = [43m[30mRestaurant[39m[49m("Golden Pagoda", "Chinese", "232-3232", "Egg Foo Young", 8.50)
@@ -180,7 +180,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         472 LOAD_CONST           R19 = Restaurant("Golden Pagoda", "Chinese", [43m[30m"232-3232"[39m[49m, "Egg Foo Young", 8.50)
         475 LOAD_CONST           R19 = Restaurant("Golden Pagoda", "Chinese", "232-3232", [43m[30m"Egg Foo Young"[39m[49m, 8.50)
         478 LOAD_CONST           R19 = Restaurant("Golden Pagoda", "Chinese", "232-3232", "Egg Foo Young", [43m[30m8.5[39m[49m0)
-        481 CALL_FUNCTION        R19 = Restaurant("Golden Pagoda", "Chinese", "232-3232", "Egg Foo Young", [43m[30m8.5[39m[49m0)
+        481 CALL_FUNCTION        R19 = [43m[30mRestaurant("Golden Pagoda", "Chinese", "232-3232", "Egg Foo Young", 8.50[39m[49m)
         484 STORE_NAME           [43m[30mR19[39m[49m = Restaurant("Golden Pagoda", "Chinese", "232-3232", "Egg Foo Young", 8.50)
 
  24     487 LOAD_NAME            R20 = [43m[30mRestaurant[39m[49m("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", 11.50)
@@ -189,7 +189,7 @@ Disassembling top-level module in ./opt-v3-tests/namedtuple.txt
         496 LOAD_CONST           R20 = Restaurant("Langer's", "Delicatessen", [43m[30m"333-2223"[39m[49m, "Pastrami Sandwich", 11.50)
         499 LOAD_CONST           R20 = Restaurant("Langer's", "Delicatessen", "333-2223", [43m[30m"Pastrami Sandwich"[39m[49m, 11.50)
         502 LOAD_CONST           R20 = Restaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", [43m[30m11.5[39m[49m0)
-        505 CALL_FUNCTION        R20 = Restaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", [43m[30m11.5[39m[49m0)
+        505 CALL_FUNCTION        R20 = [43m[30mRestaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", 11.50[39m[49m)
         508 STORE_NAME           [43m[30mR20[39m[49m = Restaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", 11.50)
         511 LOAD_CONST           [43m[30mR20[39m[49m = Restaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", 11.50)
         514 RETURN_VALUE         [43m[30mR20[39m[49m = Restaurant("Langer's", "Delicatessen", "333-2223", "Pastrami Sandwich", 11.50)

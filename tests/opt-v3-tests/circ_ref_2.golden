@@ -13,7 +13,7 @@ Disassembling top-level module in ./opt-v3-tests/circ_ref_2.txt
   5      27 LOAD_NAME            [43m[30mx[39m[49m.append(y)
          30 LOAD_ATTR            [43m[30mx.append[39m[49m(y)
          33 LOAD_NAME            x.append([43m[30my[39m[49m)
-         36 CALL_FUNCTION        x.append([43m[30my[39m[49m)
-         39 POP_TOP              x.append([43m[30my[39m[49m)
-         40 LOAD_CONST           x.append([43m[30my[39m[49m)
-         43 RETURN_VALUE         x.append([43m[30my[39m[49m)
+         36 CALL_FUNCTION        [43m[30mx.append(y)[39m[49m
+         39 POP_TOP              [43m[30mx.append(y)[39m[49m
+         40 LOAD_CONST           [43m[30mx.append(y)[39m[49m
+         43 RETURN_VALUE         [43m[30mx.append(y)[39m[49m

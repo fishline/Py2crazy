@@ -19,7 +19,7 @@ Disassembling top-level module in ./opt-v3-tests/sum-list.txt
   9      45 LOAD_NAME            total = [43m[30msumList[39m[49m(myList, 0)
          48 LOAD_NAME            total = sumList([43m[30mmyList[39m[49m, 0)
          51 LOAD_CONST           total = sumList(myList, [43m[30m0[39m[49m)
-         54 CALL_FUNCTION        total = sumList(myList, [43m[30m0[39m[49m)
+         54 CALL_FUNCTION        total = [43m[30msumList(myList, 0)[39m[49m
          57 STORE_NAME           [43m[30mtotal[39m[49m = sumList(myList, 0)
          60 LOAD_CONST           [43m[30mtotal[39m[49m = sumList(myList, 0)
          63 RETURN_VALUE         [43m[30mtotal[39m[49m = sumList(myList, 0)
@@ -42,7 +42,7 @@ Disassembling function sumList
          30 LOAD_CONST               return sumList(node[1], subtotal + node[[43m[30m0[39m[49m])
          33 BINARY_SUBSCR            return sumList(node[1], subtotal + [43m[30mnode[0][39m[49m)
          34 BINARY_ADD               return sumList(node[1], [43m[30msubtotal + node[0][39m[49m)
-         35 CALL_FUNCTION            return sumList(node[1], [43m[30msubtotal + node[0][39m[49m)
-         38 RETURN_VALUE             return sumList(node[1], [43m[30msubtotal + node[0][39m[49m)
-    >>   39 LOAD_CONST               return sumList(node[1], [43m[30msubtotal + node[0][39m[49m)
-         42 RETURN_VALUE             return sumList(node[1], [43m[30msubtotal + node[0][39m[49m)
+         35 CALL_FUNCTION            return [43m[30msumList(node[1], subtotal + node[0])[39m[49m
+         38 RETURN_VALUE             return [43m[30msumList(node[1], subtotal + node[0])[39m[49m
+    >>   39 LOAD_CONST               return [43m[30msumList(node[1], subtotal + node[0])[39m[49m
+         42 RETURN_VALUE             return [43m[30msumList(node[1], subtotal + node[0])[39m[49m

@@ -29,10 +29,10 @@ Disassembling top-level module in ./opt-v3-tests/three_lists.txt
 
  12      66 LOAD_NAME            [43m[30mf[39m[49m(b)
          69 LOAD_NAME            f([43m[30mb[39m[49m)
-         72 CALL_FUNCTION        f([43m[30mb[39m[49m)
-         75 POP_TOP              f([43m[30mb[39m[49m)
-         76 LOAD_CONST           f([43m[30mb[39m[49m)
-         79 RETURN_VALUE         f([43m[30mb[39m[49m)
+         72 CALL_FUNCTION        [43m[30mf(b)[39m[49m
+         75 POP_TOP              [43m[30mf(b)[39m[49m
+         76 LOAD_CONST           [43m[30mf(b)[39m[49m
+         79 RETURN_VALUE         [43m[30mf(b)[39m[49m
 
 Disassembling function f
   4       0 LOAD_FAST                print([43m[30mxs[39m[49m)

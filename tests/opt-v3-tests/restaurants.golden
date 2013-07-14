@@ -9,7 +9,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
   4      16 LOAD_NAME            Restaurant = [43m[30mnamedtuple[39m[49m('Restaurant', 'name cuisine phone dish price')
          19 LOAD_CONST           Restaurant = namedtuple([43m[30m'Restaurant'[39m[49m, 'name cuisine phone dish price')
          22 LOAD_CONST           Restaurant = namedtuple('Restaurant', [43m[30m'name cuisine phone dish price'[39m[49m)
-         25 CALL_FUNCTION        Restaurant = namedtuple('Restaurant', [43m[30m'name cuisine phone dish price'[39m[49m)
+         25 CALL_FUNCTION        Restaurant = [43m[30mnamedtuple('Restaurant', 'name cuisine phone dish price')[39m[49m
          28 STORE_NAME           [43m[30mRestaurant[39m[49m = namedtuple('Restaurant', 'name cuisine phone dish price')
 
   6      31 LOAD_NAME            R1 = [43m[30mRestaurant[39m[49m("Taillevent", "French", "343-3434", "Escargots", 24.50)
@@ -18,7 +18,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
          40 LOAD_CONST           R1 = Restaurant("Taillevent", "French", [43m[30m"343-3434"[39m[49m, "Escargots", 24.50)
          43 LOAD_CONST           R1 = Restaurant("Taillevent", "French", "343-3434", [43m[30m"Escargots"[39m[49m, 24.50)
          46 LOAD_CONST           R1 = Restaurant("Taillevent", "French", "343-3434", "Escargots", [43m[30m24.5[39m[49m0)
-         49 CALL_FUNCTION        R1 = Restaurant("Taillevent", "French", "343-3434", "Escargots", [43m[30m24.5[39m[49m0)
+         49 CALL_FUNCTION        R1 = [43m[30mRestaurant("Taillevent", "French", "343-3434", "Escargots", 24.50[39m[49m)
          52 STORE_NAME           [43m[30mR1[39m[49m = Restaurant("Taillevent", "French", "343-3434", "Escargots", 24.50)
 
   7      55 LOAD_NAME            R2 = [43m[30mRestaurant[39m[49m("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50)
@@ -27,7 +27,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
          64 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", [43m[30m"343-3344"[39m[49m, "Ris de Veau", 48.50)
          67 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", "343-3344", [43m[30m"Ris de Veau"[39m[49m, 48.50)
          70 LOAD_CONST           R2 = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", [43m[30m48.5[39m[49m0)
-         73 CALL_FUNCTION        R2 = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", [43m[30m48.5[39m[49m0)
+         73 CALL_FUNCTION        R2 = [43m[30mRestaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50[39m[49m)
          76 STORE_NAME           [43m[30mR2[39m[49m = Restaurant("La Tour D'Argent", "French", "343-3344", "Ris de Veau", 48.50)
 
   8      79 LOAD_NAME            R3 = [43m[30mRestaurant[39m[49m("Pascal", "French", "333-4444", "Bouillabaisse", 32.00)
@@ -36,7 +36,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
          88 LOAD_CONST           R3 = Restaurant("Pascal", "French", [43m[30m"333-4444"[39m[49m, "Bouillabaisse", 32.00)
          91 LOAD_CONST           R3 = Restaurant("Pascal", "French", "333-4444", [43m[30m"Bouillabaisse"[39m[49m, 32.00)
          94 LOAD_CONST           R3 = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", [43m[30m32.0[39m[49m0)
-         97 CALL_FUNCTION        R3 = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", [43m[30m32.0[39m[49m0)
+         97 CALL_FUNCTION        R3 = [43m[30mRestaurant("Pascal", "French", "333-4444", "Bouillabaisse", 32.00[39m[49m)
         100 STORE_NAME           [43m[30mR3[39m[49m = Restaurant("Pascal", "French", "333-4444", "Bouillabaisse", 32.00)
 
   9     103 LOAD_NAME            R4 = [43m[30mRestaurant[39m[49m("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)
@@ -45,7 +45,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
         112 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", [43m[30m"444-3333"[39m[49m, "Mee Krob", 10.95)
         115 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", "444-3333", [43m[30m"Mee Krob"[39m[49m, 10.95)
         118 LOAD_CONST           R4 = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", [43m[30m10.95[39m[49m)
-        121 CALL_FUNCTION        R4 = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", [43m[30m10.95[39m[49m)
+        121 CALL_FUNCTION        R4 = [43m[30mRestaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)[39m[49m
         124 STORE_NAME           [43m[30mR4[39m[49m = Restaurant("Thai Touch", "Thai", "444-3333", "Mee Krob", 10.95)
 
  10     127 LOAD_NAME            R5 = [43m[30mRestaurant[39m[49m("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50)
@@ -54,7 +54,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
         136 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", [43m[30m"333-4433"[39m[49m, "Paht Woon Sen",  8.50)
         139 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", "333-4433", [43m[30m"Paht Woon Sen"[39m[49m,  8.50)
         142 LOAD_CONST           R5 = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  [43m[30m8.5[39m[49m0)
-        145 CALL_FUNCTION        R5 = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  [43m[30m8.5[39m[49m0)
+        145 CALL_FUNCTION        R5 = [43m[30mRestaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50[39m[49m)
         148 STORE_NAME           [43m[30mR5[39m[49m = Restaurant("Thai Dishes", "Thai", "333-4433", "Paht Woon Sen",  8.50)
 
  11     151 LOAD_NAME            R6 = [43m[30mRestaurant[39m[49m("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00)
@@ -63,7 +63,7 @@ Disassembling top-level module in ./opt-v3-tests/restaurants.txt
         160 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", [43m[30m"334-3344"[39m[49m, "Mussamun", 9.00)
         163 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", "334-3344", [43m[30m"Mussamun"[39m[49m, 9.00)
         166 LOAD_CONST           R6 = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", [43m[30m9.0[39m[49m0)
-        169 CALL_FUNCTION        R6 = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", [43m[30m9.0[39m[49m0)
+        169 CALL_FUNCTION        R6 = [43m[30mRestaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00[39m[49m)
         172 STORE_NAME           [43m[30mR6[39m[49m = Restaurant("Thai Spoon", "Thai", "334-3344", "Mussamun", 9.00)
 
  13     175 LOAD_NAME            RL = [[43m[30mR1[39m[49m, R2, R3, R4, R5, R6]

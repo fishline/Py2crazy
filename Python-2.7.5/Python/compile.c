@@ -2630,9 +2630,8 @@ compiler_call(struct compiler *c, expr_ty e)
     }
 
     // pgbovine - re-set in case clobbered by VISIT()
-    // TODO: actually this causes some weird problems, so nix it for now
-    //c->u->u_lineno = e->lineno;
-    //c->u->u_col_offset = e->col_offset;
+    c->u->u_lineno = e->lineno;
+    c->u->u_col_offset = e->col_offset;
 
     switch (code) {
     case 0:

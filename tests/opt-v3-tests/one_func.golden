@@ -18,11 +18,11 @@ Disassembling top-level module in ./opt-v3-tests/one_func.txt
          34 LOAD_NAME            print(add([43m[30mx[39m[49m, y, z))
          37 LOAD_NAME            print(add(x, [43m[30my[39m[49m, z))
          40 LOAD_NAME            print(add(x, y, [43m[30mz[39m[49m))
-         43 CALL_FUNCTION        print(add(x, y, [43m[30mz[39m[49m))
-         46 PRINT_ITEM           print(add(x, y, [43m[30mz[39m[49m))
-         47 PRINT_NEWLINE        print(add(x, y, [43m[30mz[39m[49m))
-         48 LOAD_CONST           print(add(x, y, [43m[30mz[39m[49m))
-         51 RETURN_VALUE         print(add(x, y, [43m[30mz[39m[49m))
+         43 CALL_FUNCTION        print([43m[30madd(x, y, z)[39m[49m)
+         46 PRINT_ITEM           print([43m[30madd(x, y, z)[39m[49m)
+         47 PRINT_NEWLINE        print([43m[30madd(x, y, z)[39m[49m)
+         48 LOAD_CONST           print([43m[30madd(x, y, z)[39m[49m)
+         51 RETURN_VALUE         print([43m[30madd(x, y, z)[39m[49m)
 
 Disassembling function add
   2       0 LOAD_FAST              d = [43m[30ma[39m[49m + b

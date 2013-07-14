@@ -10,12 +10,12 @@ Disassembling top-level module in ./opt-v3-tests/data_test.txt
 
   2      24 LOAD_NAME            y = [43m[30mlist[39m[49m(x)
          27 LOAD_NAME            y = list([43m[30mx[39m[49m)
-         30 CALL_FUNCTION        y = list([43m[30mx[39m[49m)
+         30 CALL_FUNCTION        y = [43m[30mlist(x)[39m[49m
          33 STORE_NAME           [43m[30my[39m[49m = list(x)
 
   3      36 LOAD_NAME            z = [43m[30mset[39m[49m(x)
          39 LOAD_NAME            z = set([43m[30mx[39m[49m)
-         42 CALL_FUNCTION        z = set([43m[30mx[39m[49m)
+         42 CALL_FUNCTION        z = [43m[30mset(x)[39m[49m
          45 STORE_NAME           [43m[30mz[39m[49m = set(x)
 
   4      48 BUILD_MAP            w = [43m[30m{"joe" : 5, "mindy" : 6, "jack" : 7}[39m[49m

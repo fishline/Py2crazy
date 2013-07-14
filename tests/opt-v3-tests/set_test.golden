@@ -6,31 +6,31 @@ Disassembling top-level module in ./opt-v3-tests/set_test.txt
   2       9 LOAD_NAME            [43m[30mx[39m[49m.add('a')
          12 LOAD_ATTR            [43m[30mx.add[39m[49m('a')
          15 LOAD_CONST           x.add([43m[30m'a'[39m[49m)
-         18 CALL_FUNCTION        x.add([43m[30m'a'[39m[49m)
-         21 POP_TOP              x.add([43m[30m'a'[39m[49m)
+         18 CALL_FUNCTION        [43m[30mx.add('a')[39m[49m
+         21 POP_TOP              [43m[30mx.add('a')[39m[49m
 
   3      22 LOAD_NAME            [43m[30mx[39m[49m.add('a')
          25 LOAD_ATTR            [43m[30mx.add[39m[49m('a')
          28 LOAD_CONST           x.add([43m[30m'a'[39m[49m)
-         31 CALL_FUNCTION        x.add([43m[30m'a'[39m[49m)
-         34 POP_TOP              x.add([43m[30m'a'[39m[49m)
+         31 CALL_FUNCTION        [43m[30mx.add('a')[39m[49m
+         34 POP_TOP              [43m[30mx.add('a')[39m[49m
 
   4      35 LOAD_NAME            [43m[30mx[39m[49m.add('b')
          38 LOAD_ATTR            [43m[30mx.add[39m[49m('b')
          41 LOAD_CONST           x.add([43m[30m'b'[39m[49m)
-         44 CALL_FUNCTION        x.add([43m[30m'b'[39m[49m)
-         47 POP_TOP              x.add([43m[30m'b'[39m[49m)
+         44 CALL_FUNCTION        [43m[30mx.add('b')[39m[49m
+         47 POP_TOP              [43m[30mx.add('b')[39m[49m
 
   5      48 LOAD_NAME            [43m[30mx[39m[49m.add('c')
          51 LOAD_ATTR            [43m[30mx.add[39m[49m('c')
          54 LOAD_CONST           x.add([43m[30m'c'[39m[49m)
-         57 CALL_FUNCTION        x.add([43m[30m'c'[39m[49m)
-         60 POP_TOP              x.add([43m[30m'c'[39m[49m)
+         57 CALL_FUNCTION        [43m[30mx.add('c')[39m[49m
+         60 POP_TOP              [43m[30mx.add('c')[39m[49m
 
   6      61 LOAD_NAME            [43m[30mx[39m[49m.add('b')
          64 LOAD_ATTR            [43m[30mx.add[39m[49m('b')
          67 LOAD_CONST           x.add([43m[30m'b'[39m[49m)
-         70 CALL_FUNCTION        x.add([43m[30m'b'[39m[49m)
-         73 POP_TOP              x.add([43m[30m'b'[39m[49m)
-         74 LOAD_CONST           x.add([43m[30m'b'[39m[49m)
-         77 RETURN_VALUE         x.add([43m[30m'b'[39m[49m)
+         70 CALL_FUNCTION        [43m[30mx.add('b')[39m[49m
+         73 POP_TOP              [43m[30mx.add('b')[39m[49m
+         74 LOAD_CONST           [43m[30mx.add('b')[39m[49m
+         77 RETURN_VALUE         [43m[30mx.add('b')[39m[49m

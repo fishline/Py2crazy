@@ -10,7 +10,7 @@ Disassembling top-level module in ./opt-v3-tests/class_test.txt
   9      19 LOAD_NAME            p = [43m[30mPoint[39m[49m(1, 2)
          22 LOAD_CONST           p = Point([43m[30m1[39m[49m, 2)
          25 LOAD_CONST           p = Point(1, [43m[30m2[39m[49m)
-         28 CALL_FUNCTION        p = Point(1, [43m[30m2[39m[49m)
+         28 CALL_FUNCTION        p = [43m[30mPoint(1, 2)[39m[49m
          31 STORE_NAME           [43m[30mp[39m[49m = Point(1, 2)
 
  10      34 LOAD_NAME            print([43m[30mp[39m[49m)
@@ -20,7 +20,7 @@ Disassembling top-level module in ./opt-v3-tests/class_test.txt
  11      39 LOAD_NAME            p2 = [43m[30mPoint[39m[49m(3, -4)
          42 LOAD_CONST           p2 = Point([43m[30m3[39m[49m, -4)
          45 LOAD_CONST           p2 = Point(3, [43m[30m-4[39m[49m)
-         48 CALL_FUNCTION        p2 = Point(3, [43m[30m-4[39m[49m)
+         48 CALL_FUNCTION        p2 = [43m[30mPoint(3, -4)[39m[49m
          51 STORE_NAME           [43m[30mp2[39m[49m = Point(3, -4)
 
  12      54 LOAD_NAME            print([43m[30mp2[39m[49m)

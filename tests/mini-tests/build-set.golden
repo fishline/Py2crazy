@@ -10,7 +10,7 @@ Disassembling top-level module in ./mini-tests/build-set.txt
          22 BINARY_MULTIPLY      w = set(["joe", 5 + 6, "mindy" + [43m[30m"jack" * 2[39m[49m])
          23 BINARY_ADD           w = set(["joe", 5 + 6, [43m[30m"mindy" + "jack" * 2[39m[49m])
          24 BUILD_LIST           w = set(["joe", 5 + 6, [43m[30m"mindy" + "jack" * 2[39m[49m])
-         27 CALL_FUNCTION        w = set(["joe", 5 + 6, [43m[30m"mindy" + "jack" * 2[39m[49m])
+         27 CALL_FUNCTION        w = [43m[30mset(["joe", 5 + 6, "mindy" + "jack" * 2])[39m[49m
          30 STORE_NAME           [43m[30mw[39m[49m = set(["joe", 5 + 6, "mindy" + "jack" * 2])
          33 LOAD_CONST           [43m[30mw[39m[49m = set(["joe", 5 + 6, "mindy" + "jack" * 2])
          36 RETURN_VALUE         [43m[30mw[39m[49m = set(["joe", 5 + 6, "mindy" + "jack" * 2])

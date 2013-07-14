@@ -14,7 +14,7 @@ Disassembling top-level module in ./opt-v3-tests/list_sum.txt
 
   9      33 LOAD_NAME            total = [43m[30mlistSum[39m[49m(myList)
          36 LOAD_NAME            total = listSum([43m[30mmyList[39m[49m)
-         39 CALL_FUNCTION        total = listSum([43m[30mmyList[39m[49m)
+         39 CALL_FUNCTION        total = [43m[30mlistSum(myList)[39m[49m
          42 STORE_NAME           [43m[30mtotal[39m[49m = listSum(myList)
          45 LOAD_CONST           [43m[30mtotal[39m[49m = listSum(myList)
          48 RETURN_VALUE         [43m[30mtotal[39m[49m = listSum(myList)
@@ -36,7 +36,7 @@ Disassembling function listSum
   6      26 LOAD_FAST                return [43m[30mf[39m[49m + listSum(rest)
          29 LOAD_GLOBAL              return f + [43m[30mlistSum[39m[49m(rest)
          32 LOAD_FAST                return f + listSum([43m[30mrest[39m[49m)
-         35 CALL_FUNCTION            return f + listSum([43m[30mrest[39m[49m)
+         35 CALL_FUNCTION            return f + [43m[30mlistSum(rest)[39m[49m
          38 BINARY_ADD               return [43m[30mf + listSum(rest)[39m[49m
          39 RETURN_VALUE             return [43m[30mf + listSum(rest)[39m[49m
     >>   40 LOAD_CONST               return [43m[30mf + listSum(rest)[39m[49m

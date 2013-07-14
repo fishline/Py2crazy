@@ -51,11 +51,11 @@ Disassembling top-level module in ./opt-v3-tests/oop_1.txt
  25      99 LOAD_NAME            print([43m[30mStaff601[39m[49m.salutation(pat))
         102 LOAD_ATTR            print([43m[30mStaff601.salutation[39m[49m(pat))
         105 LOAD_NAME            print(Staff601.salutation([43m[30mpat[39m[49m))
-        108 CALL_FUNCTION        print(Staff601.salutation([43m[30mpat[39m[49m))
-        111 PRINT_ITEM           print(Staff601.salutation([43m[30mpat[39m[49m))
-        112 PRINT_NEWLINE        print(Staff601.salutation([43m[30mpat[39m[49m))
-        113 LOAD_CONST           print(Staff601.salutation([43m[30mpat[39m[49m))
-        116 RETURN_VALUE         print(Staff601.salutation([43m[30mpat[39m[49m))
+        108 CALL_FUNCTION        print([43m[30mStaff601.salutation(pat)[39m[49m)
+        111 PRINT_ITEM           print([43m[30mStaff601.salutation(pat)[39m[49m)
+        112 PRINT_NEWLINE        print([43m[30mStaff601.salutation(pat)[39m[49m)
+        113 LOAD_CONST           print([43m[30mStaff601.salutation(pat)[39m[49m)
+        116 RETURN_VALUE         print([43m[30mStaff601.salutation(pat)[39m[49m)
 
 Disassembling function Staff601
   5       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:

@@ -30,9 +30,9 @@ Disassembling function gen_primes
          18 LOAD_GLOBAL                  for x in [43m[30mrange[39m[49m(2, n):
          21 LOAD_CONST                   for x in range([43m[30m2[39m[49m, n):
          24 LOAD_FAST                    for x in range(2, [43m[30mn[39m[49m):
-         27 CALL_FUNCTION                for x in range(2, [43m[30mn[39m[49m):
-         30 GET_ITER                     for x in range(2, [43m[30mn[39m[49m):
-    >>   31 FOR_ITER                     for x in range(2, [43m[30mn[39m[49m):
+         27 CALL_FUNCTION                for x in [43m[30mrange(2, n)[39m[49m:
+         30 GET_ITER                     for x in [43m[30mrange(2, n)[39m[49m:
+    >>   31 FOR_ITER                     for x in [43m[30mrange(2, n)[39m[49m:
          34 STORE_FAST                   for [43m[30mx[39m[49m in range(2, n):
 
   6      37 LOAD_FAST                        if [43m[30mn[39m[49m % x == 0:

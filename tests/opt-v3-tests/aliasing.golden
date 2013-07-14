@@ -32,14 +32,14 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
   9      69 LOAD_NAME            [43m[30mx[39m[49m.append(4)
          72 LOAD_ATTR            [43m[30mx.append[39m[49m(4)
          75 LOAD_CONST           x.append([43m[30m4[39m[49m)
-         78 CALL_FUNCTION        x.append([43m[30m4[39m[49m)
-         81 POP_TOP              x.append([43m[30m4[39m[49m)
+         78 CALL_FUNCTION        [43m[30mx.append(4)[39m[49m
+         81 POP_TOP              [43m[30mx.append(4)[39m[49m
 
  10      82 LOAD_NAME            [43m[30my[39m[49m.append(5)
          85 LOAD_ATTR            [43m[30my.append[39m[49m(5)
          88 LOAD_CONST           y.append([43m[30m5[39m[49m)
-         91 CALL_FUNCTION        y.append([43m[30m5[39m[49m)
-         94 POP_TOP              y.append([43m[30m5[39m[49m)
+         91 CALL_FUNCTION        [43m[30my.append(5)[39m[49m
+         94 POP_TOP              [43m[30my.append(5)[39m[49m
 
  11      95 LOAD_CONST           z = [[43m[30m1[39m[49m, 2, 3, 4, 5] # a different list!
          98 LOAD_CONST           z = [1, [43m[30m2[39m[49m, 3, 4, 5] # a different list!
@@ -52,14 +52,14 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
  12     116 LOAD_NAME            [43m[30mx[39m[49m.append(6)
         119 LOAD_ATTR            [43m[30mx.append[39m[49m(6)
         122 LOAD_CONST           x.append([43m[30m6[39m[49m)
-        125 CALL_FUNCTION        x.append([43m[30m6[39m[49m)
-        128 POP_TOP              x.append([43m[30m6[39m[49m)
+        125 CALL_FUNCTION        [43m[30mx.append(6)[39m[49m
+        128 POP_TOP              [43m[30mx.append(6)[39m[49m
 
  13     129 LOAD_NAME            [43m[30my[39m[49m.append(7)
         132 LOAD_ATTR            [43m[30my.append[39m[49m(7)
         135 LOAD_CONST           y.append([43m[30m7[39m[49m)
-        138 CALL_FUNCTION        y.append([43m[30m7[39m[49m)
-        141 POP_TOP              y.append([43m[30m7[39m[49m)
+        138 CALL_FUNCTION        [43m[30my.append(7)[39m[49m
+        141 POP_TOP              [43m[30my.append(7)[39m[49m
 
  14     142 LOAD_CONST           y = [43m[30m"hello"[39m[49m
         145 STORE_NAME           [43m[30my[39m[49m = "hello"
@@ -74,15 +74,15 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
 
  24     166 LOAD_NAME            [43m[30mfoo[39m[49m(x)
         169 LOAD_NAME            foo([43m[30mx[39m[49m)
-        172 CALL_FUNCTION        foo([43m[30mx[39m[49m)
-        175 POP_TOP              foo([43m[30mx[39m[49m)
+        172 CALL_FUNCTION        [43m[30mfoo(x)[39m[49m
+        175 POP_TOP              [43m[30mfoo(x)[39m[49m
 
  25     176 LOAD_NAME            [43m[30mfoo[39m[49m(z)
         179 LOAD_NAME            foo([43m[30mz[39m[49m)
-        182 CALL_FUNCTION        foo([43m[30mz[39m[49m)
-        185 POP_TOP              foo([43m[30mz[39m[49m)
-        186 LOAD_CONST           foo([43m[30mz[39m[49m)
-        189 RETURN_VALUE         foo([43m[30mz[39m[49m)
+        182 CALL_FUNCTION        [43m[30mfoo(z)[39m[49m
+        185 POP_TOP              [43m[30mfoo(z)[39m[49m
+        186 LOAD_CONST           [43m[30mfoo(z)[39m[49m
+        189 RETURN_VALUE         [43m[30mfoo(z)[39m[49m
 
 Disassembling function bar
  22       0 LOAD_FAST                print([43m[30mmyLst[39m[49m)
@@ -95,12 +95,12 @@ Disassembling function foo
  18       0 LOAD_FAST                [43m[30mlst[39m[49m.append("hello")
           3 LOAD_ATTR                [43m[30mlst.append[39m[49m("hello")
           6 LOAD_CONST               lst.append([43m[30m"hello"[39m[49m)
-          9 CALL_FUNCTION            lst.append([43m[30m"hello"[39m[49m)
-         12 POP_TOP                  lst.append([43m[30m"hello"[39m[49m)
+          9 CALL_FUNCTION            [43m[30mlst.append("hello")[39m[49m
+         12 POP_TOP                  [43m[30mlst.append("hello")[39m[49m
 
  19      13 LOAD_GLOBAL              [43m[30mbar[39m[49m(lst)
          16 LOAD_FAST                bar([43m[30mlst[39m[49m)
-         19 CALL_FUNCTION            bar([43m[30mlst[39m[49m)
-         22 POP_TOP                  bar([43m[30mlst[39m[49m)
-         23 LOAD_CONST               bar([43m[30mlst[39m[49m)
-         26 RETURN_VALUE             bar([43m[30mlst[39m[49m)
+         19 CALL_FUNCTION            [43m[30mbar(lst)[39m[49m
+         22 POP_TOP                  [43m[30mbar(lst)[39m[49m
+         23 LOAD_CONST               [43m[30mbar(lst)[39m[49m
+         26 RETURN_VALUE             [43m[30mbar(lst)[39m[49m

@@ -22,14 +22,14 @@ Disassembling top-level module in ./opt-v3-tests/fib.txt
 
   9      39 LOAD_NAME                tmp = [43m[30msum[39m[49m(arr)
          42 LOAD_NAME                tmp = sum([43m[30marr[39m[49m)
-         45 CALL_FUNCTION            tmp = sum([43m[30marr[39m[49m)
+         45 CALL_FUNCTION            tmp = [43m[30msum(arr)[39m[49m
          48 STORE_NAME               [43m[30mtmp[39m[49m = sum(arr)
 
  10      51 LOAD_NAME                [43m[30marr[39m[49m.append(tmp)
          54 LOAD_ATTR                [43m[30marr.append[39m[49m(tmp)
          57 LOAD_NAME                arr.append([43m[30mtmp[39m[49m)
-         60 CALL_FUNCTION            arr.append([43m[30mtmp[39m[49m)
-         63 POP_TOP                  arr.append([43m[30mtmp[39m[49m)
+         60 CALL_FUNCTION            [43m[30marr.append(tmp)[39m[49m
+         63 POP_TOP                  [43m[30marr.append(tmp)[39m[49m
 
  11      64 LOAD_NAME                del [43m[30marr[39m[49m[0]
          67 LOAD_CONST               del arr[[43m[30m0[39m[49m]

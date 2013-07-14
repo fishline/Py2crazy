@@ -12,7 +12,7 @@ Disassembling top-level module in ./opt-v3-tests/oop_2.txt
          25 LOAD_CONST           pat = Staff601('Pat', [43m[30m'Professor'[39m[49m, 60, 100000)
          28 LOAD_CONST           pat = Staff601('Pat', 'Professor', [43m[30m60[39m[49m, 100000)
          31 LOAD_CONST           pat = Staff601('Pat', 'Professor', 60, [43m[30m100000[39m[49m)
-         34 CALL_FUNCTION        pat = Staff601('Pat', 'Professor', 60, [43m[30m100000[39m[49m)
+         34 CALL_FUNCTION        pat = [43m[30mStaff601('Pat', 'Professor', 60, 100000)[39m[49m
          37 STORE_NAME           [43m[30mpat[39m[49m = Staff601('Pat', 'Professor', 60, 100000)
 
  20      40 LOAD_NAME            print([43m[30mpat[39m[49m.salutation())

@@ -1,18 +1,3 @@
-In general, the result of a function call would look prettier if it
-highlighted the body too rather than just the name
-40 RETURN_VALUE                 return n * fact(n - 1)
-                                           ----
-39 BINARY_ADD               s = s + f(x)
-                                    ----
-
-opt-v3-tests/wentworth_try_finally.txt
-63 BINARY_ADD                   print("Bye from f where n = " + str(n))
-                                      -----------------------------    
-
-  - remember to account for more than one argument in a function, like f(a, b+c, d+e)
-  - hmmm, that might be hard since the CALL_FUNCTION call might conflict
-    in terms of column number with LOAD_FAST for loading the name of the function
-
 ---
 # nested classes ... for some reason, the first opcode in a class
 # doesn't match anything in extent_map, so we punt to column 0, ugly
@@ -25,4 +10,3 @@ class A:
     class B:
         class C:
             pass
-

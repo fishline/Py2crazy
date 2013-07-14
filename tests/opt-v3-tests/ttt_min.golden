@@ -14,7 +14,7 @@ Disassembling top-level module in ./opt-v3-tests/ttt_min.txt
          30 LOAD_NAME            g = ttt_module.TTTGame(interactive_player, [43m[30minteractive_player[39m[49m, verbose=True)
          33 LOAD_CONST           g = ttt_module.TTTGame(interactive_player, [43m[30minteractive_player[39m[49m, verbose=True)
          36 LOAD_NAME            g = ttt_module.TTTGame(interactive_player, interactive_player, verbose=[43m[30mTrue[39m[49m)
-         39 CALL_FUNCTION        g = ttt_module.TTTGame(interactive_player, interactive_player, verbose=[43m[30mTrue[39m[49m)
+         39 CALL_FUNCTION        g = [43m[30mttt_module.TTTGame(interactive_player, interactive_player, verbose=True)[39m[49m
          42 STORE_NAME           [43m[30mg[39m[49m = ttt_module.TTTGame(interactive_player, interactive_player, verbose=True)
 
   9      45 LOAD_NAME            print([43m[30mg[39m[49m.play())
@@ -29,6 +29,6 @@ Disassembling function interactive_player
   6       0 LOAD_GLOBAL              return [43m[30mint[39m[49m(mouse_input("Click on board"))
           3 LOAD_GLOBAL              return int([43m[30mmouse_input[39m[49m("Click on board"))
           6 LOAD_CONST               return int(mouse_input([43m[30m"Click on board"[39m[49m))
-          9 CALL_FUNCTION            return int(mouse_input([43m[30m"Click on board"[39m[49m))
-         12 CALL_FUNCTION            return int(mouse_input([43m[30m"Click on board"[39m[49m))
-         15 RETURN_VALUE             return int(mouse_input([43m[30m"Click on board"[39m[49m))
+          9 CALL_FUNCTION            return int([43m[30mmouse_input("Click on board")[39m[49m)
+         12 CALL_FUNCTION            return [43m[30mint(mouse_input("Click on board"))[39m[49m
+         15 RETURN_VALUE             return [43m[30mint(mouse_input("Click on board"))[39m[49m

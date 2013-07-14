@@ -11,9 +11,9 @@ Disassembling top-level module in ./opt-v3-tests/list_dict_test.txt
   3      21 SETUP_LOOP           [43m[30mfor[39m[49m (i, e) in enumerate(l):
          24 LOAD_NAME            for (i, e) in [43m[30menumerate[39m[49m(l):
          27 LOAD_NAME            for (i, e) in enumerate([43m[30ml[39m[49m):
-         30 CALL_FUNCTION        for (i, e) in enumerate([43m[30ml[39m[49m):
-         33 GET_ITER             for (i, e) in enumerate([43m[30ml[39m[49m):
-    >>   34 FOR_ITER             for (i, e) in enumerate([43m[30ml[39m[49m):
+         30 CALL_FUNCTION        for (i, e) in [43m[30menumerate(l)[39m[49m:
+         33 GET_ITER             for (i, e) in [43m[30menumerate(l)[39m[49m:
+    >>   34 FOR_ITER             for (i, e) in [43m[30menumerate(l)[39m[49m:
          37 UNPACK_SEQUENCE      for ([43m[30mi[39m[49m, e) in enumerate(l):
          40 STORE_NAME           for ([43m[30mi[39m[49m, e) in enumerate(l):
          43 STORE_NAME           for (i, [43m[30me[39m[49m) in enumerate(l):

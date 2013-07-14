@@ -19,14 +19,14 @@ Disassembling top-level module in ./opt-v3-tests/towers_of_hanoi.txt
  16      39 LOAD_NAME            [43m[30mTowerOfHanoi[39m[49m(len(stack1), stack1, stack3, stack2)
          42 LOAD_NAME            TowerOfHanoi([43m[30mlen[39m[49m(stack1), stack1, stack3, stack2)
          45 LOAD_NAME            TowerOfHanoi(len([43m[30mstack1[39m[49m), stack1, stack3, stack2)
-         48 CALL_FUNCTION        TowerOfHanoi(len([43m[30mstack1[39m[49m), stack1, stack3, stack2)
+         48 CALL_FUNCTION        TowerOfHanoi([43m[30mlen(stack1)[39m[49m, stack1, stack3, stack2)
          51 LOAD_NAME            TowerOfHanoi(len(stack1), [43m[30mstack1[39m[49m, stack3, stack2)
          54 LOAD_NAME            TowerOfHanoi(len(stack1), stack1, [43m[30mstack3[39m[49m, stack2)
          57 LOAD_NAME            TowerOfHanoi(len(stack1), stack1, stack3, [43m[30mstack2[39m[49m)
-         60 CALL_FUNCTION        TowerOfHanoi(len(stack1), stack1, stack3, [43m[30mstack2[39m[49m)
-         63 POP_TOP              TowerOfHanoi(len(stack1), stack1, stack3, [43m[30mstack2[39m[49m)
-         64 LOAD_CONST           TowerOfHanoi(len(stack1), stack1, stack3, [43m[30mstack2[39m[49m)
-         67 RETURN_VALUE         TowerOfHanoi(len(stack1), stack1, stack3, [43m[30mstack2[39m[49m)
+         60 CALL_FUNCTION        [43m[30mTowerOfHanoi(len(stack1), stack1, stack3, stack2)[39m[49m
+         63 POP_TOP              [43m[30mTowerOfHanoi(len(stack1), stack1, stack3, stack2)[39m[49m
+         64 LOAD_CONST           [43m[30mTowerOfHanoi(len(stack1), stack1, stack3, stack2)[39m[49m
+         67 RETURN_VALUE         [43m[30mTowerOfHanoi(len(stack1), stack1, stack3, stack2)[39m[49m
 
 Disassembling function TowerOfHanoi
   4       0 LOAD_FAST                if [43m[30mn[39m[49m == 1:
@@ -39,9 +39,9 @@ Disassembling function TowerOfHanoi
          18 LOAD_FAST                    b.append([43m[30ma[39m[49m.pop())
          21 LOAD_ATTR                    b.append([43m[30ma.pop[39m[49m())
          24 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         27 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         30 POP_TOP                      b.append([43m[30ma.pop[39m[49m())
-         31 JUMP_FORWARD                 b.append([43m[30ma.pop[39m[49m())
+         27 CALL_FUNCTION                [43m[30mb.append(a.pop([39m[49m))
+         30 POP_TOP                      [43m[30mb.append(a.pop([39m[49m))
+         31 JUMP_FORWARD                 [43m[30mb.append(a.pop([39m[49m))
 
   7 >>   34 LOAD_GLOBAL                  [43m[30mTowerOfHanoi[39m[49m(n-1, a, tmp, b)
          37 LOAD_FAST                    TowerOfHanoi([43m[30mn[39m[49m-1, a, tmp, b)
@@ -50,16 +50,16 @@ Disassembling function TowerOfHanoi
          44 LOAD_FAST                    TowerOfHanoi(n-1, [43m[30ma[39m[49m, tmp, b)
          47 LOAD_FAST                    TowerOfHanoi(n-1, a, [43m[30mtmp[39m[49m, b)
          50 LOAD_FAST                    TowerOfHanoi(n-1, a, tmp, [43m[30mb[39m[49m)
-         53 CALL_FUNCTION                TowerOfHanoi(n-1, a, tmp, [43m[30mb[39m[49m)
-         56 POP_TOP                      TowerOfHanoi(n-1, a, tmp, [43m[30mb[39m[49m)
+         53 CALL_FUNCTION                [43m[30mTowerOfHanoi(n-1, a, tmp, b)[39m[49m
+         56 POP_TOP                      [43m[30mTowerOfHanoi(n-1, a, tmp, b)[39m[49m
 
   8      57 LOAD_FAST                    [43m[30mb[39m[49m.append(a.pop())
          60 LOAD_ATTR                    [43m[30mb.append[39m[49m(a.pop())
          63 LOAD_FAST                    b.append([43m[30ma[39m[49m.pop())
          66 LOAD_ATTR                    b.append([43m[30ma.pop[39m[49m())
          69 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         72 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         75 POP_TOP                      b.append([43m[30ma.pop[39m[49m())
+         72 CALL_FUNCTION                [43m[30mb.append(a.pop([39m[49m))
+         75 POP_TOP                      [43m[30mb.append(a.pop([39m[49m))
 
   9      76 LOAD_GLOBAL                  [43m[30mTowerOfHanoi[39m[49m(n-1, tmp, b, a)
          79 LOAD_FAST                    TowerOfHanoi([43m[30mn[39m[49m-1, tmp, b, a)
@@ -68,7 +68,7 @@ Disassembling function TowerOfHanoi
          86 LOAD_FAST                    TowerOfHanoi(n-1, [43m[30mtmp[39m[49m, b, a)
          89 LOAD_FAST                    TowerOfHanoi(n-1, tmp, [43m[30mb[39m[49m, a)
          92 LOAD_FAST                    TowerOfHanoi(n-1, tmp, b, [43m[30ma[39m[49m)
-         95 CALL_FUNCTION                TowerOfHanoi(n-1, tmp, b, [43m[30ma[39m[49m)
-         98 POP_TOP                      TowerOfHanoi(n-1, tmp, b, [43m[30ma[39m[49m)
-    >>   99 LOAD_CONST                   TowerOfHanoi(n-1, tmp, b, [43m[30ma[39m[49m)
-        102 RETURN_VALUE                 TowerOfHanoi(n-1, tmp, b, [43m[30ma[39m[49m)
+         95 CALL_FUNCTION                [43m[30mTowerOfHanoi(n-1, tmp, b, a)[39m[49m
+         98 POP_TOP                      [43m[30mTowerOfHanoi(n-1, tmp, b, a)[39m[49m
+    >>   99 LOAD_CONST                   [43m[30mTowerOfHanoi(n-1, tmp, b, a)[39m[49m
+        102 RETURN_VALUE                 [43m[30mTowerOfHanoi(n-1, tmp, b, a)[39m[49m

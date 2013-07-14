@@ -6,10 +6,10 @@ Disassembling top-level module in ./opt-v3-tests/func_exception.txt
   6       9 LOAD_NAME            [43m[30mg[39m[49m(5, 0)
          12 LOAD_CONST           g([43m[30m5[39m[49m, 0)
          15 LOAD_CONST           g(5, [43m[30m0[39m[49m)
-         18 CALL_FUNCTION        g(5, [43m[30m0[39m[49m)
-         21 POP_TOP              g(5, [43m[30m0[39m[49m)
-         22 LOAD_CONST           g(5, [43m[30m0[39m[49m)
-         25 RETURN_VALUE         g(5, [43m[30m0[39m[49m)
+         18 CALL_FUNCTION        [43m[30mg(5, 0)[39m[49m
+         21 POP_TOP              [43m[30mg(5, 0)[39m[49m
+         22 LOAD_CONST           [43m[30mg(5, 0)[39m[49m
+         25 RETURN_VALUE         [43m[30mg(5, 0)[39m[49m
 
 Disassembling function g
   2       0 LOAD_CONST               print([43m[30m"In g"[39m[49m)

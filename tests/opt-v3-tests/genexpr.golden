@@ -3,9 +3,9 @@ Disassembling top-level module in ./opt-v3-tests/genexpr.txt
           3 MAKE_FUNCTION        x = ([43m[30mi[39m[49m for i in range(10))
           6 LOAD_NAME            x = (i for i in [43m[30mrange[39m[49m(10))
           9 LOAD_CONST           x = (i for i in range([43m[30m10[39m[49m))
-         12 CALL_FUNCTION        x = (i for i in range([43m[30m10[39m[49m))
-         15 GET_ITER             x = (i for i in range([43m[30m10[39m[49m))
-         16 CALL_FUNCTION        x = (i for i in range([43m[30m10[39m[49m))
+         12 CALL_FUNCTION        x = (i for i in [43m[30mrange(10)[39m[49m)
+         15 GET_ITER             x = (i for i in [43m[30mrange(10)[39m[49m)
+         16 CALL_FUNCTION        x = (i for i in [43m[30mrange(10)[39m[49m)
          19 STORE_NAME           [43m[30mx[39m[49m = (i for i in range(10))
 
   4      22 SETUP_LOOP           [43m[30mfor[39m[49m e in x:

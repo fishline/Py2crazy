@@ -16,15 +16,15 @@ Disassembling top-level module in ./opt-v3-tests/graphviz-basic.txt
 
  24      34 LOAD_NAME            g = [43m[30mGraphViz[39m[49m(DOTFILE)
          37 LOAD_NAME            g = GraphViz([43m[30mDOTFILE[39m[49m)
-         40 CALL_FUNCTION        g = GraphViz([43m[30mDOTFILE[39m[49m)
+         40 CALL_FUNCTION        g = [43m[30mGraphViz(DOTFILE)[39m[49m
          43 STORE_NAME           [43m[30mg[39m[49m = GraphViz(DOTFILE)
 
  26      46 LOAD_NAME            [43m[30mhtml_module[39m[49m.display_img(str(g))
          49 LOAD_ATTR            [43m[30mhtml_module.display_img[39m[49m(str(g))
          52 LOAD_NAME            html_module.display_img([43m[30mstr[39m[49m(g))
          55 LOAD_NAME            html_module.display_img(str([43m[30mg[39m[49m))
-         58 CALL_FUNCTION        html_module.display_img(str([43m[30mg[39m[49m))
-         61 CALL_FUNCTION        html_module.display_img(str([43m[30mg[39m[49m))
-         64 POP_TOP              html_module.display_img(str([43m[30mg[39m[49m))
-         65 LOAD_CONST           html_module.display_img(str([43m[30mg[39m[49m))
-         68 RETURN_VALUE         html_module.display_img(str([43m[30mg[39m[49m))
+         58 CALL_FUNCTION        html_module.display_img([43m[30mstr(g)[39m[49m)
+         61 CALL_FUNCTION        [43m[30mhtml_module.display_img(str(g))[39m[49m
+         64 POP_TOP              [43m[30mhtml_module.display_img(str(g))[39m[49m
+         65 LOAD_CONST           [43m[30mhtml_module.display_img(str(g))[39m[49m
+         68 RETURN_VALUE         [43m[30mhtml_module.display_img(str(g))[39m[49m

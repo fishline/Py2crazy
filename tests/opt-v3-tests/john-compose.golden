@@ -8,12 +8,12 @@ Disassembling top-level module in ./opt-v3-tests/john-compose.txt
          15 MAKE_FUNCTION        add_one_and_square = compose1([43m[30mlambda[39m[49m x: x * x, lambda x: x + 1)
          18 LOAD_CONST           add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda[39m[49m x: x + 1)
          21 MAKE_FUNCTION        add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda[39m[49m x: x + 1)
-         24 CALL_FUNCTION        add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda[39m[49m x: x + 1)
+         24 CALL_FUNCTION        add_one_and_square = [43m[30mcompose1(lambda x: x * x, lambda [39m[49mx: x + 1)
          27 STORE_NAME           [43m[30madd_one_and_square[39m[49m = compose1(lambda x: x * x, lambda x: x + 1)
 
   5      30 LOAD_NAME            result = [43m[30madd_one_and_square[39m[49m(12)
          33 LOAD_CONST           result = add_one_and_square([43m[30m12[39m[49m)
-         36 CALL_FUNCTION        result = add_one_and_square([43m[30m12[39m[49m)
+         36 CALL_FUNCTION        result = [43m[30madd_one_and_square(12)[39m[49m
          39 STORE_NAME           [43m[30mresult[39m[49m = add_one_and_square(12)
          42 LOAD_CONST           [43m[30mresult[39m[49m = add_one_and_square(12)
          45 RETURN_VALUE         [43m[30mresult[39m[49m = add_one_and_square(12)
@@ -42,6 +42,6 @@ Disassembling function <lambda>
   2       0 LOAD_DEREF             return lambda x: [43m[30mf[39m[49m(g(x))
           3 LOAD_DEREF             return lambda x: f([43m[30mg[39m[49m(x))
           6 LOAD_FAST              return lambda x: f(g([43m[30mx[39m[49m))
-          9 CALL_FUNCTION          return lambda x: f(g([43m[30mx[39m[49m))
-         12 CALL_FUNCTION          return lambda x: f(g([43m[30mx[39m[49m))
-         15 RETURN_VALUE           return lambda x: f(g([43m[30mx[39m[49m))
+          9 CALL_FUNCTION          return lambda x: f([43m[30mg(x)[39m[49m)
+         12 CALL_FUNCTION          return lambda x: [43m[30mf(g(x))[39m[49m
+         15 RETURN_VALUE           return lambda x: [43m[30mf(g(x))[39m[49m

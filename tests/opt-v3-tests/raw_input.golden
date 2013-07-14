@@ -4,12 +4,12 @@ Disassembling top-level module in ./opt-v3-tests/raw_input.txt
 
   3       6 LOAD_NAME            n1 = [43m[30mraw_input[39m[49m("Enter your name")
           9 LOAD_CONST           n1 = raw_input([43m[30m"Enter your name"[39m[49m)
-         12 CALL_FUNCTION        n1 = raw_input([43m[30m"Enter your name"[39m[49m)
+         12 CALL_FUNCTION        n1 = [43m[30mraw_input("Enter your name")[39m[49m
          15 STORE_NAME           [43m[30mn1[39m[49m = raw_input("Enter your name")
 
   5      18 LOAD_NAME            n2 = [43m[30mraw_input[39m[49m("Enter another name")
          21 LOAD_CONST           n2 = raw_input([43m[30m"Enter another name"[39m[49m)
-         24 CALL_FUNCTION        n2 = raw_input([43m[30m"Enter another name"[39m[49m)
+         24 CALL_FUNCTION        n2 = [43m[30mraw_input("Enter another name")[39m[49m
          27 STORE_NAME           [43m[30mn2[39m[49m = raw_input("Enter another name")
 
   7      30 LOAD_NAME            res = [43m[30mprefix[39m[49m + n1 + " and " + n2

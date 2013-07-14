@@ -25,5 +25,6 @@ Disassembling function foo
          20 LOAD_GLOBAL                              a._numerator ** -[43m[30mpower[39m[49m)
          23 UNARY_NEGATIVE                           a._numerator ** [43m[30m-power[39m[49m)
          24 BINARY_POWER                             [43m[30ma._numerator[39m[49m ** -power)
-         25 CALL_FUNCTION                            [43m[30ma._numerator[39m[49m ** -power)
-         28 RETURN_VALUE                             [43m[30ma._numerator[39m[49m ** -power)
+
+  6      25 CALL_FUNCTION            return [43m[30mFraction(a._denominator ** -power,[39m[49m
+         28 RETURN_VALUE             return [43m[30mFraction(a._denominator ** -power,[39m[49m

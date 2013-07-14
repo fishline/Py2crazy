@@ -15,7 +15,7 @@ Disassembling function foo
           6 LOAD_CONST             local_y[('tup', 'le')] = set([1, [43m[30m2[39m[49m, 3])
           9 LOAD_CONST             local_y[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
          12 BUILD_LIST             local_y[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
-         15 CALL_FUNCTION          local_y[('tup', 'le')] = set([1, 2, [43m[30m3[39m[49m])
+         15 CALL_FUNCTION          local_y[('tup', 'le')] = [43m[30mset([1, 2, 3])[39m[49m
          18 LOAD_GLOBAL            [43m[30mlocal_y[39m[49m[('tup', 'le')] = set([1, 2, 3])
          21 LOAD_CONST             local_y[([43m[30m'tup'[39m[49m, 'le')] = set([1, 2, 3])
          24 LOAD_CONST             local_y[('tup', [43m[30m'le'[39m[49m)] = set([1, 2, 3])

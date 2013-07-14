@@ -8,7 +8,7 @@ Disassembling top-level module in ./opt-v3-tests/memo_fib.txt
 
  17      15 LOAD_NAME            res = [43m[30mMemoizedFib[39m[49m(10)
          18 LOAD_CONST           res = MemoizedFib([43m[30m10[39m[49m)
-         21 CALL_FUNCTION        res = MemoizedFib([43m[30m10[39m[49m)
+         21 CALL_FUNCTION        res = [43m[30mMemoizedFib(10)[39m[49m
          24 STORE_NAME           [43m[30mres[39m[49m = MemoizedFib(10)
          27 LOAD_CONST           [43m[30mres[39m[49m = MemoizedFib(10)
          30 RETURN_VALUE         [43m[30mres[39m[49m = MemoizedFib(10)
@@ -38,12 +38,12 @@ Disassembling function MemoizedFib
          45 LOAD_FAST                MemoTable[n] = MemoizedFib([43m[30mn[39m[49m-1) + MemoizedFib(n-2)
          48 LOAD_CONST               MemoTable[n] = MemoizedFib(n-[43m[30m1[39m[49m) + MemoizedFib(n-2)
          51 BINARY_SUBTRACT          MemoTable[n] = MemoizedFib([43m[30mn-1[39m[49m) + MemoizedFib(n-2)
-         52 CALL_FUNCTION            MemoTable[n] = MemoizedFib([43m[30mn-1[39m[49m) + MemoizedFib(n-2)
+         52 CALL_FUNCTION            MemoTable[n] = [43m[30mMemoizedFib(n-1)[39m[49m + MemoizedFib(n-2)
          55 LOAD_GLOBAL              MemoTable[n] = MemoizedFib(n-1) + [43m[30mMemoizedFib[39m[49m(n-2)
          58 LOAD_FAST                MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn[39m[49m-2)
          61 LOAD_CONST               MemoTable[n] = MemoizedFib(n-1) + MemoizedFib(n-[43m[30m2[39m[49m)
          64 BINARY_SUBTRACT          MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
-         65 CALL_FUNCTION            MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
+         65 CALL_FUNCTION            MemoTable[n] = MemoizedFib(n-1) + [43m[30mMemoizedFib(n-2)[39m[49m
          68 BINARY_ADD               MemoTable[n] = [43m[30mMemoizedFib(n-1) + MemoizedFib(n-2)[39m[49m
          69 LOAD_GLOBAL              [43m[30mMemoTable[39m[49m[n] = MemoizedFib(n-1) + MemoizedFib(n-2)
          72 LOAD_FAST                MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
