@@ -146,7 +146,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
       node.extent = rightmost.start_col + rightmost.extent + right_padding - node.start_col
 
       # trickllllly! also add lineno and col_offset to Slice object,
-      # since the AST doesn't keep this info :(
+      # since the AST doesn't keep this info for this class, sad :(
       node._attributes += ('lineno', 'col_offset')
       node.lineno = leftmost.lineno
       node.col_offset = leftmost.col_offset
@@ -154,7 +154,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
     self.visit_children(node)
 
   def visit_ExtSlice(self, node):
-    # TODO: handle me
+    # TODO: handle me in a similar way as visit_Slice if necessary
     self.visit_children(node)
 
   def visit_Attribute(self, node):
