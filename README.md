@@ -1,8 +1,7 @@
 Py2crazy
 ========
 
-Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and
-debugging.
+Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging.
 
 I've implemented three main features:
 
@@ -18,7 +17,7 @@ bytecode rather than each new executed line.
 
 ### Precise line and column information in bytecodes
 
-Here's an illustration of the first feature. If you compile this code ...
+Here's an illustration of the first (and most significant) feature. If you compile this code ...
 
     x = 5
     y = 13
@@ -30,9 +29,8 @@ Here's an illustration of the first feature. If you compile this code ...
 
 Note that each bytecode instruction maps to one line of source code.
 
-In contrast, if you compile with Py2crazy and disassemble, you can see that each bytecode maps to
-not only a line, but a precise range of columns within the line. I've highlighted the substrings
-in yellow:
+In contrast, if you compile this code with Py2crazy and disassemble, you can see that each bytecode
+maps to not only a line, but also a precise range of columns within that line (highlighted in yellow):
 
 ![compiled with Py2crazy](screenshots/py2crazy-example.png)
 
@@ -42,9 +40,9 @@ This level of detail makes it possible to create much more fine-grained tracing 
 ### Why would anyone do this?
 
 I created Py2crazy to support finer-grained expression-level tracing
-for [Online Python Tutor](http://pythontutor.com). This [wiki
+in [Online Python Tutor](http://pythontutor.com). This [wiki
 page](https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/project-ideas.md#hack-cpython-to-enable-sub-expression-level-tracing)
-discusses some of the rationale behind its design.
+discusses some of the design rationale.
 
 To illustrate:
 
@@ -53,13 +51,12 @@ To illustrate:
 
 - In contrast, running with regular Python 2.7 supports only
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
-like in an ordinary single-step debugger such as `pdb`.
-
+like in an ordinary `pdb` style debugger.
 
 
 ### What did you change in CPython 2.7.5?
 
-Check out the Git repo and run:
+Check out the Git repo and run
 
     git diff d36dfc8ffaf5337adb96bd582e0733fe2ffe3f02
 
@@ -94,49 +91,7 @@ applications.
 
 ### How do you see line/column number information?
 
-The line/column information is stored in a `code.co_coltab` field within
-each compiled code object. This field is a dict mapping each bytecode
-instruction offset to a pair of line and column numbers that (roughly)
-corresponds to that instruction. (The mapping isn't nearly perfect, but
-it's still better than nothing!)
-
-Run the customized `dis` module within the Py2crazy distribution on any
-test Python program.
-
-    Py2crazy/Python-2.7.5/python -m dis test.py
-
-You'll see not only line numbers (like in regular Python) but also an
-extra tuple with line and column numbers alongside each bytecode
-instruction.
-
-Here's some example disassembly from the following line with line/column
-number mappings, and the corresponding points in the source code.
-
-    Source code line 7:
-    "if foo() and (x + y > 7):"
-
-    (7, 3)          21 LOAD_NAME                0 (foo)  if foo() and (x + y > 7):
-                                                            ^
-    (7, 3)          24 CALL_FUNCTION            0        if foo() and (x + y > 7):
-                                                            ^
-    (7, 3)          27 JUMP_IF_FALSE_OR_POP    43        if foo() and (x + y > 7):
-                                                            ^
-    (7, 14)         30 LOAD_NAME                1 (x)    if foo() and (x + y > 7):
-                                                                       ^
-    (7, 18)         33 LOAD_NAME                2 (y)    if foo() and (x + y > 7):
-                                                                           ^
-    (7, 16)         36 BINARY_ADD                        if foo() and (x + y > 7):
-                                                                         ^
-    (7, 22)         37 LOAD_CONST               3 (7)    if foo() and (x + y > 7):
-                                                                               ^
-    (7, 20)         40 COMPARE_OP               4 (>)    if foo() and (x + y > 7):
-                                                                             ^
-    (7, 20)    >>   43 POP_JUMP_IF_FALSE       54        if foo() and (x + y > 7):
-                                                                             ^
-
-### How do you see expression start columns and extents?
-
-TODO: write me!
+TODO: write me
 
 
 ### Changelog
