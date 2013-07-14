@@ -4,11 +4,11 @@ Disassembling top-level module in ./opt-v3-tests/john-compose.txt
           6 STORE_NAME           [43m[30mdef[39m[49m compose1(f, g):
 
   4       9 LOAD_NAME            add_one_and_square = [43m[30mcompose1[39m[49m(lambda x: x * x, lambda x: x + 1)
-         12 LOAD_CONST           add_one_and_square = compose1([43m[30mlambda[39m[49m x: x * x, lambda x: x + 1)
-         15 MAKE_FUNCTION        add_one_and_square = compose1([43m[30mlambda[39m[49m x: x * x, lambda x: x + 1)
-         18 LOAD_CONST           add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda[39m[49m x: x + 1)
-         21 MAKE_FUNCTION        add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda[39m[49m x: x + 1)
-         24 CALL_FUNCTION        add_one_and_square = [43m[30mcompose1(lambda x: x * x, lambda [39m[49mx: x + 1)
+         12 LOAD_CONST           add_one_and_square = compose1([43m[30mlambda x: x * x[39m[49m, lambda x: x + 1)
+         15 MAKE_FUNCTION        add_one_and_square = compose1([43m[30mlambda x: x * x[39m[49m, lambda x: x + 1)
+         18 LOAD_CONST           add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda x: x + 1[39m[49m)
+         21 MAKE_FUNCTION        add_one_and_square = compose1(lambda x: x * x, [43m[30mlambda x: x + 1[39m[49m)
+         24 CALL_FUNCTION        add_one_and_square = [43m[30mcompose1(lambda x: x * x, lambda x: x + 1)[39m[49m
          27 STORE_NAME           [43m[30madd_one_and_square[39m[49m = compose1(lambda x: x * x, lambda x: x + 1)
 
   5      30 LOAD_NAME            result = [43m[30madd_one_and_square[39m[49m(12)
@@ -31,12 +31,12 @@ Disassembling function <lambda>
           7 RETURN_VALUE         add_one_and_square = compose1(lambda x: [43m[30mx * x[39m[49m, lambda x: x + 1)
 
 Disassembling function compose1
-  2       0 LOAD_CLOSURE           return [43m[30mlambda[39m[49m x: f(g(x))
-          3 LOAD_CLOSURE           return [43m[30mlambda[39m[49m x: f(g(x))
-          6 BUILD_TUPLE            return [43m[30mlambda[39m[49m x: f(g(x))
-          9 LOAD_CONST             return [43m[30mlambda[39m[49m x: f(g(x))
-         12 MAKE_CLOSURE           return [43m[30mlambda[39m[49m x: f(g(x))
-         15 RETURN_VALUE           return [43m[30mlambda[39m[49m x: f(g(x))
+  2       0 LOAD_CLOSURE           return [43m[30mlambda x: f(g(x))[39m[49m
+          3 LOAD_CLOSURE           return [43m[30mlambda x: f(g(x))[39m[49m
+          6 BUILD_TUPLE            return [43m[30mlambda x: f(g(x))[39m[49m
+          9 LOAD_CONST             return [43m[30mlambda x: f(g(x))[39m[49m
+         12 MAKE_CLOSURE           return [43m[30mlambda x: f(g(x))[39m[49m
+         15 RETURN_VALUE           return [43m[30mlambda x: f(g(x))[39m[49m
 
 Disassembling function <lambda>
   2       0 LOAD_DEREF             return lambda x: [43m[30mf[39m[49m(g(x))

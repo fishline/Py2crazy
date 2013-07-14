@@ -3,8 +3,8 @@ Disassembling top-level module in ./opt-v3-tests/parent-finding-2.txt
           3 MAKE_FUNCTION        [43m[30mdef[39m[49m horse(mask):
           6 STORE_NAME           [43m[30mdef[39m[49m horse(mask):
 
-  8       9 LOAD_CONST           mask = [43m[30mlambda[39m[49m horse: horse(2)
-         12 MAKE_FUNCTION        mask = [43m[30mlambda[39m[49m horse: horse(2)
+  8       9 LOAD_CONST           mask = [43m[30mlambda horse: horse(2)[39m[49m
+         12 MAKE_FUNCTION        mask = [43m[30mlambda horse: horse(2)[39m[49m
          15 STORE_NAME           [43m[30mmask[39m[49m = lambda horse: horse(2)
 
  10      18 LOAD_NAME            [43m[30mhorse[39m[49m(mask)

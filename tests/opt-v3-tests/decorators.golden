@@ -23,11 +23,11 @@ Disassembling top-level module in ./opt-v3-tests/decorators.txt
          51 RETURN_VALUE         [43m[30mhelloHTML[39m[49m = hello()
 
 Disassembling function make_bold
-  2       0 LOAD_CLOSURE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
-          3 BUILD_TUPLE              return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
-          6 LOAD_CONST               return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
-          9 MAKE_CLOSURE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
-         12 RETURN_VALUE             return [43m[30mlambda[39m[49m : "<b>" + fn() + "</b>"
+  2       0 LOAD_CLOSURE             return [43m[30mlambda : "<b>" + fn() + "</b>"[39m[49m
+          3 BUILD_TUPLE              return [43m[30mlambda : "<b>" + fn() + "</b>"[39m[49m
+          6 LOAD_CONST               return [43m[30mlambda : "<b>" + fn() + "</b>"[39m[49m
+          9 MAKE_CLOSURE             return [43m[30mlambda : "<b>" + fn() + "</b>"[39m[49m
+         12 RETURN_VALUE             return [43m[30mlambda : "<b>" + fn() + "</b>"[39m[49m
 
 Disassembling function <lambda>
   2       0 LOAD_CONST               return lambda : [43m[30m"<b>"[39m[49m + fn() + "</b>"
@@ -43,11 +43,11 @@ Disassembling function hello
           3 RETURN_VALUE           return [43m[30m"hello world"[39m[49m
 
 Disassembling function make_italic
-  5       0 LOAD_CLOSURE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
-          3 BUILD_TUPLE              return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
-          6 LOAD_CONST               return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
-          9 MAKE_CLOSURE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
-         12 RETURN_VALUE             return [43m[30mlambda[39m[49m : "<i>" + fn() + "</i>"
+  5       0 LOAD_CLOSURE             return [43m[30mlambda : "<i>" + fn() + "</i>"[39m[49m
+          3 BUILD_TUPLE              return [43m[30mlambda : "<i>" + fn() + "</i>"[39m[49m
+          6 LOAD_CONST               return [43m[30mlambda : "<i>" + fn() + "</i>"[39m[49m
+          9 MAKE_CLOSURE             return [43m[30mlambda : "<i>" + fn() + "</i>"[39m[49m
+         12 RETURN_VALUE             return [43m[30mlambda : "<i>" + fn() + "</i>"[39m[49m
 
 Disassembling function <lambda>
   5       0 LOAD_CONST               return lambda : [43m[30m"<i>"[39m[49m + fn() + "</i>"

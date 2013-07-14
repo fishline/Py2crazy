@@ -321,9 +321,10 @@ class AddExtentsVisitor(ast.NodeVisitor):
     self.visit_children(node)
 
   def visit_Lambda(self, node):
-    self.add_attrs(node)
-    node.start_col = node.col_offset
-    node.extent = len('lambda')
+    if hasattr(node.body, 'extent'):
+      self.add_attrs(node)
+      node.start_col = node.col_offset
+      node.extent = node.body.start_col + node.body.extent - node.start_col
     self.visit_children(node)
 
   def visit_Exec(self, node):

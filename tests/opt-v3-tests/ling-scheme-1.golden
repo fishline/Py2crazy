@@ -4,8 +4,8 @@ Disassembling top-level module in ./opt-v3-tests/ling-scheme-1.txt
           6 STORE_NAME           [43m[30mdef[39m[49m repeat(f, n):
 
   7       9 LOAD_NAME            [43m[30mrepeat[39m[49m(lambda : 5, 5)
-         12 LOAD_CONST           repeat([43m[30mlambda[39m[49m : 5, 5)
-         15 MAKE_FUNCTION        repeat([43m[30mlambda[39m[49m : 5, 5)
+         12 LOAD_CONST           repeat([43m[30mlambda : 5[39m[49m, 5)
+         15 MAKE_FUNCTION        repeat([43m[30mlambda : 5[39m[49m, 5)
          18 LOAD_CONST           repeat(lambda : 5, [43m[30m5[39m[49m)
          21 CALL_FUNCTION        [43m[30mrepeat(lambda : 5, 5)[39m[49m
          24 POP_TOP              [43m[30mrepeat(lambda : 5, 5)[39m[49m
