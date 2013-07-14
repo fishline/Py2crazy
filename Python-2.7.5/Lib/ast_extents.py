@@ -71,8 +71,8 @@ NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.BoolOp,
                ast.ListComp, ast.DictComp, ast.SetComp,
                ast.IfExp,
+               ast.Ellipsis, # a rarely-occuring bad egg; it doesn't have col_offset, ugh
                ast.Expr, # ALWAYS ignore this or else you get into bad conflicts
-               ast.Slice, ast.ExtSlice, ast.Ellipsis,
                ast.Print]
 
 
@@ -112,7 +112,6 @@ class AddExtentsVisitor(ast.NodeVisitor):
   # TODO: encapsulate in a decorator
 
   def visit_Subscript(self, node):
-    self.visit_children(node)
     if hasattr(node.value, 'extent') and hasattr(node.slice, 'extent'):
       self.add_attrs(node)
       node.start_col = node.value.start_col
@@ -123,11 +122,39 @@ class AddExtentsVisitor(ast.NodeVisitor):
     self.visit_children(node)
 
   def visit_Index(self, node):
-    self.visit_children(node)
     if hasattr(node.value, 'extent'):
       self.add_attrs(node)
       node.start_col = node.value.start_col
       node.extent = node.value.extent
+    self.visit_children(node)
+
+  def visit_Slice(self, node):
+    leftmost = node.lower
+    right_padding = 0
+    if node.step:
+      rightmost = node.step  # A[i:j:k]
+    elif node.upper:
+      rightmost = node.upper # A[i:j]
+    else:
+      rightmost = node.lower # A[i:]
+      right_padding = 1 # for trailing ':'
+
+    if hasattr(leftmost, 'extent') and hasattr(rightmost, 'extent'):
+      # TODO: to be really paranoid, check that they're on the same line
+      self.add_attrs(node)
+      node.start_col = leftmost.start_col
+      node.extent = rightmost.start_col + rightmost.extent + right_padding - node.start_col
+
+      # trickllllly! also add lineno and col_offset to Slice object,
+      # since the AST doesn't keep this info :(
+      node._attributes += ('lineno', 'col_offset')
+      node.lineno = leftmost.lineno
+      node.col_offset = leftmost.col_offset
+
+    self.visit_children(node)
+
+  def visit_ExtSlice(self, node):
+    # TODO: handle me
     self.visit_children(node)
 
   def visit_Attribute(self, node):

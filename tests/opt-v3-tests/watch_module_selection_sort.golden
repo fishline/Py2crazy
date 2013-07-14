@@ -47,18 +47,18 @@ Disassembling function selection_sort
   9      25 LOAD_GLOBAL                  mini = [43m[30mmin[39m[49m(A[i:])
          28 LOAD_FAST                    mini = min([43m[30mA[39m[49m[i:])
          31 LOAD_FAST                    mini = min(A[[43m[30mi[39m[49m:])
-         34 SLICE+1                      mini = min(A[[43m[30mi[39m[49m:])
-         35 CALL_FUNCTION                mini = [43m[30mmin(A[39m[49m[i:])
+         34 SLICE+1                      mini = min(A[[43m[30mi:[39m[49m])
+         35 CALL_FUNCTION                mini = [43m[30mmin(A[i:])[39m[49m
          38 STORE_FAST                   [43m[30mmini[39m[49m = min(A[i:])
 
  10      41 LOAD_FAST                    min_index = [43m[30mA[39m[49m[i:].index(mini) + i   
          44 LOAD_FAST                    min_index = A[[43m[30mi[39m[49m:].index(mini) + i   
-         47 SLICE+1                      min_index = A[[43m[30mi[39m[49m:].index(mini) + i   
-         48 LOAD_ATTR                    min_index = A[i:][43m[30m.[39m[49mindex(mini) + i   
+         47 SLICE+1                      min_index = A[[43m[30mi:[39m[49m].index(mini) + i   
+         48 LOAD_ATTR                    min_index = [43m[30mA[i:].index[39m[49m(mini) + i   
          51 LOAD_FAST                    min_index = A[i:].index([43m[30mmini[39m[49m) + i   
-         54 CALL_FUNCTION                min_index = A[i:][43m[30m.[39m[49mindex(mini) + i   
+         54 CALL_FUNCTION                min_index = [43m[30mA[i:].index(mini)[39m[49m + i   
          57 LOAD_FAST                    min_index = A[i:].index(mini) + [43m[30mi[39m[49m   
-         60 BINARY_ADD                   min_index = A[i:].index(mini) [43m[30m+[39m[49m i   
+         60 BINARY_ADD                   min_index = [43m[30mA[i:].index(mini) + i[39m[49m   
          61 STORE_FAST                   [43m[30mmin_index[39m[49m = A[i:].index(mini) + i   
 
  11      64 LOAD_FAST                    if [43m[30mi[39m[49m != min_index:

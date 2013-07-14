@@ -165,31 +165,31 @@ def disassemble(co, extent_map):
         start_col, extent = column, 1 # set boring defaults
         lc = (lineno, column)
         if lc in extent_map:
-          v = dict(extent_map[lc]) # make a copy so we can mutate freely
+          v = dict(extent_map[lc]) # make a copy so we can delete from it
 
-          # set this first, then override with special case if necessary:
-          start_col, extent = v.values()[0]
+          done = False
 
-          # special case hacks! TODO: kludgy, ugh
+          # special case hacks!
+          # make these non-exclusive if's
           if 'Subscript' in v:
             if '_SUBSCR' in opcode: # subscripting opcodes
               start_col, extent = v['Subscript']
+              done = True
             else:
               del v['Subscript']
-              start_col, extent = v.values()[0] # override
-          elif 'List' in v:
+          if 'List' in v:
             if 'BUILD_LIST' == opcode: # subscripting opcodes
               start_col, extent = v['List']
+              done = True
             else:
               del v['List']
-              start_col, extent = v.values()[0] # override
-          elif 'Tuple' in v:
+          if 'Tuple' in v:
             if 'BUILD_TUPLE' == opcode: # subscripting opcodes
               start_col, extent = v['Tuple']
+              done = True
             else:
               del v['Tuple']
-              start_col, extent = v.values()[0] # override
-          elif 'Call' in v:
+          if 'Call' in v:
             # Apply hysteresis to "remember" the call on this line so
             # that bytecodes afterward with the same lc (lineno,
             # col_offset) value can also get the same start_col and extent.
@@ -206,9 +206,24 @@ def disassemble(co, extent_map):
             if opcode.startswith('CALL_') or (hysteresis_map.get(lc, None) == 'Call'):
               start_col, extent = v['Call']
               hysteresis_map[lc] = 'Call'
+              done = True
             else:
               del v['Call']
-              start_col, extent = v.values()[0] # override
+
+          if 'Slice' in v:
+            if 'SLICE' in opcode:
+              start_col, extent = v['Slice']
+              done = True
+            else:
+              del v['Slice']
+
+          if not done:
+            # there should be only one surviving entry left after all
+            # the possible deletions!
+            assert len(v.values()) == 1, v
+            start_col, extent = v.values()[0]
+
+          assert start_col >= 0 and extent >= 0
 
 
         yield DisLine(lineno=lineno, column=column,

@@ -18,7 +18,7 @@ Disassembling top-level module in ./opt-v3-tests/strtok.txt
          37 BINARY_SUBSCR        lastName = [43m[30mtokens[1][39m[49m
          38 STORE_NAME           [43m[30mlastName[39m[49m = tokens[1]
 
-  6      41 LOAD_NAME            birthdate = ([43m[30mint(tokens[2])[39m[49m, int(tokens[3]), int(tokens[4]))
+  6      41 LOAD_NAME            birthdate = ([43m[30mint[39m[49m(tokens[2]), int(tokens[3]), int(tokens[4]))
          44 LOAD_NAME            birthdate = (int([43m[30mtokens[39m[49m[2]), int(tokens[3]), int(tokens[4]))
          47 LOAD_CONST           birthdate = (int(tokens[[43m[30m2[39m[49m]), int(tokens[3]), int(tokens[4]))
          50 BINARY_SUBSCR        birthdate = (int([43m[30mtokens[2][39m[49m), int(tokens[3]), int(tokens[4]))
