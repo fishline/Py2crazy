@@ -9,10 +9,10 @@ Disassembling top-level module in ./opt-v3-tests/wentworth_gcd.txt
          18 STORE_NAME           [43m[30mdef[39m[49m main():
 
  25      21 LOAD_NAME            [43m[30mmain[39m[49m()
-         24 CALL_FUNCTION        [43m[30mmain[39m[49m()
-         27 POP_TOP              [43m[30mmain[39m[49m()
-         28 LOAD_CONST           [43m[30mmain[39m[49m()
-         31 RETURN_VALUE         [43m[30mmain[39m[49m()
+         24 CALL_FUNCTION        [43m[30mmain()[39m[49m
+         27 POP_TOP              [43m[30mmain()[39m[49m
+         28 LOAD_CONST           [43m[30mmain()[39m[49m
+         31 RETURN_VALUE         [43m[30mmain()[39m[49m
 
 Disassembling function main
  18       0 LOAD_CONST               m = [43m[30m77[39m[49m

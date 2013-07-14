@@ -22,10 +22,10 @@ Disassembling top-level module in ./opt-v3-tests/dict_test.txt
          50 STORE_NAME           [43m[30mdef[39m[49m foo():
 
  10      53 LOAD_NAME            [43m[30mfoo[39m[49m()
-         56 CALL_FUNCTION        [43m[30mfoo[39m[49m()
-         59 POP_TOP              [43m[30mfoo[39m[49m()
-         60 LOAD_CONST           [43m[30mfoo[39m[49m()
-         63 RETURN_VALUE         [43m[30mfoo[39m[49m()
+         56 CALL_FUNCTION        [43m[30mfoo()[39m[49m
+         59 POP_TOP              [43m[30mfoo()[39m[49m
+         60 LOAD_CONST           [43m[30mfoo()[39m[49m
+         63 RETURN_VALUE         [43m[30mfoo()[39m[49m
 
 Disassembling function foo
   5       0 BUILD_MAP              local_x = [43m[30m{1 : 2}[39m[49m
@@ -53,10 +53,10 @@ Disassembling function foo
          53 LOAD_GLOBAL            print("hello", [43m[30mlist[39m[49m(local_y.values()))
          56 LOAD_FAST              print("hello", list([43m[30mlocal_y[39m[49m.values()))
          59 LOAD_ATTR              print("hello", list([43m[30mlocal_y.values[39m[49m()))
-         62 CALL_FUNCTION          print("hello", list([43m[30mlocal_y.values[39m[49m()))
-         65 CALL_FUNCTION          print("hello", [43m[30mlist(local_y.values([39m[49m)))
-         68 BUILD_TUPLE            print("hello", [43m[30mlist(local_y.values([39m[49m)))
-         71 PRINT_ITEM             print("hello", [43m[30mlist(local_y.values([39m[49m)))
-         72 PRINT_NEWLINE          print("hello", [43m[30mlist(local_y.values([39m[49m)))
-         73 LOAD_CONST             print("hello", [43m[30mlist(local_y.values([39m[49m)))
-         76 RETURN_VALUE           print("hello", [43m[30mlist(local_y.values([39m[49m)))
+         62 CALL_FUNCTION          print("hello", list([43m[30mlocal_y.values()[39m[49m))
+         65 CALL_FUNCTION          print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         68 BUILD_TUPLE            print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         71 PRINT_ITEM             print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         72 PRINT_NEWLINE          print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         73 LOAD_CONST             print("hello", [43m[30mlist(local_y.values())[39m[49m)
+         76 RETURN_VALUE           print("hello", [43m[30mlist(local_y.values())[39m[49m)

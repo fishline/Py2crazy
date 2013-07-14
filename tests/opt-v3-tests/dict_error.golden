@@ -4,10 +4,10 @@ Disassembling top-level module in ./opt-v3-tests/dict_error.txt
           6 STORE_NAME           [43m[30mdef[39m[49m foo():
 
   4       9 LOAD_NAME            [43m[30mfoo[39m[49m()
-         12 CALL_FUNCTION        [43m[30mfoo[39m[49m()
-         15 POP_TOP              [43m[30mfoo[39m[49m()
-         16 LOAD_CONST           [43m[30mfoo[39m[49m()
-         19 RETURN_VALUE         [43m[30mfoo[39m[49m()
+         12 CALL_FUNCTION        [43m[30mfoo()[39m[49m
+         15 POP_TOP              [43m[30mfoo()[39m[49m
+         16 LOAD_CONST           [43m[30mfoo()[39m[49m
+         19 RETURN_VALUE         [43m[30mfoo()[39m[49m
 
 Disassembling function foo
   2       0 LOAD_GLOBAL            local_y[('tup', 'le')] = [43m[30mset[39m[49m([1, 2, 3])

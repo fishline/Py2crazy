@@ -4,16 +4,16 @@ Disassembling top-level module in ./opt-v3-tests/nested-func-identical-frames.tx
           6 STORE_NAME           [43m[30mdef[39m[49m f():
 
   6       9 LOAD_NAME            [43m[30mf[39m[49m()()
-         12 CALL_FUNCTION        [43m[30mf[39m[49m()()
-         15 CALL_FUNCTION        [43m[30mf[39m[49m()()
-         18 POP_TOP              [43m[30mf[39m[49m()()
+         12 CALL_FUNCTION        [43m[30mf()[39m[49m()
+         15 CALL_FUNCTION        [43m[30mf()()[39m[49m
+         18 POP_TOP              [43m[30mf()()[39m[49m
 
   7      19 LOAD_NAME            [43m[30mf[39m[49m()()
-         22 CALL_FUNCTION        [43m[30mf[39m[49m()()
-         25 CALL_FUNCTION        [43m[30mf[39m[49m()()
-         28 POP_TOP              [43m[30mf[39m[49m()()
-         29 LOAD_CONST           [43m[30mf[39m[49m()()
-         32 RETURN_VALUE         [43m[30mf[39m[49m()()
+         22 CALL_FUNCTION        [43m[30mf()[39m[49m()
+         25 CALL_FUNCTION        [43m[30mf()()[39m[49m
+         28 POP_TOP              [43m[30mf()()[39m[49m
+         29 LOAD_CONST           [43m[30mf()()[39m[49m
+         32 RETURN_VALUE         [43m[30mf()()[39m[49m
 
 Disassembling function f
   2       0 LOAD_CONST               [43m[30mdef[39m[49m g():

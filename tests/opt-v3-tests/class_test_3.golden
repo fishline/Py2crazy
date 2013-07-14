@@ -8,7 +8,7 @@ Disassembling top-level module in ./opt-v3-tests/class_test_3.txt
          16 STORE_NAME           [43m[30mclass[39m[49m Staff601:
 
   6      19 LOAD_NAME            pat = [43m[30mStaff601[39m[49m()
-         22 CALL_FUNCTION        pat = [43m[30mStaff601[39m[49m()
+         22 CALL_FUNCTION        pat = [43m[30mStaff601()[39m[49m
          25 STORE_NAME           [43m[30mpat[39m[49m = Staff601()
 
   7      28 LOAD_NAME            print([43m[30mpat[39m[49m.course)

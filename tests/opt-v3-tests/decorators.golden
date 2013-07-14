@@ -17,7 +17,7 @@ Disassembling top-level module in ./opt-v3-tests/decorators.txt
          36 STORE_NAME           @[43m[30mmake_italic[39m[49m
 
  12      39 LOAD_NAME            helloHTML = [43m[30mhello[39m[49m()
-         42 CALL_FUNCTION        helloHTML = [43m[30mhello[39m[49m()
+         42 CALL_FUNCTION        helloHTML = [43m[30mhello()[39m[49m
          45 STORE_NAME           [43m[30mhelloHTML[39m[49m = hello()
          48 LOAD_CONST           [43m[30mhelloHTML[39m[49m = hello()
          51 RETURN_VALUE         [43m[30mhelloHTML[39m[49m = hello()
@@ -32,8 +32,8 @@ Disassembling function make_bold
 Disassembling function <lambda>
   2       0 LOAD_CONST               return lambda : [43m[30m"<b>"[39m[49m + fn() + "</b>"
           3 LOAD_DEREF               return lambda : "<b>" + [43m[30mfn[39m[49m() + "</b>"
-          6 CALL_FUNCTION            return lambda : "<b>" + [43m[30mfn[39m[49m() + "</b>"
-          9 BINARY_ADD               return lambda : [43m[30m"<b>" + fn[39m[49m() + "</b>"
+          6 CALL_FUNCTION            return lambda : "<b>" + [43m[30mfn()[39m[49m + "</b>"
+          9 BINARY_ADD               return lambda : [43m[30m"<b>" + fn()[39m[49m + "</b>"
          10 LOAD_CONST               return lambda : "<b>" + fn() + [43m[30m"</b>"[39m[49m
          13 BINARY_ADD               return lambda : [43m[30m"<b>" + fn() + "</b>"[39m[49m
          14 RETURN_VALUE             return lambda : [43m[30m"<b>" + fn() + "</b>"[39m[49m
@@ -52,8 +52,8 @@ Disassembling function make_italic
 Disassembling function <lambda>
   5       0 LOAD_CONST               return lambda : [43m[30m"<i>"[39m[49m + fn() + "</i>"
           3 LOAD_DEREF               return lambda : "<i>" + [43m[30mfn[39m[49m() + "</i>"
-          6 CALL_FUNCTION            return lambda : "<i>" + [43m[30mfn[39m[49m() + "</i>"
-          9 BINARY_ADD               return lambda : [43m[30m"<i>" + fn[39m[49m() + "</i>"
+          6 CALL_FUNCTION            return lambda : "<i>" + [43m[30mfn()[39m[49m + "</i>"
+          9 BINARY_ADD               return lambda : [43m[30m"<i>" + fn()[39m[49m + "</i>"
          10 LOAD_CONST               return lambda : "<i>" + fn() + [43m[30m"</i>"[39m[49m
          13 BINARY_ADD               return lambda : [43m[30m"<i>" + fn() + "</i>"[39m[49m
          14 RETURN_VALUE             return lambda : [43m[30m"<i>" + fn() + "</i>"[39m[49m

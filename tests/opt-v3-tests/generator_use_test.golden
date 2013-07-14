@@ -5,9 +5,9 @@ Disassembling top-level module in ./opt-v3-tests/generator_use_test.txt
 
   7       9 SETUP_LOOP           [43m[30mfor[39m[49m i in gen_odds():
          12 LOAD_NAME            for i in [43m[30mgen_odds[39m[49m():
-         15 CALL_FUNCTION        for i in [43m[30mgen_odds[39m[49m():
-         18 GET_ITER             for i in [43m[30mgen_odds[39m[49m():
-    >>   19 FOR_ITER             for i in [43m[30mgen_odds[39m[49m():
+         15 CALL_FUNCTION        for i in [43m[30mgen_odds()[39m[49m:
+         18 GET_ITER             for i in [43m[30mgen_odds()[39m[49m:
+    >>   19 FOR_ITER             for i in [43m[30mgen_odds()[39m[49m:
          22 STORE_NAME           for [43m[30mi[39m[49m in gen_odds():
 
   8      25 LOAD_NAME              print([43m[30mi[39m[49m)

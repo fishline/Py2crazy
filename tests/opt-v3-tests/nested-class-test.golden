@@ -8,17 +8,17 @@ Disassembling top-level module in ./opt-v3-tests/nested-class-test.txt
          16 STORE_NAME           [43m[30mclass[39m[49m A:
 
   8      19 LOAD_NAME            a = [43m[30mA[39m[49m()
-         22 CALL_FUNCTION        a = [43m[30mA[39m[49m()
+         22 CALL_FUNCTION        a = [43m[30mA()[39m[49m
          25 STORE_NAME           [43m[30ma[39m[49m = A()
 
   9      28 LOAD_NAME            b = [43m[30ma[39m[49m.B()
          31 LOAD_ATTR            b = [43m[30ma.B[39m[49m()
-         34 CALL_FUNCTION        b = [43m[30ma.B[39m[49m()
+         34 CALL_FUNCTION        b = [43m[30ma.B()[39m[49m
          37 STORE_NAME           [43m[30mb[39m[49m = a.B()
 
  10      40 LOAD_NAME            c = [43m[30mb[39m[49m.C()
          43 LOAD_ATTR            c = [43m[30mb.C[39m[49m()
-         46 CALL_FUNCTION        c = [43m[30mb.C[39m[49m()
+         46 CALL_FUNCTION        c = [43m[30mb.C()[39m[49m
          49 STORE_NAME           [43m[30mc[39m[49m = b.C()
          52 LOAD_CONST           [43m[30mc[39m[49m = b.C()
          55 RETURN_VALUE         [43m[30mc[39m[49m = b.C()

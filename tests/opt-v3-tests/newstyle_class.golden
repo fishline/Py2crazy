@@ -9,13 +9,13 @@ Disassembling top-level module in ./opt-v3-tests/newstyle_class.txt
          19 STORE_NAME           class A([43m[30mobject[39m[49m):
 
   9      22 LOAD_NAME            a = [43m[30mA[39m[49m()
-         25 CALL_FUNCTION        a = [43m[30mA[39m[49m()
+         25 CALL_FUNCTION        a = [43m[30mA()[39m[49m
          28 STORE_NAME           [43m[30ma[39m[49m = A()
 
  11      31 LOAD_NAME            [43m[30ma[39m[49m.x()
          34 LOAD_ATTR            [43m[30ma.x[39m[49m()
-         37 CALL_FUNCTION        [43m[30ma.x[39m[49m()
-         40 POP_TOP              [43m[30ma.x[39m[49m()
+         37 CALL_FUNCTION        [43m[30ma.x()[39m[49m
+         40 POP_TOP              [43m[30ma.x()[39m[49m
 
  13      41 LOAD_NAME            print([43m[30ma[39m[49m.bla)
          44 LOAD_ATTR            print([43m[30ma.bla[39m[49m)

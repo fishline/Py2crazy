@@ -23,12 +23,12 @@ Disassembling function happy
 
 Disassembling function sing
   6       0 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
-          3 CALL_FUNCTION            [43m[30mhappy[39m[49m()
-          6 POP_TOP                  [43m[30mhappy[39m[49m()
+          3 CALL_FUNCTION            [43m[30mhappy()[39m[49m
+          6 POP_TOP                  [43m[30mhappy()[39m[49m
 
   7       7 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
-         10 CALL_FUNCTION            [43m[30mhappy[39m[49m()
-         13 POP_TOP                  [43m[30mhappy[39m[49m()
+         10 CALL_FUNCTION            [43m[30mhappy()[39m[49m
+         13 POP_TOP                  [43m[30mhappy()[39m[49m
 
   8      14 LOAD_CONST               print([43m[30m"Happy Birthday dear "[39m[49m + P + "!")
          17 LOAD_FAST                print("Happy Birthday dear " + [43m[30mP[39m[49m + "!")
@@ -39,7 +39,7 @@ Disassembling function sing
          26 PRINT_NEWLINE            print([43m[30m"Happy Birthday dear " + P + "!"[39m[49m)
 
   9      27 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
-         30 CALL_FUNCTION            [43m[30mhappy[39m[49m()
-         33 POP_TOP                  [43m[30mhappy[39m[49m()
-         34 LOAD_CONST               [43m[30mhappy[39m[49m()
-         37 RETURN_VALUE             [43m[30mhappy[39m[49m()
+         30 CALL_FUNCTION            [43m[30mhappy()[39m[49m
+         33 POP_TOP                  [43m[30mhappy()[39m[49m
+         34 LOAD_CONST               [43m[30mhappy()[39m[49m
+         37 RETURN_VALUE             [43m[30mhappy()[39m[49m

@@ -19,11 +19,11 @@ Disassembling top-level module in ./opt-v3-tests/ttt_min.txt
 
   9      45 LOAD_NAME            print([43m[30mg[39m[49m.play())
          48 LOAD_ATTR            print([43m[30mg.play[39m[49m())
-         51 CALL_FUNCTION        print([43m[30mg.play[39m[49m())
-         54 PRINT_ITEM           print([43m[30mg.play[39m[49m())
-         55 PRINT_NEWLINE        print([43m[30mg.play[39m[49m())
-         56 LOAD_CONST           print([43m[30mg.play[39m[49m())
-         59 RETURN_VALUE         print([43m[30mg.play[39m[49m())
+         51 CALL_FUNCTION        print([43m[30mg.play()[39m[49m)
+         54 PRINT_ITEM           print([43m[30mg.play()[39m[49m)
+         55 PRINT_NEWLINE        print([43m[30mg.play()[39m[49m)
+         56 LOAD_CONST           print([43m[30mg.play()[39m[49m)
+         59 RETURN_VALUE         print([43m[30mg.play()[39m[49m)
 
 Disassembling function interactive_player
   6       0 LOAD_GLOBAL              return [43m[30mint[39m[49m(mouse_input("Click on board"))

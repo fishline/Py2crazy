@@ -38,10 +38,10 @@ Disassembling function TowerOfHanoi
          15 LOAD_ATTR                    [43m[30mb.append[39m[49m(a.pop())
          18 LOAD_FAST                    b.append([43m[30ma[39m[49m.pop())
          21 LOAD_ATTR                    b.append([43m[30ma.pop[39m[49m())
-         24 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         27 CALL_FUNCTION                [43m[30mb.append(a.pop([39m[49m))
-         30 POP_TOP                      [43m[30mb.append(a.pop([39m[49m))
-         31 JUMP_FORWARD                 [43m[30mb.append(a.pop([39m[49m))
+         24 CALL_FUNCTION                b.append([43m[30ma.pop()[39m[49m)
+         27 CALL_FUNCTION                [43m[30mb.append(a.pop())[39m[49m
+         30 POP_TOP                      [43m[30mb.append(a.pop())[39m[49m
+         31 JUMP_FORWARD                 [43m[30mb.append(a.pop())[39m[49m
 
   7 >>   34 LOAD_GLOBAL                  [43m[30mTowerOfHanoi[39m[49m(n-1, a, tmp, b)
          37 LOAD_FAST                    TowerOfHanoi([43m[30mn[39m[49m-1, a, tmp, b)
@@ -57,9 +57,9 @@ Disassembling function TowerOfHanoi
          60 LOAD_ATTR                    [43m[30mb.append[39m[49m(a.pop())
          63 LOAD_FAST                    b.append([43m[30ma[39m[49m.pop())
          66 LOAD_ATTR                    b.append([43m[30ma.pop[39m[49m())
-         69 CALL_FUNCTION                b.append([43m[30ma.pop[39m[49m())
-         72 CALL_FUNCTION                [43m[30mb.append(a.pop([39m[49m))
-         75 POP_TOP                      [43m[30mb.append(a.pop([39m[49m))
+         69 CALL_FUNCTION                b.append([43m[30ma.pop()[39m[49m)
+         72 CALL_FUNCTION                [43m[30mb.append(a.pop())[39m[49m
+         75 POP_TOP                      [43m[30mb.append(a.pop())[39m[49m
 
   9      76 LOAD_GLOBAL                  [43m[30mTowerOfHanoi[39m[49m(n-1, tmp, b, a)
          79 LOAD_FAST                    TowerOfHanoi([43m[30mn[39m[49m-1, tmp, b, a)

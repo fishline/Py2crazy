@@ -5,9 +5,9 @@ Disassembling top-level module in ./opt-v3-tests/gen_primes.txt
 
  12       9 SETUP_LOOP           [43m[30mfor[39m[49m p in gen_primes():
          12 LOAD_NAME            for p in [43m[30mgen_primes[39m[49m():
-         15 CALL_FUNCTION        for p in [43m[30mgen_primes[39m[49m():
-         18 GET_ITER             for p in [43m[30mgen_primes[39m[49m():
-    >>   19 FOR_ITER             for p in [43m[30mgen_primes[39m[49m():
+         15 CALL_FUNCTION        for p in [43m[30mgen_primes()[39m[49m:
+         18 GET_ITER             for p in [43m[30mgen_primes()[39m[49m:
+    >>   19 FOR_ITER             for p in [43m[30mgen_primes()[39m[49m:
          22 STORE_NAME           for [43m[30mp[39m[49m in gen_primes():
 
  13      25 LOAD_NAME                print([43m[30mp[39m[49m)

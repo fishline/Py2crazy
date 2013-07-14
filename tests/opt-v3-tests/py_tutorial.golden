@@ -10,7 +10,7 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
   9      18 LOAD_NAME            tokens = [43m[30ms[39m[49m.split()
          21 LOAD_ATTR            tokens = [43m[30ms.split[39m[49m()
-         24 CALL_FUNCTION        tokens = [43m[30ms.split[39m[49m()
+         24 CALL_FUNCTION        tokens = [43m[30ms.split()[39m[49m
          27 STORE_NAME           [43m[30mtokens[39m[49m = s.split()
 
  10      30 LOAD_NAME            firstName = [43m[30mtokens[39m[49m[0]
@@ -132,8 +132,8 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
 
  46 >>  274 LOAD_NAME            [43m[30mbeatles[39m[49m.sort() # in-place
         277 LOAD_ATTR            [43m[30mbeatles.sort[39m[49m() # in-place
-        280 CALL_FUNCTION        [43m[30mbeatles.sort[39m[49m() # in-place
-        283 POP_TOP              [43m[30mbeatles.sort[39m[49m() # in-place
+        280 CALL_FUNCTION        [43m[30mbeatles.sort()[39m[49m # in-place
+        283 POP_TOP              [43m[30mbeatles.sort()[39m[49m # in-place
 
  47     284 LOAD_NAME            orderedUniqueAges = [43m[30msorted[39m[49m(uniqueAges) # new list
         287 LOAD_NAME            orderedUniqueAges = sorted([43m[30muniqueAges[39m[49m) # new list
@@ -166,9 +166,9 @@ Disassembling top-level module in ./opt-v3-tests/py_tutorial.txt
  57     342 SETUP_LOOP           [43m[30mfor[39m[49m (person, worth) in netWorth.items():
         345 LOAD_NAME            for (person, worth) in [43m[30mnetWorth[39m[49m.items():
         348 LOAD_ATTR            for (person, worth) in [43m[30mnetWorth.items[39m[49m():
-        351 CALL_FUNCTION        for (person, worth) in [43m[30mnetWorth.items[39m[49m():
-        354 GET_ITER             for (person, worth) in [43m[30mnetWorth.items[39m[49m():
-    >>  355 FOR_ITER             for (person, worth) in [43m[30mnetWorth.items[39m[49m():
+        351 CALL_FUNCTION        for (person, worth) in [43m[30mnetWorth.items()[39m[49m:
+        354 GET_ITER             for (person, worth) in [43m[30mnetWorth.items()[39m[49m:
+    >>  355 FOR_ITER             for (person, worth) in [43m[30mnetWorth.items()[39m[49m:
         358 UNPACK_SEQUENCE      for ([43m[30mperson[39m[49m, worth) in netWorth.items():
         361 STORE_NAME           for ([43m[30mperson[39m[49m, worth) in netWorth.items():
         364 STORE_NAME           for (person, [43m[30mworth[39m[49m) in netWorth.items():

@@ -10,8 +10,8 @@ Disassembling top-level module in ./mini-tests/original_test.txt
          18 STORE_NAME           [43m[30my[39m[49m = 5
 
   7      21 LOAD_NAME            if [43m[30mfoo[39m[49m() and (x + y > 7):
-         24 CALL_FUNCTION        if [43m[30mfoo[39m[49m() and (x + y > 7):
-         27 JUMP_IF_FALSE_OR_POP if [43m[30mfoo[39m[49m() and (x + y > 7):
+         24 CALL_FUNCTION        if [43m[30mfoo()[39m[49m and (x + y > 7):
+         27 JUMP_IF_FALSE_OR_POP if [43m[30mfoo()[39m[49m and (x + y > 7):
          30 LOAD_NAME            if foo() and ([43m[30mx[39m[49m + y > 7):
          33 LOAD_NAME            if foo() and (x + [43m[30my[39m[49m > 7):
          36 BINARY_ADD           if foo() and ([43m[30mx + y[39m[49m > 7):

@@ -1,7 +1,7 @@
 Disassembling top-level module in ./mini-tests/if.txt
   1       0 LOAD_NAME            if [43m[30mfoo[39m[49m() and (x + y > 7):
-          3 CALL_FUNCTION        if [43m[30mfoo[39m[49m() and (x + y > 7):
-          6 JUMP_IF_FALSE_OR_POP if [43m[30mfoo[39m[49m() and (x + y > 7):
+          3 CALL_FUNCTION        if [43m[30mfoo()[39m[49m and (x + y > 7):
+          6 JUMP_IF_FALSE_OR_POP if [43m[30mfoo()[39m[49m and (x + y > 7):
           9 LOAD_NAME            if foo() and ([43m[30mx[39m[49m + y > 7):
          12 LOAD_NAME            if foo() and (x + [43m[30my[39m[49m > 7):
          15 BINARY_ADD           if foo() and ([43m[30mx + y[39m[49m > 7):

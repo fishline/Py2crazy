@@ -26,14 +26,14 @@ Disassembling top-level module in ./opt-v3-tests/oop_small.txt
          60 STORE_NAME           class C(A,[43m[30mB[39m[49m):
 
  12      63 LOAD_NAME            inst = [43m[30mC[39m[49m()
-         66 CALL_FUNCTION        inst = [43m[30mC[39m[49m()
+         66 CALL_FUNCTION        inst = [43m[30mC()[39m[49m
          69 STORE_NAME           [43m[30minst[39m[49m = C()
 
  13      72 LOAD_NAME            print([43m[30minst[39m[49m.salutation())
          75 LOAD_ATTR            print([43m[30minst.salutation[39m[49m())
-         78 CALL_FUNCTION        print([43m[30minst.salutation[39m[49m())
-         81 PRINT_ITEM           print([43m[30minst.salutation[39m[49m())
-         82 PRINT_NEWLINE        print([43m[30minst.salutation[39m[49m())
+         78 CALL_FUNCTION        print([43m[30minst.salutation()[39m[49m)
+         81 PRINT_ITEM           print([43m[30minst.salutation()[39m[49m)
+         82 PRINT_NEWLINE        print([43m[30minst.salutation()[39m[49m)
 
  14      83 LOAD_CONST           inst.x = [43m[30m100[39m[49m
          86 LOAD_NAME            [43m[30minst[39m[49m.x = 100
@@ -41,11 +41,11 @@ Disassembling top-level module in ./opt-v3-tests/oop_small.txt
 
  15      92 LOAD_NAME            print([43m[30minst[39m[49m.salutation())
          95 LOAD_ATTR            print([43m[30minst.salutation[39m[49m())
-         98 CALL_FUNCTION        print([43m[30minst.salutation[39m[49m())
-        101 PRINT_ITEM           print([43m[30minst.salutation[39m[49m())
-        102 PRINT_NEWLINE        print([43m[30minst.salutation[39m[49m())
-        103 LOAD_CONST           print([43m[30minst.salutation[39m[49m())
-        106 RETURN_VALUE         print([43m[30minst.salutation[39m[49m())
+         98 CALL_FUNCTION        print([43m[30minst.salutation()[39m[49m)
+        101 PRINT_ITEM           print([43m[30minst.salutation()[39m[49m)
+        102 PRINT_NEWLINE        print([43m[30minst.salutation()[39m[49m)
+        103 LOAD_CONST           print([43m[30minst.salutation()[39m[49m)
+        106 RETURN_VALUE         print([43m[30minst.salutation()[39m[49m)
 
 Disassembling function B
   5       0 LOAD_NAME            [43m[30mclass[39m[49m B:

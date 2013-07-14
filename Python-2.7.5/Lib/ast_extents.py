@@ -165,7 +165,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
       # punt and just use the function's info
       self.add_attrs(node)
       node.start_col = node.func.start_col
-      node.extent = node.func.extent
+      node.extent = node.func.extent + 2 # 2 extra for '()'
 
     self.visit_children(node)
 

@@ -8,7 +8,7 @@ Disassembling top-level module in ./opt-v3-tests/oop_1.txt
          16 STORE_NAME           [43m[30mclass[39m[49m Staff601:
 
  13      19 LOAD_NAME            pat = [43m[30mStaff601[39m[49m()
-         22 CALL_FUNCTION        pat = [43m[30mStaff601[39m[49m()
+         22 CALL_FUNCTION        pat = [43m[30mStaff601()[39m[49m
          25 STORE_NAME           [43m[30mpat[39m[49m = Staff601()
 
  14      28 LOAD_NAME            print([43m[30mpat[39m[49m.course)
@@ -44,9 +44,9 @@ Disassembling top-level module in ./opt-v3-tests/oop_1.txt
 
  24      88 LOAD_NAME            print([43m[30mpat[39m[49m.salutation())
          91 LOAD_ATTR            print([43m[30mpat.salutation[39m[49m())
-         94 CALL_FUNCTION        print([43m[30mpat.salutation[39m[49m())
-         97 PRINT_ITEM           print([43m[30mpat.salutation[39m[49m())
-         98 PRINT_NEWLINE        print([43m[30mpat.salutation[39m[49m())
+         94 CALL_FUNCTION        print([43m[30mpat.salutation()[39m[49m)
+         97 PRINT_ITEM           print([43m[30mpat.salutation()[39m[49m)
+         98 PRINT_NEWLINE        print([43m[30mpat.salutation()[39m[49m)
 
  25      99 LOAD_NAME            print([43m[30mStaff601[39m[49m.salutation(pat))
         102 LOAD_ATTR            print([43m[30mStaff601.salutation[39m[49m(pat))

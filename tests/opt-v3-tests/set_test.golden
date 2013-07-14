@@ -1,6 +1,6 @@
 Disassembling top-level module in ./opt-v3-tests/set_test.txt
   1       0 LOAD_NAME            x = [43m[30mset[39m[49m()
-          3 CALL_FUNCTION        x = [43m[30mset[39m[49m()
+          3 CALL_FUNCTION        x = [43m[30mset()[39m[49m
           6 STORE_NAME           [43m[30mx[39m[49m = set()
 
   2       9 LOAD_NAME            [43m[30mx[39m[49m.add('a')
