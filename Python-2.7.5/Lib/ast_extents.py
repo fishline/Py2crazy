@@ -63,7 +63,7 @@ import ast
 NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.unaryop, ast.operator,
                ast.Module, ast.Interactive, ast.Expression,
-               ast.arguments, ast.alias,
+               ast.arguments, ast.keyword, ast.alias,
                ast.excepthandler,
                ast.Set, # TODO: maybe keep extents for this, along with Dict, Tuple, and List
                ast.If, ast.With, ast.GeneratorExp,
@@ -145,6 +145,7 @@ class AddExtentsVisitor(ast.NodeVisitor):
     max_col_offset = -1
     max_elt = None
 
+    # the 'value' field in each element of node.keywords is most relevant
     candidates = node.args + [e.value for e in node.keywords]
     if node.starargs:
       candidates.append(node.starargs)
@@ -166,16 +167,6 @@ class AddExtentsVisitor(ast.NodeVisitor):
       node.start_col = node.func.start_col
       node.extent = node.func.extent
 
-    self.visit_children(node)
-
-  def visit_keyword(self, node):
-    if hasattr(node.value, 'extent'):
-      self.add_attrs(node)
-      node.start_col = node.value.start_col
-      node.extent = node.value.extent
-      # propagate lineno and col_offset up from child
-      node.lineno = node.value.lineno
-      node.col_offset = node.value.col_offset
     self.visit_children(node)
 
   def visit_Compare(self, node):
