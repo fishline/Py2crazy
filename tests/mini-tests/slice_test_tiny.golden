@@ -1,0 +1,8 @@
+Disassembling top-level module in ./mini-tests/slice_test_tiny.txt
+  1       0 LOAD_NAME            [43m[30marr[39m[49m[one:two]
+          3 LOAD_NAME            arr[[43m[30mone[39m[49m:two]
+          6 LOAD_NAME            arr[one:[43m[30mtwo[39m[49m]
+          9 SLICE+3              arr[one:[43m[30mtwo[39m[49m]
+         10 POP_TOP              arr[one:[43m[30mtwo[39m[49m]
+         11 LOAD_CONST           arr[one:[43m[30mtwo[39m[49m]
+         14 RETURN_VALUE         arr[one:[43m[30mtwo[39m[49m]
