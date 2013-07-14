@@ -41,10 +41,10 @@ Disassembling function append
          38 SLICE+1                  return [xs[0]] + append(xs[[43m[30m1[39m[49m:], ys)
          39 LOAD_FAST                return [xs[0]] + append(xs[1:], [43m[30mys[39m[49m)
          42 CALL_FUNCTION            return [xs[0]] + append(xs[1:], [43m[30mys[39m[49m)
-         45 BINARY_ADD               return [43m[30m[xs[0]] + append[39m[49m(xs[1:], ys)
-         46 RETURN_VALUE             return [43m[30m[xs[0]] + append[39m[49m(xs[1:], ys)
-    >>   47 LOAD_CONST               return [43m[30m[xs[0]] + append[39m[49m(xs[1:], ys)
-         50 RETURN_VALUE             return [43m[30m[xs[0]] + append[39m[49m(xs[1:], ys)
+         45 BINARY_ADD               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+         46 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+    >>   47 LOAD_CONST               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+         50 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
 
 Disassembling function map
   2       0 LOAD_FAST              if [43m[30mxs[39m[49m == []:
@@ -70,10 +70,10 @@ Disassembling function map
          50 SLICE+1                  return [f(xs[0])] + list(map(f, xs[[43m[30m1[39m[49m:]))
          51 CALL_FUNCTION            return [f(xs[0])] + list(map(f, xs[[43m[30m1[39m[49m:]))
          54 CALL_FUNCTION            return [f(xs[0])] + list(map(f, xs[[43m[30m1[39m[49m:]))
-         57 BINARY_ADD               return [43m[30m[f(xs[0])] + list[39m[49m(map(f, xs[1:]))
-         58 RETURN_VALUE             return [43m[30m[f(xs[0])] + list[39m[49m(map(f, xs[1:]))
-    >>   59 LOAD_CONST               return [43m[30m[f(xs[0])] + list[39m[49m(map(f, xs[1:]))
-         62 RETURN_VALUE             return [43m[30m[f(xs[0])] + list[39m[49m(map(f, xs[1:]))
+         57 BINARY_ADD               return [43m[30m[f(xs[0])] + list(map([39m[49mf, xs[1:]))
+         58 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map([39m[49mf, xs[1:]))
+    >>   59 LOAD_CONST               return [43m[30m[f(xs[0])] + list(map([39m[49mf, xs[1:]))
+         62 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map([39m[49mf, xs[1:]))
 
 Disassembling function pairs
  14       0 LOAD_DEREF             if [43m[30mxs[39m[49m == []:

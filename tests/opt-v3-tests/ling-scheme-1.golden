@@ -31,10 +31,10 @@ Disassembling function repeat
          37 LOAD_CONST               return [f()] + repeat(f, n - [43m[30m1[39m[49m)
          40 BINARY_SUBTRACT          return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
          41 CALL_FUNCTION            return [f()] + repeat(f, [43m[30mn - 1[39m[49m)
-         44 BINARY_ADD               return [43m[30m[f()] + repeat[39m[49m(f, n - 1)
-         45 RETURN_VALUE             return [43m[30m[f()] + repeat[39m[49m(f, n - 1)
-    >>   46 LOAD_CONST               return [43m[30m[f()] + repeat[39m[49m(f, n - 1)
-         49 RETURN_VALUE             return [43m[30m[f()] + repeat[39m[49m(f, n - 1)
+         44 BINARY_ADD               return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
+         45 RETURN_VALUE             return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
+    >>   46 LOAD_CONST               return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
+         49 RETURN_VALUE             return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
 
 Disassembling function <lambda>
   7       0 LOAD_CONST           repeat(lambda : [43m[30m5[39m[49m, 5)

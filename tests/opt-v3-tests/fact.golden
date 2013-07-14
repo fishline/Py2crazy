@@ -27,7 +27,7 @@ Disassembling function fact
          28 LOAD_CONST                   return n * fact(n - [43m[30m1[39m[49m)
          31 BINARY_SUBTRACT              return n * fact([43m[30mn - 1[39m[49m)
          32 CALL_FUNCTION                return n * fact([43m[30mn - 1[39m[49m)
-         35 BINARY_MULTIPLY              return [43m[30mn * fact[39m[49m(n - 1)
-         36 RETURN_VALUE                 return [43m[30mn * fact[39m[49m(n - 1)
-    >>   37 LOAD_CONST                   return [43m[30mn * fact[39m[49m(n - 1)
-         40 RETURN_VALUE                 return [43m[30mn * fact[39m[49m(n - 1)
+         35 BINARY_MULTIPLY              return [43m[30mn * fact(n - 1)[39m[49m
+         36 RETURN_VALUE                 return [43m[30mn * fact(n - 1)[39m[49m
+    >>   37 LOAD_CONST                   return [43m[30mn * fact(n - 1)[39m[49m
+         40 RETURN_VALUE                 return [43m[30mn * fact(n - 1)[39m[49m

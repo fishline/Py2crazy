@@ -63,7 +63,7 @@ import ast
 NOP_CLASSES = [ast.expr_context, ast.cmpop, ast.boolop,
                ast.unaryop, ast.operator,
                ast.Module, ast.Interactive, ast.Expression,
-               ast.arguments, ast.keyword, ast.alias,
+               ast.arguments, ast.alias,
                ast.excepthandler,
                ast.Set, # TODO: maybe keep extents for this, along with Dict, Tuple, and List
                ast.If, ast.With, ast.GeneratorExp,
@@ -140,10 +140,42 @@ class AddExtentsVisitor(ast.NodeVisitor):
       self.visit_children(node)
 
   def visit_Call(self, node):
-    if hasattr(node.func, 'extent'):
+    # find the RIGHTMOST argument and use that one for extent
+    # (could be either in args, keywords, starargs, or kwargs)
+    max_col_offset = -1
+    max_elt = None
+
+    candidates = node.args + [e.value for e in node.keywords]
+    if node.starargs:
+      candidates.append(node.starargs)
+    if node.kwargs:
+      candidates.append(node.kwargs)
+
+    for e in candidates:
+      if e.col_offset > max_col_offset and e.lineno == node.lineno:
+        max_col_offset = e.col_offset
+        max_elt = e
+
+    if max_elt and hasattr(max_elt, 'extent') and hasattr(node.func, 'extent'):
+      self.add_attrs(node)
+      node.start_col = node.func.start_col
+      node.extent = max_elt.start_col + max_elt.extent + 1 - node.start_col
+    elif hasattr(node.func, 'extent'):
+      # punt and just use the function's info
       self.add_attrs(node)
       node.start_col = node.func.start_col
       node.extent = node.func.extent
+
+    self.visit_children(node)
+
+  def visit_keyword(self, node):
+    if hasattr(node.value, 'extent'):
+      self.add_attrs(node)
+      node.start_col = node.value.start_col
+      node.extent = node.value.extent
+      # propagate lineno and col_offset up from child
+      node.lineno = node.value.lineno
+      node.col_offset = node.value.col_offset
     self.visit_children(node)
 
   def visit_Compare(self, node):

@@ -56,7 +56,7 @@ Disassembling top-level module in ./opt-v3-tests/filter.txt
         130 LOAD_NAME            print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
         133 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
         136 CALL_FUNCTION        print("There are " + str(len([43m[30myoungPeople[39m[49m)) + " young people")
-        139 BINARY_ADD           print([43m[30m"There are " + str[39m[49m(len(youngPeople)) + " young people")
+        139 BINARY_ADD           print([43m[30m"There are " + str(len(youngPeople))[39m[49m + " young people")
         140 LOAD_CONST           print("There are " + str(len(youngPeople)) + [43m[30m" young people"[39m[49m)
         143 BINARY_ADD           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)
         144 PRINT_ITEM           print([43m[30m"There are " + str(len(youngPeople)) + " young people"[39m[49m)

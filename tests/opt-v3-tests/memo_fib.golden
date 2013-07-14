@@ -44,7 +44,7 @@ Disassembling function MemoizedFib
          61 LOAD_CONST               MemoTable[n] = MemoizedFib(n-1) + MemoizedFib(n-[43m[30m2[39m[49m)
          64 BINARY_SUBTRACT          MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
          65 CALL_FUNCTION            MemoTable[n] = MemoizedFib(n-1) + MemoizedFib([43m[30mn-2[39m[49m)
-         68 BINARY_ADD               MemoTable[n] = [43m[30mMemoizedFib(n-1) + MemoizedFib[39m[49m(n-2)
+         68 BINARY_ADD               MemoTable[n] = [43m[30mMemoizedFib(n-1) + MemoizedFib(n-2)[39m[49m
          69 LOAD_GLOBAL              [43m[30mMemoTable[39m[49m[n] = MemoizedFib(n-1) + MemoizedFib(n-2)
          72 LOAD_FAST                MemoTable[[43m[30mn[39m[49m] = MemoizedFib(n-1) + MemoizedFib(n-2)
          75 STORE_SUBSCR             [43m[30mMemoTable[n][39m[49m = MemoizedFib(n-1) + MemoizedFib(n-2)

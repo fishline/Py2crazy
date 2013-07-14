@@ -37,7 +37,7 @@ Disassembling function listSum
          29 LOAD_GLOBAL              return f + [43m[30mlistSum[39m[49m(rest)
          32 LOAD_FAST                return f + listSum([43m[30mrest[39m[49m)
          35 CALL_FUNCTION            return f + listSum([43m[30mrest[39m[49m)
-         38 BINARY_ADD               return [43m[30mf + listSum[39m[49m(rest)
-         39 RETURN_VALUE             return [43m[30mf + listSum[39m[49m(rest)
-    >>   40 LOAD_CONST               return [43m[30mf + listSum[39m[49m(rest)
-         43 RETURN_VALUE             return [43m[30mf + listSum[39m[49m(rest)
+         38 BINARY_ADD               return [43m[30mf + listSum(rest)[39m[49m
+         39 RETURN_VALUE             return [43m[30mf + listSum(rest)[39m[49m
+    >>   40 LOAD_CONST               return [43m[30mf + listSum(rest)[39m[49m
+         43 RETURN_VALUE             return [43m[30mf + listSum(rest)[39m[49m

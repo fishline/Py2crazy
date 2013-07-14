@@ -61,7 +61,7 @@ Disassembling function summation
          36 LOAD_FAST                total, k = total + [43m[30mterm[39m[49m(k), next(k)
          39 LOAD_FAST                total, k = total + term([43m[30mk[39m[49m), next(k)
          42 CALL_FUNCTION            total, k = total + term([43m[30mk[39m[49m), next(k)
-         45 BINARY_ADD               total, k = [43m[30mtotal + term[39m[49m(k), next(k)
+         45 BINARY_ADD               total, k = [43m[30mtotal + term(k)[39m[49m, next(k)
          46 LOAD_FAST                total, k = total + term(k), [43m[30mnext[39m[49m(k)
          49 LOAD_FAST                total, k = total + term(k), next([43m[30mk[39m[49m)
          52 CALL_FUNCTION            total, k = total + term(k), next([43m[30mk[39m[49m)

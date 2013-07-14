@@ -181,6 +181,12 @@ def disassemble(co, extent_map):
             else:
               del v['Tuple']
               start_col, extent = v.values()[0] # override
+          elif 'Call' in v:
+            if opcode.startswith('CALL_'):
+              start_col, extent = v['Call']
+            else:
+              del v['Call']
+              start_col, extent = v.values()[0] # override
 
 
         yield DisLine(lineno=lineno, column=column,
