@@ -2628,6 +2628,12 @@ compiler_call(struct compiler *c, expr_ty e)
         VISIT(c, expr, e->v.Call.kwargs);
         code |= 2;
     }
+
+    // pgbovine - re-set in case clobbered by VISIT()
+    // TODO: actually this causes some weird problems, so nix it for now
+    //c->u->u_lineno = e->lineno;
+    //c->u->u_col_offset = e->col_offset;
+
     switch (code) {
     case 0:
         ADDOP_I(c, CALL_FUNCTION, n);
@@ -3036,6 +3042,7 @@ compiler_visit_expr(struct compiler *c, expr_ty e)
        note that this might get CLOBBERED by intervening
        VISIT statements since c is passed into VISIT,
        so we might need to re-set it */
+    // TODO: should we reset u_lineno as well?!?
     c->u->u_col_offset = e->col_offset;
 
     /* If expr e has a different line number than the last expr/stmt,
