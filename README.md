@@ -52,14 +52,14 @@ maps to not only a line, but also a precise range of columns within that line (h
 
 ![compiled with Py2crazy](screenshots/py2crazy-example.png)
 
-This level of detail makes it possible to create much more fine-grained tracing and debugging tools!
+This level of detail makes it possible to create much more fine-grained tracing and debugging tools.
 
 
 ### How do you view line and column number information?
 
 Compile Py2crazy and then run the special
 "Super Disassembler" ([Python-2.7.5/lib/super_dis.py](https://github.com/pgbovine/Py2crazy/blob/master/Python-2.7.5/Lib/super_dis.py))
-module on a Python source file to see detailed line/number column information:
+module on a Python source file:
 
     Py2crazy/Python-2.7.5/python -m super_dis test.py
 
