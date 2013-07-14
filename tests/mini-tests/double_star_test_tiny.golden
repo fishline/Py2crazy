@@ -1,0 +1,9 @@
+Disassembling top-level module in ./mini-tests/double_star_test_tiny.txt
+  1       0 LOAD_NAME            self.val = [43m[30mself[39m[49m.val ** 2
+          3 LOAD_ATTR            self.val = [43m[30mself.val[39m[49m ** 2
+          6 LOAD_CONST           self.val = self.val ** [43m[30m2[39m[49m
+          9 BINARY_POWER         self.val = [43m[30mself.val ** 2[39m[49m
+         10 LOAD_NAME            [43m[30mself[39m[49m.val = self.val ** 2
+         13 STORE_ATTR           [43m[30mself.val[39m[49m = self.val ** 2
+         16 LOAD_CONST           [43m[30mself.val[39m[49m = self.val ** 2
+         19 RETURN_VALUE         [43m[30mself.val[39m[49m = self.val ** 2

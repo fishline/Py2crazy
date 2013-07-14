@@ -1,0 +1,30 @@
+Disassembling top-level module in ./mini-tests/double_star_test.txt
+  2       0 LOAD_NAME            self.val = [43m[30mself[39m[49m.val ** 2
+          3 LOAD_ATTR            self.val = [43m[30mself.val[39m[49m ** 2
+          6 LOAD_CONST           self.val = self.val ** [43m[30m2[39m[49m
+          9 BINARY_POWER         self.val = [43m[30mself.val ** 2[39m[49m
+         10 LOAD_NAME            [43m[30mself[39m[49m.val = self.val ** 2
+         13 STORE_ATTR           [43m[30mself.val[39m[49m = self.val ** 2
+
+  5      16 LOAD_CONST           [43m[30mdef[39m[49m foo():
+         19 MAKE_FUNCTION        [43m[30mdef[39m[49m foo():
+         22 STORE_NAME           [43m[30mdef[39m[49m foo():
+         25 LOAD_CONST           [43m[30mdef[39m[49m foo():
+         28 RETURN_VALUE         [43m[30mdef[39m[49m foo():
+
+Disassembling function foo
+  6       0 LOAD_GLOBAL              return [43m[30mFraction[39m[49m(a._denominator ** -power,
+          3 LOAD_GLOBAL              return Fraction([43m[30ma[39m[49m._denominator ** -power,
+          6 LOAD_ATTR                return Fraction([43m[30ma._denominator[39m[49m ** -power,
+          9 LOAD_GLOBAL              return Fraction(a._denominator ** -[43m[30mpower[39m[49m,
+         12 UNARY_NEGATIVE           return Fraction(a._denominator ** [43m[30m-power[39m[49m,
+         13 BINARY_POWER             return Fraction([43m[30ma._denominator ** -power[39m[49m,
+
+  7      14 LOAD_GLOBAL                              [43m[30ma[39m[49m._numerator ** -power)
+         17 LOAD_ATTR                                [43m[30ma._numerator[39m[49m ** -power)
+         20 LOAD_GLOBAL                              a._numerator ** -[43m[30mpower[39m[49m)
+         23 UNARY_NEGATIVE                           a._numerator ** [43m[30m-power[39m[49m)
+         24 BINARY_POWER                             [43m[30ma._numerator ** -power[39m[49m)
+
+  6      25 CALL_FUNCTION            return [43m[30mFraction(a._denominator ** -power,[39m[49m
+         28 RETURN_VALUE             return [43m[30mFraction(a._denominator ** -power,[39m[49m

@@ -1,4 +1,4 @@
-Disassembling top-level module in ./known-broken-tests/double_call.txt
+Disassembling top-level module in ./mini-tests/double_call.txt
   1       0 LOAD_NAME            x =  [[43m[30mf[39m[49m(xs[0])] + list(map(f, xs[1:]))
           3 LOAD_NAME            x =  [f([43m[30mxs[39m[49m[0])] + list(map(f, xs[1:]))
           6 LOAD_CONST           x =  [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))

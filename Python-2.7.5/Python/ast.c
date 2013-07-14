@@ -1822,8 +1822,9 @@ ast_for_power(struct compiling *c, const node *n)
             return NULL;
 
         // pgbovine - for better column numbering precision, use the
-        // n_col_offset of the OPERATOR, which is CHILD(n, 1)
-        tmp = BinOp(e, Pow, f, LINENO(n), CHILD(n, 1)->n_col_offset, c->c_arena);
+        // n_col_offset of the '**' OPERATOR. Note that this might break
+        // if you have more than one '**' chained together into one expr.
+        tmp = BinOp(e, Pow, f, LINENO(n), CHILD(n, NCH(n) - 2)->n_col_offset, c->c_arena);
         if (!tmp)
             return NULL;
         e = tmp;

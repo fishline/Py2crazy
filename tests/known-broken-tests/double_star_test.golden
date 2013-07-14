@@ -1,2 +1,0 @@
-Disassembling top-level module in ./known-broken-tests/double_star_test.txt
-  2       0 LOAD_NAME            self.val = [43m[30mself[39m[49m.val ** 2
