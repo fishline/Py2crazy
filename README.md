@@ -42,6 +42,7 @@ Here's an illustration of the first (and most significant) feature. If you compi
         print 'You win'
 
 with regular Python 2.7.5 and disassemble it, you get roughly the following bytecode:
+
 ![compiled with Python](screenshots/python-regular-example.png)
 
 Note that each bytecode instruction maps to one line of source code.
