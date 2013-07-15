@@ -80,9 +80,7 @@ Disassembling function salutation
 
 Disassembling function A
   1       0 LOAD_NAME            [43m[30mclass[39m[49m A:
-WARNING! (1, 0, 0) already in bytecode_map
           3 STORE_NAME           [43m[30mclass[39m[49m A:
-WARNING! (1, 0, 3) already in bytecode_map
 
   2       6 LOAD_CONST               x = [43m[30m1[39m[49m
           9 STORE_NAME               [43m[30mx[39m[49m = 1

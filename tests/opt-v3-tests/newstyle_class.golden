@@ -31,7 +31,6 @@ Disassembling top-level module in ./opt-v3-tests/newstyle_class.txt
 
 Disassembling function A
   1       0 LOAD_NAME            [43m[30mclass[39m[49m A(object):
-WARNING! (1, 0, 0) already in bytecode_map
           3 STORE_NAME           [43m[30mclass[39m[49m A(object):
 
   2       6 LOAD_CONST             bla = [43m[30m"A"[39m[49m

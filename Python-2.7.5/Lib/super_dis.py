@@ -26,26 +26,26 @@ def get_bytecode_map(source, verbose=False):
     
     extent_map = ast_extents.create_extent_map(source)
 
-    # Key: (line number, column number, instruction offset)
-    #      this should be sufficient to pinpoint an exact bytecode
-    #      within a particular file. note that instruction offset by
-    #      itself isn't enough since multiple functions can be defined
-    #      within a file, each with their own offsets starting at 0.
+    # Key: (code.co_code string, line number, col_offset, instruction offset)
+    #      This should be sufficient to pinpoint an exact bytecode.
+    #      Note that instruction offset by itself isn't enough since
+    #      multiple functions can be defined within a file, each
+    #      with their own offsets starting at 0.
     # Value: DisLine object
     bytecode_map = {}
 
     def helper(cod):
         child_code = set()
         for disline in disgen(cod, extent_map):
-            if disline.code_obj:
-                child_code.add(disline.code_obj)
+            if disline.child_code_obj:
+                child_code.add(disline.child_code_obj)
             if verbose:
                 if disline.first and disline.offset > 0:
                     print('')
                 print(format_dis_line(disline, source_lines))
 
 
-            key = (disline.lineno, disline.column, disline.offset)
+            key = (disline.code_str, disline.lineno, disline.column, disline.offset)
 
             if verbose and key in bytecode_map:
                 print "WARNING!", key, "already in bytecode_map"
@@ -109,7 +109,7 @@ def disgen(x, extent_map=None):
 # and that column and start_col don't necessarily need to be identical
 DisLine = collections.namedtuple(
     'DisLine',
-    "lineno column start_col extent first target offset opcode oparg argstr code_obj"
+    "lineno column start_col extent first target offset opcode oparg argstr code_str child_code_obj"
     )
 
 def disassemble(co, extent_map):
@@ -155,7 +155,7 @@ def disassemble(co, extent_map):
             # when there's an error, punt to column 0
             column = 0
 
-        code_obj = None # is this loading a code object that we should maybe recurse into?
+        child_code_obj = None # is this loading a code object that we should maybe recurse into?
 
         i = i+1
         if op >= HAVE_ARGUMENT:
@@ -168,7 +168,7 @@ def disassemble(co, extent_map):
                 c = co.co_consts[oparg]
                 argstr = '(' + repr(c) + ')'
                 if inspect.iscode(c):
-                    code_obj = c
+                    child_code_obj = c
             elif op in hasname:
                 argstr = '(' + co.co_names[oparg] + ')'
             elif op in hasjabs:
@@ -276,7 +276,8 @@ def disassemble(co, extent_map):
                       offset=offset,
                       opcode=opcode, oparg=oparg,
                       argstr=argstr,
-                      code_obj=code_obj)
+                      code_str=code,
+                      child_code_obj=child_code_obj)
 
 
 def byte_from_code(code, i):
