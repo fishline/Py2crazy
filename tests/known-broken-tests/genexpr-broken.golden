@@ -1,0 +1,22 @@
+Disassembling top-level module in ./known-broken-tests/genexpr-broken.txt
+  1       0 LOAD_CONST           x = ([43m[30mi[39m[49m for i in range(10))
+          3 MAKE_FUNCTION        x = ([43m[30mi[39m[49m for i in range(10))
+          6 LOAD_NAME            x = (i for i in [43m[30mrange[39m[49m(10))
+          9 LOAD_CONST           x = (i for i in range([43m[30m10[39m[49m))
+         12 CALL_FUNCTION        x = (i for i in [43m[30mrange(10)[39m[49m)
+         15 GET_ITER             x = (i for i in [43m[30mrange(10)[39m[49m)
+         16 CALL_FUNCTION        x = (i for i in [43m[30mrange(10)[39m[49m)
+         19 STORE_NAME           [43m[30mx[39m[49m = (i for i in range(10))
+         22 LOAD_CONST           [43m[30mx[39m[49m = (i for i in range(10))
+         25 RETURN_VALUE         [43m[30mx[39m[49m = (i for i in range(10))
+
+Disassembling function <genexpr>
+  1       0 LOAD_FAST            [43m[30mx[39m[49m = (i for i in range(10))
+    >>    3 FOR_ITER             [43m[30mx[39m[49m = (i for i in range(10))
+          6 STORE_FAST           x = (i for [43m[30mi[39m[49m in range(10))
+          9 LOAD_FAST            x = ([43m[30mi[39m[49m for i in range(10))
+         12 YIELD_VALUE          x = ([43m[30mi[39m[49m for i in range(10))
+         13 POP_TOP              x = ([43m[30mi[39m[49m for i in range(10))
+         14 JUMP_ABSOLUTE        x = ([43m[30mi[39m[49m for i in range(10))
+    >>   17 LOAD_CONST           x = ([43m[30mi[39m[49m for i in range(10))
+         20 RETURN_VALUE         x = ([43m[30mi[39m[49m for i in range(10))
