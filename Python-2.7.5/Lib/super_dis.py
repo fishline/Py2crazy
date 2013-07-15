@@ -47,7 +47,7 @@ def get_bytecode_map(source, verbose=False):
 
             key = (disline.lineno, disline.column, disline.offset)
 
-            if key in bytecode_map:
+            if verbose and key in bytecode_map:
                 print "WARNING!", key, "already in bytecode_map"
             bytecode_map[key] = disline
 
