@@ -3,8 +3,9 @@ Py2crazy
 
 Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging:
 
-1. Each instruction in compiled Python bytecode now maps to a precise line number
-and range of column numbers corresponding to the source code snippet that produced that bytecode.
+1. Each instruction in Python bytecode now maps to a precise line number
+and range of column numbers corresponding to the source code snippet
+that produced that particular instruction.
 
 2. Peephole optimizations are disabled so that bytecodes match source
 code more closely.
