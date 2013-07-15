@@ -26,8 +26,12 @@ discusses some of the design rationale. To illustrate,
 
 - while regular Python provides only
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
-like in an ordinary debugger.
+ (like in an ordinary debugger).
 
+(For a more intricate example, here's recursive factorial visualized with
+<a href="http://pythontutor.com/visualize.html#code=%23+dumb+recursive+factorial%0Adef+fact(n)%3A%0A++++if+(n+%3C%3D+1)%3A%0A++++++++return+1%0A++++else%3A%0A++++++++return+n+*+fact(n+-+1)%0A%0Aprint(fact(6))&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">regular Python</a>
+and
+<a href="http://pythontutor.com/visualize.html#code=%23+dumb+recursive+factorial%0Adef+fact(n)%3A%0A++++if+(n+%3C%3D+1)%3A%0A++++++++return+1%0A++++else%3A%0A++++++++return+n+*+fact(n+-+1)%0A%0Aprint(fact(6))&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">Py2crazy</a>.)
 
 ### Precise line and column info in bytecodes
 
