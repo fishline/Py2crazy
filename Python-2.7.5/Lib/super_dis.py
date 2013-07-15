@@ -13,32 +13,14 @@ import inspect
 from opcode import *
 from opcode import __all__ as _opcodes_all
 
-__all__ = ["get_bytecode_map", "dis", "disassemble", "distb", "disco",
+__all__ = ["get_bytecode_map", "disassemble", "distb", "disco",
            "findlinestarts", "findlabels"] + _opcodes_all
 del _opcodes_all
 
-def dis(x=None, filename=None, source=None):
-    extent_map = ast_extents.create_extent_map(source)
-    source_lines = source.splitlines()
-
-    child_code = set()
-    for disline in disgen(x, extent_map):
-        if disline.code_obj:
-            child_code.add(disline.code_obj)
-        if disline.first and disline.offset > 0:
-            print('')
-        print(format_dis_line(disline, source_lines))
-
-    # recurse (TODO: how to avoid infinite loops?)
-    for c in child_code:
-        if c.co_filename == filename: # and c.co_name != '<genexpr>':
-            print
-            print 'Disassembling function', c.co_name
-            dis(c, filename, source)
-
 FN = "<super_dis code>"
 
-def get_bytecode_map(source):
+# the main event!
+def get_bytecode_map(source, verbose=False):
     source_lines = source.splitlines()
     module_code = compile(source, FN, "exec")
     
@@ -57,15 +39,24 @@ def get_bytecode_map(source):
         for disline in disgen(cod, extent_map):
             if disline.code_obj:
                 child_code.add(disline.code_obj)
+            if verbose:
+                if disline.first and disline.offset > 0:
+                    print('')
+                print(format_dis_line(disline, source_lines))
+
 
             key = (disline.lineno, disline.column, disline.offset)
 
-            assert key not in bytecode_map
+            if key in bytecode_map:
+                print "WARNING!", key, "already in bytecode_map"
             bytecode_map[key] = disline
 
         # recurse (TODO: how to avoid infinite loops?)
         for c in child_code:
             if c.co_filename == FN: # and c.co_name != '<genexpr>':
+                if verbose:
+                    print
+                    print 'Disassembling function', c.co_name
                 helper(c)
 
     helper(module_code)
@@ -361,9 +352,8 @@ def _test():
         f.close()
     else:
         fn = "<stdin>"
-    code = compile(source, fn, "exec")
     print 'Disassembling top-level module in', fn
-    dis(code, fn, source)
+    get_bytecode_map(source, verbose=True)
 
 if __name__ == "__main__":
     _test()

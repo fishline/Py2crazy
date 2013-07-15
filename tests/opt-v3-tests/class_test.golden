@@ -31,7 +31,9 @@ Disassembling top-level module in ./opt-v3-tests/class_test.txt
 
 Disassembling function Point
   1       0 LOAD_NAME            [43m[30mclass[39m[49m Point:
+WARNING! (1, 0, 0) already in bytecode_map
           3 STORE_NAME           [43m[30mclass[39m[49m Point:
+WARNING! (1, 0, 3) already in bytecode_map
 
   2       6 LOAD_CONST               [43m[30mdef[39m[49m __init__(self, x, y):
           9 MAKE_FUNCTION            [43m[30mdef[39m[49m __init__(self, x, y):

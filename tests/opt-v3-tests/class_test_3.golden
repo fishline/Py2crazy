@@ -46,7 +46,9 @@ Disassembling top-level module in ./opt-v3-tests/class_test_3.txt
 
 Disassembling function Staff601
   1       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:
+WARNING! (1, 0, 0) already in bytecode_map
           3 STORE_NAME           [43m[30mclass[39m[49m Staff601:
+WARNING! (1, 0, 3) already in bytecode_map
 
   2       6 LOAD_CONST               course = [43m[30m'6.01'[39m[49m
           9 STORE_NAME               [43m[30mcourse[39m[49m = '6.01'

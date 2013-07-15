@@ -27,7 +27,9 @@ Disassembling top-level module in ./opt-v3-tests/class_test_2.txt
 
 Disassembling function Outer
   1       0 LOAD_NAME            [43m[30mclass[39m[49m Outer():
+WARNING! (1, 0, 0) already in bytecode_map
           3 STORE_NAME           [43m[30mclass[39m[49m Outer():
+WARNING! (1, 0, 3) already in bytecode_map
 
   2       6 LOAD_LOCALS             [43m[30mpass[39m[49m
           7 RETURN_VALUE            [43m[30mpass[39m[49m
