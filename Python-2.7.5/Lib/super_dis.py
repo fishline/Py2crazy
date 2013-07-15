@@ -13,7 +13,7 @@ import inspect
 from opcode import *
 from opcode import __all__ as _opcodes_all
 
-__all__ = ["dis", "disassemble", "distb", "disco",
+__all__ = ["get_bytecode_map", "dis", "disassemble", "distb", "disco",
            "findlinestarts", "findlabels"] + _opcodes_all
 del _opcodes_all
 
@@ -31,10 +31,45 @@ def dis(x=None, filename=None, source=None):
 
     # recurse (TODO: how to avoid infinite loops?)
     for c in child_code:
-        if c.co_filename == filename and c.co_name != '<genexpr>':
+        if c.co_filename == filename: # and c.co_name != '<genexpr>':
             print
             print 'Disassembling function', c.co_name
             dis(c, filename, source)
+
+FN = "<super_dis code>"
+
+def get_bytecode_map(source):
+    source_lines = source.splitlines()
+    module_code = compile(source, FN, "exec")
+    
+    extent_map = ast_extents.create_extent_map(source)
+
+    # Key: (line number, column number, instruction offset)
+    #      this should be sufficient to pinpoint an exact bytecode
+    #      within a particular file. note that instruction offset by
+    #      itself isn't enough since multiple functions can be defined
+    #      within a file, each with their own offsets starting at 0.
+    # Value: DisLine object
+    bytecode_map = {}
+
+    def helper(cod):
+        child_code = set()
+        for disline in disgen(cod, extent_map):
+            if disline.code_obj:
+                child_code.add(disline.code_obj)
+
+            key = (disline.lineno, disline.column, disline.offset)
+
+            assert key not in bytecode_map
+            bytecode_map[key] = disline
+
+        # recurse (TODO: how to avoid infinite loops?)
+        for c in child_code:
+            if c.co_filename == FN: # and c.co_name != '<genexpr>':
+                helper(c)
+
+    helper(module_code)
+    return bytecode_map
 
 
 YELLOW_BG = '\033[43m'
@@ -79,6 +114,8 @@ def disgen(x, extent_map=None):
         )
 
 
+# Note that [start_col, start_col + extent] is the range to highlight,
+# and that column and start_col don't necessarily need to be identical
 DisLine = collections.namedtuple(
     'DisLine',
     "lineno column start_col extent first target offset opcode oparg argstr code_obj"

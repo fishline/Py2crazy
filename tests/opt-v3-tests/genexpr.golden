@@ -21,3 +21,14 @@ Disassembling top-level module in ./opt-v3-tests/genexpr.txt
     >>   43 POP_BLOCK                print([43m[30me[39m[49m)
     >>   44 LOAD_CONST               print([43m[30me[39m[49m)
          47 RETURN_VALUE             print([43m[30me[39m[49m)
+
+Disassembling function <genexpr>
+  2       0 LOAD_FAST            [43m[30mx[39m[49m = (i for i in range(10))
+    >>    3 FOR_ITER             [43m[30mx[39m[49m = (i for i in range(10))
+          6 STORE_FAST           x = (i for [43m[30mi[39m[49m in range(10))
+          9 LOAD_FAST            x = ([43m[30mi[39m[49m for i in range(10))
+         12 YIELD_VALUE          x = ([43m[30mi[39m[49m for i in range(10))
+         13 POP_TOP              x = ([43m[30mi[39m[49m for i in range(10))
+         14 JUMP_ABSOLUTE        x = ([43m[30mi[39m[49m for i in range(10))
+    >>   17 LOAD_CONST           x = ([43m[30mi[39m[49m for i in range(10))
+         20 RETURN_VALUE         x = ([43m[30mi[39m[49m for i in range(10))
