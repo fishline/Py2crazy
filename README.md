@@ -1,9 +1,7 @@
 Py2crazy
 ========
 
-Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging.
-
-I've implemented three main features:
+Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging:
 
 1. Each instruction in compiled Python bytecode now maps to a precise line number
 and range of column numbers corresponding to the source code snippet that produced that bytecode.
@@ -20,16 +18,14 @@ bytecode rather than each new executed line.
 I created Py2crazy to support finer-grained expression-level tracing
 in [Online Python Tutor](http://pythontutor.com). This [wiki
 page](https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/project-ideas.md#hack-cpython-to-enable-sub-expression-level-tracing)
-discusses some of the design rationale.
+discusses some of the design rationale. To illustrate,
 
-To illustrate:
+- Online Python Tutor with Py2crazy provides fine-grained
+<a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">expression-level stepping</a>,
 
-- Running Online Python Tutor with Py2crazy provides fine-grained
-<a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">expression-level stepping</a>.
-
-- In contrast, regular Python 2.7 provides only
+- while regular Python provides only
 <a href="http://pythontutor.com/visualize.html#code=def+foo()%3A%0A++return+True%0A%0Ax+%3D+3%0Ay+%3D+5%0A%0Aif+foo()+and+(x+%2B+y+%3E+7)%3A%0A++print+'YES'%0Aelse%3A%0A++print+'NO'&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">line-level stepping</a>
-like in an ordinary `pdb` style debugger.
+like in an ordinary debugger.
 
 
 ### Precise line and column info in bytecodes
@@ -41,7 +37,7 @@ Here's an illustration of the first (and most significant) feature. If you compi
     if (x + 5 > 7) and (y - 3 == 10):
         print 'You win'
 
-with regular Python 2.7.5 and disassemble it, you get roughly the following bytecode:
+with regular Python 2.7.5 and disassemble it (`python -m dis`), you get roughly the following bytecode:
 
 ![compiled with Python](screenshots/python-regular-example.png)
 
@@ -58,14 +54,14 @@ This level of detail makes it possible to create much more fine-grained tracing 
 ### How do you view line and column number info?
 
 Compile Py2crazy and then run the special
-"Super Disassembler" ([Python-2.7.5/Lib/super_dis.py](https://github.com/pgbovine/Py2crazy/blob/master/Python-2.7.5/Lib/super_dis.py))
-module on a Python source file:
+"Super Disassembler" module ([Python-2.7.5/Lib/super_dis.py](https://github.com/pgbovine/Py2crazy/blob/master/Python-2.7.5/Lib/super_dis.py))
+on a Python source file:
 
     Py2crazy/Python-2.7.5/python -m super_dis test.py
 
 Most terminals support colors, so you should be able to see the yellow highlights.
 
-Note that `super_dis.py` works only with Py2crazy, not with regular Python.
+(Note that `super_dis.py` works only with Py2crazy, not with regular Python.)
 
 
 ### How does Py2crazy debugger stepping differ from regular Python stepping?
@@ -74,7 +70,7 @@ Normally, the debugger (`pdb`) registers a tracing function into the
 regular CPython interpreter and steps through the target program roughly
 one line at a time.
 
-However, when run in Py2crazy, `pdb` steps roughly one bytecode
+However, when run in Py2crazy, `pdb` steps one bytecode
 instruction at a time, which provides much finer-grained tracing.
 
 To illustrate the difference, run `pdb` on a test file in both regular
@@ -98,7 +94,7 @@ Check out the Git repo and run
 
 to see diffs against a fresh Python 2.7.5 source distribution.
 
-Although you might find some ideas in Py2crazy to be useful, its design
+Caveat: Although you might find some ideas in Py2crazy to be useful, its design
 is ultimately driven by pedagogical goals, not by industrial-strength
 debugging goals. For instance, efficiency wasn't a major concern.
 
@@ -108,5 +104,6 @@ debugging goals. For instance, efficiency wasn't a major concern.
 Created on 2013-07-03 by [Philip Guo](http://www.pgbovine.net/)
 (philip@pgbovine.net)
 
-Special thanks to [Ned Batchelder](http://nedbatchelder.com/) for inspiring this project, and for providing technical guidance.
+Special thanks to [Ned Batchelder](http://nedbatchelder.com/) for inspiring this project,
+and for providing technical guidance.
 
