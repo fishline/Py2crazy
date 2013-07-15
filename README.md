@@ -45,11 +45,12 @@ with regular Python 2.7.5 and disassemble it (`python -m dis`), you get roughly 
 Note that each bytecode instruction maps to one line of source code.
 
 In contrast, if you compile this code with Py2crazy and disassemble, you can see that each bytecode
-maps to not only a line, but also a precise range of columns within that line (highlighted in yellow):
+maps not only to a line, but also to a precise range of columns within that line (highlighted in yellow):
 
 ![compiled with Py2crazy](screenshots/py2crazy-example.png)
 
-This level of detail makes it possible to create much more fine-grained tracing and debugging tools.
+This level of detail makes it possible to create much more fine-grained tracing and debugging tools,
+such as expression-level stepping for Online Python Tutor.
 
 
 ### How do you view line and column number info?
@@ -61,6 +62,8 @@ on a Python source file:
     Py2crazy/Python-2.7.5/python -m super_dis test.py
 
 Most terminals support colors, so you should be able to see the yellow highlights.
+
+To programmatically access this data, `import super_dis` and hook into the proper functions from your code.
 
 (Note that `super_dis.py` works only with Py2crazy, not with regular Python.)
 
