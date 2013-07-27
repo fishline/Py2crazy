@@ -91,6 +91,21 @@ frame_getcolno(PyFrameObject *f, void *closure)
     return PyInt_FromLong(PyFrame_GetColNumber(f));
 }
 
+static PyObject *
+frame_getvaluestack(PyFrameObject* f) {
+    // pgbovine - TODO: will this memory leak? hopefully not,
+    // since all other accessors seem to follow the same idiom
+    PyObject* lst = PyList_New(0);
+    if (f->f_stacktop != NULL) {
+        PyObject** p = NULL;
+        for (p = f->f_valuestack; p < f->f_stacktop; p++) {
+            PyList_Append(lst, *p);
+        }
+    }
+
+    return lst;
+}
+
 /* Setter for f_lineno - you can set f_lineno from within a trace function in
  * order to jump to a given line of code, subject to some restrictions.  Most
  * lines are OK to jump to because they don't make any assumptions about the
@@ -406,6 +421,9 @@ static PyGetSetDef frame_getsetlist[] = {
     /* pgbovine */
     {"f_colno",        (getter)frame_getcolno,
                     (setter)NULL /* don't let it be set */, NULL},
+    {"f_valuestack",(getter)frame_getvaluestack,
+                    (setter)NULL /* don't let it be set */, NULL},
+
     {"f_trace",         (getter)frame_gettrace, (setter)frame_settrace, NULL},
     {"f_restricted",(getter)frame_getrestricted,NULL, NULL},
     {"f_exc_traceback", (getter)frame_get_f_exc_traceback,
