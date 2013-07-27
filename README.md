@@ -13,6 +13,11 @@ code more closely.
 3. Debuggers now call the trace function at (roughly) each executed
 bytecode rather than each new executed line.
 
+4. The frame object now exposes a `f_valuestack` field, which is
+a list containing the current values on the expression stack used
+by the Python bytecode VM. This field allows debugging and tracing tools
+to inspect intermediate results of expression evaluation.
+
 
 ### Why would anyone do this?
 
