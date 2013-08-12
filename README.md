@@ -7,7 +7,7 @@ Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging:
 and range of column numbers corresponding to the source code snippet
 that produced that particular instruction.
 
-2. Peephole optimizations are disabled so that bytecodes match source
+2. Peephole optimizations and opcode prediction macros are disabled so that bytecodes match source
 code more closely.
 
 3. Debuggers now call the trace function at (roughly) each executed
@@ -92,11 +92,13 @@ Python and Py2crazy:
     Py2crazy/Python-2.7.5/python -m pdb test.py
 
 
-### Why disable peephole optimizations?
+### Why disable peephole optimizations and opcode prediction?
 
 To make the Python source code and compiled bytecode correspond more
 closely to one another, which helps in tracing and debugging
 applications.
+
+(See `Python-2.7.5/Python/ceval.c` for more details.)
 
 
 ### What did you change in CPython 2.7.5?
