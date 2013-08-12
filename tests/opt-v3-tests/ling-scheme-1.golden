@@ -12,6 +12,10 @@ Disassembling top-level module in ./opt-v3-tests/ling-scheme-1.txt
          25 LOAD_CONST           [43m[30mrepeat(lambda : 5, 5)[39m[49m
          28 RETURN_VALUE         [43m[30mrepeat(lambda : 5, 5)[39m[49m
 
+Disassembling function <lambda>
+  7       0 LOAD_CONST           repeat(lambda : [43m[30m5[39m[49m, 5)
+          3 RETURN_VALUE         repeat(lambda : [43m[30m5[39m[49m, 5)
+
 Disassembling function repeat
   2       0 LOAD_FAST              if [43m[30mn[39m[49m == 0:
           3 LOAD_CONST             if n == [43m[30m0[39m[49m:
@@ -35,7 +39,3 @@ Disassembling function repeat
          45 RETURN_VALUE             return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
     >>   46 LOAD_CONST               return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
          49 RETURN_VALUE             return [43m[30m[f()] + repeat(f, n - 1)[39m[49m
-
-Disassembling function <lambda>
-  7       0 LOAD_CONST           repeat(lambda : [43m[30m5[39m[49m, 5)
-          3 RETURN_VALUE         repeat(lambda : [43m[30m5[39m[49m, 5)

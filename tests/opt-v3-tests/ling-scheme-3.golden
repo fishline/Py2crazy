@@ -21,60 +21,6 @@ Disassembling top-level module in ./opt-v3-tests/ling-scheme-3.txt
          48 LOAD_CONST           [43m[30mresult[39m[49m = pairs([1, 2, 3])
          51 RETURN_VALUE         [43m[30mresult[39m[49m = pairs([1, 2, 3])
 
-Disassembling function append
-  8       0 LOAD_FAST              if [43m[30mxs[39m[49m == []:
-          3 BUILD_LIST             if xs == [43m[30m[[39m[49m]:
-          6 COMPARE_OP             if [43m[30mxs == [][39m[49m:
-          9 POP_JUMP_IF_FALSE      if [43m[30mxs == [][39m[49m:
-
-  9      12 LOAD_FAST                return [43m[30mys[39m[49m
-         15 RETURN_VALUE             return [43m[30mys[39m[49m
-         16 JUMP_FORWARD             return [43m[30mys[39m[49m
-
- 11 >>   19 LOAD_FAST                return [[43m[30mxs[39m[49m[0]] + append(xs[1:], ys)
-         22 LOAD_CONST               return [xs[[43m[30m0[39m[49m]] + append(xs[1:], ys)
-         25 BINARY_SUBSCR            return [[43m[30mxs[0][39m[49m] + append(xs[1:], ys)
-         26 BUILD_LIST               return [43m[30m[xs[0]][39m[49m + append(xs[1:], ys)
-         29 LOAD_GLOBAL              return [xs[0]] + [43m[30mappend[39m[49m(xs[1:], ys)
-         32 LOAD_FAST                return [xs[0]] + append([43m[30mxs[39m[49m[1:], ys)
-         35 LOAD_CONST               return [xs[0]] + append(xs[[43m[30m1[39m[49m:], ys)
-         38 SLICE+1                  return [xs[0]] + append(xs[[43m[30m1:[39m[49m], ys)
-         39 LOAD_FAST                return [xs[0]] + append(xs[1:], [43m[30mys[39m[49m)
-         42 CALL_FUNCTION            return [xs[0]] + [43m[30mappend(xs[1:], ys)[39m[49m
-         45 BINARY_ADD               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
-         46 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
-    >>   47 LOAD_CONST               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
-         50 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
-
-Disassembling function map
-  2       0 LOAD_FAST              if [43m[30mxs[39m[49m == []:
-          3 BUILD_LIST             if xs == [43m[30m[[39m[49m]:
-          6 COMPARE_OP             if [43m[30mxs == [][39m[49m:
-          9 POP_JUMP_IF_FALSE      if [43m[30mxs == [][39m[49m:
-
-  3      12 BUILD_LIST               return [43m[30m[[39m[49m]
-         15 RETURN_VALUE             return [43m[30m[[39m[49m]
-         16 JUMP_FORWARD             return [43m[30m[[39m[49m]
-
-  5 >>   19 LOAD_FAST                return [[43m[30mf[39m[49m(xs[0])] + list(map(f, xs[1:]))
-         22 LOAD_FAST                return [f([43m[30mxs[39m[49m[0])] + list(map(f, xs[1:]))
-         25 LOAD_CONST               return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
-         28 BINARY_SUBSCR            return [f([43m[30mxs[0][39m[49m)] + list(map(f, xs[1:]))
-         29 CALL_FUNCTION            return [[43m[30mf(xs[0])[39m[49m] + list(map(f, xs[1:]))
-         32 BUILD_LIST               return [43m[30m[f(xs[0])][39m[49m + list(map(f, xs[1:]))
-         35 LOAD_GLOBAL              return [f(xs[0])] + [43m[30mlist[39m[49m(map(f, xs[1:]))
-         38 LOAD_GLOBAL              return [f(xs[0])] + list([43m[30mmap[39m[49m(f, xs[1:]))
-         41 LOAD_FAST                return [f(xs[0])] + list(map([43m[30mf[39m[49m, xs[1:]))
-         44 LOAD_FAST                return [f(xs[0])] + list(map(f, [43m[30mxs[39m[49m[1:]))
-         47 LOAD_CONST               return [f(xs[0])] + list(map(f, xs[[43m[30m1[39m[49m:]))
-         50 SLICE+1                  return [f(xs[0])] + list(map(f, xs[[43m[30m1:[39m[49m]))
-         51 CALL_FUNCTION            return [f(xs[0])] + list([43m[30mmap(f, xs[1:])[39m[49m)
-         54 CALL_FUNCTION            return [f(xs[0])] + [43m[30mlist(map(f, xs[1:]))[39m[49m
-         57 BINARY_ADD               return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
-         58 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
-    >>   59 LOAD_CONST               return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
-         62 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
-
 Disassembling function pairs
  14       0 LOAD_DEREF             if [43m[30mxs[39m[49m == []:
           3 BUILD_LIST             if xs == [43m[30m[[39m[49m]:
@@ -123,3 +69,57 @@ Disassembling function <lambda>
           7 LOAD_FAST                return append(map(lambda x: [xs[0], [43m[30mx[39m[49m], xs[1:]), pairs(xs[1:]))
          10 BUILD_LIST               return append(map(lambda x: [43m[30m[xs[0], x][39m[49m, xs[1:]), pairs(xs[1:]))
          13 RETURN_VALUE             return append(map(lambda x: [43m[30m[xs[0], x][39m[49m, xs[1:]), pairs(xs[1:]))
+
+Disassembling function map
+  2       0 LOAD_FAST              if [43m[30mxs[39m[49m == []:
+          3 BUILD_LIST             if xs == [43m[30m[[39m[49m]:
+          6 COMPARE_OP             if [43m[30mxs == [][39m[49m:
+          9 POP_JUMP_IF_FALSE      if [43m[30mxs == [][39m[49m:
+
+  3      12 BUILD_LIST               return [43m[30m[[39m[49m]
+         15 RETURN_VALUE             return [43m[30m[[39m[49m]
+         16 JUMP_FORWARD             return [43m[30m[[39m[49m]
+
+  5 >>   19 LOAD_FAST                return [[43m[30mf[39m[49m(xs[0])] + list(map(f, xs[1:]))
+         22 LOAD_FAST                return [f([43m[30mxs[39m[49m[0])] + list(map(f, xs[1:]))
+         25 LOAD_CONST               return [f(xs[[43m[30m0[39m[49m])] + list(map(f, xs[1:]))
+         28 BINARY_SUBSCR            return [f([43m[30mxs[0][39m[49m)] + list(map(f, xs[1:]))
+         29 CALL_FUNCTION            return [[43m[30mf(xs[0])[39m[49m] + list(map(f, xs[1:]))
+         32 BUILD_LIST               return [43m[30m[f(xs[0])][39m[49m + list(map(f, xs[1:]))
+         35 LOAD_GLOBAL              return [f(xs[0])] + [43m[30mlist[39m[49m(map(f, xs[1:]))
+         38 LOAD_GLOBAL              return [f(xs[0])] + list([43m[30mmap[39m[49m(f, xs[1:]))
+         41 LOAD_FAST                return [f(xs[0])] + list(map([43m[30mf[39m[49m, xs[1:]))
+         44 LOAD_FAST                return [f(xs[0])] + list(map(f, [43m[30mxs[39m[49m[1:]))
+         47 LOAD_CONST               return [f(xs[0])] + list(map(f, xs[[43m[30m1[39m[49m:]))
+         50 SLICE+1                  return [f(xs[0])] + list(map(f, xs[[43m[30m1:[39m[49m]))
+         51 CALL_FUNCTION            return [f(xs[0])] + list([43m[30mmap(f, xs[1:])[39m[49m)
+         54 CALL_FUNCTION            return [f(xs[0])] + [43m[30mlist(map(f, xs[1:]))[39m[49m
+         57 BINARY_ADD               return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
+         58 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
+    >>   59 LOAD_CONST               return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
+         62 RETURN_VALUE             return [43m[30m[f(xs[0])] + list(map(f, xs[1:]))[39m[49m
+
+Disassembling function append
+  8       0 LOAD_FAST              if [43m[30mxs[39m[49m == []:
+          3 BUILD_LIST             if xs == [43m[30m[[39m[49m]:
+          6 COMPARE_OP             if [43m[30mxs == [][39m[49m:
+          9 POP_JUMP_IF_FALSE      if [43m[30mxs == [][39m[49m:
+
+  9      12 LOAD_FAST                return [43m[30mys[39m[49m
+         15 RETURN_VALUE             return [43m[30mys[39m[49m
+         16 JUMP_FORWARD             return [43m[30mys[39m[49m
+
+ 11 >>   19 LOAD_FAST                return [[43m[30mxs[39m[49m[0]] + append(xs[1:], ys)
+         22 LOAD_CONST               return [xs[[43m[30m0[39m[49m]] + append(xs[1:], ys)
+         25 BINARY_SUBSCR            return [[43m[30mxs[0][39m[49m] + append(xs[1:], ys)
+         26 BUILD_LIST               return [43m[30m[xs[0]][39m[49m + append(xs[1:], ys)
+         29 LOAD_GLOBAL              return [xs[0]] + [43m[30mappend[39m[49m(xs[1:], ys)
+         32 LOAD_FAST                return [xs[0]] + append([43m[30mxs[39m[49m[1:], ys)
+         35 LOAD_CONST               return [xs[0]] + append(xs[[43m[30m1[39m[49m:], ys)
+         38 SLICE+1                  return [xs[0]] + append(xs[[43m[30m1:[39m[49m], ys)
+         39 LOAD_FAST                return [xs[0]] + append(xs[1:], [43m[30mys[39m[49m)
+         42 CALL_FUNCTION            return [xs[0]] + [43m[30mappend(xs[1:], ys)[39m[49m
+         45 BINARY_ADD               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+         46 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+    >>   47 LOAD_CONST               return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m
+         50 RETURN_VALUE             return [43m[30m[xs[0]] + append(xs[1:], ys)[39m[49m

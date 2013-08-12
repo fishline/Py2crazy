@@ -52,14 +52,14 @@ Disassembling top-level module in ./opt-v3-tests/varargs.txt
         124 LOAD_CONST           [43m[30mf3(1, 2, 3, 4, name='Bob', age=38)[39m[49m
         127 RETURN_VALUE         [43m[30mf3(1, 2, 3, 4, name='Bob', age=38)[39m[49m
 
+Disassembling function f2
+  9       0 LOAD_CONST               [43m[30mpass[39m[49m
+          3 RETURN_VALUE             [43m[30mpass[39m[49m
+
 Disassembling function f1
   3       0 LOAD_CONST               [43m[30mpass[39m[49m
           3 RETURN_VALUE             [43m[30mpass[39m[49m
 
 Disassembling function f3
  14       0 LOAD_CONST               [43m[30mpass[39m[49m
-          3 RETURN_VALUE             [43m[30mpass[39m[49m
-
-Disassembling function f2
-  9       0 LOAD_CONST               [43m[30mpass[39m[49m
           3 RETURN_VALUE             [43m[30mpass[39m[49m

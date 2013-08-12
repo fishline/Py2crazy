@@ -84,13 +84,6 @@ Disassembling top-level module in ./opt-v3-tests/aliasing.txt
         186 LOAD_CONST           [43m[30mfoo(z)[39m[49m
         189 RETURN_VALUE         [43m[30mfoo(z)[39m[49m
 
-Disassembling function bar
- 22       0 LOAD_FAST                print([43m[30mmyLst[39m[49m)
-          3 PRINT_ITEM               print([43m[30mmyLst[39m[49m)
-          4 PRINT_NEWLINE            print([43m[30mmyLst[39m[49m)
-          5 LOAD_CONST               print([43m[30mmyLst[39m[49m)
-          8 RETURN_VALUE             print([43m[30mmyLst[39m[49m)
-
 Disassembling function foo
  18       0 LOAD_FAST                [43m[30mlst[39m[49m.append("hello")
           3 LOAD_ATTR                [43m[30mlst.append[39m[49m("hello")
@@ -104,3 +97,10 @@ Disassembling function foo
          22 POP_TOP                  [43m[30mbar(lst)[39m[49m
          23 LOAD_CONST               [43m[30mbar(lst)[39m[49m
          26 RETURN_VALUE             [43m[30mbar(lst)[39m[49m
+
+Disassembling function bar
+ 22       0 LOAD_FAST                print([43m[30mmyLst[39m[49m)
+          3 PRINT_ITEM               print([43m[30mmyLst[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30mmyLst[39m[49m)
+          5 LOAD_CONST               print([43m[30mmyLst[39m[49m)
+          8 RETURN_VALUE             print([43m[30mmyLst[39m[49m)

@@ -11,17 +11,6 @@ Disassembling top-level module in ./opt-v3-tests/john-lambda-lambda-mini.txt
          22 LOAD_CONST           [43m[30ma(lambda a: (lambda b: a)[39m[49m)
          25 RETURN_VALUE         [43m[30ma(lambda a: (lambda b: a)[39m[49m)
 
-Disassembling function <lambda>
-  5       0 LOAD_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
-          3 BUILD_TUPLE          a(lambda a: ([43m[30mlambda b: a[39m[49m))
-          6 LOAD_CONST           a(lambda a: ([43m[30mlambda b: a[39m[49m))
-          9 MAKE_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
-         12 RETURN_VALUE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
-
-Disassembling function <lambda>
-  5       0 LOAD_DEREF           a(lambda a: (lambda b: [43m[30ma[39m[49m))
-          3 RETURN_VALUE         a(lambda a: (lambda b: [43m[30ma[39m[49m))
-
 Disassembling function a
   2       0 LOAD_FAST                a = [43m[30mb[39m[49m(3)
           3 LOAD_CONST               a = b([43m[30m3[39m[49m)
@@ -34,3 +23,14 @@ Disassembling function a
          21 POP_TOP                  [43m[30ma(100)[39m[49m
          22 LOAD_CONST               [43m[30ma(100)[39m[49m
          25 RETURN_VALUE             [43m[30ma(100)[39m[49m
+
+Disassembling function <lambda>
+  5       0 LOAD_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
+          3 BUILD_TUPLE          a(lambda a: ([43m[30mlambda b: a[39m[49m))
+          6 LOAD_CONST           a(lambda a: ([43m[30mlambda b: a[39m[49m))
+          9 MAKE_CLOSURE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
+         12 RETURN_VALUE         a(lambda a: ([43m[30mlambda b: a[39m[49m))
+
+Disassembling function <lambda>
+  5       0 LOAD_DEREF           a(lambda a: (lambda b: [43m[30ma[39m[49m))
+          3 RETURN_VALUE         a(lambda a: (lambda b: [43m[30ma[39m[49m))

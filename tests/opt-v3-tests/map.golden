@@ -22,6 +22,20 @@ Disassembling top-level module in ./opt-v3-tests/map.txt
          51 LOAD_CONST           [43m[30moutput[39m[49m = halveElements(input)
          54 RETURN_VALUE         [43m[30moutput[39m[49m = halveElements(input)
 
+Disassembling function halveElements
+ 12       0 LOAD_GLOBAL              return [43m[30mmap[39m[49m(lambda x: x / 2.0, lst)
+          3 LOAD_CONST               return map([43m[30mlambda x: x / 2.0[39m[49m, lst)
+          6 MAKE_FUNCTION            return map([43m[30mlambda x: x / 2.0[39m[49m, lst)
+          9 LOAD_FAST                return map(lambda x: x / 2.0, [43m[30mlst[39m[49m)
+         12 CALL_FUNCTION            return [43m[30mmap(lambda x: x / 2.0, lst)[39m[49m
+         15 RETURN_VALUE             return [43m[30mmap(lambda x: x / 2.0, lst)[39m[49m
+
+Disassembling function <lambda>
+ 12       0 LOAD_FAST                return map(lambda x: [43m[30mx[39m[49m / 2.0, lst)
+          3 LOAD_CONST               return map(lambda x: x / [43m[30m2.0[39m[49m, lst)
+          6 BINARY_DIVIDE            return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)
+          7 RETURN_VALUE             return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)
+
 Disassembling function map
   6       0 LOAD_FAST                if [43m[30mlst[39m[49m == []:
           3 BUILD_LIST               if lst == [43m[30m[[39m[49m]:
@@ -48,17 +62,3 @@ Disassembling function map
          52 RETURN_VALUE                 return [43m[30m[func(lst[0])] + map(func, lst[1:])[39m[49m
     >>   53 LOAD_CONST                   return [43m[30m[func(lst[0])] + map(func, lst[1:])[39m[49m
          56 RETURN_VALUE                 return [43m[30m[func(lst[0])] + map(func, lst[1:])[39m[49m
-
-Disassembling function halveElements
- 12       0 LOAD_GLOBAL              return [43m[30mmap[39m[49m(lambda x: x / 2.0, lst)
-          3 LOAD_CONST               return map([43m[30mlambda x: x / 2.0[39m[49m, lst)
-          6 MAKE_FUNCTION            return map([43m[30mlambda x: x / 2.0[39m[49m, lst)
-          9 LOAD_FAST                return map(lambda x: x / 2.0, [43m[30mlst[39m[49m)
-         12 CALL_FUNCTION            return [43m[30mmap(lambda x: x / 2.0, lst)[39m[49m
-         15 RETURN_VALUE             return [43m[30mmap(lambda x: x / 2.0, lst)[39m[49m
-
-Disassembling function <lambda>
- 12       0 LOAD_FAST                return map(lambda x: [43m[30mx[39m[49m / 2.0, lst)
-          3 LOAD_CONST               return map(lambda x: x / [43m[30m2.0[39m[49m, lst)
-          6 BINARY_DIVIDE            return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)
-          7 RETURN_VALUE             return map(lambda x: [43m[30mx / 2.0[39m[49m, lst)

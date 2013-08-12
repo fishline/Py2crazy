@@ -14,13 +14,6 @@ Disassembling top-level module in ./opt-v3-tests/happy.txt
          28 LOAD_CONST           [43m[30msing("Fred")[39m[49m
          31 RETURN_VALUE         [43m[30msing("Fred")[39m[49m
 
-Disassembling function happy
-  3       0 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
-          3 PRINT_ITEM               print([43m[30m"Happy Birthday to you!"[39m[49m)
-          4 PRINT_NEWLINE            print([43m[30m"Happy Birthday to you!"[39m[49m)
-          5 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
-          8 RETURN_VALUE             print([43m[30m"Happy Birthday to you!"[39m[49m)
-
 Disassembling function sing
   6       0 LOAD_GLOBAL              [43m[30mhappy[39m[49m()
           3 CALL_FUNCTION            [43m[30mhappy()[39m[49m
@@ -43,3 +36,10 @@ Disassembling function sing
          33 POP_TOP                  [43m[30mhappy()[39m[49m
          34 LOAD_CONST               [43m[30mhappy()[39m[49m
          37 RETURN_VALUE             [43m[30mhappy()[39m[49m
+
+Disassembling function happy
+  3       0 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          3 PRINT_ITEM               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30m"Happy Birthday to you!"[39m[49m)
+          5 LOAD_CONST               print([43m[30m"Happy Birthday to you!"[39m[49m)
+          8 RETURN_VALUE             print([43m[30m"Happy Birthday to you!"[39m[49m)

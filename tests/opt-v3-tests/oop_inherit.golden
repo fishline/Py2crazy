@@ -24,50 +24,6 @@ Disassembling top-level module in ./opt-v3-tests/oop_inherit.txt
          56 LOAD_CONST           [43m[30mpat[39m[49m = Prof601('Pat', 60)
          59 RETURN_VALUE         [43m[30mpat[39m[49m = Prof601('Pat', 60)
 
-Disassembling function Prof601
- 13       0 LOAD_NAME            [43m[30mclass[39m[49m Prof601(Staff601):
-          3 STORE_NAME           [43m[30mclass[39m[49m Prof601(Staff601):
-
- 14       6 LOAD_CONST               salary = [43m[30m100000[39m[49m
-          9 STORE_NAME               [43m[30msalary[39m[49m = 100000
-
- 16      12 LOAD_CONST               [43m[30mdef[39m[49m __init__(self, name, age):
-         15 MAKE_FUNCTION            [43m[30mdef[39m[49m __init__(self, name, age):
-         18 STORE_NAME               [43m[30mdef[39m[49m __init__(self, name, age):
-
- 20      21 LOAD_CONST               [43m[30mdef[39m[49m salutation(self):
-         24 MAKE_FUNCTION            [43m[30mdef[39m[49m salutation(self):
-         27 STORE_NAME               [43m[30mdef[39m[49m salutation(self):
-         30 LOAD_LOCALS              [43m[30mdef[39m[49m salutation(self):
-         31 RETURN_VALUE             [43m[30mdef[39m[49m salutation(self):
-
-Disassembling function salutation
- 21       0 LOAD_FAST                    return [43m[30mself[39m[49m.role + ' ' + self.name
-          3 LOAD_ATTR                    return [43m[30mself.role[39m[49m + ' ' + self.name
-          6 LOAD_CONST                   return self.role + [43m[30m' '[39m[49m + self.name
-          9 BINARY_ADD                   return [43m[30mself.role + ' '[39m[49m + self.name
-         10 LOAD_FAST                    return self.role + ' ' + [43m[30mself[39m[49m.name
-         13 LOAD_ATTR                    return self.role + ' ' + [43m[30mself.name[39m[49m
-         16 BINARY_ADD                   return [43m[30mself.role + ' ' + self.name[39m[49m
-         17 RETURN_VALUE                 return [43m[30mself.role + ' ' + self.name[39m[49m
-
-Disassembling function __init__
- 17       0 LOAD_FAST                    self.name = [43m[30mname[39m[49m
-          3 LOAD_FAST                    [43m[30mself[39m[49m.name = name
-          6 STORE_ATTR                   [43m[30mself.name[39m[49m = name
-
- 18       9 LOAD_FAST                    [43m[30mself[39m[49m.giveRaise((age - 18) * 0.03)
-         12 LOAD_ATTR                    [43m[30mself.giveRaise[39m[49m((age - 18) * 0.03)
-         15 LOAD_FAST                    self.giveRaise(([43m[30mage[39m[49m - 18) * 0.03)
-         18 LOAD_CONST                   self.giveRaise((age - [43m[30m18[39m[49m) * 0.03)
-         21 BINARY_SUBTRACT              self.giveRaise(([43m[30mage - 18[39m[49m) * 0.03)
-         22 LOAD_CONST                   self.giveRaise((age - 18) * [43m[30m0.03[39m[49m)
-         25 BINARY_MULTIPLY              self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
-         26 CALL_FUNCTION                [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
-         29 POP_TOP                      [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
-         30 LOAD_CONST                   [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
-         33 RETURN_VALUE                 [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
-
 Disassembling function Staff601
   5       0 LOAD_NAME            [43m[30mclass[39m[49m Staff601:
           3 STORE_NAME           [43m[30mclass[39m[49m Staff601:
@@ -99,3 +55,47 @@ Disassembling function giveRaise
          20 STORE_ATTR                   [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage
          23 LOAD_CONST                   [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage
          26 RETURN_VALUE                 [43m[30mself.salary[39m[49m = self.salary + self.salary * percentage
+
+Disassembling function Prof601
+ 13       0 LOAD_NAME            [43m[30mclass[39m[49m Prof601(Staff601):
+          3 STORE_NAME           [43m[30mclass[39m[49m Prof601(Staff601):
+
+ 14       6 LOAD_CONST               salary = [43m[30m100000[39m[49m
+          9 STORE_NAME               [43m[30msalary[39m[49m = 100000
+
+ 16      12 LOAD_CONST               [43m[30mdef[39m[49m __init__(self, name, age):
+         15 MAKE_FUNCTION            [43m[30mdef[39m[49m __init__(self, name, age):
+         18 STORE_NAME               [43m[30mdef[39m[49m __init__(self, name, age):
+
+ 20      21 LOAD_CONST               [43m[30mdef[39m[49m salutation(self):
+         24 MAKE_FUNCTION            [43m[30mdef[39m[49m salutation(self):
+         27 STORE_NAME               [43m[30mdef[39m[49m salutation(self):
+         30 LOAD_LOCALS              [43m[30mdef[39m[49m salutation(self):
+         31 RETURN_VALUE             [43m[30mdef[39m[49m salutation(self):
+
+Disassembling function __init__
+ 17       0 LOAD_FAST                    self.name = [43m[30mname[39m[49m
+          3 LOAD_FAST                    [43m[30mself[39m[49m.name = name
+          6 STORE_ATTR                   [43m[30mself.name[39m[49m = name
+
+ 18       9 LOAD_FAST                    [43m[30mself[39m[49m.giveRaise((age - 18) * 0.03)
+         12 LOAD_ATTR                    [43m[30mself.giveRaise[39m[49m((age - 18) * 0.03)
+         15 LOAD_FAST                    self.giveRaise(([43m[30mage[39m[49m - 18) * 0.03)
+         18 LOAD_CONST                   self.giveRaise((age - [43m[30m18[39m[49m) * 0.03)
+         21 BINARY_SUBTRACT              self.giveRaise(([43m[30mage - 18[39m[49m) * 0.03)
+         22 LOAD_CONST                   self.giveRaise((age - 18) * [43m[30m0.03[39m[49m)
+         25 BINARY_MULTIPLY              self.giveRaise(([43m[30mage - 18) * 0.03[39m[49m)
+         26 CALL_FUNCTION                [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         29 POP_TOP                      [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         30 LOAD_CONST                   [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+         33 RETURN_VALUE                 [43m[30mself.giveRaise((age - 18) * 0.03)[39m[49m
+
+Disassembling function salutation
+ 21       0 LOAD_FAST                    return [43m[30mself[39m[49m.role + ' ' + self.name
+          3 LOAD_ATTR                    return [43m[30mself.role[39m[49m + ' ' + self.name
+          6 LOAD_CONST                   return self.role + [43m[30m' '[39m[49m + self.name
+          9 BINARY_ADD                   return [43m[30mself.role + ' '[39m[49m + self.name
+         10 LOAD_FAST                    return self.role + ' ' + [43m[30mself[39m[49m.name
+         13 LOAD_ATTR                    return self.role + ' ' + [43m[30mself.name[39m[49m
+         16 BINARY_ADD                   return [43m[30mself.role + ' ' + self.name[39m[49m
+         17 RETURN_VALUE                 return [43m[30mself.role + ' ' + self.name[39m[49m

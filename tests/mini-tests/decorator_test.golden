@@ -15,13 +15,13 @@ Disassembling top-level module in ./mini-tests/decorator_test.txt
          36 LOAD_CONST           @[43m[30mfieldnames.setter[39m[49m
          39 RETURN_VALUE         @[43m[30mfieldnames.setter[39m[49m
 
-Disassembling function name
-  5       0 LOAD_CONST               [43m[30mpass[39m[49m
-          3 RETURN_VALUE             [43m[30mpass[39m[49m
-
 Disassembling function fieldnames
  10       0 LOAD_FAST                self._fieldnames = [43m[30mvalue[39m[49m
           3 LOAD_FAST                [43m[30mself[39m[49m._fieldnames = value
           6 STORE_ATTR               [43m[30mself._fieldnames[39m[49m = value
           9 LOAD_CONST               [43m[30mself._fieldnames[39m[49m = value
          12 RETURN_VALUE             [43m[30mself._fieldnames[39m[49m = value
+
+Disassembling function name
+  5       0 LOAD_CONST               [43m[30mpass[39m[49m
+          3 RETURN_VALUE             [43m[30mpass[39m[49m

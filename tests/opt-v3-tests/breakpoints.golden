@@ -84,13 +84,6 @@ Disassembling top-level module in ./opt-v3-tests/breakpoints.txt
         186 LOAD_CONST           [43m[30mfoo(z)[39m[49m
         189 RETURN_VALUE         [43m[30mfoo(z)[39m[49m
 
-Disassembling function bar
- 24       0 LOAD_FAST                print([43m[30mmyLst[39m[49m) #break
-          3 PRINT_ITEM               print([43m[30mmyLst[39m[49m) #break
-          4 PRINT_NEWLINE            print([43m[30mmyLst[39m[49m) #break
-          5 LOAD_CONST               print([43m[30mmyLst[39m[49m) #break
-          8 RETURN_VALUE             print([43m[30mmyLst[39m[49m) #break
-
 Disassembling function foo
  20       0 LOAD_FAST                [43m[30mlst[39m[49m.append("hello") #break
           3 LOAD_ATTR                [43m[30mlst.append[39m[49m("hello") #break
@@ -104,3 +97,10 @@ Disassembling function foo
          22 POP_TOP                  [43m[30mbar(lst)[39m[49m
          23 LOAD_CONST               [43m[30mbar(lst)[39m[49m
          26 RETURN_VALUE             [43m[30mbar(lst)[39m[49m
+
+Disassembling function bar
+ 24       0 LOAD_FAST                print([43m[30mmyLst[39m[49m) #break
+          3 PRINT_ITEM               print([43m[30mmyLst[39m[49m) #break
+          4 PRINT_NEWLINE            print([43m[30mmyLst[39m[49m) #break
+          5 LOAD_CONST               print([43m[30mmyLst[39m[49m) #break
+          8 RETURN_VALUE             print([43m[30mmyLst[39m[49m) #break

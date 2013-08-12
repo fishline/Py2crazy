@@ -36,6 +36,17 @@ Disassembling top-level module in ./opt-v3-tests/two_funcs.txt
          74 LOAD_CONST           print([43m[30mdouble_add(x, y, z)[39m[49m)
          77 RETURN_VALUE         print([43m[30mdouble_add(x, y, z)[39m[49m)
 
+Disassembling function add
+  2       0 LOAD_FAST              d = [43m[30ma[39m[49m + b
+          3 LOAD_FAST              d = a + [43m[30mb[39m[49m
+          6 BINARY_ADD             d = [43m[30ma + b[39m[49m
+          7 STORE_FAST             [43m[30md[39m[49m = a + b
+
+  3      10 LOAD_FAST              return [43m[30mc[39m[49m + d
+         13 LOAD_FAST              return c + [43m[30md[39m[49m
+         16 BINARY_ADD             return [43m[30mc + d[39m[49m
+         17 RETURN_VALUE           return [43m[30mc + d[39m[49m
+
 Disassembling function double_add
   6       0 LOAD_GLOBAL            x = [43m[30madd[39m[49m(a, b, c)
           3 LOAD_FAST              x = add([43m[30ma[39m[49m, b, c)
@@ -55,14 +66,3 @@ Disassembling function double_add
          39 LOAD_FAST              return x + [43m[30my[39m[49m
          42 BINARY_ADD             return [43m[30mx + y[39m[49m
          43 RETURN_VALUE           return [43m[30mx + y[39m[49m
-
-Disassembling function add
-  2       0 LOAD_FAST              d = [43m[30ma[39m[49m + b
-          3 LOAD_FAST              d = a + [43m[30mb[39m[49m
-          6 BINARY_ADD             d = [43m[30ma + b[39m[49m
-          7 STORE_FAST             [43m[30md[39m[49m = a + b
-
-  3      10 LOAD_FAST              return [43m[30mc[39m[49m + d
-         13 LOAD_FAST              return c + [43m[30md[39m[49m
-         16 BINARY_ADD             return [43m[30mc + d[39m[49m
-         17 RETURN_VALUE           return [43m[30mc + d[39m[49m

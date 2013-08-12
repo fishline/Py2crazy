@@ -18,6 +18,13 @@ Disassembling top-level module in ./opt-v3-tests/callback-test.txt
          37 LOAD_CONST           [43m[30mfoo()[39m[49m
          40 RETURN_VALUE         [43m[30mfoo()[39m[49m
 
+Disassembling function bar
+ 17       0 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          3 PRINT_ITEM               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          4 PRINT_NEWLINE            print([43m[30m"I'm in a bar!!!"[39m[49m)
+          5 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
+          8 RETURN_VALUE             print([43m[30m"I'm in a bar!!!"[39m[49m)
+
 Disassembling function foo
  14       0 LOAD_GLOBAL            [43m[30mcallback_module[39m[49m.callback_func(bar)
           3 LOAD_ATTR              [43m[30mcallback_module.callback_func[39m[49m(bar)
@@ -26,10 +33,3 @@ Disassembling function foo
          12 POP_TOP                [43m[30mcallback_module.callback_func(bar)[39m[49m
          13 LOAD_CONST             [43m[30mcallback_module.callback_func(bar)[39m[49m
          16 RETURN_VALUE           [43m[30mcallback_module.callback_func(bar)[39m[49m
-
-Disassembling function bar
- 17       0 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
-          3 PRINT_ITEM               print([43m[30m"I'm in a bar!!!"[39m[49m)
-          4 PRINT_NEWLINE            print([43m[30m"I'm in a bar!!!"[39m[49m)
-          5 LOAD_CONST               print([43m[30m"I'm in a bar!!!"[39m[49m)
-          8 RETURN_VALUE             print([43m[30m"I'm in a bar!!!"[39m[49m)

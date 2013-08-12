@@ -23,17 +23,6 @@ Disassembling top-level module in ./opt-v3-tests/generator_test.txt
          53 RETURN_VALUE         [43m[30mz[39m[49m = (e for e in range(10))
 
 Disassembling function <genexpr>
-  3       0 LOAD_FAST            [43m[30mz[39m[49m = (e for e in range(10))
-    >>    3 FOR_ITER             [43m[30mz[39m[49m = (e for e in range(10))
-          6 STORE_FAST           z = (e for [43m[30me[39m[49m in range(10))
-          9 LOAD_FAST            z = ([43m[30me[39m[49m for e in range(10))
-         12 YIELD_VALUE          z = ([43m[30me[39m[49m for e in range(10))
-         13 POP_TOP              z = ([43m[30me[39m[49m for e in range(10))
-         14 JUMP_ABSOLUTE        z = ([43m[30me[39m[49m for e in range(10))
-    >>   17 LOAD_CONST           z = ([43m[30me[39m[49m for e in range(10))
-         20 RETURN_VALUE         z = ([43m[30me[39m[49m for e in range(10))
-
-Disassembling function <genexpr>
   1       0 LOAD_FAST            [43m[30mx[39m[49m = (e for e in range(10))
     >>    3 FOR_ITER             [43m[30mx[39m[49m = (e for e in range(10))
           6 STORE_FAST           x = (e for [43m[30me[39m[49m in range(10))
@@ -43,3 +32,14 @@ Disassembling function <genexpr>
          14 JUMP_ABSOLUTE        x = ([43m[30me[39m[49m for e in range(10))
     >>   17 LOAD_CONST           x = ([43m[30me[39m[49m for e in range(10))
          20 RETURN_VALUE         x = ([43m[30me[39m[49m for e in range(10))
+
+Disassembling function <genexpr>
+  3       0 LOAD_FAST            [43m[30mz[39m[49m = (e for e in range(10))
+    >>    3 FOR_ITER             [43m[30mz[39m[49m = (e for e in range(10))
+          6 STORE_FAST           z = (e for [43m[30me[39m[49m in range(10))
+          9 LOAD_FAST            z = ([43m[30me[39m[49m for e in range(10))
+         12 YIELD_VALUE          z = ([43m[30me[39m[49m for e in range(10))
+         13 POP_TOP              z = ([43m[30me[39m[49m for e in range(10))
+         14 JUMP_ABSOLUTE        z = ([43m[30me[39m[49m for e in range(10))
+    >>   17 LOAD_CONST           z = ([43m[30me[39m[49m for e in range(10))
+         20 RETURN_VALUE         z = ([43m[30me[39m[49m for e in range(10))

@@ -41,23 +41,6 @@ Disassembling function sqrt
          69 CALL_FUNCTION            return [43m[30msqrt_iter(1.0)[39m[49m
          72 RETURN_VALUE             return [43m[30msqrt_iter(1.0)[39m[49m
 
-Disassembling function improve
- 12       0 LOAD_DEREF                   return [43m[30maverage[39m[49m(guess, x / guess)
-          3 LOAD_FAST                    return average([43m[30mguess[39m[49m, x / guess)
-          6 LOAD_DEREF                   return average(guess, [43m[30mx[39m[49m / guess)
-          9 LOAD_FAST                    return average(guess, x / [43m[30mguess[39m[49m)
-         12 BINARY_DIVIDE                return average(guess, [43m[30mx / guess[39m[49m)
-         13 CALL_FUNCTION                return [43m[30maverage(guess, x / guess)[39m[49m
-         16 RETURN_VALUE                 return [43m[30maverage(guess, x / guess)[39m[49m
-
-Disassembling function average
-  6       0 LOAD_FAST                    return ([43m[30ma[39m[49m + b) / 2.0
-          3 LOAD_FAST                    return (a + [43m[30mb[39m[49m) / 2.0
-          6 BINARY_ADD                   return ([43m[30ma + b[39m[49m) / 2.0
-          7 LOAD_CONST                   return (a + b) / [43m[30m2.0[39m[49m
-         10 BINARY_DIVIDE                return ([43m[30ma + b) / 2.0[39m[49m
-         11 RETURN_VALUE                 return ([43m[30ma + b) / 2.0[39m[49m
-
 Disassembling function is_good_enough
   9       0 LOAD_GLOBAL                  return ([43m[30mabs[39m[49m((guess * guess) - x) < 0.001)
           3 LOAD_FAST                    return (abs(([43m[30mguess[39m[49m * guess) - x) < 0.001)
@@ -88,3 +71,20 @@ Disassembling function sqrt_iter
          34 RETURN_VALUE                     return [43m[30msqrt_iter(improve(guess))[39m[49m
     >>   35 LOAD_CONST                       return [43m[30msqrt_iter(improve(guess))[39m[49m
          38 RETURN_VALUE                     return [43m[30msqrt_iter(improve(guess))[39m[49m
+
+Disassembling function average
+  6       0 LOAD_FAST                    return ([43m[30ma[39m[49m + b) / 2.0
+          3 LOAD_FAST                    return (a + [43m[30mb[39m[49m) / 2.0
+          6 BINARY_ADD                   return ([43m[30ma + b[39m[49m) / 2.0
+          7 LOAD_CONST                   return (a + b) / [43m[30m2.0[39m[49m
+         10 BINARY_DIVIDE                return ([43m[30ma + b) / 2.0[39m[49m
+         11 RETURN_VALUE                 return ([43m[30ma + b) / 2.0[39m[49m
+
+Disassembling function improve
+ 12       0 LOAD_DEREF                   return [43m[30maverage[39m[49m(guess, x / guess)
+          3 LOAD_FAST                    return average([43m[30mguess[39m[49m, x / guess)
+          6 LOAD_DEREF                   return average(guess, [43m[30mx[39m[49m / guess)
+          9 LOAD_FAST                    return average(guess, x / [43m[30mguess[39m[49m)
+         12 BINARY_DIVIDE                return average(guess, [43m[30mx / guess[39m[49m)
+         13 CALL_FUNCTION                return [43m[30maverage(guess, x / guess)[39m[49m
+         16 RETURN_VALUE                 return [43m[30maverage(guess, x / guess)[39m[49m
