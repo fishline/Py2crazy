@@ -1,19 +1,22 @@
 Py2crazy
 ========
 
-Py2crazy is CPython 2.7.5 hacked to support finer-grained tracing and debugging:
+Py2crazy is a modified version of the official Python interpreter
+(CPython 2.7.5) that supports finer-grained tracing and debugging.
 
-1. Each instruction in Python bytecode now maps to a precise line number
-and range of column numbers corresponding to the source code snippet
-that produced that particular instruction.
+Py2crazy implements the following four features:
 
-2. Peephole optimizations and opcode prediction macros are disabled so that bytecodes match source
-code more closely.
+1. Each Python bytecode instruction maps to a precise range
+of line and column numbers corresponding to the source code expression
+that compiled to that instruction.
 
-3. Debuggers now call the trace function at (roughly) each executed
+2. Peephole optimizations and opcode prediction macros
+are disabled so that bytecodes more closely match source code.
+
+3. Debuggers call the trace function at each executed
 bytecode rather than each new executed line.
 
-4. The frame object now exposes a `f_valuestack` field, which is
+4. The frame object exposes a new `f_valuestack` field, which is
 a list containing the current values on the expression stack used
 by the Python bytecode VM. This field allows debugging and tracing tools
 to inspect intermediate results of expression evaluation.
