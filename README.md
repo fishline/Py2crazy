@@ -4,19 +4,20 @@ Py2crazy
 Py2crazy is a modified version of the official Python interpreter
 (CPython 2.7.5) that supports finer-grained tracing and debugging.
 
-Py2crazy implements the following four features:
+It implements the following four features:
 
 1. Each Python bytecode instruction maps to a range
-of line and column numbers in the part of source code
+of line and column numbers in the portion of the source code
 that compiled into that instruction.
 
-2. Debugger applications such as `bdb` call the trace function
-at each executed bytecode rather than at each new executed line.
+2. Debugger applications (such as those built upon `bdb`)
+call the trace function at each executed bytecode rather than
+at each executed source line.
 
 3. Peephole optimizations and opcode prediction macros
 are disabled so that source code matches more closely with bytecode.
 Doing so makes stepping through executed bytecodes appear
-more intuitive to programmers, since steps aren't "magically" skipped.
+more intuitive, since steps aren't "magically" skipped.
 
 4. The frame object exposes a new `f_valuestack` field, which is
 a list containing the current values on the expression stack used
