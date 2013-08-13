@@ -6,15 +6,17 @@ Py2crazy is a modified version of the official Python interpreter
 
 Py2crazy implements the following four features:
 
-1. Each Python bytecode instruction maps to a precise range
-of line and column numbers corresponding to the source code expression
-that compiled to that instruction.
+1. Each Python bytecode instruction maps to a range
+of line and column numbers in the part of source code
+that compiled into that instruction.
 
-2. Peephole optimizations and opcode prediction macros
-are disabled so that bytecodes more closely match source code.
+2. Debugger applications such as `bdb` call the trace function
+at each executed bytecode rather than at each new executed line.
 
-3. Debuggers call the trace function at each executed
-bytecode rather than each new executed line.
+3. Peephole optimizations and opcode prediction macros
+are disabled so that source code matches more closely with bytecode.
+Doing so makes stepping through executed bytecodes appear
+more intuitive to programmers, since steps aren't "magically" skipped.
 
 4. The frame object exposes a new `f_valuestack` field, which is
 a list containing the current values on the expression stack used
@@ -40,6 +42,7 @@ discusses some of the design rationale. To illustrate,
 <a href="http://pythontutor.com/visualize.html#code=%23+dumb+recursive+factorial%0Adef+fact(n)%3A%0A++++if+(n+%3C%3D+1)%3A%0A++++++++return+1%0A++++else%3A%0A++++++++return+n+*+fact(n+-+1)%0A%0Aprint(fact(6))&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2&curInstr=0">regular Python</a>
 and
 <a href="http://pythontutor.com/visualize.html#code=%23+dumb+recursive+factorial%0Adef+fact(n)%3A%0A++++if+(n+%3C%3D+1)%3A%0A++++++++return+1%0A++++else%3A%0A++++++++return+n+*+fact(n+-+1)%0A%0Aprint(fact(6))&mode=display&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=2crazy&curInstr=0">Py2crazy</a>.)
+
 
 ### Precise line and column info in bytecodes
 
@@ -82,26 +85,21 @@ To programmatically access this data, `import super_dis` and hook into the prope
 
 ### How does Py2crazy debugger stepping differ from regular Python stepping?
 
-Normally, the debugger (`pdb`) registers a tracing function into the
+Normally, the debugger interface (`bdb`) registers a tracing function into the
 regular CPython interpreter and steps through the target program roughly
 one line at a time.
 
-However, when run in Py2crazy, `pdb` steps one bytecode
+However, when run in Py2crazy, `bdb` steps one bytecode
 instruction at a time, which provides much finer-grained tracing.
 
-To illustrate the difference, run `pdb` on a test file in both regular
-Python and Py2crazy:
+To see the difference, run `pdb` (the standard Python debugger built upon `bdb`)
+on a test file in both regular Python
+
+    python -m pdb test.py
+
+and Py2crazy:
 
     Py2crazy/Python-2.7.5/python -m pdb test.py
-
-
-### Why disable peephole optimizations and opcode prediction?
-
-To make the Python source code and compiled bytecode correspond more
-closely to one another, which helps in tracing and debugging
-applications.
-
-(See `Python-2.7.5/Python/ceval.c` for more details.)
 
 
 ### What did you change in CPython 2.7.5?
@@ -114,7 +112,7 @@ to see diffs against a fresh Python 2.7.5 source distribution.
 
 Caveat: Although you might find some ideas in Py2crazy to be useful, its design
 is ultimately driven by pedagogical goals, not by industrial-strength
-debugging goals. For instance, efficiency wasn't a major concern.
+debugging goals. For instance, run-time efficiency wasn't a concern.
 
 
 ### Footer
