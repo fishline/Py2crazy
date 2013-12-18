@@ -71,7 +71,13 @@ such as expression-level stepping for Online Python Tutor.
 
 ### How do you view line and column number info?
 
-Compile Py2crazy and then run the special
+Compile Py2crazy:
+
+    cd Python-2.7.5/
+    ./configure
+    make
+
+and then run the special
 "Super Disassembler" module ([Python-2.7.5/Lib/super_dis.py](https://github.com/pgbovine/Py2crazy/blob/master/Python-2.7.5/Lib/super_dis.py))
 on a Python source file:
 
